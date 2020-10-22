@@ -1,0 +1,12 @@
+# Backup files:
+*~
+
+# Godot files not necessary for backup:
+.import/
+
+# Binaries:
+bin/
+
+
+# Miscellany:
+dodge-the-creeps/
