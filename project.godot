@@ -23,6 +23,11 @@ _global_script_class_icons={
 config/name="Minigame Madness"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=640
+window/size/height=480
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
