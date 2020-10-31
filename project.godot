@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Minigame",
 "language": "GDScript",
 "path": "res://shared/scripts/minigame.gd"
+}, {
+"base": "Node2D",
+"class": "Ragdoll",
+"language": "GDScript",
+"path": "res://mini/ragdoll/scripts/ragdoll.gd"
 } ]
 _global_script_class_icons={
-"Minigame": ""
+"Minigame": "",
+"Ragdoll": ""
 }
 
 [application]
