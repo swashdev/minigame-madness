@@ -35,3 +35,8 @@ position = Vector2( 320, 240 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 1 )
 animation = "fall_right"
+
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 0.6
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -12,6 +12,10 @@ var key_pressed: bool = false
 # In this particular game, if the timer has gotten all the way down to the
 # bottom, that means that the player has won by default
 func decide():
+	# Stop the timer before proceeding:
+	$Timer.stop()
+	
+	# If a key has been pressed, signal player lost.  Otherwise, player won.
 	if key_pressed:
 		emit_signal( "lost" )
 	else:
@@ -19,12 +23,23 @@ func decide():
 
 
 # A function which starts Fluffy's "fall over" animations and freezes user
-# input
+# input.  Also causes a timer to start which will allow a short pause
+# before the player is declared a loser.
 func tip_fluffy_over( direction ):
 	$FluffyRagdoll.animation = direction
 	$FluffyRagdoll.play()
+	$Timer.start()
 	
 	key_pressed = true
+
+
+# The timer, which provides a short pause before the player is declared a
+# loser, goes off and causes the "lost" signal to be emitted.
+func _on_Timer_timeout():
+	emit_signal( "lost" )
+	
+	# a temporary animation I'll use to test that the timer is working:
+	#$FluffyRagdoll.flip_v = true
 
 
 # The process for this game is very simple: if the player presses a key, they
@@ -43,4 +58,5 @@ func _process( _delta ):
 			# Placeholder event for animations I haven't completed
 			# yet:
 			$FluffyRagdoll.flip_h = true
+			$Timer.start()
 			key_pressed = true
