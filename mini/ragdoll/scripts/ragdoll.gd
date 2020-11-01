@@ -53,8 +53,9 @@ func _process( _delta ):
 		or Input.is_action_pressed( "ui_up" ):
 			tip_fluffy_over( "fall_right" )
 		elif Input.is_action_pressed( "ui_left" ) \
-		or Input.is_action_pressed( "ui_down" ) \
-		or Input.is_action_pressed( "ui_select" ):
+		or Input.is_action_pressed( "ui_down" ):
+			tip_fluffy_over( "fall_left" )
+		elif Input.is_action_pressed( "ui_select" ):
 			# Placeholder event for animations I haven't completed
 			# yet:
 			$FluffyRagdoll.flip_h = true
