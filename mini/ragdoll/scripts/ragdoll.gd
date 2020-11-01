@@ -8,6 +8,9 @@ class_name Ragdoll
 # A variable which stores whether or not the player has pressed a key
 var key_pressed: bool = false
 
+# A boolean which triggers a "jump" animation.
+var fluffy_jump: bool = false
+
 
 # In this particular game, if the timer has gotten all the way down to the
 # bottom, that means that the player has won by default
@@ -44,7 +47,7 @@ func _on_Timer_timeout():
 
 # The process for this game is very simple: if the player presses a key, they
 # lose
-func _process( _delta ):
+func _process( delta ):
 	# Do nothing if the player has already pressed a key
 	if !key_pressed:
 		# Play a little animation depending on which specific key was
@@ -56,8 +59,11 @@ func _process( _delta ):
 		or Input.is_action_pressed( "ui_down" ):
 			tip_fluffy_over( "fall_left" )
 		elif Input.is_action_pressed( "ui_select" ):
-			# Placeholder event for animations I haven't completed
-			# yet:
-			$FluffyRagdoll.flip_h = true
+			# Press space to jump!
 			$Timer.start()
 			key_pressed = true
+			fluffy_jump = true
+			
+	if fluffy_jump:
+		$FluffyRagdoll.position.y -= 400 * delta
+		$FluffyRagdoll.rotation_degrees += 360 * delta
