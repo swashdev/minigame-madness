@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://master/scripts/HUD/instruction_label.gd" type="Script" id=1]
 
 [node name="InGameHUD" type="Control"]
 anchor_right = 1.0
@@ -17,9 +19,14 @@ margin_bottom = 7.0
 text = "swashberry made this!"
 align = 1
 valign = 1
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MessageLingerTimer" type="Timer" parent="Label"]
+wait_time = 0.5
+one_shot = true
 
 [node name="LifeCounter" type="Label" parent="."]
 visible = false
@@ -47,3 +54,4 @@ fill_mode = 6
 __meta__ = {
 "_edit_use_anchors_": true
 }
+[connection signal="timeout" from="Label/MessageLingerTimer" to="Label" method="_on_MessageLingerTimer_timeout"]
