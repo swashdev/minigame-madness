@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "ArrowKeys",
+"language": "GDScript",
+"path": "res://shared/scripts/ui/keys/arrow_keys.gd"
+}, {
+"base": "AnimatedSprite",
+"class": "Key",
+"language": "GDScript",
+"path": "res://shared/scripts/ui/keys/key.gd"
+}, {
+"base": "Node2D",
 "class": "Minigame",
 "language": "GDScript",
 "path": "res://shared/scripts/minigame.gd"
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://mini/ragdoll/scripts/ragdoll.gd"
 } ]
 _global_script_class_icons={
+"ArrowKeys": "",
+"Key": "",
 "Minigame": "",
 "Ragdoll": ""
 }
@@ -27,6 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Minigame Madness"
+run/main_scene="res://mini/ragdoll/scenes/ragdoll.tscn"
 config/icon="res://icon.png"
 
 [display]
