@@ -6,25 +6,26 @@ extends AnimatedSprite
 class_name Key
 
 
+func animate( which_animation ):
+	animation = which_animation
+	play()
+
+
 # lights up the key by setting it to its default animation.
 func light():
-	animation = "default"
-	start()
+	animate( "default" )
 
 
 # dims the given key.
 func dim():
-	animation = "dim"
-	start()
+	animate( "dim" )
 
 
 # causes the key to blink.
 func blink():
-	animation = "blink"
-	start()
+	animate( "blink" )
 
 
 # causes the key to blink rapidly.
 func blink_rapidly():
-	animation = "blink_rapidly"
-	start()
+	animate( "blink_rapidly" )

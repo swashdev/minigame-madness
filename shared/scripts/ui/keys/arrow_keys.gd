@@ -10,17 +10,13 @@ class_name ArrowKeys
 # "all," apply the animation to all of the keys.
 func _animate_key( which_animation, which_key = "all" ):
 	if which_key == "all" or which_key == "up":
-		$UpKey.animation = which_animation
-		$UpKey.start()
+		$UpKey.animate( which_animation )
 	if which_key == "all" or which_key == "down":
-		$DownKey.animation = which_animation
-		$DownKey.start()
+		$DownKey.animate( which_animation )
 	if which_key == "all" or which_key == "right":
-		$RightKey.animation = which_animation
-		$RightKey.start()
+		$RightKey.animate( which_animation )
 	if which_key == "all" or which_key == "left":
-		$LeftKey.animation = which_animation
-		$LeftKey.start()
+		$LeftKey.animate( which_animation )
 
 
 # lights up the given key by setting it to its default animation, or all of
