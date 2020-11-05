@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://shared/images/ui/keys/spacebar.png" type="Texture" id=1]
+[ext_resource path="res://shared/scripts/ui/keys/key.gd" type="Script" id=2]
+[ext_resource path="res://shared/images/ui/keys/spacebar_dim.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "dim",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "blink",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "blink_rapidly",
+"speed": 10.0
+} ]
+
+[node name="Spacebar" type="AnimatedSprite"]
+frames = SubResource( 1 )
+script = ExtResource( 2 )
