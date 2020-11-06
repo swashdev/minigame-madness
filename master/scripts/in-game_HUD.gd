@@ -36,6 +36,6 @@ func update_progress_bar( value ):
 # Display a given message using an animation defined in the `InstructionLabel`
 # script and then signal when the message is off-screen.
 func message( text ):
-	$InstructionLabel.zoom_in_from_right( text )
+	$InstructionLabel.zoom_in_from_bottom( text )
 	yield( $InstructionLabel, "animation_finished" )
 	emit_signal( "message_exited" )
