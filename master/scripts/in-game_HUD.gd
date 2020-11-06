@@ -5,6 +5,13 @@ extends Control
 
 signal message_exited
 
+enum \
+{
+	MESSAGE_FROM_BOTTOM,
+	MESSAGE_FROM_RIGHT,
+	# Leading comma on last entry intentional for diff files.
+}
+
 
 func show_life_counter():
 	$LifeCounter.visible = false
@@ -35,7 +42,11 @@ func update_progress_bar( value ):
 
 # Display a given message using an animation defined in the `InstructionLabel`
 # script and then signal when the message is off-screen.
-func message( text ):
-	$InstructionLabel.zoom_in_from_bottom( text )
+func message( text, animation = MESSAGE_FROM_BOTTOM ):
+	match animation:
+		MESSAGE_FROM_RIGHT:
+			$InstructionLabel.zoom_in_from_right( text )
+		_, MESSAGE_FROM_BOTTOM:
+			$InstructionLabel.zoom_in_from_bottom( text )
 	yield( $InstructionLabel, "animation_finished" )
 	emit_signal( "message_exited" )
