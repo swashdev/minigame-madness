@@ -11,6 +11,9 @@ class_name Minigame
 export(String) var instruction setget ,get_instruction
 
 
+var _unlock_controls: bool = false
+
+
 func get_instruction():
 	return instruction
 
@@ -27,3 +30,10 @@ signal lost
 # given any such signal by the time the timer runs out.
 func decide():
 	emit_signal( "lost" )
+
+
+# Signals the minigame that the game is ready and to start playing.  Generally
+# this function will unlock the controls and start any animations, enemy
+# spawns, or what have you as appropriate.
+func start():
+	_unlock_controls = true
