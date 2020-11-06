@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Minigame Madness"
-run/main_scene="res://mini/ragdoll/scenes/ragdoll.tscn"
+run/main_scene="res://master/scenes/main.tscn"
 config/icon="res://icon.png"
 
 [display]
