@@ -4,17 +4,11 @@
 [ext_resource path="res://shared/scripts/ui/keys/key_prompt.gd" type="Script" id=2]
 [ext_resource path="res://shared/images/ui/keys/spacebar_dim.png" type="Texture" id=3]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "default",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "dim",
 "speed": 0.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
@@ -26,6 +20,11 @@ animations = [ {
 "loop": false,
 "name": "blink_rapidly",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "dim",
+"speed": 0.0
 } ]
 
 [node name="Spacebar" type="AnimatedSprite"]
