@@ -110,7 +110,7 @@ func do_next_minigame():
 	played = played + 1
 	if list_minigames.size() == 0:
 		# Show a win message if there are no minigames left.
-		$InGameHUD.message( "You're Winner!" )
+		$InGameHUD.message( "You're Winner!", $InGameHUD.MESSAGE_FROM_RIGHT )
 	else:
 		get_minigame()
 		setup_minigame( current_minigame[0] )
@@ -150,7 +150,7 @@ func _on_Minigame_lost():
 	minigames_lost = minigames_lost + current_minigame
 
 	if( lives <= 0 ):
-		$InGameHUD.message( "You lose!" )
+		$InGameHUD.message( "You lose!", $InGameHUD.MESSAGE_FROM_RIGHT )
 		minigame.queue_free()
 	else:
 		$InGameHUD.message( "Booooo!" )
