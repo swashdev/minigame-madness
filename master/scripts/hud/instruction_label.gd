@@ -1,12 +1,7 @@
-# `instruction_label.gd`: Provides special functions for the Label in the
-# in-game HUD.  Mostly used for animations.
-
-
 extends Label
 
 
 signal animation_finished
-
 
 # Possible labels for the animation that the label is currently doing.
 enum LabelAnimation \
@@ -16,21 +11,11 @@ enum LabelAnimation \
 	ZOOM_OUT_LEFT,
 }
 
-
-# The label's current animation.
-var current_animation = LabelAnimation.NONE
-
-
 # The change in x per second when an animation is playing.
 const MESSAGE_ZOOM_DX: int = 1280
 
-
-# Triggers an animation in order to display a message.
-func zoom_in_from_right( message = "your message here!" ):
-	text = message
-	rect_position.x = 640
-	visible = true
-	current_animation = LabelAnimation.ZOOM_IN_FROM_RIGHT
+# The label's current animation.
+var current_animation = LabelAnimation.NONE
 
 
 func _process(delta):
@@ -55,6 +40,14 @@ func _process(delta):
 			visible = false
 			current_animation = LabelAnimation.NONE
 			emit_signal( "animation_finished" )
+
+
+# Triggers an animation in order to display a message.
+func zoom_in_from_right( message = "your message here!" ):
+	text = message
+	rect_position.x = 640
+	visible = true
+	current_animation = LabelAnimation.ZOOM_IN_FROM_RIGHT
 
 
 # A timer used to determine how long a message should remain on-screen before
