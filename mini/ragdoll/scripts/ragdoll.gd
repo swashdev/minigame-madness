@@ -49,7 +49,7 @@ func _on_Timer_timeout():
 # lose
 func _process( delta ):
 	# Do nothing if the player has already pressed a key
-	if !key_pressed:
+	if _unlock_controls and !key_pressed:
 		# Play a little animation depending on which specific key was
 		# pressed
 		if Input.is_action_pressed( "ui_right" ) \
