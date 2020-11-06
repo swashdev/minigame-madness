@@ -1,4 +1,6 @@
+class_name InstructionLabel
 extends Label
+# A label used to display instructions and other messages in Minigame Madness.
 
 
 signal animation_finished
@@ -15,11 +17,11 @@ enum LabelAnimation \
 const MESSAGE_ZOOM_DX: int = 1280
 
 # The label's current animation.
-var current_animation = LabelAnimation.NONE
+var _current_animation = LabelAnimation.NONE
 
 
 func _process(delta):
-	if current_animation == LabelAnimation.ZOOM_IN_FROM_RIGHT:
+	if _current_animation == LabelAnimation.ZOOM_IN_FROM_RIGHT:
 		# The label will zoom in from the right, settling when its x value
 		# reaches 0
 		if rect_position.x >= MESSAGE_ZOOM_DX * delta:
@@ -29,16 +31,16 @@ func _process(delta):
 		# position.
 		else:
 			rect_position.x = 0
-			current_animation = LabelAnimation.NONE
+			_current_animation = LabelAnimation.NONE
 			$MessageLingerTimer.start()
-	elif current_animation == LabelAnimation.ZOOM_OUT_LEFT:
+	elif _current_animation == LabelAnimation.ZOOM_OUT_LEFT:
 		# The label will zoom out to the left, stopping and becoming invisible
 		# after it is fully off the screen.
 		if rect_position.x > -640:
 			rect_position.x -= MESSAGE_ZOOM_DX * delta
 		else:
 			visible = false
-			current_animation = LabelAnimation.NONE
+			_current_animation = LabelAnimation.NONE
 			emit_signal( "animation_finished" )
 
 
@@ -47,10 +49,10 @@ func zoom_in_from_right( message = "your message here!" ):
 	text = message
 	rect_position.x = 640
 	visible = true
-	current_animation = LabelAnimation.ZOOM_IN_FROM_RIGHT
+	_current_animation = LabelAnimation.ZOOM_IN_FROM_RIGHT
 
 
 # A timer used to determine how long a message should remain on-screen before
 # zooming off-screen.
 func _on_MessageLingerTimer_timeout():
-	current_animation = LabelAnimation.ZOOM_OUT_LEFT
+	_current_animation = LabelAnimation.ZOOM_OUT_LEFT

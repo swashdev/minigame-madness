@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://shared/scripts/ui/keys/arrow_keys.gd"
 }, {
+"base": "Label",
+"class": "InstructionLabel",
+"language": "GDScript",
+"path": "res://master/scripts/hud/instruction_label.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "KeyPrompt",
 "language": "GDScript",
@@ -36,6 +41,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ArrowKeys": "",
+"InstructionLabel": "",
 "KeyPrompt": "",
 "Main": "",
 "Minigame": "",
