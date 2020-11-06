@@ -56,4 +56,3 @@ fill_mode = 6
 __meta__ = {
 "_edit_use_anchors_": true
 }
-[connection signal="timeout" from="InstructionLabel/MessageLingerTimer" to="InstructionLabel" method="_on_MessageLingerTimer_timeout"]
