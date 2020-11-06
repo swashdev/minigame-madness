@@ -3,16 +3,6 @@ extends Node
 # The main scene for Minigame Madness.
 
 
-# Identifiers for the various minigames.
-enum Minigames \
-{
-	RAGDOLL, # ragdoll.tscn
-	# Leading comment on last element intentional for diff files.
-}
-
-# A set of packed scenes representing minigames.
-export (PackedScene) var Ragdoll
-
 # The number of lives the player currently has.
 var lives = 5
 # The number of minigames that have been played.
@@ -35,9 +25,6 @@ var minigames_won = []
 # in an array so that it will be easy to concatenate onto one of the other two
 # arrays.
 var current_minigame = []
-
-# The minigame currently in progress.
-var minigame: Minigame
 
 
 # Initial setup.
@@ -74,7 +61,7 @@ func reset_arrays():
 	minigames_won = []
 	current_minigame = []
 	list_minigames = [
-		Minigames.RAGDOLL,
+		$MinigameCanvas.RAGDOLL,
 		# Leading comma on last element intentional for diff files
 		]
 
@@ -91,18 +78,7 @@ func get_minigame():
 
 # Setup the selected minigame.
 func setup_minigame( minigame_id ):
-	# Figure out what `minigame` needs to be.
-	match minigame_id:
-		Minigames.RAGDOLL:
-			minigame = Ragdoll.instance()
-
-	# Connect the minigame's "won" and "lost" signals to the relevant
-	# functions:
-	minigame.connect( "won", self, "_on_Minigame_won" )
-	minigame.connect( "lost", self, "_on_Minigame_lost" )
-
-	# Add the minigame to the main node.
-	add_child( minigame )
+	$MinigameCanvas.set_minigame( minigame_id )
 
 
 # Having completed one minigame, proceed to the next, if any remain.
@@ -114,7 +90,7 @@ func do_next_minigame():
 	else:
 		get_minigame()
 		setup_minigame( current_minigame[0] )
-		$InGameHUD.message( minigame.get_instruction() )
+		$InGameHUD.message( $MinigameCanvas.get_instruction() )
 		# Resume when the message is off-screen
 		yield( $InGameHUD, "message_exited" )
 		game_in_progress = true
@@ -124,7 +100,7 @@ func do_next_minigame():
 
 # The game timer has expired, and it's time to make a decision.
 func _on_GameTimer_timeout():
-	minigame.decide()
+	$MinigameCanvas.decide()
 
 
 # The player wins a minigame.
@@ -136,7 +112,7 @@ func _on_Minigame_won():
 	$InGameHUD.message( "Well-done!" )
 	# Resume when the message is off-screen.
 	yield( $InGameHUD, "message_exited" )
-	minigame.queue_free()
+	$MinigameCanvas.cleanup()
 	do_next_minigame()
 
 
@@ -151,10 +127,10 @@ func _on_Minigame_lost():
 
 	if( lives <= 0 ):
 		$InGameHUD.message( "You lose!", $InGameHUD.MESSAGE_FROM_RIGHT )
-		minigame.queue_free()
+		$MinigameCanvas.cleanup()
 	else:
 		$InGameHUD.message( "Booooo!" )
 		# Resume when the message is off-screen.
 		yield( $InGameHUD, "message_exited" )
-		minigame.queue_free()
+		$MinigameCanvas.cleanup()
 		do_next_minigame()

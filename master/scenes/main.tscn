@@ -2,11 +2,12 @@
 
 [ext_resource path="res://master/scenes/in-game_HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://master/scripts/main.gd" type="Script" id=2]
-[ext_resource path="res://mini/ragdoll/scenes/ragdoll.tscn" type="PackedScene" id=3]
+[ext_resource path="res://master/scenes/minigame_canvas.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
-Ragdoll = ExtResource( 3 )
+
+[node name="MinigameCanvas" parent="." instance=ExtResource( 3 )]
 
 [node name="InGameHUD" parent="." instance=ExtResource( 1 )]
 
@@ -16,4 +17,6 @@ one_shot = true
 
 [node name="MessageTimer" type="Timer" parent="."]
 one_shot = true
+[connection signal="lost" from="MinigameCanvas" to="." method="_on_Minigame_lost"]
+[connection signal="won" from="MinigameCanvas" to="." method="_on_Minigame_won"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]

@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://shared/scripts/minigame.gd"
 }, {
+"base": "Node2D",
+"class": "MinigameCanvas",
+"language": "GDScript",
+"path": "res://master/scripts/minigame_canvas.gd"
+}, {
 "base": "Minigame",
 "class": "Ragdoll",
 "language": "GDScript",
@@ -51,6 +56,7 @@ _global_script_class_icons={
 "KeyPrompt": "",
 "Main": "",
 "Minigame": "",
+"MinigameCanvas": "",
 "Ragdoll": ""
 }
 
