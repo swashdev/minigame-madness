@@ -5,6 +5,9 @@
 extends Label
 
 
+signal animation_finished
+
+
 # Possible labels for the animation that the label is currently doing.
 enum LabelAnimation \
 {
@@ -47,6 +50,7 @@ func _process(delta):
 		else:
 			visible = false
 			current_animation = LabelAnimation.NONE
+			emit_signal( "animation_finished" )
 
 
 # A timer used to determine how long a message should remain on-screen before
