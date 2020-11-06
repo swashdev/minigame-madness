@@ -47,6 +47,7 @@ animations = [ {
 
 [node name="Ragdoll" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+_instruction = "Be a Ragdoll!"
 
 [node name="FluffyRagdoll" type="AnimatedSprite" parent="." index="0"]
 position = Vector2( 320, 240 )
