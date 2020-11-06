@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://shared/scripts/ui/keys/key_prompt.gd"
 }, {
+"base": "Node",
+"class": "Main",
+"language": "GDScript",
+"path": "res://master/scripts/main.gd"
+}, {
 "base": "Node2D",
 "class": "Minigame",
 "language": "GDScript",
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ArrowKeys": "",
 "KeyPrompt": "",
+"Main": "",
 "Minigame": "",
 "Ragdoll": ""
 }

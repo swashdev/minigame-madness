@@ -1,11 +1,17 @@
-# `main.gd`: Scripts used for the game's mainloop.
-
-
+class_name Main
 extends Node
+# The main scene for Minigame Madness.
 
 
+# Identifiers for the various minigames.
+enum Minigames \
+{
+	RAGDOLL, # ragdoll.tscn
+	# Leading comment on last element intentional for diff files.
+}
+
+# A set of packed scenes representing minigames.
 export (PackedScene) var Ragdoll
-
 
 # The number of lives the player currently has.
 var lives = 5
@@ -15,13 +21,6 @@ var played = 0
 var streak = 0
 # Whether or not there is currently a minigame on.
 var game_in_progress: bool = false
-
-# Identifiers for the various minigames.
-enum Minigames \
-{
-	RAGDOLL, # ragdoll.tscn
-	# Leading comment on last element intentional for diff files.
-}
 
 # A list of minigames to choose from.  This and the other arrays will be
 # populated by the `reset_arrays` function.
@@ -39,6 +38,21 @@ var current_minigame = []
 
 # The minigame currently in progress.
 var minigame: Minigame
+
+
+# Initial setup.
+func _ready():
+	# Seed the random number generator.
+	randomize()
+	reset_everything()
+	do_next_minigame()
+
+
+# Normal processing.
+func _process( _delta ):
+	if game_in_progress:
+		# Update the progress bar.
+		$InGameHUD/TimerProgress.value = $GameTimer.time_left
 
 
 # Resets all of the above variables to their default values.
@@ -107,21 +121,6 @@ func do_next_minigame():
 		game_in_progress = true
 		$InGameHUD/TimerProgress.visible = true
 		$GameTimer.start()
-
-
-# Initial setup.
-func _ready():
-	# Seed the random number generator.
-	randomize()
-	reset_everything()
-	do_next_minigame()
-
-
-# Normal processing.
-func _process( _delta ):
-	if game_in_progress:
-		# Update the progress bar.
-		$InGameHUD/TimerProgress.value = $GameTimer.time_left
 
 
 # The game timer has expired, and it's time to make a decision.
