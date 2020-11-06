@@ -1,21 +1,6 @@
-# `minigame.gd`: All minigames will inherit from this class structure.
-
-
-extends Node2D
 class_name Minigame
-
-
-# A brief string used to give the player some hint as to what they're doing at
-# the start of the minigame.  This may also double as the minigame's "name,"
-# as in "Doge the Creeps!"
-export(String) var instruction setget ,get_instruction
-
-
-var _unlock_controls: bool = false
-
-
-func get_instruction():
-	return instruction
+extends Node2D
+# The base template for the Minigames in Minigame Madness.
 
 
 # This signal is used when the player has beaten the minigame, especially if
@@ -23,6 +8,20 @@ func get_instruction():
 signal won
 # Similarly, this signal is used when the player has lost the minigame
 signal lost
+
+# A brief string used to give the player some hint as to what they're doing at
+# the start of the minigame.  This may also double as the minigame's "name,"
+# as in "Doge the Creeps!"
+export(String) var _instruction setget ,get_instruction
+
+# Unlocks the controls to allow the minigame's mainloop to process
+# instructions.
+var _unlock_controls: bool = false
+
+
+# The getter function for the minigame's instruction string.
+func get_instruction():
+	return _instruction
 
 
 # This function is used to force the minigame to decide whether to throw the
