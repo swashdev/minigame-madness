@@ -21,6 +21,10 @@ enum LabelAnimation \
 var current_animation = LabelAnimation.NONE
 
 
+# The change in x per second when an animation is playing.
+const MESSAGE_ZOOM_DX: int = 1280
+
+
 # Triggers an animation in order to display a message.
 func zoom_in_from_right( message = "your message here!" ):
 	text = message
@@ -33,8 +37,8 @@ func _process(delta):
 	if current_animation == LabelAnimation.ZOOM_IN_FROM_RIGHT:
 		# The label will zoom in from the right, settling when its x value
 		# reaches 0
-		if rect_position.x >= 160:
-			rect_position.x -= 160 * delta
+		if rect_position.x >= MESSAGE_ZOOM_DX * delta:
+			rect_position.x -= MESSAGE_ZOOM_DX * delta
 		# When the label reaches the left side of the screen, snap the value
 		# just in case we overshot and then start a timer to linger in this
 		# position.
@@ -46,7 +50,7 @@ func _process(delta):
 		# The label will zoom out to the left, stopping and becoming invisible
 		# after it is fully off the screen.
 		if rect_position.x > -640:
-			rect_position.x -= 160 * delta
+			rect_position.x -= MESSAGE_ZOOM_DX * delta
 		else:
 			visible = false
 			current_animation = LabelAnimation.NONE
