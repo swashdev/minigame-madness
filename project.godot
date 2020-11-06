@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://shared/scripts/ui/keys/arrow_keys.gd"
 }, {
 "base": "AnimatedSprite",
-"class": "Key",
+"class": "KeyPrompt",
 "language": "GDScript",
-"path": "res://shared/scripts/ui/keys/key.gd"
+"path": "res://shared/scripts/ui/keys/key_prompt.gd"
 }, {
 "base": "Node2D",
 "class": "Minigame",
@@ -31,7 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ArrowKeys": "",
-"Key": "",
+"KeyPrompt": "",
 "Minigame": "",
 "Ragdoll": ""
 }

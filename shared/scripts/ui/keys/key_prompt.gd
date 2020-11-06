@@ -1,9 +1,7 @@
-# `key.gd` - declares the `Key` class, used to provide a template for a
-# generic blinking key icon in-game.
-
-
+class_name KeyPrompt
 extends AnimatedSprite
-class_name Key
+# A template for an on-screen prompt to press a key, with built-in animations
+# to light, dim, or blink the key appropriately.
 
 
 func animate( which_animation ):
