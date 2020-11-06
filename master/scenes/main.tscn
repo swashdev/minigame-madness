@@ -14,9 +14,6 @@ script = ExtResource( 2 )
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
-
-[node name="MessageTimer" type="Timer" parent="."]
-one_shot = true
 [connection signal="lost" from="MinigameCanvas" to="." method="_on_Minigame_lost"]
 [connection signal="won" from="MinigameCanvas" to="." method="_on_Minigame_won"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
