@@ -52,7 +52,7 @@ func _ready():
 func _process( _delta ):
 	if game_in_progress:
 		# Update the progress bar.
-		$InGameHUD/TimerProgress.value = $GameTimer.time_left
+		$InGameHUD.update_progress_bar( $GameTimer.time_left )
 
 
 # Resets all of the above variables to their default values.
@@ -61,10 +61,9 @@ func reset_everything():
 	played = 0
 	streak = 0
 
-	$InGameHUD/LifeCounter.text = "Lives: 5"
-	$InGameHUD/LifeCounter.visible = true
-	$InGameHUD/Label.visible = false
-	$InGameHUD/TimerProgress.visible = false
+	$InGameHUD.update_life_counter()
+	$InGameHUD.show_life_counter()
+	$InGameHUD.hide_progress_bar()
 
 	reset_arrays()
 
@@ -111,15 +110,15 @@ func do_next_minigame():
 	played = played + 1
 	if list_minigames.size() == 0:
 		# Show a win message if there are no minigames left.
-		$InGameHUD/Label.zoom_in_from_right( "You're Winner!" )
+		$InGameHUD.message( "You're Winner!" )
 	else:
 		get_minigame()
 		setup_minigame( current_minigame[0] )
-		$InGameHUD/Label.zoom_in_from_right( minigame.get_instruction() )
+		$InGameHUD.message( minigame.get_instruction() )
 		# Resume when the message is off-screen
-		yield( $InGameHUD/Label, "animation_finished" )
+		yield( $InGameHUD, "message_exited" )
 		game_in_progress = true
-		$InGameHUD/TimerProgress.visible = true
+		$InGameHUD.show_progress_bar()
 		$GameTimer.start()
 
 
@@ -131,12 +130,12 @@ func _on_GameTimer_timeout():
 # The player wins a minigame.
 func _on_Minigame_won():
 	game_in_progress = false
-	$InGameHUD/TimerProgress.visible = false
+	$InGameHUD.hide_progress_bar()
 	streak = streak + 1
 	minigames_won = minigames_won + current_minigame
-	$InGameHUD/Label.zoom_in_from_right( "Well-done!" )
+	$InGameHUD.message( "Well-done!" )
 	# Resume when the message is off-screen.
-	yield( $InGameHUD/Label, "animation_finished" )
+	yield( $InGameHUD, "message_exited" )
 	minigame.queue_free()
 	do_next_minigame()
 
@@ -144,18 +143,18 @@ func _on_Minigame_won():
 # The player loses a minigame.
 func _on_Minigame_lost():
 	game_in_progress = false
-	$InGameHUD/TimerProgress.visible = false
+	$InGameHUD.show_progress_bar()
 	streak = 0
 	lives = lives - 1
-	$InGameHUD/LifeCounter.text = "Lives: %d" % lives
+	$InGameHUD.update_life_counter( lives )
 	minigames_lost = minigames_lost + current_minigame
 
 	if( lives <= 0 ):
-		$InGameHUD/Label.zoom_in_from_right( "You lose!" )
+		$InGameHUD.message( "You lose!" )
 		minigame.queue_free()
 	else:
-		$InGameHUD/Label.zoom_in_from_right( "Booooo!" )
+		$InGameHUD.message( "Booooo!" )
 		# Resume when the message is off-screen.
-		yield( $InGameHUD/Label, "animation_finished" )
+		yield( $InGameHUD, "message_exited" )
 		minigame.queue_free()
 		do_next_minigame()
