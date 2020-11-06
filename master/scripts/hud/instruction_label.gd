@@ -78,6 +78,7 @@ func _process(delta):
 func zoom_in_from_right( message = "your message here!" ):
 	text = message
 	rect_position.x = 640
+	rect_position.y = MESSAGE_CENTER_Y
 	visible = true
 	_current_animation = LabelAnimation.ZOOM_IN_FROM_RIGHT
 
@@ -87,5 +88,6 @@ func zoom_in_from_right( message = "your message here!" ):
 func zoom_in_from_bottom( message = "your message here!" ):
 	text = message
 	rect_position.y = 480
+	rect_position.x = MESSAGE_CENTER_X
 	visible = true
 	_current_animation = LabelAnimation.ZOOM_IN_FROM_BOTTOM
