@@ -28,7 +28,7 @@ func update_life_counter( lives = 5 ):
 
 
 func show_progress_bar():
-	$LifeCounter.visible = false
+	$TimerProgress.visible = true
 
 
 func hide_progress_bar():
