@@ -101,17 +101,18 @@ func do_next_minigame():
 # The game timer has expired, and it's time to make a decision.
 func _on_GameTimer_timeout():
 	$MinigameCanvas.decide()
+	$InGameHUD.update_progress_bar( 0.0 )
 
 
 # The player wins a minigame.
 func _on_Minigame_won():
 	game_in_progress = false
-	$InGameHUD.hide_progress_bar()
 	streak = streak + 1
 	minigames_won = minigames_won + current_minigame
 	$InGameHUD.message( "Well-done!" )
 	# Resume when the message is off-screen.
 	yield( $InGameHUD, "message_exited" )
+	$InGameHUD.hide_progress_bar()
 	$MinigameCanvas.cleanup()
 	do_next_minigame()
 
@@ -119,7 +120,6 @@ func _on_Minigame_won():
 # The player loses a minigame.
 func _on_Minigame_lost():
 	game_in_progress = false
-	$InGameHUD.show_progress_bar()
 	streak = 0
 	lives = lives - 1
 	$InGameHUD.update_life_counter( lives )
@@ -132,5 +132,6 @@ func _on_Minigame_lost():
 		$InGameHUD.message( "Booooo!" )
 		# Resume when the message is off-screen.
 		yield( $InGameHUD, "message_exited" )
+		$InGameHUD.hide_progress_bar()
 		$MinigameCanvas.cleanup()
 		do_next_minigame()
