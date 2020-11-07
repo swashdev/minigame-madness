@@ -41,6 +41,11 @@ func set_minigame( minigame_id ):
 	add_child( _minigame )
 
 
+# Starts the current minigame.
+func start_minigame():
+	_minigame.start()
+
+
 # Sends the current minigame's instruction up the stack.
 func get_instruction():
 	return _minigame.get_instruction()
