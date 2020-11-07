@@ -26,6 +26,8 @@ const MESSAGE_CENTER_Y: int = 233
 
 # The label's current animation.
 var _current_animation = LabelAnimation.NONE
+# How long the message will stay on-screen before the animation proceeds.
+var _message_linger: float = 0.5
 
 
 func _process(delta):
@@ -41,8 +43,7 @@ func _process(delta):
 			rect_position.x = MESSAGE_CENTER_X
 			_current_animation = LabelAnimation.NONE
 			# Linger for a moment and then set the animation to ZOOM_OUT_LEFT.
-			$MessageLingerTimer.start()
-			yield( $MessageLingerTimer, "timeout" )
+			yield( get_tree().create_timer( _message_linger ), "timeout" )
 			_current_animation = LabelAnimation.ZOOM_OUT_LEFT
 	elif _current_animation == LabelAnimation.ZOOM_OUT_LEFT:
 		# The label will zoom out to the left, stopping and becoming invisible
@@ -61,8 +62,7 @@ func _process(delta):
 			rect_position.y = MESSAGE_CENTER_Y
 			_current_animation = LabelAnimation.NONE
 			# Linger for a moment and then set thte animation to ZOOM_OUT_TOP
-			$MessageLingerTimer.start()
-			yield( $MessageLingerTimer, "timeout" )
+			yield( get_tree().create_timer( _message_linger ), "timeout" )
 			_current_animation = LabelAnimation.ZOOM_OUT_TOP
 	elif _current_animation == LabelAnimation.ZOOM_OUT_TOP:
 		if rect_position.y > -1 * rect_size.y:
@@ -75,19 +75,21 @@ func _process(delta):
 
 # Causes a message to zoom in from the right of the screen and then exit
 # to the left.
-func zoom_in_from_right( message = "your message here!" ):
+func zoom_in_from_right( message = "your message here!", time = 0.5 ):
 	text = message
 	rect_position.x = 640
 	rect_position.y = MESSAGE_CENTER_Y
 	visible = true
 	_current_animation = LabelAnimation.ZOOM_IN_FROM_RIGHT
+	_message_linger = time
 
 
 # Causes a message to zoom in from the bottom of the screen and then exit
 # through the top.
-func zoom_in_from_bottom( message = "your message here!" ):
+func zoom_in_from_bottom( message = "your message here!", time = 0.5 ):
 	text = message
 	rect_position.y = 480
 	rect_position.x = MESSAGE_CENTER_X
 	visible = true
 	_current_animation = LabelAnimation.ZOOM_IN_FROM_BOTTOM
+	_message_linger = time
