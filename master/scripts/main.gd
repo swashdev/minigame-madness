@@ -95,6 +95,7 @@ func do_next_minigame():
 		yield( $InGameHUD, "message_exited" )
 		game_in_progress = true
 		$InGameHUD.show_progress_bar()
+		$MinigameCanvas.start_minigame()
 		$GameTimer.start()
 
 
