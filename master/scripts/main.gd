@@ -107,6 +107,7 @@ func _on_GameTimer_timeout():
 
 # The player wins a minigame.
 func _on_Minigame_won():
+	$GameTimer.stop()
 	game_in_progress = false
 	streak = streak + 1
 	minigames_won = minigames_won + current_minigame
@@ -120,6 +121,7 @@ func _on_Minigame_won():
 
 # The player loses a minigame.
 func _on_Minigame_lost():
+	$GameTimer.stop()
 	game_in_progress = false
 	streak = 0
 	lives = lives - 1
