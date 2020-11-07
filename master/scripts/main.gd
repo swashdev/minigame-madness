@@ -128,13 +128,13 @@ func _on_Minigame_lost():
 	$InGameHUD.update_life_counter( lives )
 	minigames_lost = minigames_lost + current_minigame
 
+	$InGameHUD.message( "Booooo!" )
+	# Resume when the message is off-screen.
+	yield( $InGameHUD, "message_exited" )
+	$InGameHUD.hide_progress_bar()
+	$MinigameCanvas.cleanup()
+
 	if( lives <= 0 ):
 		$InGameHUD.message( "You lose!", $InGameHUD.MESSAGE_FROM_RIGHT )
-		$MinigameCanvas.cleanup()
 	else:
-		$InGameHUD.message( "Booooo!" )
-		# Resume when the message is off-screen.
-		yield( $InGameHUD, "message_exited" )
-		$InGameHUD.hide_progress_bar()
-		$MinigameCanvas.cleanup()
 		do_next_minigame()
