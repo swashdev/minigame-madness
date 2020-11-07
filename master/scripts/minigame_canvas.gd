@@ -28,6 +28,8 @@ func decide():
 	_minigame.decide()
 
 
+# Sets the current minigame according to the specified ID and adds it to the
+# canvas.
 func set_minigame( minigame_id ):
 	match minigame_id:
 		RAGDOLL:
