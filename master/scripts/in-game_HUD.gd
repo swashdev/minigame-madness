@@ -23,8 +23,8 @@ func hide_life_counter():
 
 # Update the life counter's text to reflect the new number of lives, 5 by
 # default.
-func update_life_counter( lives = 5 ):
-	$LifeCounter.text = "Lives: %d" % lives
+func update_life_counter( lives = 5.0 ):
+	$LifeCounter.value = lives if lives <= 6.0 else 6.0
 
 
 func show_progress_bar():
