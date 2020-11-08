@@ -44,7 +44,7 @@ func _process( _delta ):
 
 # Resets all of the above variables to their default values.
 func reset_everything():
-	lives = 1
+	lives = 5
 	played = 0
 	streak = 0
 
