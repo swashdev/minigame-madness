@@ -4,3 +4,4 @@
 
 [node name="Saw" type="Node2D"]
 script = ExtResource( 1 )
+_instruction = "Saw!"
