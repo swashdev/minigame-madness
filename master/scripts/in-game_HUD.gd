@@ -14,7 +14,7 @@ enum \
 
 
 func show_life_counter():
-	$LifeCounter.visible = false
+	$LifeCounter.visible = true
 
 
 func hide_life_counter():

@@ -48,8 +48,8 @@ func reset_everything():
 	played = 0
 	streak = 0
 
-	$InGameHUD.update_life_counter()
-	$InGameHUD.show_life_counter()
+	$InGameHUD.update_life_counter( lives )
+	$InGameHUD.hide_life_counter()
 	$InGameHUD.hide_progress_bar()
 
 	reset_arrays()
@@ -95,6 +95,7 @@ func do_next_minigame():
 		yield( $InGameHUD, "message_exited" )
 		game_in_progress = true
 		$InGameHUD.show_progress_bar()
+		$InGameHUD.show_life_counter()
 		$MinigameCanvas.start_minigame()
 		$GameTimer.start()
 
