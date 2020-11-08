@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/saw/images/log/aft.png" type="Texture" id=2]
+[ext_resource path="res://mini/saw/images/saw/saw.png" type="Texture" id=3]
+[ext_resource path="res://mini/saw/images/log/fore.png" type="Texture" id=4]
+
+[node name="SawMinigame" type="Node2D"]
+script = ExtResource( 1 )
+_instruction = "Saw!"
+
+[node name="LogAft" type="Sprite" parent="."]
+position = Vector2( 259.629, 210.495 )
+texture = ExtResource( 2 )
+
+[node name="Saw" type="Sprite" parent="."]
+position = Vector2( 322.105, 183.158 )
+texture = ExtResource( 3 )
+
+[node name="LogFore" type="Sprite" parent="."]
+position = Vector2( 331.579, 245.263 )
+texture = ExtResource( 4 )
