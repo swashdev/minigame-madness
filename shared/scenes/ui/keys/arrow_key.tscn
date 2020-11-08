@@ -4,7 +4,6 @@
 [ext_resource path="res://shared/images/ui/keys/arrow_key_dim.png" type="Texture" id=2]
 [ext_resource path="res://shared/images/ui/keys/arrow_key.png" type="Texture" id=3]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],

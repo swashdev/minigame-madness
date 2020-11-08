@@ -27,3 +27,13 @@ func blink():
 # causes the key to blink rapidly.
 func blink_rapidly():
 	animate( "blink_rapidly" )
+
+
+# returns whether the prompt is lit
+func lit() -> bool:
+	return animation == "default"
+
+
+# returns whether the prompt is blinking
+func blinking() -> bool:
+	return animation == "blink" or animation == "blink_rapidly"
