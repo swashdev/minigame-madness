@@ -32,3 +32,14 @@ func _process( _delta ):
 		if $Saw.position.y >= $Target.position.y:
 			_unlock_controls = false
 			emit_signal( "won" )
+
+
+# Begin the minigame.
+func start():
+	_unlock_controls = true
+	# Randomly select a key to illuminate.
+	if randi() % 2 == 0:
+		$Prompt/RightKey.light()
+		$Saw.position.x -= SAW_DX
+	else:
+		$Prompt/LeftKey.light()

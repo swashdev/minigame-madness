@@ -28,6 +28,7 @@ position = Vector2( 480, 360 )
 
 [node name="LeftKey" parent="Prompt" instance=ExtResource( 6 )]
 position = Vector2( -20, 0 )
+animation = "dim"
 
 [node name="RightKey" parent="Prompt" instance=ExtResource( 5 )]
 position = Vector2( 20, 0 )
