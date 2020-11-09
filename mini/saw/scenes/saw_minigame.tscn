@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/saw/scripts/saw_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/saw/images/log/aft.png" type="Texture" id=2]
 [ext_resource path="res://mini/saw/images/saw/saw.png" type="Texture" id=3]
 [ext_resource path="res://mini/saw/images/log/fore.png" type="Texture" id=4]
