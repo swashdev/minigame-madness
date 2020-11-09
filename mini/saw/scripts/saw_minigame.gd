@@ -4,7 +4,7 @@ extends Minigame
 
 # How far the saw moves in pixels with each keypress.
 const SAW_DX = 50
-const SAW_DY = 5
+const SAW_DY = 2
 
 
 # The process for this game is very simple: The player must alternate the left
