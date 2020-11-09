@@ -13,11 +13,13 @@ signal lost
 enum \
 {
 	RAGDOLL, # ragdoll.tscn
+	SAW, # saw_minigame.tscn
 	# Leading comment on last element intentional for diff files.
 }
 
 # Packed scenes which indicate which minigames to instance.
 export (PackedScene) var Minigame1 # Ragdoll
+export (PackedScene) var Minigame2 # Saw
 
 # The minigame currently in progress.
 var _minigame: Minigame setget set_minigame
@@ -34,6 +36,8 @@ func set_minigame( minigame_id ):
 	match minigame_id:
 		RAGDOLL:
 			_minigame = Minigame1.instance()
+		SAW:
+			_minigame = Minigame2.instance()
 	
 	_minigame.connect( "won", self, "_on_Minigame_won" )
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )
