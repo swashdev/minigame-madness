@@ -27,8 +27,8 @@ func _process( _delta ):
 				$Saw.position.x += SAW_DX
 				$Saw.position.y += SAW_DY
 
-	# Check if the saw has reached a certain target travel distance.  If it
-	# has, signal victory and lock the controls; we're done.
-	if $Saw.position.y >= $Target.position.y:
-		_unlock_controls = false
-		emit_signal( "won" )
+		# Check if the saw has reached a certain target travel distance.  If
+		# it has, signal victory and lock the controls; we're done.
+		if $Saw.position.y >= $Target.position.y:
+			_unlock_controls = false
+			emit_signal( "won" )
