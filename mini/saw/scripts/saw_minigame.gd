@@ -3,7 +3,7 @@ extends Minigame
 
 
 # How far the saw moves in pixels with each keypress.
-const SAW_DX = 100
+const SAW_DX = 50
 const SAW_DY = 5
 
 
