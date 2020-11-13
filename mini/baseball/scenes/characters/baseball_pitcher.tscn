@@ -30,4 +30,3 @@ animations = [ {
 
 [node name="BaseballPitcher" type="AnimatedSprite"]
 frames = SubResource( 1 )
-animation = "pitch_position_test"
