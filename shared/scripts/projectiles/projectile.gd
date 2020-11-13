@@ -24,7 +24,7 @@ func _init():
 # spin it.
 func _process( delta ):
 	if spin_degrees != 0.0:
-		rotation_degrees += spin_degrees * delta
+		$Sprite.rotation_degrees += spin_degrees * delta
 
 
 # Sets the projectile's speed and recalculates its linear velocity.
