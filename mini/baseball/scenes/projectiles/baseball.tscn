@@ -7,6 +7,7 @@
 radius = 6.07728
 
 [node name="Baseball" instance=ExtResource( 1 )]
+_direction = -90.0
 spin_degrees = -360.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
