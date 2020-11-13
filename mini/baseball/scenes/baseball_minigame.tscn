@@ -67,3 +67,4 @@ position = Vector2( 548.379, 355.415 )
 [node name="Baseball" parent="." index="4" instance=ExtResource( 8 )]
 visible = false
 position = Vector2( 459.465, 367.038 )
+[connection signal="threw_ball" from="Pitcher" to="." method="_on_Pitcher_threw_ball"]

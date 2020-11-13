@@ -19,3 +19,10 @@ func _process( _delta ):
 func start():
 	.start()
 	$Pitcher/Timer.start()
+
+
+# The pitcher has thrown the ball, so make the ball visible & start it on its
+# way.
+func _on_Pitcher_threw_ball():
+	$Baseball.set_visible( true )
+	$Baseball.set_speed( 640.0 )
