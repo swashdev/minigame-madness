@@ -14,6 +14,12 @@ export (float) var _direction = 0.0 setget set_direction, get_direction
 export (float) var spin_degrees = 0.0 setget set_spin, get_spin
 
 
+# Initializes the projectile by setting its linear velocity based on the
+# speed & direction parameters.
+func _init():
+	set_velocity()
+
+
 # The default process will move the projectile in space and, if applicable,
 # spin it.
 func _process( delta ):
