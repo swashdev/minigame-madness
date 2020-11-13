@@ -63,6 +63,7 @@ func reset_arrays():
 	list_minigames = [
 		$MinigameCanvas.RAGDOLL,
 		$MinigameCanvas.SAW,
+		$MinigameCanvas.BASEBALL,
 		# Leading comma on last element intentional for diff files
 		]
 
