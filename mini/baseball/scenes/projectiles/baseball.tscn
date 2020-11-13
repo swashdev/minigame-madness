@@ -7,6 +7,8 @@
 radius = 6.07728
 
 [node name="Baseball" instance=ExtResource( 1 )]
+contacts_reported = 2
+contact_monitor = true
 _direction = -180.0
 spin_degrees = -360.0
 
