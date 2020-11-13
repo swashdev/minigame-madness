@@ -60,3 +60,9 @@ __meta__ = {
 
 [node name="Pitcher" parent="." index="3" instance=ExtResource( 7 )]
 position = Vector2( 548.379, 355.415 )
+
+[node name="BallSpawnPosition" type="Position2D" parent="." index="4"]
+position = Vector2( 459.465, 367.038 )
+__meta__ = {
+"_edit_lock_": true
+}
