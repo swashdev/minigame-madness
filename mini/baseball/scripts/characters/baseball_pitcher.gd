@@ -23,10 +23,10 @@ func _pitch():
 
 
 # Put off throwing the ball.
-func _delay():
+func _stall():
 	# Increment the delay counter.
 	_num_delays = _num_delays + 1
-	animation = "delay"
+	animation = "stall"
 	play()
 
 
@@ -38,4 +38,4 @@ func _on_Timer_timeout():
 		if randi() % 2 == 0:
 			_pitch()
 		else:
-			_delay()
+			_stall()
