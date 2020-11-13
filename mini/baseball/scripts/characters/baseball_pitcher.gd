@@ -18,7 +18,7 @@ func _pitch():
 	$Timer.stop()
 	animation = "pitch"
 	play()
-	yield( self, "animation_finished" )
+	yield( get_tree().create_timer( 0.33 ), "timeout" )
 	emit_signal( "threw_ball" )
 
 
