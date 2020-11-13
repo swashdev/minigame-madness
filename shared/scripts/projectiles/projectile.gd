@@ -4,6 +4,7 @@ extends RigidBody2D
 # shape, and size.
 
 
+# The rate of spin for the projectile in degrees.
 export (float) var spin_degrees = 0.0 setget set_spin, get_spin
 
 
