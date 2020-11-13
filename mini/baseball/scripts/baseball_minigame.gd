@@ -13,3 +13,9 @@ func _process( _delta ):
 				_swung = true
 				$Batter.animation = "swing"
 				$Batter.play()
+
+
+# Unlock the controls & start the pitcher's timer.
+func start():
+	.start()
+	$Pitcher/Timer.start()
