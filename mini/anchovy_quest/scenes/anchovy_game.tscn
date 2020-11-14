@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/anchovy_quest/scripts/anchovy_game.gd" type="Script" id=1]
 [ext_resource path="res://mini/anchovy_quest/scenes/characters/anchovy.tscn" type="PackedScene" id=2]
 
 [node name="AnchovyGame" type="Node2D"]
