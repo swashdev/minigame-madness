@@ -3,6 +3,7 @@
 
 # Godot files not necessary for backup:
 .import/
+export_presets.cfg
 
 # Binaries:
 bin/
