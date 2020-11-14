@@ -37,6 +37,7 @@ __meta__ = {
 
 [node name="Spacebar" parent="." index="1" instance=ExtResource( 3 )]
 position = Vector2( 320, 200 )
+animation = "dim"
 
 [node name="Label" type="Label" parent="Spacebar" index="0"]
 anchor_right = 1.0

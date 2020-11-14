@@ -11,6 +11,7 @@ func _process( _delta ):
 		if !_swung:
 			if Input.is_action_pressed( "ui_select" ):
 				_swung = true
+				$Spacebar.dim()
 				$Batter.animation = "swing"
 				$Batter.play()
 				# The animation is so fast that I'm not even going to wait
@@ -32,6 +33,7 @@ func _process( _delta ):
 func start():
 	.start()
 	$Pitcher/Timer.start()
+	$Spacebar.light()
 
 
 # The pitcher has thrown the ball, so make the ball visible & start it on its
@@ -39,3 +41,4 @@ func start():
 func _on_Pitcher_threw_ball():
 	$Baseball.set_visible( true )
 	$Baseball.set_speed( 640.0 )
+	$Spacebar.blink_rapidly()
