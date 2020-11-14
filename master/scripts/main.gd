@@ -110,34 +110,36 @@ func _on_GameTimer_timeout():
 
 # The player wins a minigame.
 func _on_Minigame_won():
-	$GameTimer.stop()
-	game_in_progress = false
-	streak = streak + 1
-	minigames_won = minigames_won + current_minigame
-	$InGameHUD.message( "Well-done!" )
-	# Resume when the message is off-screen.
-	yield( $InGameHUD, "message_exited" )
-	$InGameHUD.hide_progress_bar()
-	$MinigameCanvas.cleanup()
-	do_next_minigame()
+	if game_in_progress:
+		$GameTimer.stop()
+		game_in_progress = false
+		streak = streak + 1
+		minigames_won = minigames_won + current_minigame
+		$InGameHUD.message( "Well-done!" )
+		# Resume when the message is off-screen.
+		yield( $InGameHUD, "message_exited" )
+		$InGameHUD.hide_progress_bar()
+		$MinigameCanvas.cleanup()
+		do_next_minigame()
 
 
 # The player loses a minigame.
 func _on_Minigame_lost():
-	$GameTimer.stop()
-	game_in_progress = false
-	streak = 0
-	lives = lives - 1
-	$InGameHUD.update_life_counter( lives )
-	minigames_lost = minigames_lost + current_minigame
+	if game_in_progress:
+		$GameTimer.stop()
+		game_in_progress = false
+		streak = 0
+		lives = lives - 1
+		$InGameHUD.update_life_counter( lives )
+		minigames_lost = minigames_lost + current_minigame
 
-	$InGameHUD.message( "Booooo!" )
-	# Resume when the message is off-screen.
-	yield( $InGameHUD, "message_exited" )
-	$InGameHUD.hide_progress_bar()
-	$MinigameCanvas.cleanup()
+		$InGameHUD.message( "Booooo!" )
+		# Resume when the message is off-screen.
+		yield( $InGameHUD, "message_exited" )
+		$InGameHUD.hide_progress_bar()
+		$MinigameCanvas.cleanup()
 
-	if( lives <= 0 ):
-		$InGameHUD.message( "You lose!", $InGameHUD.MESSAGE_FROM_RIGHT )
-	else:
-		do_next_minigame()
+		if( lives <= 0 ):
+			$InGameHUD.message( "You lose!", $InGameHUD.MESSAGE_FROM_RIGHT )
+		else:
+			do_next_minigame()
