@@ -50,6 +50,11 @@ _global_script_classes=[ {
 "path": "res://master/scripts/minigame_canvas.gd"
 }, {
 "base": "RigidBody2D",
+"class": "Pizza",
+"language": "GDScript",
+"path": "res://mini/anchovy_quest/scripts/obstacles/pizza.gd"
+}, {
+"base": "RigidBody2D",
 "class": "Projectile2D",
 "language": "GDScript",
 "path": "res://shared/scripts/projectiles/projectile.gd"
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "Main": "",
 "Minigame": "",
 "MinigameCanvas": "",
+"Pizza": "",
 "Projectile2D": "",
 "Ragdoll": ""
 }
