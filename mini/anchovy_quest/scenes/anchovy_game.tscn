@@ -5,6 +5,7 @@
 
 [node name="AnchovyGame" type="Node2D"]
 script = ExtResource( 1 )
+_instruction = "Don't Get Pizza'd!"
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 640.0
