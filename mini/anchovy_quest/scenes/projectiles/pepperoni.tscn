@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://shared/scenes/projectiles/projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/anchovy_quest/images/projectiles/pepperoni.png" type="Texture" id=2]
+[ext_resource path="res://mini/anchovy_quest/scripts/projectiles/pepperoni.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.6304
 
 [node name="Pepperoni" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 3 )
+spin_degrees = 180.0
 
 [node name="VisibilityNotifier2D" parent="." index="0"]
 position = Vector2( 8.12113e-07, 1.19209e-07 )
@@ -18,3 +23,4 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Pepperoni_body_entered"]
