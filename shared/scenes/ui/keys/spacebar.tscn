@@ -11,20 +11,20 @@ animations = [ {
 "name": "default",
 "speed": 0.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "dim",
+"speed": 0.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "blink",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
-"loop": false,
+"loop": true,
 "name": "blink_rapidly",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "dim",
-"speed": 0.0
 } ]
 
 [node name="Spacebar" type="AnimatedSprite"]
