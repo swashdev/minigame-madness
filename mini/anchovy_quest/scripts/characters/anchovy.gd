@@ -16,6 +16,10 @@ const ROTATIONAL_SPEED: float = 90.0
 # Whether or not the player is active.
 var allow_movement: bool = false
 
+# The player's current speed.
+var _speed: float = 0.0
+var _direction: float = -90.0
+
 
 # The player's mainloop.
 func _process( delta ):
@@ -35,21 +39,30 @@ func _process( delta ):
 
 		# Rotate the player on left or right inputs.
 		if Input.is_action_pressed( "ui_left" ):
-			rotation_degrees -= ddir
+			_direction -= ddir
 		if Input.is_action_pressed( "ui_right" ):
-			rotation_degrees += ddir
+			_direction += ddir
 
 		# Accelerate to MAX_SPEED on an up input, decelerate to 0 on a down.
 		if Input.is_action_pressed( "ui_up" ):
-			if linear_velocity.x < MAX_SPEED - dspeed:
-				linear_velocity.x = linear_velocity.x + dspeed
+			if _speed < MAX_SPEED - dspeed:
+				_speed += dspeed
 			else:
-				linear_velocity.x = MAX_SPEED
+				_speed = MAX_SPEED
 		elif Input.is_action_pressed( "ui_down" ):
-			if linear_velocity.x > dspeed:
-				linear_velocity.x = linear_velocity.x - dspeed
+			if _speed > dspeed:
+				_speed -= dspeed
 			else:
-				linear_velocity.x = 0.0
+				_speed = 0.0
+
+		# Recalculate the player's velocity.
+		_recalc_velocity()
+
+
+# This function is used to recalculate the player's velocity.
+func _recalc_velocity():
+	linear_velocity = Vector2( _speed, 0 ).rotated( deg2rad( _direction ) )
+	rotation_degrees = _direction
 
 
 # Detect collisions with obstacles and handle them appropriately.
