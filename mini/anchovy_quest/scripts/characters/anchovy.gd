@@ -9,7 +9,7 @@ signal hit
 const MAX_SPEED: float = 400.0
 
 # The difference in speed per second.
-const ACCELERATION: float = 200.0
+const ACCELERATION: float = 400.0
 # The number of degrees the player can turn in one second.
 const ROTATIONAL_SPEED: float = 90.0
 
