@@ -24,14 +24,8 @@ var _direction: float = -90.0
 # The player's mainloop.
 func _process( delta ):
 	# Wrap the player around the edges of the screen.
-	if position.x > 640.0:
-		position.x = 0.0
-	elif position.x < 0.0:
-		position.x = 640.0
-	if position.y > 480.0:
-		position.y = 0.0
-	elif position.y < 0.0:
-		position.y = 480.0
+	position.x = wrapf( position.x, 0, 640.0 )
+	position.y = wrapf( position.y, 0, 480.0 )
 
 	if allow_movement:
 		var dspeed = ACCELERATION * delta
