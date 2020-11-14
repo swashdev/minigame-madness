@@ -17,6 +17,11 @@ func _process( delta ):
 	if spin_degrees != 0.0:
 		$Sprite.rotation_degrees += spin_degrees * delta
 		$CollisionPolygon2D.rotation_degrees += spin_degrees * delta
+
+	# Wrap around the edges of the screen.
+	position.x = wrapf( position.x, 0, 640.0 )
+	position.y = wrapf( position.y, 0, 480.0 )
+
 	._process( delta )
 
 
