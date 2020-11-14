@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mini/anchovy_quest/images/obstacles/pizza_slice.png" type="Texture" id=1]
-[ext_resource path="res://mini/anchovy_quest/scripts/obstacles/pizza.gd" type="Script" id=2]
+[ext_resource path="res://mini/anchovy_quest/scenes/effects/explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mini/anchovy_quest/scenes/obstacles/half_pizza.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mini/anchovy_quest/scripts/obstacles/half_pizza.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 60.1166
@@ -9,7 +11,9 @@ radius = 60.1166
 [node name="WholePizza" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
-script = ExtResource( 2 )
+script = ExtResource( 4 )
+_explosion = ExtResource( 2 )
+_slice = ExtResource( 3 )
 
 [node name="Sprite" type="Node2D" parent="."]
 
