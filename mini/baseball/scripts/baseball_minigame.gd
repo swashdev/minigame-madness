@@ -8,7 +8,11 @@ var _swung: bool = false
 
 func _process( _delta ):
 	if _unlock_controls:
-		if !_swung:
+		# If the baseball exits stage left, signal loss and end the game.
+		if $Baseball.position.x < $SwingMax.position.x:
+			_unlock_controls = false
+			emit_signal( "lost" )
+		elif !_swung:
 			if Input.is_action_pressed( "ui_select" ):
 				_swung = true
 				$Spacebar.dim()
