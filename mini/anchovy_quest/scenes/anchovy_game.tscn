@@ -22,4 +22,6 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 320, 240 )
 rotation = -1.5708
+contacts_reported = 1
+contact_monitor = true
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
