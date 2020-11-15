@@ -36,6 +36,7 @@ func _ready():
 		add_child( pizza )
 
 
+# Start the game by unlocking the controls and setting the pizzas in motion.
 func start():
 	_unlock_controls = true
 	$Player.allow_movement = true
