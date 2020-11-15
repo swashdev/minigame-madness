@@ -15,7 +15,7 @@ enum \
 	RAGDOLL, # ragdoll.tscn
 	SAW, # saw_minigame.tscn
 	BASEBALL, # baseball_minigame.tscn
-	ANCHOVY, # anchovy_game.tscn
+	#ANCHOVY, # anchovy_game.tscn
 	# Leading comment on last element intentional for diff files.
 }
 
@@ -44,8 +44,8 @@ func set_minigame( minigame_id ):
 			_minigame = Minigame2.instance()
 		BASEBALL:
 			_minigame = Minigame3.instance()
-		ANCHOVY:
-			_minigame = Minigame4.instance()
+		#ANCHOVY:
+		#	_minigame = Minigame4.instance()
 	
 	_minigame.connect( "won", self, "_on_Minigame_won" )
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )
