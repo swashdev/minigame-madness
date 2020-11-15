@@ -11,6 +11,13 @@ export (PackedScene) var _explosion
 var spin_degrees: float = 0.0 setget set_spin, get_spin
 
 
+# Choose a random spin at initialization.
+func _init():
+	spin_degrees = rand_range( 90.0, 180.0 )
+	if randi() % 2 == 0:
+		spin_degrees *= -1
+
+
 # The pizza slice has a very simple life; this process does nothing but spin
 # the slice independent of its movement vectors.
 func _process( delta ):
