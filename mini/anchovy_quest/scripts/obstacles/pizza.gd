@@ -22,8 +22,6 @@ func _process( delta ):
 	position.x = wrapf( position.x, 0, 640.0 )
 	position.y = wrapf( position.y, 0, 480.0 )
 
-	._process( delta )
-
 
 func set_spin( new_spin: float ):
 	spin_degrees = new_spin
