@@ -8,6 +8,8 @@ const MIN_PIZZA: float = 100.0
 
 # The scene to be used for the initial pizza instances.
 export (PackedScene) var _pizza
+# The scene to be used for explosion animations.
+export (PackedScene) var _explosion
 
 # An array storing the initial pizzas.  Initialized in `_init`
 var pizzas
@@ -37,3 +39,14 @@ func start():
 		var velocity = Vector2( rand_range( MIN_PIZZA, MAX_PIZZA ), 0 )
 		velocity = velocity.rotated( deg2rad( randi() % 360 ) )
 		pizza.linear_velocity = velocity
+
+
+# If the player has been hit, replace them with an explosion, remove them
+# from the game, and signal loss.
+func _on_Player_hit():
+	var explosion = _explosion.instance()
+	explosion.position = $Player.position
+	add_child( explosion )
+	explosion.play()
+	$Player.queue_free()
+	emit_signal( "lost" )

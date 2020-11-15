@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mini/anchovy_quest/scripts/anchovy_game.gd" type="Script" id=1]
 [ext_resource path="res://mini/anchovy_quest/scenes/characters/anchovy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/anchovy_quest/scenes/obstacles/whole_pizza.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mini/anchovy_quest/scenes/effects/explosion.tscn" type="PackedScene" id=4]
 
 [node name="AnchovyGame" type="Node2D"]
 script = ExtResource( 1 )
 _instruction = "Don't Get Pizza'd!"
 _pizza = ExtResource( 3 )
+_explosion = ExtResource( 4 )
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 640.0
@@ -20,3 +22,4 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 320, 240 )
 rotation = -1.5708
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
