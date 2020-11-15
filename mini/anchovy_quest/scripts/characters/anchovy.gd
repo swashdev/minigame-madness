@@ -67,3 +67,4 @@ func _on_Anchovy_body_entered( body ):
 		$Sprite.set_visible( false )
 		$BoomSprite.set_visible( true )
 		emit_signal( "hit" )
+		$Hitbox.set_deferred( "disabled", true )
