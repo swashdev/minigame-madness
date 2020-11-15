@@ -10,6 +10,8 @@ const MIN_PIZZA: float = 100.0
 export (PackedScene) var _pizza
 # The scene to be used for explosion animations.
 export (PackedScene) var _explosion
+# The scene to be used for the player's bullets.
+export (PackedScene) var _bullet
 
 # An array storing the initial pizzas.  Initialized in `_init`
 var pizzas
@@ -50,3 +52,13 @@ func _on_Player_hit():
 	explosion.play()
 	$Player.queue_free()
 	emit_signal( "lost" )
+
+
+# The player has asked us to fire a projectile.
+func _on_Player_shoot( location, direction ):
+	var bullet = _bullet.instance()
+	add_child( bullet )
+	# Place the bullet on the player's designated projectile spawn point.
+	bullet.position = $Player/ProjectileSpawnPoint.position
+	# Set the bullet's direction appropriately.
+	bullet.set_direction( direction )
