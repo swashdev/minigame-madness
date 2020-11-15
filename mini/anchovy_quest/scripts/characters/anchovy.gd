@@ -54,7 +54,7 @@ func _process( delta ):
 
 		# Fire a projectile on a press of the space bar.
 		if Input.is_action_pressed( "ui_select" ):
-			emit_signal( "shoot", $ProjectileSpawnPoint.position, \
+			emit_signal( "shoot", $ProjectileSpawnPoint.global_position, \
 					rotation_degrees )
 
 		# Recalculate the player's velocity.
