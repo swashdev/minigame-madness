@@ -47,6 +47,11 @@ func start():
 		pizza.linear_velocity = velocity
 
 
+# If the player makes it to the end of the timer without dying, they win.
+func decide():
+	emit_signal( "won" )
+
+
 # If the player has been hit, replace them with an explosion, remove them
 # from the game, and signal loss.
 func _on_Player_hit():
