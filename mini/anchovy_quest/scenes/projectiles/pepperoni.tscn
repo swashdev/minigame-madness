@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://shared/scenes/projectiles/projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/anchovy_quest/images/projectiles/pepperoni.png" type="Texture" id=2]
-[ext_resource path="res://mini/anchovy_quest/scripts/projectiles/pepperoni.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.6304
 
 [node name="Pepperoni" instance=ExtResource( 1 )]
 collision_layer = 4
-script = ExtResource( 3 )
 _speed = 600.0
 spin_degrees = 180.0
 
