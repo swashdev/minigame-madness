@@ -5,6 +5,9 @@ extends RigidBody2D
 # A signal emitted when the achnovy is hit by an obstacle.
 signal hit
 
+# A signal emitted when firing a projectile.
+signal shoot( location, direction )
+
 # The player's top speed.
 const MAX_SPEED: float = 400.0
 
@@ -48,6 +51,10 @@ func _process( delta ):
 				_speed -= dspeed
 			else:
 				_speed = 0.0
+
+		# Fire a projectile on a press of the space bar.
+		if Input.is_action_pressed( "ui_space" ):
+			emit_signal( "shoot", position, rotation_degrees )
 
 		# Recalculate the player's velocity.
 		_recalc_velocity()
