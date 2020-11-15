@@ -14,7 +14,7 @@ var pizzas
 
 
 # When the game is initialized, generate three pizzas at random locations.
-func _init():
+func _ready():
 	pizzas = [ _pizza.instance(), _pizza.instance(), _pizza.instance() ]
 
 	for pizza in pizzas:
