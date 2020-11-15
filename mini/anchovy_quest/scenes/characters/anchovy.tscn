@@ -30,3 +30,4 @@ shape = SubResource( 1 )
 
 [node name="ProjectileSpawnPoint" type="Position2D" parent="."]
 position = Vector2( 48, 0 )
+[connection signal="body_entered" from="." to="." method="_on_Anchovy_body_entered"]
