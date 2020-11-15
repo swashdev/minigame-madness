@@ -66,4 +66,3 @@ func _on_Player_shoot( location, direction ):
 	bullet.position = location
 	# Set the bullet's direction appropriately.
 	bullet.set_direction( direction )
-	bullet.CollisionShape2D.disabled = false
