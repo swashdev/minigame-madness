@@ -10,8 +10,10 @@ radius = 60.1166
 
 [node name="WholePizza" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 4
 gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 4 )
 _explosion = ExtResource( 2 )
 _slice = ExtResource( 3 )

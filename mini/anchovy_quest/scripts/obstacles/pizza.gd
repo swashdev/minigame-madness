@@ -54,3 +54,8 @@ func explode():
 
 	# Exit stage none.
 	queue_free()
+
+
+# The pizza will explode when it detects a collision.
+func _on_Pizza_body_entered( _body ):
+	explode()
