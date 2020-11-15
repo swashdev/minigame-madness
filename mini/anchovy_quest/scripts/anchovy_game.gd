@@ -6,6 +6,10 @@ extends Minigame
 const MAX_PIZZA: float = 200.0
 const MIN_PIZZA: float = 100.0
 
+# The max & minimum distance from the player that pizzas will spawn.
+const MIN_DISTANCE: float = 200.0
+const MAX_DISTANCE: float = 300.0
+
 # The scene to be used for the initial pizza instances.
 export (PackedScene) var _pizza
 # The scene to be used for explosion animations.
@@ -24,7 +28,7 @@ func _ready():
 	for pizza in pizzas:
 		# Spawn the pizza a random distance away from the player.
 		var pizza_position: Vector2 = $Player.position
-		pizza_position.x += rand_range( 200.0, 400.0 )
+		pizza_position.x += rand_range( MIN_DISTANCE, MAX_DISTANCE )
 		pizza_position = pizza_position.rotated( deg2rad( randi() % 360 ) )
 		pizza_position.x = wrapf( pizza_position.x, 0.0, 640.0 )
 		pizza_position.y = wrapf( pizza_position.y, 0.0, 480.0 )
