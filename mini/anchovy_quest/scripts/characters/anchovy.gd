@@ -60,7 +60,7 @@ func _recalc_velocity():
 
 
 # Detect collisions with obstacles and handle them appropriately.
-func _on_Anchovy_body_entered( body ):
+func _on_Anchovy_body_entered( _body ):
 	if allow_movement:
 		# Show the "ouch" sprite and emit the "hit" signal to signal the
 		# minigame that the player's death sequence needs to be started.
