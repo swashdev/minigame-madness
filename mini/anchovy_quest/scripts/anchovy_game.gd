@@ -63,6 +63,6 @@ func _on_Player_shoot( location, direction ):
 	var bullet = _bullet.instance()
 	add_child( bullet )
 	# Place the bullet on the player's designated projectile spawn point.
-	bullet.position = $Player/ProjectileSpawnPoint.position
+	bullet.position = location
 	# Set the bullet's direction appropriately.
 	bullet.set_direction( direction )
