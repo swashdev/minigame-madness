@@ -3,7 +3,7 @@ extends Minigame
 
 
 # The max & minimum speed of the in-game pizzas.
-const MAX_PIZZA: float = 300.0
+const MAX_PIZZA: float = 200.0
 const MIN_PIZZA: float = 100.0
 
 # The scene to be used for the initial pizza instances.
