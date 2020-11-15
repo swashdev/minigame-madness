@@ -53,7 +53,7 @@ func _process( delta ):
 				_speed = 0.0
 
 		# Fire a projectile on a press of the space bar.
-		if Input.is_action_pressed( "ui_select" ):
+		if Input.is_action_just_pressed( "ui_select" ):
 			emit_signal( "shoot", $ProjectileSpawnPoint.global_position, \
 					rotation_degrees )
 
