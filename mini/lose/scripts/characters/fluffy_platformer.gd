@@ -8,6 +8,10 @@ const MOVE_SPEED: float = 400.0
 # Fluffy's movement due to gravity.
 const GRAVITY: float = 800.0
 
+# Fluffy's jump velocity.  Note it is negative, because it moves in the
+# opposite direction of gravity.
+const JUMP: float = -400.0
+
 # Fluffy's current velocity.
 var _velocity = Vector2()
 
@@ -41,7 +45,11 @@ func _physics_process( delta ):
 
 	# Apply gravity.
 	if is_on_floor():
-		_velocity.y = 0
+		# If the player is on the floor, they have the opportunity to jump.
+		if Input.is_action_pressed( "ui_select" ):
+			_velocity.y = JUMP
+		else:
+			_velocity.y = 0.0
 	else:
 		_velocity.y += GRAVITY * delta
 
