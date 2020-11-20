@@ -82,6 +82,8 @@ func flip( yn: bool ):
 # Fluffy is hit by an obstacle & dies.
 func die():
 	$Hitbox.set_deferred( "disabled", true )
+	$Sprite.animation = "die"
+	$Sprite.play()
 	_velocity.y = JUMP
 	_dead = true
 	emit_signal( "died" )
