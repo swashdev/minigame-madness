@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/lose/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
@@ -19,6 +19,9 @@ extents = Vector2( 287.047, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 103.748, 34.6233 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 56.0001, 143 )
 
 [node name="LoseMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -74,6 +77,16 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
 shape = SubResource( 4 )
 
+[node name="Ladder" type="Area2D" parent="."]
+position = Vector2( 182, 280 )
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
+shape = SubResource( 5 )
+
 [node name="Bridge" type="StaticBody2D" parent="."]
 position = Vector2( 382.496, 376.094 )
 collision_layer = 2
@@ -107,6 +120,8 @@ autostart = true
 position = Vector2( -1.79244, 3.94334 )
 scale = Vector2( 4.15468, 4.72826 )
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
+[connection signal="body_entered" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_exited"]
 [connection signal="body_entered" from="Spike" to="Spike" method="_on_Spike_body_entered"]
 [connection signal="timeout" from="Spike/Timer" to="Spike" method="_on_Timer_timeout"]
 [connection signal="screen_exited" from="Spike/VisibilityNotifier2D" to="Spike" method="_on_VisibilityNotifier2D_screen_exited"]

@@ -21,6 +21,9 @@ var _velocity = Vector2()
 # Whether or not Fluffy has died.
 var _dead: bool = false
 
+# Whether or not Fluffy can climb the ladder.
+var _ladder: bool = false
+
 
 # Fluffy's mainloop.
 func _physics_process( delta ):
@@ -51,14 +54,17 @@ func _physics_process( delta ):
 	move_and_slide( _velocity, Vector2.UP )
 
 	# Apply gravity.
-	if !_dead and is_on_floor():
+	_velocity.y += GRAVITY * delta
+	if !_dead:
 		# If the player is on the floor, they have the opportunity to jump.
 		if Input.is_action_pressed( "ui_select" ):
 			_velocity.y = JUMP
-		else:
+		# If the player is on the ladder, they have the option to climb it.
+		elif _ladder and Input.is_action_pressed( "ui_up" ):
+			_velocity.y = -MOVE_SPEED
+		# If the player is on a floor, they will stop moving vertically.
+		elif _ladder or is_on_floor():
 			_velocity.y = 0.0
-	else:
-		_velocity.y += GRAVITY * delta
 
 	# If dead, Fluffy's sprite will rotate in an assuredly amusing manner.
 	if _dead:
@@ -87,3 +93,13 @@ func die():
 	_velocity.y = JUMP
 	_dead = true
 	emit_signal( "died" )
+
+
+# Fluffy is inside the effective area of the ladder.
+func _on_Ladder_body_entered( _body ):
+	_ladder = true
+
+
+# Fluffy is no longer inside the effective area of the ladder.
+func _on_Ladder_body_exited( _body ):
+	_ladder = false
