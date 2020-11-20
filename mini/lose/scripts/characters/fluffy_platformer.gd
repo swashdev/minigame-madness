@@ -1,20 +1,28 @@
-extends RigidBody2D
+extends KinematicBody2D
 # A scene for the Fluffy platformer character in the "Lose!" minigame.
 
 
 # Fluffy's movement speed.
 const MOVE_SPEED: float = 400.0
 
+# Fluffy's movement due to gravity.
+const GRAVITY: float = 800.0
+
+# Fluffy's current velocity.
+var _velocity = Vector2()
+
 
 # Fluffy's mainloop.
-func _process( delta ):
+func _physics_process( delta ):
+	# Start by resetting the horizontal velocity.
+	_velocity.x = 0
 	# Move left & right according to presses of the left & right keys.
 	if Input.is_action_pressed( "ui_right" ):
-		position.x += MOVE_SPEED * delta
+		_velocity.x += MOVE_SPEED
 		$Sprite.animation = "run"
 		$Sprite.play()
 	elif Input.is_action_pressed( "ui_left" ):
-		position.x -= MOVE_SPEED * delta
+		_velocity.x -= MOVE_SPEED
 		$Sprite.animation = "run"
 		$Sprite.play()
 	else:
@@ -26,6 +34,16 @@ func _process( delta ):
 		flip( false )
 	if Input.is_action_just_pressed( "ui_left" ):
 		flip( true )
+
+	# Move Fluffy.
+# warning-ignore:return_value_discarded
+	move_and_slide( _velocity, Vector2.UP )
+
+	# Apply gravity.
+	if is_on_floor():
+		_velocity.y = 0
+	else:
+		_velocity.y += GRAVITY * delta
 
 
 # Horizontally flips Fluffy's sprite.

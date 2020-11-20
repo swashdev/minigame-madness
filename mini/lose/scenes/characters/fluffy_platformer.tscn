@@ -39,11 +39,8 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 21.994, 31.9682 )
 
-[node name="FluffyPlatformer" type="RigidBody2D"]
+[node name="FluffyPlatformer" type="KinematicBody2D"]
 collision_mask = 2
-gravity_scale = 3.0
-contacts_reported = 12
-contact_monitor = true
 script = ExtResource( 17 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
