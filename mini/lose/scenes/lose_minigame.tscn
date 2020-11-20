@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/lose/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/lose/images/background/bg.png" type="Texture" id=3]
 [ext_resource path="res://mini/lose/scripts/obstacles/lava.gd" type="Script" id=4]
 [ext_resource path="res://mini/lose/images/platforms/bridge.png" type="Texture" id=5]
+[ext_resource path="res://mini/lose/images/obstacles/spike.png" type="Texture" id=6]
+[ext_resource path="res://mini/lose/scripts/obstacles/spike.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 142.27, 10 )
@@ -84,4 +86,27 @@ texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bridge"]
 polygon = PoolVector2Array( -119.793, 43.2021, -0.344666, -9.69638, 131.048, 38.6517 )
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2( 587.364, 232.596 )
+collision_layer = 0
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Spike"]
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spike"]
+polygon = PoolVector2Array( -44.2618, -42.711, 39.1532, -43.9026, -7.71814, 51.8261 )
+
+[node name="Timer" type="Timer" parent="Spike"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Spike"]
+position = Vector2( -1.79244, 3.94334 )
+scale = Vector2( 4.15468, 4.72826 )
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
+[connection signal="body_entered" from="Spike" to="Spike" method="_on_Spike_body_entered"]
+[connection signal="timeout" from="Spike/Timer" to="Spike" method="_on_Timer_timeout"]
+[connection signal="screen_exited" from="Spike/VisibilityNotifier2D" to="Spike" method="_on_VisibilityNotifier2D_screen_exited"]
