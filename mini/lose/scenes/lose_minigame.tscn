@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/lose/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://mini/lose/images/obstacles/spike.png" type="Texture" id=6]
 [ext_resource path="res://mini/lose/scripts/obstacles/spike.gd" type="Script" id=7]
 [ext_resource path="res://mini/lose/scripts/obstacles/evil_exit_sign.gd" type="Script" id=8]
+[ext_resource path="res://mini/lose/images/characters/ahole_with_a_bow_and_arrow.png" type="Texture" id=9]
+[ext_resource path="res://mini/lose/scripts/characters/archer.gd" type="Script" id=10]
+[ext_resource path="res://mini/lose/scenes/projectiles/arrow.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 142.27, 10 )
@@ -26,6 +29,10 @@ extents = Vector2( 103.748, 34.6233 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 56.0001, 143 )
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 32.973
+height = 43.1712
 
 [node name="LoseMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -135,6 +142,25 @@ autostart = true
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Spike"]
 position = Vector2( -1.79244, 3.94334 )
 scale = Vector2( 4.15468, 4.72826 )
+
+[node name="Archer" type="Area2D" parent="."]
+position = Vector2( 345.8, 108.3 )
+collision_layer = 0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+_arrow = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Archer"]
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Archer"]
+position = Vector2( 10, 0 )
+shape = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="Archer"]
+autostart = true
 [connection signal="body_entered" from="EvilExitSign" to="EvilExitSign" method="_on_EvilExitSign_body_entered"]
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="body_entered" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_entered"]
@@ -142,3 +168,5 @@ scale = Vector2( 4.15468, 4.72826 )
 [connection signal="body_entered" from="Spike" to="Spike" method="_on_Spike_body_entered"]
 [connection signal="timeout" from="Spike/Timer" to="Spike" method="_on_Timer_timeout"]
 [connection signal="screen_exited" from="Spike/VisibilityNotifier2D" to="Spike" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="body_entered" from="Archer" to="Archer" method="_on_Archer_body_entered"]
+[connection signal="timeout" from="Archer/Timer" to="Archer" method="_on_Timer_timeout"]
