@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/lose/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/lose/images/background/bg.png" type="Texture" id=3]
 [ext_resource path="res://mini/lose/scripts/obstacles/lava.gd" type="Script" id=4]
+[ext_resource path="res://mini/lose/images/platforms/bridge.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 142.27, 10 )
@@ -70,4 +71,17 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
 shape = SubResource( 4 )
+
+[node name="Bridge" type="StaticBody2D" parent="."]
+position = Vector2( 382.496, 376.094 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Bridge"]
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bridge"]
+polygon = PoolVector2Array( -119.793, 43.2021, -0.344666, -9.69638, 131.048, 38.6517 )
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
