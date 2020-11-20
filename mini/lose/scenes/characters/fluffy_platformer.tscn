@@ -36,13 +36,16 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.51906, 7.97832 )
+extents = Vector2( 21.994, 31.9682 )
 
 [node name="FluffyPlatformer" type="Area2D"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 2.51084, 0 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
+centered = false
+offset = Vector2( -10.5, -8 )
+flip_h = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
