@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 # A scene for the Fluffy platformer character in the "Lose!" minigame.
 
 
