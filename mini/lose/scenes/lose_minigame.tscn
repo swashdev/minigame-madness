@@ -128,7 +128,7 @@ texture = ExtResource( 6 )
 polygon = PoolVector2Array( -44.2618, -42.711, 39.1532, -43.9026, -7.71814, 51.8261 )
 
 [node name="Timer" type="Timer" parent="Spike"]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
