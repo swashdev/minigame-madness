@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/lose/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/lose/images/background/bg.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 174, 21.9999 )
+extents = Vector2( 142.27, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 86.9017, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 287.047, 10 )
 
 [node name="LoseMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,21 +25,36 @@ __meta__ = {
 }
 
 [node name="FluffyPlatformer" parent="." instance=ExtResource( 2 )]
-position = Vector2( 96.0001, 386 )
+position = Vector2( 47.9442, 372.968 )
 
-[node name="BasicFloor" type="StaticBody2D" parent="."]
-position = Vector2( 194, 447 )
+[node name="Floor1" type="StaticBody2D" parent="."]
+position = Vector2( 138.699, 422.546 )
 collision_layer = 2
-
-[node name="ColorRect" type="ColorRect" parent="BasicFloor"]
-margin_left = -174.0
-margin_top = -22.0
-margin_right = 174.0
-margin_bottom = 22.0
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicFloor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor1"]
 shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2( 567.062, 413.84 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
+position = Vector2( 367.094, 166.972 )
+shape = SubResource( 3 )
 one_way_collision = true
