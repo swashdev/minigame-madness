@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/lose/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mini/lose/images/background/bg.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 174, 21.9999 )
 
 [node name="LoseMinigame" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FluffyPlatformer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 96.0001, 386 )
