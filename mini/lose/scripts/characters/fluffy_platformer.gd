@@ -73,6 +73,9 @@ func _physics_process( delta ):
 	# If dead, Fluffy's sprite will rotate in an assuredly amusing manner.
 	if _dead:
 		$Sprite.rotation_degrees += 90.0 * delta
+	else:
+		position.x = clamp( position.x, 0.0, 640.0 )
+		position.y = clamp( position.y, 0.0, 480.0 )
 
 
 # Horizontally flips Fluffy's sprite.
