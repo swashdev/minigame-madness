@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://mini/lose/scripts/lose_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/lose/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://mini/lose/images/characters/ahole_with_a_bow_and_arrow.png" type="Texture" id=9]
 [ext_resource path="res://mini/lose/scripts/characters/archer.gd" type="Script" id=10]
 [ext_resource path="res://mini/lose/scenes/projectiles/arrow.tscn" type="PackedScene" id=11]
+[ext_resource path="res://shared/scenes/ui/keys/right_key.tscn" type="PackedScene" id=12]
+[ext_resource path="res://shared/scenes/ui/keys/left_key.tscn" type="PackedScene" id=13]
+[ext_resource path="res://shared/scenes/ui/keys/spacebar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://shared/scenes/ui/keys/up_key.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 142.27, 10 )
@@ -160,6 +164,31 @@ position = Vector2( 10, 0 )
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="Archer"]
+
+[node name="Spacebar" parent="." instance=ExtResource( 14 )]
+position = Vector2( 98.2564, 455.491 )
+
+[node name="Label" type="Label" parent="Spacebar"]
+margin_left = -74.0
+margin_top = -14.0
+margin_right = 74.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Jump!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftKey" parent="." instance=ExtResource( 13 )]
+position = Vector2( 527.062, 459.258 )
+
+[node name="RightKey" parent="." instance=ExtResource( 12 )]
+position = Vector2( 607.062, 459.258 )
+
+[node name="UpKey" parent="." instance=ExtResource( 15 )]
+position = Vector2( 567.062, 439.258 )
 [connection signal="died" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_died"]
 [connection signal="won" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_won"]
 [connection signal="body_entered" from="EvilExitSign" to="EvilExitSign" method="_on_EvilExitSign_body_entered"]
