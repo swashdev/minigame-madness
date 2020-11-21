@@ -159,6 +159,8 @@ position = Vector2( 10, 0 )
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="Archer"]
+[connection signal="died" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_died"]
+[connection signal="won" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_won"]
 [connection signal="body_entered" from="EvilExitSign" to="EvilExitSign" method="_on_EvilExitSign_body_entered"]
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="body_entered" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_entered"]

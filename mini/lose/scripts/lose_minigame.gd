@@ -45,3 +45,23 @@ func _on_Archer_shot( arrow: PackedScene, position ):
 	var bullet = arrow.instance()
 	bullet.position = position
 	add_child( bullet )
+
+
+# Fluffy has been killed by an obstacle and it's time to signal victory.
+func _on_FluffyPlatformer_died():
+	emit_signal( "won" )
+	# If the archer is firing arrows, stop.  It's more elegant than just
+	# having him continue to fire.
+	if _hazard == Hazards.ARCHER:
+		$Archer/Timer.stop()
+
+
+# Fluffy won the game, which means the player lost the game.
+func _on_FluffyPlatformer_won():
+	emit_signal( "lost" )
+	# If the archer is firing arrows, stop.
+	if _hazard == Hazards.ARCHER:
+		$Archer/Timer.stop()
+	# Also stop the spike timer if it's functional.
+	elif _hazard == Hazards.SPIKE:
+		$Spike/Timer.stop()
