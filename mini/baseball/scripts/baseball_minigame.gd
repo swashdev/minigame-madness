@@ -13,7 +13,7 @@ func _process( _delta ):
 			_unlock_controls = false
 			emit_signal( "lost" )
 		elif !_swung:
-			if Input.is_action_pressed( "ui_select" ):
+			if Input.is_action_pressed( "action" ):
 				_swung = true
 				$Spacebar.dim()
 				$Batter.animation = "swing"
