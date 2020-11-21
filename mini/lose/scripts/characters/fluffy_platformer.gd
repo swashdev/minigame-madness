@@ -35,11 +35,11 @@ func _physics_process( delta ):
 	_velocity.x = 0
 	# Move left & right according to presses of the left & right keys.
 	if !_dead and !_won:
-		if Input.is_action_pressed( "ui_right" ):
+		if Input.is_action_pressed( "move_right" ):
 			_velocity.x += MOVE_SPEED
 			$Sprite.animation = "run"
 			$Sprite.play()
-		elif Input.is_action_pressed( "ui_left" ):
+		elif Input.is_action_pressed( "move_left" ):
 			_velocity.x -= MOVE_SPEED
 			$Sprite.animation = "run"
 			$Sprite.play()
@@ -48,9 +48,9 @@ func _physics_process( delta ):
 			$Sprite.animation = "default"
 
 		# Adjust sprite orientation based on inputs.
-		if Input.is_action_just_pressed( "ui_right" ):
+		if Input.is_action_just_pressed( "move_right" ):
 			flip( false )
-		if Input.is_action_just_pressed( "ui_left" ):
+		if Input.is_action_just_pressed( "move_left" ):
 			flip( true )
 
 	# Move Fluffy.
@@ -64,10 +64,10 @@ func _physics_process( delta ):
 		_velocity.y += GRAVITY * delta
 	if !_dead and !_won:
 		# If the player is on the floor, they have the opportunity to jump.
-		if is_on_floor() and Input.is_action_pressed( "ui_select" ):
+		if is_on_floor() and Input.is_action_pressed( "action" ):
 			_velocity.y = JUMP
 		# If the player is on the ladder, they have the option to climb it.
-		elif _ladder and Input.is_action_pressed( "ui_up" ):
+		elif _ladder and Input.is_action_pressed( "move_up" ):
 			_velocity.y = -MOVE_SPEED
 
 	# If dead, Fluffy's sprite will rotate in an assuredly amusing manner.
