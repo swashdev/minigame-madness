@@ -16,6 +16,7 @@ enum \
 	SAW, # saw_minigame.tscn
 	BASEBALL, # baseball_minigame.tscn
 	#ANCHOVY, # anchovy_game.tscn
+	LOSE, # lose_minigame.tscn
 	# Leading comment on last element intentional for diff files.
 }
 
@@ -23,7 +24,7 @@ enum \
 export (PackedScene) var Minigame1 # Ragdoll
 export (PackedScene) var Minigame2 # Saw
 export (PackedScene) var Minigame3 # Baseball
-export (PackedScene) var Minigame4 # Anchovy
+export (PackedScene) var Minigame4 # Lose
 
 # The minigame currently in progress.
 var _minigame: Minigame setget set_minigame
@@ -46,6 +47,8 @@ func set_minigame( minigame_id ):
 			_minigame = Minigame3.instance()
 		#ANCHOVY:
 		#	_minigame = Minigame4.instance()
+		LOSE:
+			_minigame = Minigame4.instance()
 	
 	_minigame.connect( "won", self, "_on_Minigame_won" )
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )
