@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://mini/ragdoll/scripts/ragdoll.gd" type="Script" id=1]
 [ext_resource path="res://shared/scenes/minigame.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://shared/images/characters/fluffy/animations/fall_left_04.png" type="Texture" id=24]
 [ext_resource path="res://shared/images/characters/fluffy/animations/fall_left_01.png" type="Texture" id=25]
 [ext_resource path="res://shared/images/characters/fluffy/animations/fall_left_02.png" type="Texture" id=26]
+[ext_resource path="res://mini/ragdoll/images/background/bg.png" type="Texture" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,13 +50,22 @@ animations = [ {
 script = ExtResource( 1 )
 _instruction = "Be a Ragdoll!"
 
-[node name="FluffyRagdoll" type="AnimatedSprite" parent="." index="0"]
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+visible = false
+margin_right = 640.0
+margin_bottom = 480.0
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FluffyRagdoll" type="AnimatedSprite" parent="." index="1"]
 position = Vector2( 320, 240 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 1 )
 animation = "fall_left"
 
-[node name="Timer" type="Timer" parent="." index="1"]
+[node name="Timer" type="Timer" parent="." index="2"]
 wait_time = 0.6
 one_shot = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
