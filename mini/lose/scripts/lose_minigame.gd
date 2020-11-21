@@ -62,6 +62,3 @@ func _on_FluffyPlatformer_won():
 	# If the archer is firing arrows, stop.
 	if _hazard == Hazards.ARCHER:
 		$Archer/Timer.stop()
-	# Also stop the spike timer if it's functional.
-	elif _hazard == Hazards.SPIKE:
-		$Spike/Timer.stop()
