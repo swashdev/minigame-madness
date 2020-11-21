@@ -17,13 +17,13 @@ func _process( delta ):
 	if _unlock_controls and !key_pressed:
 		# Play a little animation depending on which specific key was
 		# pressed
-		if Input.is_action_pressed( "ui_right" ) \
-		or Input.is_action_pressed( "ui_up" ):
+		if Input.is_action_pressed( "move_right" ) \
+		or Input.is_action_pressed( "move_up" ):
 			tip_fluffy_over( "fall_right" )
-		elif Input.is_action_pressed( "ui_left" ) \
-		or Input.is_action_pressed( "ui_down" ):
+		elif Input.is_action_pressed( "move_left" ) \
+		or Input.is_action_pressed( "move_down" ):
 			tip_fluffy_over( "fall_left" )
-		elif Input.is_action_pressed( "ui_select" ):
+		elif Input.is_action_pressed( "action" ):
 			# Press space to jump!
 			$Timer.start()
 			key_pressed = true
