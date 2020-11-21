@@ -3,7 +3,7 @@ extends Area2D
 
 
 # Signals the minigame to spawn an arrow.
-signal shoot( arrow, position )
+signal shot( arrow, position )
 
 # A scene representing the projectiles this character will fire.
 export (PackedScene) var _arrow
@@ -11,7 +11,7 @@ export (PackedScene) var _arrow
 
 # The archer's timer expires, prompting them to shoot an arrow.
 func _on_Timer_timeout():
-	emit_signal( "shoot", _arrow, position )
+	emit_signal( "shot", _arrow, position )
 
 
 # Fluffy has touched the archer and, naturally, must die.
