@@ -3,7 +3,7 @@ extends Minigame
 
 
 # Possible hazards
-enum Hazards { NO_BRIDGE, STALACTITE, ARCHER }
+enum Hazards { NO_BRIDGE, SPIKE, ARCHER }
 
 # What kind of hazard has been selected for this particular game.
 var _hazard: int
@@ -12,6 +12,8 @@ var _hazard: int
 # When ready, initialize the game by choosing a hazard and setting up
 # appropriately.
 func _ready():
+	# For testing:
+	randomize()
 	_hazard = Hazards.values()[ randi() % Hazards.size() ]
 	match _hazard:
 		Hazards.ARCHER:
@@ -23,7 +25,7 @@ func _ready():
 			$Bridge.queue_free()
 			# Fall through to next case
 			continue
-		Hazards.SPIKE:
+		Hazards.NO_BRIDGE, Hazards.SPIKE:
 			$Archer.queue_free()
 	# For testing:
 	start()
