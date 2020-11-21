@@ -143,7 +143,7 @@ position = Vector2( -1.79244, 3.94334 )
 scale = Vector2( 4.15468, 4.72826 )
 
 [node name="Archer" type="Area2D" parent="."]
-position = Vector2( 345.8, 108.3 )
+position = Vector2( 447.703, 108.3 )
 collision_layer = 0
 script = ExtResource( 10 )
 __meta__ = {
