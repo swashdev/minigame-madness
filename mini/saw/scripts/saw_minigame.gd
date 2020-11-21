@@ -20,7 +20,7 @@ var _logs_fall_everyone_dies : bool = false
 func _process( delta ):
 	# Check for player input.
 	if _unlock_controls:
-		if Input.is_action_pressed( "ui_left" ):
+		if Input.is_action_pressed( "move_left" ):
 			# If the player hits a lit key, dim it and light the other, then
 			# move the saw.
 			if $Prompt/LeftKey.lit():
@@ -28,7 +28,7 @@ func _process( delta ):
 				$Prompt/RightKey.light()
 				$Saw.position.x -= SAW_DX
 				$Saw.position.y += SAW_DY
-		elif Input.is_action_pressed( "ui_right" ):
+		elif Input.is_action_pressed( "move_right" ):
 			if $Prompt/RightKey.lit():
 				$Prompt/RightKey.dim()
 				$Prompt/LeftKey.light()
