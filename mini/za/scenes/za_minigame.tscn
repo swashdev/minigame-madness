@@ -5,6 +5,7 @@
 
 [node name="ZaMinigame" type="Node2D"]
 script = ExtResource( 2 )
+_instruction = "Slice that 'Za!"
 
 [node name="Za" parent="." instance=ExtResource( 1 )]
 position = Vector2( 320, 240 )
