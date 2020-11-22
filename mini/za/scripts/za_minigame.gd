@@ -12,9 +12,18 @@ func _process( _delta ):
 		$Za.slice()
 
 
+# Starts the minigame by unlocking the controls.
 func start():
 	$Slicer.allow_movement = true
 	_unlock_controls = true
+
+
+# Stops the minigame by locking the controls & hiding unsightly sprites.
+func stop():
+	_unlock_controls = false
+	$Slicer.allow_movement = false
+	$Slicer/Guideline.hide()
+	$SliceGuide.hide()
 
 
 # Decide whether the player has won the minigame.
@@ -22,6 +31,7 @@ func start():
 # the time the timer expires, they will be declared the winner ONLY if they
 # have fully sliced the 'za.
 func decide():
+	stop()
 	if _sliced:
 		emit_signal( "won" )
 	else:
@@ -30,6 +40,7 @@ func decide():
 
 # The 'za has been sliced; make a note of that.
 func _on_Za_sliced():
+	stop()
 	_sliced = true
 
 
