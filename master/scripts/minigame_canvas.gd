@@ -17,7 +17,8 @@ enum \
 	BASEBALL, # baseball_minigame.tscn
 	#ANCHOVY, # anchovy_game.tscn
 	LOSE, # lose_minigame.tscn
-	# Leading comment on last element intentional for diff files.
+	ZA,
+	# Leading comma on last element intentional for diff files.
 }
 
 # Packed scenes which indicate which minigames to instance.
@@ -25,6 +26,7 @@ export (PackedScene) var Minigame1 # Ragdoll
 export (PackedScene) var Minigame2 # Saw
 export (PackedScene) var Minigame3 # Baseball
 export (PackedScene) var Minigame4 # Lose
+export (PackedScene) var Minigame5 # 'Za
 
 # The minigame currently in progress.
 var _minigame: Minigame setget set_minigame
@@ -49,6 +51,8 @@ func set_minigame( minigame_id ):
 		#	_minigame = Minigame4.instance()
 		LOSE:
 			_minigame = Minigame4.instance()
+		ZA:
+			_minigame = Minigame5.instance()
 	
 	_minigame.connect( "won", self, "_on_Minigame_won" )
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://master/scripts/minigame_canvas.gd" type="Script" id=1]
 [ext_resource path="res://mini/ragdoll/scenes/ragdoll.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/saw/scenes/saw_minigame.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/baseball/scenes/baseball_minigame.tscn" type="PackedScene" id=4]
 [ext_resource path="res://mini/lose/scenes/lose_minigame.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mini/za/scenes/za_minigame.tscn" type="PackedScene" id=6]
 
 [node name="MinigameCanvas" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,3 +13,4 @@ Minigame1 = ExtResource( 2 )
 Minigame2 = ExtResource( 3 )
 Minigame3 = ExtResource( 4 )
 Minigame4 = ExtResource( 5 )
+Minigame5 = ExtResource( 6 )
