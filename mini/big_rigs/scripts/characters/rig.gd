@@ -8,7 +8,7 @@ signal finished
 # The max speed of the rig.
 const MAX_SPEED: float = 100.0
 
-var allow_movement: bool = true
+var allow_movement: bool = false
 
 # How quickly the rig is moving.
 var _speed: float = 0.0
