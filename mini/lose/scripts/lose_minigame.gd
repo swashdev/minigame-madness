@@ -12,8 +12,6 @@ var _hazard: int
 # When ready, initialize the game by choosing a hazard and setting up
 # appropriately.
 func _ready():
-	# For testing:
-	randomize()
 	_hazard = Hazards.values()[ randi() % Hazards.size() ]
 	match _hazard:
 		Hazards.ARCHER:
@@ -27,8 +25,6 @@ func _ready():
 			continue
 		Hazards.NO_BRIDGE, Hazards.SPIKE:
 			$Archer.queue_free()
-	# For testing:
-	start()
 
 
 # Starting the "Lose!" minigame requires that we activate certain traps based
