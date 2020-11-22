@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://mini/za/scenes/za.tscn" type="PackedScene" id=1]
-[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=2]
+[ext_resource path="res://mini/za/scripts/za_minigame.gd" type="Script" id=2]
 
 [node name="ZaMinigame" type="Node2D"]
 script = ExtResource( 2 )
@@ -9,3 +9,5 @@ script = ExtResource( 2 )
 [node name="Za" parent="." instance=ExtResource( 1 )]
 position = Vector2( 320, 240 )
 scale = Vector2( 2, 2 )
+[connection signal="eaten" from="Za" to="." method="_on_Za_eaten"]
+[connection signal="sliced" from="Za" to="." method="_on_Za_sliced"]
