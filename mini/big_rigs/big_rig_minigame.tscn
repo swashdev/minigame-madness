@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/big_rigs/images/characters/rig1.png" type="Texture" id=2]
 [ext_resource path="res://mini/big_rigs/scripts/characters/rig.gd" type="Script" id=3]
 [ext_resource path="res://mini/big_rigs/images/backgrounds/fg.png" type="Texture" id=4]
 [ext_resource path="res://mini/big_rigs/images/backgrounds/bg.png" type="Texture" id=5]
+[ext_resource path="res://mini/big_rigs/images/characters/rig2.png" type="Texture" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -24,6 +25,16 @@ __meta__ = {
 
 [node name="RigPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
+
+[node name="Rig2" type="PathFollow2D" parent="RigPath"]
+position = Vector2( 31.822, 462.88 )
+rotation = -0.0136729
+offset = 30.0
+loop = false
+
+[node name="Sprite" type="Sprite" parent="RigPath/Rig2"]
+texture = ExtResource( 6 )
+offset = Vector2( -30, -25 )
 
 [node name="Rig1" type="PathFollow2D" parent="RigPath"]
 position = Vector2( 46.84, 462.674 )
