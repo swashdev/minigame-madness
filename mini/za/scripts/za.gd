@@ -6,6 +6,9 @@ extends Node2D
 # sliced!
 signal sliced
 
+# A signal to inform the minigame that the 'za is gone.
+signal eaten
+
 # A variable to keep track of the number of times the 'za has been sliced.
 var _slices: int = 0
 
@@ -57,3 +60,4 @@ func _on_NomTimer_timeout():
 	# Stop the timer if the last slice of 'za is gone.
 	if not $Half2/Quadrant2/Slice2.visible:
 		$NomTimer.stop()
+		emit_signal( "eaten" )
