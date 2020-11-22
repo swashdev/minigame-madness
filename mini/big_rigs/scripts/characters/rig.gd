@@ -2,6 +2,9 @@ extends PathFollow2D
 # A script for the Rigs in the "Race that Rig!" minigame.
 
 
+# A signal to indicate that the rig has reached the end of the course.
+signal finished
+
 # The max speed of the rig.
 const MAX_SPEED: float = 100.0
 
@@ -16,6 +19,11 @@ var _acceleration: float = 10.0
 
 # The mainloop for the rig.
 func _process( delta ):
+	if unit_offset == 1.0:
+		# Emit the "finished" signal at the end of the path and disable
+		# movement.
+		emit_signal( "finished" )
+		allow_movement = false
 	if allow_movement:
 		# Player input affects the rate at which the rig will move.
 		if Input.is_action_pressed( "move_right" ):
