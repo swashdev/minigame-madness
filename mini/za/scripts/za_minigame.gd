@@ -24,6 +24,7 @@ func _process( _delta ):
 
 # Starts the minigame by unlocking the controls.
 func start():
+	$SliceGuide.show()
 	$Slicer.allow_movement = true
 	_unlock_controls = true
 
