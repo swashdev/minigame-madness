@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+[ext_resource path="res://shared/images/characters/fluffy/fluffy.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1.82016, 463.291, 0, 0, 0, 0, 163.593, 461.075, 0, 0, 0, 0, 221.211, 447.779, 0, 0, 0, 0, 257.776, 418.97, 0, 0, 0, 0, 267.748, 369.108, 0, 0, 0, 0, 284, 237, 0, 0, 0, 0, 318, 176, 0, 0, 0, 0, 352, 152, 0, 0, 0, 0, 395, 148, 0, 0, 0, 0, 421, 165, 0, 0, 0, 0, 439, 200, 0, 0, 0, 0, 451, 254, 0, 0, 0, 0, 481, 276, 0, 0, 0, 0, 514, 282, 0, 0, 0, 0, 541, 277, 0, 0, 0, 0, 572.001, 260, 0, 0, 0, 0, 589.001, 234, 0, 0, 0, 0, 641.001, 233 )
+}
+
+[node name="BigRigMinigame" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="RigPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="Rig1" type="PathFollow2D" parent="RigPath"]
+position = Vector2( 1.82016, 463.291 )
+rotation = -0.0137034
+
+[node name="Sprite" type="Sprite" parent="RigPath/Rig1"]
+texture = ExtResource( 2 )
