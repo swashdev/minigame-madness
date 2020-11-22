@@ -26,8 +26,9 @@ __meta__ = {
 curve = SubResource( 1 )
 
 [node name="Rig1" type="PathFollow2D" parent="RigPath"]
-position = Vector2( 1.82016, 463.291 )
-rotation = -0.0137034
+position = Vector2( 46.84, 462.674 )
+rotation = -0.0137174
+offset = 45.0
 loop = false
 script = ExtResource( 3 )
 
