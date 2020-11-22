@@ -67,4 +67,13 @@ texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="TextureRect"]
+margin_left = -30.6935
+margin_top = 166.972
+margin_right = 76.3065
+margin_bottom = 180.972
+rect_scale = Vector2( 1.8, 1.96 )
+text = "You're Winner!"
+uppercase = true
 [connection signal="finished" from="RigPath/Rig1" to="." method="_on_Rig1_finished"]
