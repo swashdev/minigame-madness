@@ -18,6 +18,9 @@ const GRAVITY: float = 800.0
 # opposite direction of gravity.
 const JUMP: float = -400.0
 
+# Whether or not to allow movement.
+var allow_movement: bool = false
+
 # Fluffy's current velocity.
 var _velocity = Vector2()
 
@@ -34,7 +37,7 @@ func _physics_process( delta ):
 	# Start by resetting the horizontal velocity.
 	_velocity.x = 0
 	# Move left & right according to presses of the left & right keys.
-	if !_dead and !_won:
+	if allow_movement and !_dead and !_won:
 		if Input.is_action_pressed( "move_right" ):
 			_velocity.x += MOVE_SPEED
 			$Sprite.animation = "run"

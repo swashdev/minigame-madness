@@ -34,6 +34,7 @@ func _ready():
 # Starting the "Lose!" minigame requires that we activate certain traps based
 # on what the selected hazard was at initialization.
 func start():
+	$FluffyPlatformer.allow_movement = true
 	match _hazard:
 		Hazards.ARCHER:
 			$Archer/Timer.start()
@@ -50,6 +51,7 @@ func _on_Archer_shot( arrow: PackedScene, position ):
 # Fluffy has been killed by an obstacle and it's time to signal victory.
 func _on_FluffyPlatformer_died():
 	emit_signal( "won" )
+	$FluffyPlatformer.allow_movement = false
 	# If the archer is firing arrows, stop.  It's more elegant than just
 	# having him continue to fire.
 	if _hazard == Hazards.ARCHER:
@@ -59,6 +61,7 @@ func _on_FluffyPlatformer_died():
 # Fluffy won the game, which means the player lost the game.
 func _on_FluffyPlatformer_won():
 	emit_signal( "lost" )
+	$FluffyPlatformer.allow_movement = false
 	# If the archer is firing arrows, stop.
 	if _hazard == Hazards.ARCHER:
 		$Archer/Timer.stop()

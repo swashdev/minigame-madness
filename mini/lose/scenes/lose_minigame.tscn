@@ -25,13 +25,13 @@ extents = Vector2( 86.9017, 10 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 287.047, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 69.0001, 88 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 103.748, 34.6233 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 56.0001, 143 )
 
 [sub_resource type="CapsuleShape2D" id=7]
@@ -95,7 +95,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EvilExitSign"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Lava" type="Area2D" parent="."]
 position = Vector2( 381.827, 455.491 )
@@ -103,7 +103,7 @@ collision_layer = 0
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Ladder" type="Area2D" parent="."]
 position = Vector2( 182, 280 )
@@ -113,7 +113,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Bridge" type="StaticBody2D" parent="."]
 position = Vector2( 382.496, 376.094 )
