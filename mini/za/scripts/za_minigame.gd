@@ -52,6 +52,22 @@ func try_slice():
 	else:
 		_slices += 1
 		$Za.slice()
+		do_next_position()
+
+
+# Move the SliceGuide into the next position.
+func do_next_position():
+	match _slices:
+		0:
+			$SliceGuide.rotation_degrees = 0.0
+		1:
+			$SliceGuide.rotation_degrees = 90.0
+		2:
+			$SliceGuide.rotation_degrees = 135.0
+		3:
+			$SliceGuide.rotation_degrees = 45.0
+		_:
+			stop()
 
 
 # Decide whether the player has won the minigame.
