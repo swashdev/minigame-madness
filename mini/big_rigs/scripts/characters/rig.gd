@@ -34,5 +34,5 @@ func _process( delta ):
 			else:
 				_speed = 0.0
 
-	# Move the rig according to its current speed.
-	offset += _speed
+		# Move the rig according to its current speed.
+		offset += _speed
