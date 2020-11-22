@@ -3,7 +3,7 @@ extends Node2D
 
 
 # How quickly the slicer rotates along its axis in degrees per second.
-const ROTATE_SPEED: float = 180.0
+const ROTATE_SPEED: float = 90.0
 
 # Whether or not to allow movement.
 var allow_movement: bool = false
