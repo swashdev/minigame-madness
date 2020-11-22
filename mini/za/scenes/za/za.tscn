@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://mini/za/images/one_more_slice.png" type="Texture" id=1]
-[ext_resource path="res://mini/za/images/slice_of_za.png" type="Texture" id=2]
-[ext_resource path="res://mini/za/scripts/za.gd" type="Script" id=3]
+[ext_resource path="res://mini/za/images/za/one_more_slice.png" type="Texture" id=1]
+[ext_resource path="res://mini/za/images/za/slice_of_za.png" type="Texture" id=2]
+[ext_resource path="res://mini/za/scripts/za/za.gd" type="Script" id=3]
+
 
 [node name="Za" type="Node2D"]
 script = ExtResource( 3 )

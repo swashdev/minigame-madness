@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/one_more_slice.png-c504a13182496d49c89c6096207b6aa4.stex"
+path="res://.import/slice_guide.png-d498d1d144a8aa70b05f4824aab08e18.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/za/images/one_more_slice.png"
-dest_files=[ "res://.import/one_more_slice.png-c504a13182496d49c89c6096207b6aa4.stex" ]
+source_file="res://mini/za/images/guides/slice_guide.png"
+dest_files=[ "res://.import/slice_guide.png-d498d1d144a8aa70b05f4824aab08e18.stex" ]
 
 [params]
 
