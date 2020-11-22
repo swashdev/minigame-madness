@@ -12,11 +12,6 @@ var _sliced: bool = false
 var _slices: int = 0
 
 
-# When the minigame is ready, randomize the start point of the slicer.
-func _ready():
-	$Slicer.rotation_degrees = rand_range( 45.0, 0.0 )
-
-
 # The mainloop for the minigame.
 func _process( _delta ):
 	if _unlock_controls:
