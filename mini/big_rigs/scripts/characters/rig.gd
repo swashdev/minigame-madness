@@ -14,7 +14,7 @@ var allow_movement: bool = true
 var _speed: float = 0.0
 
 # The rate of acceleration per second.
-var _acceleration: float = 10.0
+var _acceleration: float = 5.0
 
 
 # The mainloop for the rig.
