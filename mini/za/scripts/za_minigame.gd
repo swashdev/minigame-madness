@@ -12,6 +12,11 @@ func _process( _delta ):
 		$Za.slice()
 
 
+func start():
+	$Slicer.allow_movement = true
+	_unlock_controls = true
+
+
 # Decide whether the player has won the minigame.
 # In this minigame, if the player has not already been declared the winner by
 # the time the timer expires, they will be declared the winner ONLY if they
