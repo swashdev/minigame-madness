@@ -13,6 +13,6 @@ var allow_movement: bool = false
 func _process( delta ):
 	if allow_movement:
 		if Input.is_action_pressed( "move_right" ):
-			rotation_degrees += ROTATE_SPEED * delta
-		elif Input.is_action_pressed( "move_left" ):
 			rotation_degrees -= ROTATE_SPEED * delta
+		elif Input.is_action_pressed( "move_left" ):
+			rotation_degrees += ROTATE_SPEED * delta
