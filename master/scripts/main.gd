@@ -60,15 +60,13 @@ func reset_arrays():
 	minigames_lost = []
 	minigames_won = []
 	current_minigame = []
-	list_minigames = [
-		$MinigameCanvas.RAGDOLL,
-		$MinigameCanvas.SAW,
-		$MinigameCanvas.BASEBALL,
-		#$MinigameCanvas.ANCHOVY,
-		$MinigameCanvas.LOSE,
-		$MinigameCanvas.ZA,
-		# Leading comma on last element intentional for diff files
-		]
+
+	list_minigames = []
+	var num_minigames: int = $MinigameCanvas.Minigames.size()
+	var number: int = 0
+	while number < num_minigames:
+		list_minigames.append( number )
+		number += 1
 
 
 # Selects a random minigame.

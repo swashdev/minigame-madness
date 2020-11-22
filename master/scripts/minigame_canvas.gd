@@ -9,24 +9,15 @@ extends Node2D
 signal won
 signal lost
 
-# Identifiers for the various minigames.
-enum \
-{
-	RAGDOLL, # ragdoll.tscn
-	SAW, # saw_minigame.tscn
-	BASEBALL, # baseball_minigame.tscn
-	#ANCHOVY, # anchovy_game.tscn
-	LOSE, # lose_minigame.tscn
-	ZA,
-	# Leading comma on last element intentional for diff files.
-}
-
-# Packed scenes which indicate which minigames to instance.
-export (PackedScene) var Minigame1 # Ragdoll
-export (PackedScene) var Minigame2 # Saw
-export (PackedScene) var Minigame3 # Baseball
-export (PackedScene) var Minigame4 # Lose
-export (PackedScene) var Minigame5 # 'Za
+# The canonical list of minigames.
+var Minigames = [
+	preload( "res://mini/ragdoll/scenes/ragdoll.tscn" ),
+	preload( "res://mini/saw/scenes/saw_minigame.tscn" ),
+	preload( "res://mini/baseball/scenes/baseball_minigame.tscn" ),
+	preload( "res://mini/lose/scenes/lose_minigame.tscn" ),
+	preload( "res://mini/za/scenes/za_minigame.tscn" ),
+	# Comma on last element intentional for efficient diff files.
+]
 
 # The minigame currently in progress.
 var _minigame: Minigame setget set_minigame
@@ -40,19 +31,7 @@ func decide():
 # Sets the current minigame according to the specified ID and adds it to the
 # canvas.
 func set_minigame( minigame_id ):
-	match minigame_id:
-		RAGDOLL:
-			_minigame = Minigame1.instance()
-		SAW:
-			_minigame = Minigame2.instance()
-		BASEBALL:
-			_minigame = Minigame3.instance()
-		#ANCHOVY:
-		#	_minigame = Minigame4.instance()
-		LOSE:
-			_minigame = Minigame4.instance()
-		ZA:
-			_minigame = Minigame5.instance()
+	_minigame = Minigames[minigame_id].instance()
 	
 	_minigame.connect( "won", self, "_on_Minigame_won" )
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )
