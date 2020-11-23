@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://shared/scenes/ui/keys/left_key.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/wind/scripts/wind_minigame.gd" type="Script" id=2]
 [ext_resource path="res://shared/scenes/ui/keys/right_key.tscn" type="PackedScene" id=3]
-[ext_resource path="res://shared/images/characters/fluffy/fluffy.png" type="Texture" id=4]
+[ext_resource path="res://mini/wind/images/characters/balance_man.png" type="Texture" id=4]
+[ext_resource path="res://mini/wind/images/characters/animations/cape_2.png" type="Texture" id=5]
+[ext_resource path="res://mini/wind/images/characters/animations/cape_1.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="WindMinigame" type="Node2D"]
 script = ExtResource( 2 )
@@ -27,7 +37,14 @@ __meta__ = {
 position = Vector2( 320, 240 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
-offset = Vector2( 0, -8 )
+centered = false
+offset = Vector2( -50, -100 )
+
+[node name="Cape" type="AnimatedSprite" parent="Player"]
+show_behind_parent = true
+position = Vector2( -43.6038, -79.5821 )
+frames = SubResource( 1 )
+playing = true
 
 [node name="LeftKey" parent="." instance=ExtResource( 1 )]
 position = Vector2( 280, 280 )
