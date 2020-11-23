@@ -65,6 +65,8 @@ func _process( delta ):
 		$Player.position.x += WIND_STRENGTH * wind * delta
 		$Player.rotation_degrees += 90 * sign( $Player.rotation ) * delta
 
+	_blow_clouds( delta )
+
 
 # Finish the game by locking the controls and stopping the blinking prompts.
 func stop():
@@ -84,3 +86,10 @@ func blink_prompts():
 	else:
 		$LeftKey.dim()
 		$RightKey.dim()
+
+
+# Blows the background clouds along according to wind speed.
+func _blow_clouds( delta ):
+	var rl_wind = delta * wind * WIND_STRENGTH
+	$Cloud1.blow( rl_wind )
+	$Cloud2.blow( rl_wind )
