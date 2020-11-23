@@ -36,7 +36,6 @@ __meta__ = {
 
 [node name="Player" type="Sprite" parent="."]
 position = Vector2( 320, 240 )
-scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 centered = false
 offset = Vector2( -50, -100 )
@@ -45,6 +44,7 @@ offset = Vector2( -50, -100 )
 show_behind_parent = true
 position = Vector2( -43.6038, -79.5821 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="LeftKey" parent="." instance=ExtResource( 1 )]
