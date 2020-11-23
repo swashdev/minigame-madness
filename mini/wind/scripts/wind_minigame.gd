@@ -61,7 +61,7 @@ func _process( delta ):
 
 	# If they die, the player falls off the pillar.
 	if dead:
-		$Player.position.y += 220.0 * delta
+		$Player.position.y += 480.0 * delta
 		$Player.position.x += WIND_STRENGTH * wind * delta
 		$Player.rotation_degrees += 90 * sign( $Player.rotation ) * delta
 
