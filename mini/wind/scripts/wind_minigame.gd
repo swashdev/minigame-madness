@@ -88,4 +88,5 @@ func blink_prompts():
 
 # The player wins by default when the timer runs out.
 func decide():
+	stop()
 	emit_signal( "won" )
