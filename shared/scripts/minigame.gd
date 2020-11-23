@@ -15,6 +15,10 @@ signal lost
 # as in "Doge the Creeps!"
 export(String) var _instruction setget ,get_instruction
 
+# Whether the player wins by default when the timer expires.  If not, they
+# lose by default.
+export(bool) var _win_by_default = false
+
 # Unlocks the controls to allow the minigame's mainloop to process
 # instructions.
 var _unlock_controls: bool = false
@@ -29,7 +33,10 @@ func get_instruction():
 # `won` signal or the `lost` signal.  Mostly used if the minigame has not
 # given any such signal by the time the timer runs out.
 func decide():
-	emit_signal( "lost" )
+	if _win_by_default:
+		emit_signal( "won" )
+	else:
+		emit_signal( "lost" )
 
 
 # Signals the minigame that the game is ready and to start playing.  Generally
