@@ -61,12 +61,7 @@ func reset_arrays():
 	minigames_won = []
 	current_minigame = []
 
-	list_minigames = []
-	var num_minigames: int = $MinigameCanvas.Minigames.size()
-	var number: int = 0
-	while number < num_minigames:
-		list_minigames.append( number )
-		number += 1
+	list_minigames = range( 0, $MinigameCanvas.Minigames.size() )
 
 
 # Selects a random minigame.
