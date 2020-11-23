@@ -6,7 +6,7 @@
 [ext_resource path="res://mini/wind/images/characters/balance_man.png" type="Texture" id=4]
 [ext_resource path="res://mini/wind/images/characters/animations/cape_2.png" type="Texture" id=5]
 [ext_resource path="res://mini/wind/images/characters/animations/cape_1.png" type="Texture" id=6]
-[ext_resource path="res://shared/images/background/sky.png" type="Texture" id=7]
+[ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,13 +21,7 @@ script = ExtResource( 2 )
 _instruction = "Don't Fall Down!"
 _win_by_default = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sky" parent="." instance=ExtResource( 7 )]
 
 [node name="Pillar" type="ColorRect" parent="."]
 anchor_left = 0.5
