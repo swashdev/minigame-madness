@@ -84,9 +84,3 @@ func blink_prompts():
 	else:
 		$LeftKey.dim()
 		$RightKey.dim()
-
-
-# The player wins by default when the timer runs out.
-func decide():
-	stop()
-	emit_signal( "won" )

@@ -18,6 +18,7 @@ animations = [ {
 [node name="WindMinigame" type="Node2D"]
 script = ExtResource( 2 )
 _instruction = "Don't Fall Down!"
+_win_by_default = true
 
 [node name="Pillar" type="ColorRect" parent="."]
 anchor_left = 0.5
