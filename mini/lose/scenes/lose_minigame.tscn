@@ -133,7 +133,7 @@ script = ExtResource( 7 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spike"]
-polygon = PoolVector2Array( -44.2618, -42.711, 39.1532, -43.9026, -7.71814, 51.8261 )
+polygon = PoolVector2Array( -44.7745, -50.5301, 45.3983, -50.7142, 1.14886, 53.0001 )
 
 [node name="Timer" type="Timer" parent="Spike"]
 wait_time = 3.0
