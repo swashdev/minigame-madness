@@ -33,6 +33,7 @@ func get_instruction():
 # `won` signal or the `lost` signal.  Mostly used if the minigame has not
 # given any such signal by the time the timer runs out.
 func decide():
+	stop()
 	if _win_by_default:
 		emit_signal( "won" )
 	else:
@@ -44,3 +45,10 @@ func decide():
 # spawns, or what have you as appropriate.
 func start():
 	_unlock_controls = true
+
+
+# Instructs the minigame to stop.  Generally this will lock the controls, and
+# more often than not this function will be called by `decide` when the timer
+# runs down.
+func stop():
+	_unlock_controls = false
