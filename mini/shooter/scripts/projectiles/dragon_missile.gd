@@ -7,7 +7,7 @@ extends Projectile2D
 signal big_boom( y_coordinate )
 
 # At what y coordinate the missile will detonate.
-const BOOM_AT_Y: float = 80.0
+const BOOM_AT_Y: float = 120.0
 
 # The speed the missile will go once it's fired.
 const SPEED: float = 200.0
