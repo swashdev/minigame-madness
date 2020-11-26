@@ -8,6 +8,7 @@ radius = 5.90898
 height = 9.67862
 
 [node name="DragonMissile" instance=ExtResource( 1 )]
+collision_layer = 4
 _direction = -90.0
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
