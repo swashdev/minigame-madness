@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shared/scenes/projectiles/projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mini/shooter/images/projectiles/pew_pew.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 10 )
+
+[node name="DragonShot" instance=ExtResource( 1 )]
+_speed = 200.0
+_direction = -90.0
+
+[node name="VisibilityNotifier2D" parent="." index="0"]
+position = Vector2( -9.38773e-07, -14.9622 )
+scale = Vector2( 2, 0.903778 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2( 0, -15 )
+shape = SubResource( 1 )
