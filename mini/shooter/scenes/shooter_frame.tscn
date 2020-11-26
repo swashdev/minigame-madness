@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://shared/scenes/ui/keys/spacebar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shared/scenes/ui/keys/right_key.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://mini/shooter/scripts/shooter_frame.gd" type="Script" id=4]
 [ext_resource path="res://shared/scenes/ui/keys/arrow_key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://mini/shooter/scenes/shooter_minigame.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mini/shooter/images/ui/key/missile_key.png" type="Texture" id=7]
 
 [node name="ShooterFrame" type="Node2D"]
 script = ExtResource( 4 )
@@ -31,6 +32,16 @@ position = Vector2( 500, 410 )
 [node name="MissileKey" parent="." instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 540, 410 )
+
+[node name="TextureRect" type="TextureRect" parent="MissileKey"]
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RightKey" parent="." instance=ExtResource( 2 )]
 position = Vector2( 580, 410 )
