@@ -31,6 +31,6 @@ func explode():
 # A projectile has entered the bad guy, causing it to explode.
 func _on_Area2D_body_entered( body ):
 	# Tell the projectile to delete itself.
-	body.queue_free()
+	body.blow_up()
 	# Explode.
 	explode()

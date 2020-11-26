@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://shared/scenes/projectiles/projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/shooter/images/projectiles/pew_pew.png" type="Texture" id=2]
+[ext_resource path="res://mini/shooter/scripts/projectiles/dragon_shot.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 10 )
 
 [node name="DragonShot" instance=ExtResource( 1 )]
 collision_layer = 4
+script = ExtResource( 3 )
 _speed = 200.0
 _direction = -90.0
 
