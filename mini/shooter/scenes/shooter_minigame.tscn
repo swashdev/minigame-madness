@@ -1,10 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://mini/shooter/scenes/characters/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/shooter/scripts/shooter_minigame.gd" type="Script" id=2]
 [ext_resource path="res://mini/shooter/scenes/projectiles/dragon_shot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/shooter/scenes/spawners/enemy_path.tscn" type="PackedScene" id=4]
 [ext_resource path="res://shared/scenes/effects/explosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mini/shooter/scripts/effects/starspawner.gd" type="Script" id=6]
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 232, 0 )
+}
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -36,6 +42,18 @@ script = ExtResource( 2 )
 bullet = ExtResource( 3 )
 explosion = ExtResource( 5 )
 
+[node name="Starfield" type="Path2D" parent="."]
+curve = SubResource( 6 )
+
+[node name="StarSpawner" type="PathFollow2D" parent="Starfield"]
+position = Vector2( 8, 0 )
+script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="Starfield/StarSpawner"]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
 [node name="Paths" type="Node2D" parent="."]
 
 [node name="Path1" parent="Paths" instance=ExtResource( 4 )]
@@ -64,5 +82,6 @@ default_color = Color( 0.764706, 0, 0, 1 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
+[connection signal="timeout" from="Starfield/StarSpawner/Timer" to="Starfield/StarSpawner" method="_on_Timer_timeout"]
 [connection signal="shot" from="Player" to="." method="_on_Player_shot"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
