@@ -24,6 +24,11 @@ func _ready():
 	_paths = $Paths.get_children()
 	_path_count = _paths.size()
 
+	# Connect each path's "exploded" signal to the `_on_enemy_exploded`
+	# function.
+	for path in _paths:
+		path.connect( "exploded", self, "_on_enemy_exploded" )
+
 
 # Unlock the player's controls on starting the minigame.
 func start():
