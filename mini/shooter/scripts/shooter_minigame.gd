@@ -8,9 +8,15 @@ export (PackedScene) var bullet
 # An explosion animation.
 export (PackedScene) var explosion
 
+# The target number of kills.
+const KILLS_REQUIRED: int = 3
+
 # An array of paths which can spawn enemies.
 var _paths: Array
 var _path_count: int
+
+# The number of kills the player has.
+var _kills: int = 0
 
 
 # Initialize the minigame by populating `paths` and setting `path_count`
@@ -46,3 +52,18 @@ func _on_Player_shot():
 func _on_EnemySpawnTimer_timeout():
 	var path = _paths[ randi() % _path_count ]
 	path.spawn_enemy()
+
+
+# An enemy has exploded and must be counted.
+func _on_enemy_exploded( location ):
+	# Add an explosion to the scene at the specified location.
+	var boom = explosion.instance()
+	boom.position = location
+	add_child( boom )
+	boom.play()
+
+	# Increment the player's kill counter and check for victory.
+	_kills += 1
+	if _kills >= KILLS_REQUIRED:
+		stop()
+		emit_signal( "won" )
