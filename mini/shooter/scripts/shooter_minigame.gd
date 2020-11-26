@@ -18,6 +18,9 @@ var _path_count: int
 # The number of kills the player has.
 var _kills: int = 0
 
+# A star node which can be instanced to create a starfield.
+var _star = preload( "res://mini/shooter/scenes/effects/star/star.tscn" )
+
 
 # Initialize the minigame by populating `paths` and setting `path_count`
 func _ready():
@@ -75,3 +78,9 @@ func _on_enemy_exploded( location ):
 	if _kills >= KILLS_REQUIRED:
 		stop()
 		emit_signal( "won" )
+
+
+func _on_StarSpawner_spawn_star( x_coordinate ):
+	var star = _star.instance()
+	star.rect_position = Vector2( x_coordinate, 0 )
+	add_child( star )

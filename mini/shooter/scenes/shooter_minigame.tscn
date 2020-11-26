@@ -51,7 +51,6 @@ script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="Starfield/StarSpawner"]
 wait_time = 0.1
-one_shot = true
 autostart = true
 
 [node name="Paths" type="Node2D" parent="."]
@@ -82,6 +81,7 @@ default_color = Color( 0.764706, 0, 0, 1 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
+[connection signal="spawn_star" from="Starfield/StarSpawner" to="." method="_on_StarSpawner_spawn_star"]
 [connection signal="timeout" from="Starfield/StarSpawner/Timer" to="Starfield/StarSpawner" method="_on_Timer_timeout"]
 [connection signal="shot" from="Player" to="." method="_on_Player_shot"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
