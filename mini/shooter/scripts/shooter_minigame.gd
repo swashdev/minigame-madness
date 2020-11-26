@@ -18,6 +18,9 @@ var _path_count: int
 # The number of kills the player has.
 var _kills: int = 0
 
+# Whether or not the player has fired their missile.
+var _fired_missile: bool = false
+
 # A star node which can be instanced to create a starfield.
 var _star = preload( "res://mini/shooter/scenes/effects/star/star.tscn" )
 
@@ -31,6 +34,13 @@ func _ready():
 	# function.
 	for path in _paths:
 		path.connect( "exploded", self, "_on_enemy_exploded" )
+
+
+# The minigame's mainloop.  If the player has not fired their missile, have it
+# follow the player.
+func _process( _delta ):
+	if not _fired_missile:
+		$Missile.position.x = $Player.position.x
 
 
 # Unlock the player's controls on starting the minigame.
@@ -84,3 +94,10 @@ func _on_StarSpawner_spawn_star( x_coordinate ):
 	var star = _star.instance()
 	star.rect_position = Vector2( x_coordinate, 0 )
 	add_child( star )
+
+
+# The player has fired their missile.  Shit's about to get real.
+func _on_Player_fired_missile():
+	if not _fired_missile:
+		_fired_missile = true
+		$Missile.fire()

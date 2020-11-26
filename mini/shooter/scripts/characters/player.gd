@@ -4,12 +4,16 @@ extends Area2D
 
 # Signals the gameloop that the player is firing a shot.
 signal shot
+signal fired_missile
 
 # The player's speed.
 const SPEED: float = 400.0
 
 # Whether or not to unlock movement.
 var allow_movement: bool = false
+
+# Whether or not the player has fired their missile.
+var _fired_missile: bool = false
 
 # Whether or not the player's shot has cooled down.
 var _cooldown: bool = true
@@ -35,6 +39,11 @@ func _process( delta ):
 				emit_signal( "shot" )
 				# Play the exhaust animation.
 				$Sprite/GunExhaust.frame = 0
+		# The player fires their missile with the down key.
+		if Input.is_action_just_pressed( "move_down" ) \
+		and not _fired_missile:
+			_fired_missile = true
+			emit_signal( "fired_missile" )
 
 
 # The player's cooldown timer has expired, allowing them to fire another shot.
