@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://mini/shooter/scenes/characters/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=4]
 
 [node name="ShooterMinigame" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 120, 430 )
 
 [node name="Boundary" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 240, 0, 240, 440, 0, 440, 0, 0 )
