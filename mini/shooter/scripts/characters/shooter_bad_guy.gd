@@ -6,7 +6,7 @@ extends PathFollow2D
 signal exploded( location )
 
 # Determines the speed of the enemy ships in units per second.
-const SPEED: float = 40.0
+const SPEED: float = 100.0
 
 
 # The bad guys' mainloop.
