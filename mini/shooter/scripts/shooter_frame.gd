@@ -16,3 +16,11 @@ func start():
 
 func stop():
 	$Minigame.stop()
+
+
+func _on_Minigame_won():
+	emit_signal( "won" )
+
+
+func _on_Minigame_lost():
+	emit_signal( "lost" )

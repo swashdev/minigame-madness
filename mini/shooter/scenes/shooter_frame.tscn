@@ -34,3 +34,5 @@ position = Vector2( 540, 410 )
 
 [node name="RightKey" parent="." instance=ExtResource( 2 )]
 position = Vector2( 580, 410 )
+[connection signal="lost" from="Minigame" to="." method="_on_Minigame_lost"]
+[connection signal="won" from="Minigame" to="." method="_on_Minigame_won"]
