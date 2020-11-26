@@ -5,6 +5,9 @@ extends Minigame
 # The player's projectiles.
 export (PackedScene) var bullet
 
+# An explosion animation.
+export (PackedScene) var explosion
+
 # An array of paths which can spawn enemies.
 var _paths: Array
 var _path_count: int
