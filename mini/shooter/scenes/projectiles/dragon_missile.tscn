@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shared/scenes/projectiles/projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mini/shooter/images/projectiles/missile.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.90898
+height = 9.67862
+
+[node name="DragonMissile" instance=ExtResource( 1 )]
+_direction = -90.0
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 1 )
+disabled = true
