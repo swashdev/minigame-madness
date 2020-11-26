@@ -64,6 +64,9 @@ func _on_enemy_exploded( location ):
 	# Add an explosion to the scene at the specified location.
 	var boom = explosion.instance()
 	boom.position = location
+	# The position of the explosion has to be adjusted for the actual
+	# minigame's on-screen position.
+	boom.position.x -= position.x
 	add_child( boom )
 	boom.play()
 
