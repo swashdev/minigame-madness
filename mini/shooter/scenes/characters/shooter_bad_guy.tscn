@@ -17,6 +17,7 @@ loop = false
 script = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
+rotation = -1.5708
 collision_layer = 2
 collision_mask = 4
 
@@ -24,6 +25,8 @@ collision_mask = 4
 polygon = PoolVector2Array( 0.252708, 22.0724, -21.4624, -19.8856, 21.5997, -19.8856 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+rotation = -1.5708
 frames = SubResource( 1 )
+frame = 1
 playing = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
