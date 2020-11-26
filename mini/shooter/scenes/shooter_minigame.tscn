@@ -42,4 +42,8 @@ position = Vector2( 120, 430 )
 points = PoolVector2Array( 0, 0, 240, 0, 240, 440, 0, 440, 0, 0 )
 width = 2.0
 default_color = Color( 0.764706, 0, 0, 1 )
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 [connection signal="shot" from="Player" to="." method="_on_Player_shot"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
