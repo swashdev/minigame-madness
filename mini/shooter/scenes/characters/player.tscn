@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://mini/shooter/images/characters/animations/gun_exhaust_01.png" type="Texture" id=1]
 [ext_resource path="res://mini/shooter/images/characters/animations/gun_exhaust_03.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://mini/shooter/images/characters/animations/exhaust_03.png" type="Texture" id=8]
 [ext_resource path="res://mini/shooter/images/characters/animations/exhaust_02.png" type="Texture" id=9]
 [ext_resource path="res://mini/shooter/images/characters/animations/exhaust_04.png" type="Texture" id=10]
+[ext_resource path="res://mini/shooter/scripts/characters/player.gd" type="Script" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -32,6 +33,7 @@ extents = Vector2( 19.981, 13.0136 )
 
 [node name="Player" type="Area2D"]
 collision_mask = 2
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -43,7 +45,7 @@ texture = ExtResource( 7 )
 [node name="Exhaust" type="AnimatedSprite" parent="Sprite"]
 position = Vector2( 0, 5 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="GunExhaust" type="AnimatedSprite" parent="Sprite"]
