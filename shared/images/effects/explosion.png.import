@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/explosion.png-4db64befa1e7a0122a17decc1e8d262f.stex"
+path="res://.import/explosion.png-03e9a23b1b3695edfd6d7571d0194020.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/anchovy_quest/images/effects/explosion.png"
-dest_files=[ "res://.import/explosion.png-4db64befa1e7a0122a17decc1e8d262f.stex" ]
+source_file="res://shared/images/effects/explosion.png"
+dest_files=[ "res://.import/explosion.png-03e9a23b1b3695edfd6d7571d0194020.stex" ]
 
 [params]
 

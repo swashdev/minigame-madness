@@ -2,8 +2,9 @@
 
 [ext_resource path="res://mini/anchovy_quest/images/obstacles/pizza_slice.png" type="Texture" id=1]
 [ext_resource path="res://mini/anchovy_quest/scripts/obstacles/half_pizza.gd" type="Script" id=2]
-[ext_resource path="res://mini/anchovy_quest/scenes/effects/explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shared/scenes/effects/explosion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/anchovy_quest/scenes/obstacles/pizza.tscn" type="PackedScene" id=4]
+
 
 [node name="HalfPizza" type="RigidBody2D"]
 collision_layer = 2
