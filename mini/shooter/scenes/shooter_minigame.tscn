@@ -36,7 +36,7 @@ script = ExtResource( 2 )
 bullet = ExtResource( 3 )
 explosion = ExtResource( 5 )
 
-[node name="Paths" type="Node" parent="."]
+[node name="Paths" type="Node2D" parent="."]
 
 [node name="Path1" parent="Paths" instance=ExtResource( 4 )]
 curve = SubResource( 1 )
