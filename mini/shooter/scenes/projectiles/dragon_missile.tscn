@@ -19,3 +19,8 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 1 )
 disabled = true
+
+[node name="DeathTimer" type="Timer" parent="." index="3"]
+wait_time = 0.33
+one_shot = true
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
