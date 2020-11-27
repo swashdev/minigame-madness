@@ -22,7 +22,7 @@ const MESSAGE_ZOOM_DY: int = 960
 # The x value for which the message will be considered to be "centered"
 const MESSAGE_CENTER_X: int = 0
 # The y value for same.
-const MESSAGE_CENTER_Y: int = 233
+const MESSAGE_CENTER_Y: int = 213
 
 # The label's current animation.
 var _current_animation = LabelAnimation.NONE
