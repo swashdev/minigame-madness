@@ -31,8 +31,7 @@ var current_minigame = []
 func _ready():
 	# Seed the random number generator.
 	randomize()
-	reset_everything()
-	do_next_minigame()
+	new_game()
 
 
 # Normal processing.
@@ -40,6 +39,18 @@ func _process( _delta ):
 	if game_in_progress:
 		# Update the progress bar.
 		$InGameHUD.update_progress_bar( $GameTimer.time_left )
+
+
+# Starts a new game.
+func new_game():
+	reset_everything()
+	$InGameHUD.message( "you have four seconds to complete each game", 2 )
+	yield( $InGameHUD, "message_exited" )
+	$InGameHUD.message( "use the arrow keys and spacebar", 2 )
+	yield( $InGameHUD, "message_exited" )
+	$InGameHUD.message( "Game Begin" )
+	yield( $InGameHUD, "message_exited" )
+	do_next_minigame()
 
 
 # Resets all of the above variables to their default values.
