@@ -30,4 +30,4 @@ func blow_up():
 func fire():
 	# Enable collision detection.
 	$CollisionShape2D.set_deferred( "disabled", false )
-	_speed = SPEED
+	set_speed( SPEED )
