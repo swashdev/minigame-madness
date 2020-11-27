@@ -8,32 +8,32 @@
 [ext_resource path="res://mini/shooter/scripts/effects/starspawner.gd" type="Script" id=6]
 [ext_resource path="res://mini/shooter/scenes/projectiles/dragon_missile.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 232, 0 )
 }
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 32, -64, 0, 0, 0, 0, 232, 80, 0, 0, 0, 0, 64, 272, 0, 0, 0, 0, 232, 472 )
 }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 224, -64, 0, 0, 0, 0, 16, 80, 0, 0, 0, 0, 200, 272, 0, 0, 0, 0, 24, 472 )
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 120, -64, 0, 0, 0, 0, 16, 192, 0, 0, 0, 0, 16, 320, 0, 0, 0, 0, 224, 320, 0, 0, 0, 0, 224, 472 )
 }
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=5]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 128, -64, 0, 0, 0, 0, 224, 128, 0, 0, 0, 0, 32, 256, 0, 0, 0, 0, 160, 464 )
 }
 
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=6]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 64, -64, 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 192, 64, 0, 0, 0, 0, 192, -64 )
 }
@@ -44,7 +44,7 @@ bullet = ExtResource( 3 )
 explosion = ExtResource( 5 )
 
 [node name="Starfield" type="Path2D" parent="."]
-curve = SubResource( 6 )
+curve = SubResource( 1 )
 
 [node name="StarSpawner" type="PathFollow2D" parent="Starfield"]
 position = Vector2( 8, 0 )
@@ -57,20 +57,20 @@ autostart = true
 [node name="Paths" type="Node2D" parent="."]
 
 [node name="Path1" parent="Paths" instance=ExtResource( 4 )]
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="Path2" parent="Paths" instance=ExtResource( 4 )]
 position = Vector2( -8, 0 )
-curve = SubResource( 2 )
-
-[node name="Path3" parent="Paths" instance=ExtResource( 4 )]
 curve = SubResource( 3 )
 
-[node name="Path4" parent="Paths" instance=ExtResource( 4 )]
+[node name="Path3" parent="Paths" instance=ExtResource( 4 )]
 curve = SubResource( 4 )
 
-[node name="Path5" parent="Paths" instance=ExtResource( 4 )]
+[node name="Path4" parent="Paths" instance=ExtResource( 4 )]
 curve = SubResource( 5 )
+
+[node name="Path5" parent="Paths" instance=ExtResource( 4 )]
+curve = SubResource( 6 )
 
 [node name="Missile" parent="." instance=ExtResource( 7 )]
 position = Vector2( 120, 400 )
@@ -87,7 +87,6 @@ default_color = Color( 0.764706, 0, 0, 1 )
 wait_time = 0.5
 [connection signal="spawn_star" from="Starfield/StarSpawner" to="." method="_on_StarSpawner_spawn_star"]
 [connection signal="timeout" from="Starfield/StarSpawner/Timer" to="Starfield/StarSpawner" method="_on_Timer_timeout"]
-[connection signal="big_boom" from="Missile" to="." method="_on_Missile_big_boom"]
 [connection signal="fired_missile" from="Player" to="." method="_on_Player_fired_missile"]
 [connection signal="shot" from="Player" to="." method="_on_Player_shot"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
