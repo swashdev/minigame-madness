@@ -18,7 +18,7 @@ func _ready():
 
 # The BigBoom's mainloop.  As soon as it spawns, it will start to fade away.
 func _process( delta ):
-	var alpha = $ColorRect.get_color().a
+	var alpha = $ColorRect.color.a
 	# If the alpha is 0, delete self.
 	if alpha <= 0.0:
 		queue_free()
