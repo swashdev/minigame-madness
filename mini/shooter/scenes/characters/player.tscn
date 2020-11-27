@@ -45,7 +45,7 @@ texture = ExtResource( 7 )
 [node name="Exhaust" type="AnimatedSprite" parent="Sprite"]
 position = Vector2( 0, 5 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="GunExhaust" type="AnimatedSprite" parent="Sprite"]

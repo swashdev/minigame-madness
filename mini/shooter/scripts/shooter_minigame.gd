@@ -8,6 +8,9 @@ export (PackedScene) var bullet
 # An explosion animation.
 export (PackedScene) var explosion
 
+# A large explosion which will destroy all enemy ships in its blast radius.
+export (PackedScene) var big_boom
+
 # The target number of kills.
 const KILLS_REQUIRED: int = 3
 
@@ -101,3 +104,10 @@ func _on_Player_fired_missile():
 	if not _fired_missile:
 		_fired_missile = true
 		$Missile.fire()
+
+
+# The missile has been detonated.  Time to light the fireworks.
+func _on_Missile_big_boom( y_coordinate ):
+	var fireworks = big_boom.instance()
+	fireworks.position = Vector2( 120, y_coordinate )
+	add_child( fireworks )
