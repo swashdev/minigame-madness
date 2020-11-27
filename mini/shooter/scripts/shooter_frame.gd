@@ -28,3 +28,9 @@ func _on_Minigame_won():
 
 func _on_Minigame_lost():
 	emit_signal( "lost" )
+
+
+# The player has deployed their missile, so we dim the missile key to let the
+# player know that was their one shot.
+func _on_Minigame_missile_deployed():
+	$MissileKey.dim()

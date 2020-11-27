@@ -2,6 +2,10 @@ extends Minigame
 # A script for the shoot 'em up minigame
 
 
+# A signal to tell the `ShooterFrame` that the player's missile has been
+# deployed.
+signal missile_deployed
+
 # The player's projectiles.
 export (PackedScene) var bullet
 
@@ -101,3 +105,4 @@ func _on_Player_fired_missile():
 	if not _fired_missile:
 		_fired_missile = true
 		$Missile.fire()
+		emit_signal( "missile_deployed" )
