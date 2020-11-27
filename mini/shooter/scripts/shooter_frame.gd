@@ -5,10 +5,6 @@ extends Minigame
 # Since the ShooterFrame functions as a frame around the actual minigame, this
 # script pretty much defers everything to the ShooterMinigame.
 
-# For testing
-func _ready():
-	start()
-
 
 func decide():
 	$Minigame.decide()
