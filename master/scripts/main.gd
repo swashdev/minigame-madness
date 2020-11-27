@@ -31,7 +31,6 @@ var current_minigame = []
 func _ready():
 	# Seed the random number generator.
 	randomize()
-	new_game()
 
 
 # Normal processing.
