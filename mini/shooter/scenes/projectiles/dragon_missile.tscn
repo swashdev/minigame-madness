@@ -23,4 +23,14 @@ disabled = true
 [node name="DeathTimer" type="Timer" parent="." index="3"]
 wait_time = 0.33
 one_shot = true
+
+[node name="BigBoom" type="ColorRect" parent="." index="4"]
+visible = false
+margin_left = -120.0
+margin_top = -120.0
+margin_right = 120.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

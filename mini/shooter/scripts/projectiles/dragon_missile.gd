@@ -17,10 +17,17 @@ var _exploded: bool = false
 
 
 # `blow_up` when the missile reaches a certain y coordinate.
-func _process( _delta ):
+func _process( delta ):
 	if not _exploded:
 		if position.y <= BOOM_AT_Y:
 			blow_up()
+	else:
+		var alpha = $BigBoom.color.a
+		if alpha > 0.0:
+			alpha -= 1.0 * delta
+			$BigBoom.color = Color( 1, 1, 1, alpha )
+		else:
+			queue_free()
 
 
 # Signal the mainloop to spawn a BigBoom at the current y coordinates and
@@ -30,7 +37,8 @@ func blow_up():
 	_exploded = true
 	$CollisionShape2D.shape.set_radius( 120 )
 	set_speed( 0.0 )
-	hide()
+	$Sprite.hide()
+	$BigBoom.show()
 	$DeathTimer.start()
 
 
