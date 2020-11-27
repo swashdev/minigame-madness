@@ -30,7 +30,6 @@ position = Vector2( 100, 410 )
 position = Vector2( 500, 410 )
 
 [node name="MissileKey" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 540, 410 )
 
 [node name="TextureRect" type="TextureRect" parent="MissileKey"]
