@@ -2,10 +2,6 @@ extends Projectile2D
 # A script for the DragonMissile from the shoot 'em up game.
 
 
-# This signal instructs the gameloop to spawn a BigBoom at the given y
-# coordinate.
-signal big_boom( y_coordinate )
-
 # At what y coordinate the missile will detonate.
 const BOOM_AT_Y: float = 120.0
 
@@ -33,7 +29,6 @@ func _process( delta ):
 # Signal the mainloop to spawn a BigBoom at the current y coordinates and
 # then delete self.
 func blow_up():
-	emit_signal( "big_boom", position.y )
 	_exploded = true
 	$CollisionShape2D.shape.set_radius( 120 )
 	set_speed( 0.0 )
