@@ -42,6 +42,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DebugButton" type="Button" parent="Menu/Buttons"]
+visible = false
+margin_top = 60.0
+margin_right = 400.0
+margin_bottom = 80.0
+text = "Debug Menu"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LegalStuffButton" type="Button" parent="Menu/Buttons"]
 margin_top = 60.0
 margin_right = 400.0
@@ -75,6 +86,7 @@ window_title = "Really Quit?"
 dialog_text = "Are you sure you want to quit?"
 
 [node name="LegalStuffDialog" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="ConfirmOpenExternal" parent="." instance=ExtResource( 3 )]
 
@@ -87,6 +99,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Menu/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="Menu/Buttons/DebugButton" to="." method="_on_DebugButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/LegalStuffButton" to="." method="_on_LegalStuffButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="confirmed" from="ReallyQuit" to="." method="_on_ReallyQuit_confirmed"]

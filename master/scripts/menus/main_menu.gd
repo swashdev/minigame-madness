@@ -39,3 +39,8 @@ func _on_QuitButton_pressed():
 # The player has confirmed that they want to quit.  Signal Master.
 func _on_ReallyQuit_confirmed():
 	emit_signal( "button_pressed", "quit" )
+
+
+# The "Debug Menu" button has been pressed.  Signal Master.
+func _on_DebugButton_pressed():
+	emit_signal( "button_pressed", "debug" )
