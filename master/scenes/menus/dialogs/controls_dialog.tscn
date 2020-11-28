@@ -24,10 +24,10 @@ pressed = true
 shortcut = SubResource( 3 )
 
 [node name="ControlsDialog" type="WindowDialog"]
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 500, 300 )
+window_title = "Controls"
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
