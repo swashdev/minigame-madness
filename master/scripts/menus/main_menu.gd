@@ -66,6 +66,13 @@ func _on_SuddenDeath_pressed():
 	emit_signal( "button_pressed", "sudden_death" )
 
 
+# The "Controls" button has been pressed.  Show a dialog explaning the
+# controls.
+func _on_ControlsButton_pressed():
+	$ControlsDialog.popup_centered()
+
+
+
 # The "Legal Stuff" button has been pressed.  This will open a dialog box
 # containing licensing information.
 func _on_LegalStuffButton_pressed():

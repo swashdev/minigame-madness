@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://master/scenes/menus/dialogs/confirm_open_external.tscn" type="PackedScene" id=3]
 [ext_resource path="res://master/scenes/menus/buttons/new_game_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://master/scenes/menus/dialogs/controls_dialog.tscn" type="PackedScene" id=5]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -35,22 +36,22 @@ __meta__ = {
 }
 
 [node name="NewGameButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
-margin_top = 60.0
-margin_bottom = 100.0
+margin_top = 16.0
+margin_bottom = 56.0
 rect_min_size = Vector2( 0, 40 )
 text = "New Game"
 _descriptive_text = "play 8 minigames with 5 lives"
 
 [node name="EnduranceModeButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
-margin_top = 104.0
-margin_bottom = 144.0
+margin_top = 60.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 0, 40 )
 text = "Endurance Mode"
 _descriptive_text = "play an infinite number of minigames with five lives"
 
 [node name="SuddenDeath" parent="Menu/Buttons" instance=ExtResource( 4 )]
-margin_top = 148.0
-margin_bottom = 188.0
+margin_top = 104.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 40 )
 text = "Sudden Death"
 _descriptive_text = "play endurance mode with only one life"
@@ -66,6 +67,14 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ControlsButton" type="Button" parent="Menu/Buttons"]
+margin_top = 148.0
+margin_right = 400.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 0, 40 )
+text = "Controls"
+flat = true
 
 [node name="LegalStuffButton" type="Button" parent="Menu/Buttons"]
 margin_top = 192.0
@@ -94,6 +103,10 @@ rect_min_size = Vector2( 0, 40 )
 text = "Quit"
 flat = true
 
+[node name="ControlsDialog" parent="." instance=ExtResource( 5 )]
+margin_right = 500.0
+margin_bottom = 300.0
+
 [node name="ReallyQuit" type="ConfirmationDialog" parent="."]
 margin_left = 215.0
 margin_top = 205.0
@@ -119,6 +132,7 @@ __meta__ = {
 [connection signal="pressed" from="Menu/Buttons/EnduranceModeButton" to="." method="_on_EnduranceModeButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/SuddenDeath" to="." method="_on_SuddenDeath_pressed"]
 [connection signal="pressed" from="Menu/Buttons/DebugButton" to="." method="_on_DebugButton_pressed"]
+[connection signal="pressed" from="Menu/Buttons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/LegalStuffButton" to="." method="_on_LegalStuffButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="confirmed" from="ReallyQuit" to="." method="_on_ReallyQuit_confirmed"]
