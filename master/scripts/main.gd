@@ -3,6 +3,13 @@ extends Node
 # The main scene for Minigame Madness.
 
 
+# This signal is used to tell Master that there's been a game over.
+signal game_over( result )
+
+# Aliases for the `game_ended` function.
+const WON: bool = true
+const LOST: bool = false
+
 # The number of lives the player currently has.
 var lives = 5
 # The number of minigames that have been played.
@@ -93,8 +100,8 @@ func setup_minigame( minigame_id ):
 func do_next_minigame():
 	played = played + 1
 	if list_minigames.size() == 0:
-		# Show a win message if there are no minigames left.
-		$InGameHUD.message( "You're Winner!" )
+		# Signal game over.
+		game_ended( WON )
 	else:
 		get_minigame()
 		setup_minigame( current_minigame[0] )
@@ -106,6 +113,11 @@ func do_next_minigame():
 		$InGameHUD.show_life_counter()
 		$MinigameCanvas.start_minigame()
 		$GameTimer.start()
+
+
+# Performs "game over" functions.
+func game_ended( won: bool = true ):
+	emit_signal( "game_over", won )
 
 
 # The game timer has expired, and it's time to make a decision.
@@ -146,6 +158,6 @@ func _on_Minigame_lost():
 		$MinigameCanvas.cleanup()
 
 		if( lives <= 0 ):
-			$InGameHUD.message( "You lose!" )
+			game_ended( LOST )
 		else:
 			do_next_minigame()
