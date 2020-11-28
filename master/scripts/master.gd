@@ -35,6 +35,8 @@ func _on_MainMenu_button_pressed( button ):
 	match button:
 		"new_game":
 			_on_new_game()
+		"quit":
+			_on_quit()
 
 
 # This function is used to handle the "new game" button being pressed.
@@ -43,3 +45,8 @@ func _on_new_game():
 	$MainMenu.hide()
 	# Start a new game.
 	$Main.new_game()
+
+
+# This function is used to handle the "quit" button being pressed.
+func _on_quit():
+	get_tree().quit()
