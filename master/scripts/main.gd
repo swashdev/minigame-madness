@@ -7,8 +7,7 @@ extends Node
 signal game_over( result )
 
 # Aliases for the `game_ended` function.
-const WON: bool = true
-const LOST: bool = false
+enum { WON, LOST, CANCELLED }
 
 # The number of lives the player currently has.
 var lives = 5
@@ -45,6 +44,12 @@ func _process( _delta ):
 	if game_in_progress:
 		# Update the progress bar.
 		$InGameHUD.update_progress_bar( $GameTimer.time_left )
+		# End the game immediately if the Escape key is pressed.
+		if Input.is_action_just_pressed( "ui_cancel" ):
+			$MinigameCanvas.cleanup()
+			$GameTimer.stop()
+			$InGameHUD.hide()
+			game_ended( CANCELLED )
 
 
 # Starts a new game.
@@ -116,13 +121,15 @@ func do_next_minigame():
 
 
 # Performs "game over" functions.
-func game_ended( won: bool = true ):
-	if won:
-		$InGameHUD.message( "You win!" )
-	else:
-		$InGameHUD.message( "Game Over." )
-	yield( $InGameHUD, "message_exited" )
-	emit_signal( "game_over", won )
+func game_ended( reason ):
+	match reason:
+		WON:
+			$InGameHUD.message( "You win!" )
+			yield( $InGameHUD, "message_exited" )
+		LOST:
+			$InGameHUD.message( "Game Over." )
+			yield( $InGameHUD, "message_exited" )
+	emit_signal( "game_over", reason )
 
 
 # The game timer has expired, and it's time to make a decision.
