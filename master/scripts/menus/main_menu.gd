@@ -22,3 +22,14 @@ func set_version_number( year: int, week: int, day: int, hotfix: int = 0 ):
 # The "New Game" button has been pressed.  It's time to signal Master.
 func _on_NewGameButton_pressed():
 	emit_signal( "button_pressed", "new_game" )
+
+
+# The "Quit" button has been pressed.  Pop up a dialog confirming this is what
+# the player wants.
+func _on_QuitButton_pressed():
+	$ReallyQuit.popup_centered()
+
+
+# The player has confirmed that they want to quit.  Signal Master.
+func _on_ReallyQuit_confirmed():
+	emit_signal( "button_pressed", "quit" )
