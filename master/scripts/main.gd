@@ -9,6 +9,12 @@ signal game_over( result )
 # Aliases for the `game_ended` function.
 enum { WON, LOST, CANCELLED }
 
+# Enums for game modes.
+enum GameMode { NORMAL, ENDURANCE, SUDDEN_DEATH, DEBUG }
+
+# The game mode being employed for this game.
+var _mode: int = GameMode.NORMAL
+
 # The number of lives the player currently has.
 var lives = 5
 # The number of minigames that have been played.
@@ -53,20 +59,29 @@ func _process( _delta ):
 
 
 # Starts a new game.
-func new_game():
+func new_game( mode: int = GameMode.NORMAL, id: int = 0 ):
+	_mode = mode
 	reset_everything()
-	$InGameHUD.message( "you have four seconds to complete each game", 2 )
-	yield( $InGameHUD, "message_exited" )
-	$InGameHUD.message( "use the arrow keys and spacebar", 2 )
-	yield( $InGameHUD, "message_exited" )
-	$InGameHUD.message( "Game Begin" )
-	yield( $InGameHUD, "message_exited" )
+	if _mode == GameMode.DEBUG:
+		$InGameHUD.message( "Debug mode.  Press Escape to finish." )
+		yield( $InGameHUD, "message_exited" )
+		current_minigame = [ id ]
+	else:
+		$InGameHUD.message( "you have four seconds to complete each game", 2 )
+		yield( $InGameHUD, "message_exited" )
+		$InGameHUD.message( "use the arrow keys and spacebar", 2 )
+		yield( $InGameHUD, "message_exited" )
+		$InGameHUD.message( "Game Begin" )
+		yield( $InGameHUD, "message_exited" )
 	do_next_minigame()
 
 
 # Resets all of the above variables to their default values.
 func reset_everything():
-	lives = 5
+	if _mode == GameMode.SUDDEN_DEATH:
+		lives = 1
+	else:
+		lives = 5
 	played = 0
 	streak = 0
 
@@ -93,7 +108,8 @@ func get_minigame():
 	# Copy the ID into `current_minigame`
 	current_minigame = [ list_minigames[select] ]
 	# Remove this ID from the original list, as we no longer need it.
-	list_minigames.remove( select )
+	if _mode == GameMode.NORMAL:
+		list_minigames.remove( select )
 
 
 # Setup the selected minigame.
@@ -108,7 +124,8 @@ func do_next_minigame():
 		# Signal game over.
 		game_ended( WON )
 	else:
-		get_minigame()
+		if not _mode == GameMode.DEBUG:
+			get_minigame()
 		setup_minigame( current_minigame[0] )
 		$InGameHUD.message( $MinigameCanvas.get_instruction() )
 		# Resume when the message is off-screen
