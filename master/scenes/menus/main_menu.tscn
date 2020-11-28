@@ -29,24 +29,29 @@ margin_left = 120.0
 margin_top = 80.0
 margin_right = 520.0
 margin_bottom = 400.0
-custom_constants/separation = 40
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NewGameButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
+margin_top = 60.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 40 )
 text = "New Game"
 _descriptive_text = "play 8 minigames with 5 lives"
 
 [node name="EnduranceModeButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
-margin_top = 60.0
-margin_bottom = 80.0
+margin_top = 104.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 40 )
 text = "Endurance Mode"
 _descriptive_text = "play an infinite number of minigames with five lives"
 
 [node name="SuddenDeath" parent="Menu/Buttons" instance=ExtResource( 4 )]
-margin_top = 120.0
-margin_bottom = 140.0
+margin_top = 148.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 0, 40 )
 text = "Sudden Death"
 _descriptive_text = "play endurance mode with only one life"
 
@@ -54,7 +59,8 @@ _descriptive_text = "play endurance mode with only one life"
 visible = false
 margin_top = 60.0
 margin_right = 400.0
-margin_bottom = 80.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 40 )
 text = "Debug Menu"
 flat = true
 __meta__ = {
@@ -62,9 +68,10 @@ __meta__ = {
 }
 
 [node name="LegalStuffButton" type="Button" parent="Menu/Buttons"]
-margin_top = 180.0
+margin_top = 192.0
 margin_right = 400.0
-margin_bottom = 200.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 0, 40 )
 text = "Legal Stuff"
 flat = true
 __meta__ = {
@@ -72,16 +79,18 @@ __meta__ = {
 }
 
 [node name="CreditsButton" type="Button" parent="Menu/Buttons"]
-margin_top = 240.0
+margin_top = 236.0
 margin_right = 400.0
-margin_bottom = 260.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 0, 40 )
 text = "Credits"
 flat = true
 
 [node name="QuitButton" type="Button" parent="Menu/Buttons"]
-margin_top = 300.0
+margin_top = 280.0
 margin_right = 400.0
 margin_bottom = 320.0
+rect_min_size = Vector2( 0, 40 )
 text = "Quit"
 flat = true
 
