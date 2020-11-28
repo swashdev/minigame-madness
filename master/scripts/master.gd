@@ -23,12 +23,17 @@ func _ready():
 			_hotfix )
 
 
-# Main has declared it is ready.
-func _on_Main_ready():
-	$Main.new_game()
-
-
 # A button has been pressed on the main menu which requires Master's
 # attention.
 func _on_MainMenu_button_pressed( button ):
-	pass # Replace with function body.
+	match button:
+		"new_game":
+			_on_new_game()
+
+
+# This function is used to handle the "new game" button being pressed.
+func _on_new_game():
+	# Hide the main menu.
+	$MainMenu.hide()
+	# Start a new game.
+	$Main.new_game()
