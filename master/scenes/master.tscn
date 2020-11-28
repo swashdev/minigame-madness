@@ -18,3 +18,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="ready" from="Main" to="." method="_on_Main_ready"]
+[connection signal="button_pressed" from="MainMenu" to="." method="_on_MainMenu_button_pressed"]
