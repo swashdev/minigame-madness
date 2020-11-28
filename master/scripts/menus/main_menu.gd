@@ -24,6 +24,12 @@ func _on_NewGameButton_pressed():
 	emit_signal( "button_pressed", "new_game" )
 
 
+# The "Legal Stuff" button has been pressed.  This will open a dialog box
+# containing licensing information.
+func _on_LegalStuffButton_pressed():
+	$LegalStuffDialog.popup_centered()
+
+
 # The "Quit" button has been pressed.  Pop up a dialog confirming this is what
 # the player wants.
 func _on_QuitButton_pressed():
