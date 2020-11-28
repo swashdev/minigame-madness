@@ -22,6 +22,10 @@ func _ready():
 	$MainMenu.set_version_number( _version_year, _version_week, _version_day,
 			_hotfix )
 
+	# Populate the debug menu.
+	var minigames = $Main/MinigameCanvas.Minigames.size()
+	$DebugMenu.populate_menu( minigames )
+
 
 # Main has signalled game over.
 func _on_Main_game_over( _result ):
