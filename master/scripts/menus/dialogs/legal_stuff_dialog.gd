@@ -7,9 +7,6 @@ extends WindowDialog
 signal open_external( uri )
 
 
-# For testing:
-func _ready():
-	popup_centered()
 # The "Read the Unlicense" button has been toggled, which will show or hide
 # the Unlicense and a button to the Unlicense website.
 func _on_MMLicenseButton_toggled( button_pressed ):
