@@ -35,6 +35,8 @@ func _on_MainMenu_button_pressed( button ):
 	match button:
 		"new_game":
 			_on_new_game()
+		"debug":
+			_on_debug_menu()
 		"quit":
 			_on_quit()
 
@@ -47,6 +49,21 @@ func _on_new_game():
 	$Main.new_game()
 
 
+# This function is used to handle the debug menu button being pressed.
+func _on_debug_menu():
+	# Hide the main menu.
+	$MainMenu.hide()
+	# Show the debug menu.
+	$DebugMenu.show()
+
+
 # This function is used to handle the "quit" button being pressed.
 func _on_quit():
 	get_tree().quit()
+
+
+# The "back" button has been pressed on the debug menu.  Go back to the main
+# menu.
+func _on_DebugMenu_debug_closed():
+	$DebugMenu.hide()
+	$MainMenu.show()
