@@ -88,6 +88,7 @@ func reset_everything():
 	$InGameHUD.update_life_counter( lives )
 	$InGameHUD.hide_life_counter()
 	$InGameHUD.hide_progress_bar()
+	$InGameHUD.show()
 
 	reset_arrays()
 
