@@ -2,6 +2,11 @@ extends Control
 # A script for the main menu for Minigame Madness.
 
 
+# Used to signal Master that a button has been pressed which requires its
+# attention.
+signal button_pressed( button )
+
+
 # Sets the version number for the label.
 func set_version_number( year: int, week: int, day: int, hotfix: int = 0 ):
 	var version = "%d.%d.%d" % [year, week, day]
