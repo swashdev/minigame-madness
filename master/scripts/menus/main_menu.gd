@@ -6,6 +6,38 @@ extends Control
 # attention.
 signal button_pressed( button )
 
+var _sequence: int = 0
+
+
+func _process( _delta ):
+	if _sequence < 10:
+		if Input.is_action_just_pressed( "move_up" ):
+			if _sequence < 2:
+				_sequence += 1
+			else:
+				_sequence = 0
+		elif Input.is_action_just_pressed( "move_down" ):
+			if _sequence < 4:
+				_sequence += 1
+			else:
+				_sequence = 0
+		elif Input.is_action_just_pressed( "move_right" ):
+			if _sequence == 5 or _sequence == 7:
+				_sequence += 1
+			else:
+				_sequence = 0
+		elif Input.is_action_just_pressed( "move_left" ):
+			if _sequence == 4 or _sequence == 6:
+				_sequence += 1
+			else:
+				_sequence = 0
+		elif Input.is_action_just_pressed( "action" ):
+			if _sequence == 8:
+				$Menu/Buttons/DebugButton.show()
+				_sequence += 1
+			else:
+				_sequence = 0
+
 
 # Sets the version number for the label.
 func set_version_number( year: int, week: int, day: int, hotfix: int = 0 ):
