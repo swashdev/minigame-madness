@@ -39,6 +39,11 @@ func _on_MainMenu_button_pressed( button ):
 	match button:
 		"new_game":
 			_on_new_game()
+		# Endurance Mode and Sudden Death are game modes 1 and 2.
+		"endurance_mode":
+			_on_new_game( 1 )
+		"sudden_death":
+			_on_new_game( 2 )
 		"debug":
 			_on_debug_menu()
 		"quit":
@@ -46,11 +51,12 @@ func _on_MainMenu_button_pressed( button ):
 
 
 # This function is used to handle the "new game" button being pressed.
-func _on_new_game():
+# `mode` is the game mode being used.  Default is 0 (GameMode.NORMAL)
+func _on_new_game( mode = 0 ):
 	# Hide the main menu.
 	$MainMenu.hide()
 	# Start a new game.
-	$Main.new_game()
+	$Main.new_game( mode )
 
 
 # This function is used to handle the debug menu button being pressed.

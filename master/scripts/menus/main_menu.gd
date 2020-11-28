@@ -56,6 +56,16 @@ func _on_NewGameButton_pressed():
 	emit_signal( "button_pressed", "new_game" )
 
 
+# The "Endurance Mode" button has been pressed.  Signal Master.
+func _on_EnduranceModeButton_pressed():
+	emit_signal( "button_pressed", "endurance_mode" )
+
+
+# The "Sudden Deatht" button has been pressed.  Signal Master.
+func _on_SuddenDeath_pressed():
+	emit_signal( "button_pressed", "sudden_death" )
+
+
 # The "Legal Stuff" button has been pressed.  This will open a dialog box
 # containing licensing information.
 func _on_LegalStuffButton_pressed():
