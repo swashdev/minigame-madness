@@ -117,6 +117,10 @@ func do_next_minigame():
 
 # Performs "game over" functions.
 func game_ended( won: bool = true ):
+	if won:
+		$InGameHUD.message( "You win!" )
+	else:
+		$InGameHUD.message( "Game Over." )
 	emit_signal( "game_over", won )
 
 
