@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://master/scenes/menus/dialogs/confirm_open_external.tscn" type="PackedScene" id=3]
 [ext_resource path="res://master/scenes/menus/buttons/new_game_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://master/scenes/menus/dialogs/controls_dialog.tscn" type="PackedScene" id=5]
+[ext_resource path="res://shared/fonts/modern_DOS.tres" type="DynamicFont" id=6]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -123,8 +124,9 @@ visible = false
 [node name="VersionNumberLabel" type="Label" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -14.0
+margin_top = -8.0
 margin_right = 400.0
+custom_fonts/font = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

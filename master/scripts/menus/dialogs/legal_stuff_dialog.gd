@@ -24,3 +24,12 @@ func _on_UnlicenseLink_pressed():
 # an instruction to the operating system to visit that website.
 func _on_GodotLicenseLink_pressed():
 	emit_signal( "open_external", "https://godotengine.org/license" )
+
+
+func _on_DaFontsLink_pressed():
+	emit_signal( "open_external", "https://www.dafont.com/modern-dos.font" )
+
+
+func _on_CC0Link_pressed():
+	emit_signal( "open_external",
+			"https://creativecommons.org/share-your-work/public-domain/cc0/" )
