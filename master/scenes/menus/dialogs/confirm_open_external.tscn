@@ -3,7 +3,6 @@
 [ext_resource path="res://master/scripts/menus/dialogs/confirm_open_external.gd" type="Script" id=1]
 
 [node name="ConfirmOpenExternal" type="ConfirmationDialog"]
-visible = true
 margin_right = 200.0
 margin_bottom = 70.0
 window_title = "Open External Link?"

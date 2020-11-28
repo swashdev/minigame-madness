@@ -16,7 +16,7 @@ var _uri: String = ""
 func _on_open_external( uri ):
 	dialog_text = _base_text.format( uri, "{URL}" )
 	_uri = uri
-	popup()
+	popup_centered()
 
 
 # The player has confirmed they would like to open the URI.
