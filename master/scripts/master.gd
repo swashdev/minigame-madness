@@ -23,6 +23,12 @@ func _ready():
 			_hotfix )
 
 
+# Main has signalled game over.
+func _on_Main_game_over( _result ):
+	# Un-hide the main menu.
+	$MainMenu.show()
+
+
 # A button has been pressed on the main menu which requires Master's
 # attention.
 func _on_MainMenu_button_pressed( button ):

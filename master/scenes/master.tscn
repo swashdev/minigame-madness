@@ -13,4 +13,5 @@ _version_day = 5
 [node name="Main" parent="." instance=ExtResource( 1 )]
 
 [node name="MainMenu" parent="." instance=ExtResource( 3 )]
+[connection signal="game_over" from="Main" to="." method="_on_Main_game_over"]
 [connection signal="button_pressed" from="MainMenu" to="." method="_on_MainMenu_button_pressed"]
