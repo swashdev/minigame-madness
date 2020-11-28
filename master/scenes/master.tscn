@@ -6,6 +6,9 @@
 
 [node name="Master" type="Node"]
 script = ExtResource( 2 )
+_version_year = 20
+_version_week = 48
+_version_day = 5
 
 [node name="Main" parent="." instance=ExtResource( 1 )]
 

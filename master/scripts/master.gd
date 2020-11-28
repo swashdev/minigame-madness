@@ -2,6 +2,21 @@ extends Node
 # The script for the master scene.
 
 
+# Export the version number so it can be modified easily from the editor.
+# Minigame Madness's version number is the date that this version was
+# finalized and built on, rendered as %g.%V.%u, where %g is the two-digit ISO
+# week year, %V is the two-digit ISO week number, and %u is the day of the
+# week, 1-7, where 1 is Monday and 7 is Sunday.
+# See https://en.wikipedia.org/wiki/ISO_week_date for ISO week date
+# information.
+# "Hotfix" indicates that this version applies a hotfix to an existing
+# version and defaults to 0.
+export (int, 0, 99) var _version_year
+export (int, 01, 53) var _version_week
+export (int, 1, 7) var _version_day
+export (int) var _hotfix = 0
+
+
 # Main has declared it is ready.
 func _on_Main_ready():
 	$Main.new_game()
