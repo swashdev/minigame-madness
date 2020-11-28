@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="LegalStuffDialog" type="WindowDialog"]
+visible = true
+margin_right = 320.0
+margin_bottom = 240.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 308.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MMLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 308.0
+margin_bottom = 116.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Minigame Madness is free and unencumbered software released into the public domain.  Included with all copies of Minigame Madness is a copy of the Unlicense stating the developer's intention to waive all copyright interests in the software.  You can press the button below for more information."
+autowrap = true
+
+[node name="MMLicenseButton" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_left = 86.0
+margin_top = 120.0
+margin_right = 222.0
+margin_bottom = 140.0
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Read the Unlicense"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MMLicenseText" type="Label" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 144.0
+margin_right = 308.0
+margin_bottom = 838.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>"
+autowrap = true
+
+[node name="UnlicenseLink" type="LinkButton" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 144.0
+margin_right = 308.0
+margin_bottom = 158.0
+
+[node name="Separator1" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 308.0
+margin_bottom = 148.0
+
+[node name="GodotLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 152.0
+margin_right = 308.0
+margin_bottom = 302.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Although Minigame Madness itself is in the public domain, compiled binaries are subject to the Godot Engine license, as it uses the Godot Engine.  As such, all copies of Minigame Madness, whether original or modified, must include a link to the Godot Engine license or a copy of the full text of the license itself.  You can click below to view the license on their website."
+autowrap = true
+
+[node name="GodotLicenseLink" type="LinkButton" parent="ScrollContainer/VBoxContainer"]
+margin_top = 306.0
+margin_right = 308.0
+margin_bottom = 320.0
+text = "godotengine.org/license"
