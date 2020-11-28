@@ -17,6 +17,12 @@ export (int, 1, 7) var _version_day
 export (int) var _hotfix = 0
 
 
+# Perform final setup.
+func _ready():
+	$MainMenu.set_version_number( _version_year, _version_week, _version_day,
+			_hotfix )
+
+
 # Main has declared it is ready.
 func _on_Main_ready():
 	$Main.new_game()
