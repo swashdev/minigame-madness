@@ -13,15 +13,15 @@ var _button = \
 		preload( "res://master/scenes/menus/buttons/debug_menu_button.tscn" )
 
 
-# This function populates the debug menu with buttons given an array of
-# strings.
+# This function populates the debug menu with buttons given the number of
+# minigames.
 func populate_menu( minigames ):
-	var id = 0
-	for game in minigames:
+	var count: int = 0
+	while count < minigames:
 		var button = _button.instance()
-		button.text = game
-		button.set_id( id )
-		id += 1
+		button.text = "Minigame %d" % count
+		button.set_id( count )
+		count += 1
 		$VBoxContainer.add_child( button )
 		button.connect( "debug_button_pressed", self,
 				"_on_debug_button_pressed" )
