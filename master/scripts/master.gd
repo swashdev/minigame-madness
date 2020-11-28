@@ -71,3 +71,11 @@ func _on_quit():
 func _on_DebugMenu_debug_closed():
 	$DebugMenu.hide()
 	$MainMenu.show()
+
+
+# A debug button has been pressed in the debug menu.
+func _on_debug_button_pressed( id ):
+	# Hide the debug menu.
+	$DebugMenu.hide()
+	# Start a new game in debug mode (3) with the given minigame's ID number.
+	$Main.new_game( 3, id )

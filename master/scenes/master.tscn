@@ -19,4 +19,5 @@ _version_day = 5
 visible = false
 [connection signal="game_over" from="Main" to="." method="_on_Main_game_over"]
 [connection signal="button_pressed" from="MainMenu" to="." method="_on_MainMenu_button_pressed"]
+[connection signal="debug_button_pressed" from="DebugMenu" to="." method="_on_debug_button_pressed"]
 [connection signal="debug_closed" from="DebugMenu" to="." method="_on_DebugMenu_debug_closed"]
