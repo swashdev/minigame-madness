@@ -121,6 +121,7 @@ func game_ended( won: bool = true ):
 		$InGameHUD.message( "You win!" )
 	else:
 		$InGameHUD.message( "Game Over." )
+	yield( $InGameHUD, "message_exited" )
 	emit_signal( "game_over", won )
 
 
