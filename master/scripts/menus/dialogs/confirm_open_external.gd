@@ -5,7 +5,7 @@ extends ConfirmationDialog
 
 # The dialog's base text.  {URL} will be replaced with the URI we're warning
 # the user about.
-var _base_text = "You have clicked on a link to the following external URL:\n{URL}\nPlease confirm you would like to open this link."
+var _base_text = "You have clicked on a link to the following external URL:\n{link}\nPlease confirm you would like to open this link."
 
 # The URI we are currently warning the user about.
 var _uri: String = ""
@@ -14,7 +14,7 @@ var _uri: String = ""
 # The dialog has been signalled with an external URI.  Popup with a message
 # confirming the destination.
 func _on_open_external( uri ):
-	dialog_text = _base_text.format( uri, "{URL}" )
+	dialog_text = _base_text.format( {"link": uri} )
 	_uri = uri
 	popup_centered()
 
