@@ -147,6 +147,7 @@ func game_ended( reason ):
 		LOST:
 			$InGameHUD.message( "Game Over." )
 			yield( $InGameHUD, "message_exited" )
+	$InGameHUD.hide()
 	emit_signal( "game_over", reason )
 
 
