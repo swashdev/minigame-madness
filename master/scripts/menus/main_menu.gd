@@ -17,3 +17,8 @@ func set_version_number( year: int, week: int, day: int, hotfix: int = 0 ):
 		hotfix_label = ""
 	var full_version_string = "Version %s%s" % [version, hotfix_label]
 	$VersionNumberLabel.text = full_version_string
+
+
+# The "New Game" button has been pressed.  It's time to signal Master.
+func _on_NewGameButton_pressed():
+	emit_signal( "button_pressed", "new_game" )
