@@ -2,7 +2,6 @@
 
 [ext_resource path="res://shared/fonts/modern_DOS/ModernDOS8x8.ttf" type="DynamicFontData" id=1]
 
-
 [resource]
 resource_name = "ModernDOS"
 font_data = ExtResource( 1 )

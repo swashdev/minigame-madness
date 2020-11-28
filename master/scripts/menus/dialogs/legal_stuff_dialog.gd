@@ -33,3 +33,14 @@ func _on_DaFontsLink_pressed():
 func _on_CC0Link_pressed():
 	emit_signal( "open_external",
 			"https://creativecommons.org/share-your-work/public-domain/cc0/" )
+
+
+func _on_JLHSamplesButton_toggled( button_pressed ):
+	$ScrollContainer/VBoxContainer/JLHSampleHalogen.visible = button_pressed
+	$ScrollContainer/VBoxContainer/JLHSampleHeavyEquip.visible = button_pressed
+	$ScrollContainer/VBoxContainer/JLHSampleJanitor.visible = button_pressed
+
+
+func _on_JLHFontsLink_pressed():
+	emit_signal( "open_external",
+			"https://jlhfonts.blogspot.com/p/terms-of-use.html" )

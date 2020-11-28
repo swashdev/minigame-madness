@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://master/scenes/menus/buttons/new_game_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://master/scenes/menus/dialogs/controls_dialog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shared/fonts/modern_DOS.tres" type="DynamicFont" id=6]
+[ext_resource path="res://shared/fonts/title.tres" type="DynamicFont" id=7]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -117,7 +118,6 @@ window_title = "Really Quit?"
 dialog_text = "Are you sure you want to quit?"
 
 [node name="LegalStuffDialog" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="ConfirmOpenExternal" parent="." instance=ExtResource( 3 )]
 
@@ -130,6 +130,14 @@ custom_fonts/font = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 7 )
+text = "Minigame Madness"
+align = 1
+valign = 1
 [connection signal="pressed" from="Menu/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/EnduranceModeButton" to="." method="_on_EnduranceModeButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/SuddenDeath" to="." method="_on_SuddenDeath_pressed"]
