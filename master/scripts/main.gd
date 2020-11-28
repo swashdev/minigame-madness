@@ -163,7 +163,8 @@ func _on_Minigame_won():
 		$GameTimer.stop()
 		game_in_progress = false
 		streak = streak + 1
-		minigames_won = minigames_won + current_minigame
+		if _mode == GameMode.NORMAL:
+			minigames_won = minigames_won + current_minigame
 		$InGameHUD.message( "Well-done!" )
 		# Resume when the message is off-screen.
 		yield( $InGameHUD, "message_exited" )
@@ -180,7 +181,8 @@ func _on_Minigame_lost():
 		streak = 0
 		lives = lives - 1
 		$InGameHUD.update_life_counter( lives )
-		minigames_lost = minigames_lost + current_minigame
+		if _mode == GameMode.NORMAL:
+			minigames_lost = minigames_lost + current_minigame
 
 		$InGameHUD.message( "Booooo!" )
 		# Resume when the message is off-screen.

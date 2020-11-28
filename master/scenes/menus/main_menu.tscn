@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://master/scenes/menus/dialogs/confirm_open_external.tscn" type="PackedScene" id=3]
+[ext_resource path="res://master/scenes/menus/buttons/new_game_button.tscn" type="PackedScene" id=4]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -33,14 +34,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NewGameButton" type="Button" parent="Menu/Buttons"]
-margin_right = 400.0
-margin_bottom = 20.0
+[node name="NewGameButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
 text = "New Game"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+_descriptive_text = "play 8 minigames with 5 lives"
+
+[node name="EnduranceModeButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
+margin_top = 60.0
+margin_bottom = 80.0
+text = "Endurance Mode"
+_descriptive_text = "play an infinite number of minigames with five lives"
+
+[node name="SuddenDeath" parent="Menu/Buttons" instance=ExtResource( 4 )]
+margin_top = 120.0
+margin_bottom = 140.0
+text = "Sudden Death"
+_descriptive_text = "play endurance mode with only one life"
 
 [node name="DebugButton" type="Button" parent="Menu/Buttons"]
 visible = false
@@ -54,9 +62,9 @@ __meta__ = {
 }
 
 [node name="LegalStuffButton" type="Button" parent="Menu/Buttons"]
-margin_top = 60.0
+margin_top = 180.0
 margin_right = 400.0
-margin_bottom = 80.0
+margin_bottom = 200.0
 text = "Legal Stuff"
 flat = true
 __meta__ = {
@@ -64,16 +72,16 @@ __meta__ = {
 }
 
 [node name="CreditsButton" type="Button" parent="Menu/Buttons"]
-margin_top = 120.0
+margin_top = 240.0
 margin_right = 400.0
-margin_bottom = 140.0
+margin_bottom = 260.0
 text = "Credits"
 flat = true
 
 [node name="QuitButton" type="Button" parent="Menu/Buttons"]
-margin_top = 180.0
+margin_top = 300.0
 margin_right = 400.0
-margin_bottom = 200.0
+margin_bottom = 320.0
 text = "Quit"
 flat = true
 
@@ -98,7 +106,6 @@ margin_right = 400.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Menu/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/DebugButton" to="." method="_on_DebugButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/LegalStuffButton" to="." method="_on_LegalStuffButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
