@@ -106,6 +106,7 @@ margin_right = 400.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="Menu/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/EnduranceModeButton" to="." method="_on_EnduranceModeButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/SuddenDeath" to="." method="_on_SuddenDeath_pressed"]
 [connection signal="pressed" from="Menu/Buttons/DebugButton" to="." method="_on_DebugButton_pressed"]
