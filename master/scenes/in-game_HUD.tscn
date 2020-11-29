@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://master/scripts/hud/instruction_label.gd" type="Script" id=1]
 [ext_resource path="res://master/scripts/in-game_HUD.gd" type="Script" id=2]
@@ -8,22 +8,25 @@
 [ext_resource path="res://master/textures/life_bar/under.png" type="Texture" id=6]
 [ext_resource path="res://master/textures/life_bar/progress.png" type="Texture" id=7]
 [ext_resource path="res://master/textures/life_bar/over.png" type="Texture" id=8]
+[ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
+[ext_resource path="res://shared/themes/instruction_box.stylebox" type="StyleBox" id=10]
 
 [node name="InGameHUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 9 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="InstructionLabel" type="Label" parent="."]
-visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -27.0
 margin_bottom = 13.0
+custom_styles/normal = ExtResource( 10 )
 text = "swashberry made this!"
 align = 1
 valign = 1
@@ -32,24 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="InstructionLabel"]
-show_behind_parent = true
-margin_top = -1.0
-margin_right = 640.0
-margin_bottom = 41.0
-color = Color( 0, 0, 0, 0.941176 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="InstructionLabel/ColorRect"]
-show_behind_parent = true
-margin_top = -2.0
-margin_right = 640.0
-margin_bottom = 44.0
-
 [node name="LifeCounter" type="TextureProgress" parent="."]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -150.0
@@ -67,7 +53,6 @@ __meta__ = {
 }
 
 [node name="TimerProgress" type="TextureProgress" parent="."]
-visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0

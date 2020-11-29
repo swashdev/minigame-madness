@@ -10,6 +10,7 @@ script = ExtResource( 2 )
 [node name="MinigameCanvas" parent="." instance=ExtResource( 3 )]
 
 [node name="InGameHUD" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 4.0
