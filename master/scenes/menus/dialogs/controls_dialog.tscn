@@ -10,6 +10,8 @@
 [ext_resource path="res://master/images/menus/buttons/next_button.png" type="Texture" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
 
+
+
 [sub_resource type="InputEventAction" id=1]
 action = "move_left"
 pressed = true

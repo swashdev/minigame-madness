@@ -7,6 +7,8 @@
 [ext_resource path="res://shared/fonts/halogen.tres" type="DynamicFont" id=5]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=6]
 
+
+
 [node name="LegalStuffDialog" type="WindowDialog"]
 margin_right = 507.0
 margin_bottom = 265.0

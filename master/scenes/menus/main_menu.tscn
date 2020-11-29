@@ -6,10 +6,10 @@
 [ext_resource path="res://master/scenes/menus/buttons/new_game_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://master/scenes/menus/dialogs/controls_dialog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shared/fonts/modern_DOS.tres" type="DynamicFont" id=6]
-[ext_resource path="res://shared/fonts/title.tres" type="DynamicFont" id=7]
-[ext_resource path="res://shared/themes/main_menu.tres" type="Theme" id=8]
+[ext_resource path="res://master/fonts/title.tres" type="DynamicFont" id=7]
+[ext_resource path="res://master/themes/main_menu.tres" type="Theme" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
-[ext_resource path="res://shared/fonts/tite_byline.tres" type="DynamicFont" id=10]
+[ext_resource path="res://master/fonts/tite_byline.tres" type="DynamicFont" id=10]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
