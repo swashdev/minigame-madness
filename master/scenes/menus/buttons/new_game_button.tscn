@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://master/scripts/menus/buttons/new_game_button.gd" type="Script" id=1]
+[ext_resource path="res://master/fonts/descriptive_text.tres" type="DynamicFont" id=2]
 
 [node name="NewGameButton" type="Button"]
 margin_right = 400.0
@@ -13,9 +14,10 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 visible = false
-margin_top = 26.0
+margin_top = 30.0
 margin_right = 400.0
 margin_bottom = 40.0
+custom_fonts/font = ExtResource( 2 )
 align = 1
 [connection signal="mouse_entered" from="." to="." method="_on_NewGameButton_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_NewGameButton_mouse_exited"]
