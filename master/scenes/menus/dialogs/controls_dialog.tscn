@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://shared/scenes/ui/keys/left_key.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shared/scenes/ui/keys/right_key.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://shared/scenes/ui/keys/arrow_keys.tscn" type="PackedScene" id=6]
 [ext_resource path="res://master/images/menus/buttons/prev_button.png" type="Texture" id=7]
 [ext_resource path="res://master/images/menus/buttons/next_button.png" type="Texture" id=8]
+[ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
 
 [sub_resource type="InputEventAction" id=1]
 action = "move_left"
@@ -27,6 +28,7 @@ shortcut = SubResource( 3 )
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 500, 300 )
+theme = ExtResource( 9 )
 window_title = "Controls"
 script = ExtResource( 5 )
 __meta__ = {
@@ -46,29 +48,33 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 20
-custom_constants/margin_top = 40
+custom_constants/margin_top = 20
 custom_constants/margin_left = 20
-custom_constants/margin_bottom = 40
+custom_constants/margin_bottom = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Slide1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Slide1"]
 margin_left = 20.0
-margin_top = 40.0
+margin_top = 20.0
 margin_right = 480.0
-margin_bottom = 260.0
+margin_bottom = 280.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Slide1/VBoxContainer"]
+margin_right = 460.0
+margin_bottom = 168.0
 custom_constants/separation = 20
 
-[node name="SpaceFiller" type="Control" parent="Panel/Slide1/HBoxContainer"]
+[node name="SpaceFiller" type="Control" parent="Panel/Slide1/VBoxContainer/HBoxContainer"]
 margin_right = 80.0
-margin_bottom = 220.0
+margin_bottom = 168.0
 rect_min_size = Vector2( 80, 0 )
 
-[node name="EscapeKey" parent="Panel/Slide1/HBoxContainer/SpaceFiller" instance=ExtResource( 3 )]
+[node name="EscapeKey" parent="Panel/Slide1/VBoxContainer/HBoxContainer/SpaceFiller" instance=ExtResource( 3 )]
 position = Vector2( 40, 20 )
 
-[node name="Label" type="Label" parent="Panel/Slide1/HBoxContainer/SpaceFiller/EscapeKey"]
+[node name="Label" type="Label" parent="Panel/Slide1/VBoxContainer/HBoxContainer/SpaceFiller/EscapeKey"]
 margin_left = -14.0
 margin_top = -14.0
 margin_right = 14.0
@@ -81,21 +87,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Panel/Slide1/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/Slide1/VBoxContainer/HBoxContainer"]
 margin_left = 100.0
 margin_right = 460.0
-margin_bottom = 116.0
+margin_bottom = 168.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Minigame Madness uses the arrow keys and spacebar for all minigames.  Not all minigames use all of these keys, but none of them use any additional keys.  Additionally, the Escape key can be used to terminate the game immediately and return to the main menu; there is no pause button.
 The Escape key can also close pop-ups like this one."
 autowrap = true
 
-[node name="ArrowKeys" parent="Panel/Slide1" instance=ExtResource( 6 )]
-position = Vector2( 400, 200 )
+[node name="SpaceFiller" type="Control" parent="Panel/Slide1/VBoxContainer"]
+margin_top = 172.0
+margin_right = 460.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 80 )
 
-[node name="Spacebar" parent="Panel/Slide1" instance=ExtResource( 4 )]
-position = Vector2( 120, 220 )
+[node name="ArrowKeys" parent="Panel/Slide1/VBoxContainer/SpaceFiller" instance=ExtResource( 6 )]
+position = Vector2( 380, 40 )
+
+[node name="Spacebar" parent="Panel/Slide1/VBoxContainer/SpaceFiller" instance=ExtResource( 4 )]
+position = Vector2( 100, 60 )
 
 [node name="Slide2" type="MarginContainer" parent="Panel"]
 visible = false
@@ -111,9 +123,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Panel/Slide2"]
 margin_left = 60.0
-margin_top = 126.0
+margin_top = 123.0
 margin_right = 440.0
-margin_bottom = 174.0
+margin_bottom = 177.0
 text = "For those who prefer WASD or IJKL to the arrow keys, these controls are also supported, as are their Dvorak equivalents, below."
 align = 1
 autowrap = true
@@ -419,31 +431,31 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 20
-custom_constants/margin_top = 40
+custom_constants/margin_top = 20
 custom_constants/margin_left = 20
-custom_constants/margin_bottom = 40
+custom_constants/margin_bottom = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/Slide3"]
 margin_left = 20.0
-margin_top = 40.0
+margin_top = 20.0
 margin_right = 480.0
-margin_bottom = 260.0
+margin_bottom = 304.0
 custom_constants/separation = 10
 
 [node name="Label1" type="Label" parent="Panel/Slide3/VBoxContainer"]
 margin_right = 460.0
-margin_bottom = 31.0
+margin_bottom = 35.0
 text = "Some minigames will show you a prompt like this indicating what the spacebar does."
 align = 1
 autowrap = true
 
 [node name="SpaceFiller" type="Control" parent="Panel/Slide3/VBoxContainer"]
-margin_top = 41.0
+margin_top = 45.0
 margin_right = 460.0
-margin_bottom = 81.0
+margin_bottom = 85.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="Spacebar" parent="Panel/Slide3/VBoxContainer/SpaceFiller" instance=ExtResource( 4 )]
@@ -463,18 +475,18 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="Panel/Slide3/VBoxContainer"]
-margin_top = 91.0
+margin_top = 95.0
 margin_right = 460.0
-margin_bottom = 122.0
+margin_bottom = 149.0
 size_flags_vertical = 0
 text = "Some minigames may use flashing indicators to suggest button mashing, or dim indicators to show that a key should not be pressed."
 align = 1
 autowrap = true
 
 [node name="SpaceFiller2" type="Control" parent="Panel/Slide3/VBoxContainer"]
-margin_top = 132.0
+margin_top = 159.0
 margin_right = 460.0
-margin_bottom = 172.0
+margin_bottom = 199.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="RightKey" parent="Panel/Slide3/VBoxContainer/SpaceFiller2" instance=ExtResource( 2 )]
@@ -486,9 +498,9 @@ position = Vector2( 170, 20 )
 animation = "dim"
 
 [node name="Label" type="Label" parent="Panel/Slide3/VBoxContainer"]
-margin_top = 182.0
+margin_top = 209.0
 margin_right = 460.0
-margin_bottom = 213.0
+margin_bottom = 244.0
 text = "However, not all minigames have prompts like these.  You'll have to think fast to figure out how to play each minigame!"
 align = 1
 autowrap = true
