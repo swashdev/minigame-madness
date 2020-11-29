@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://shared/fonts/title.tres" type="DynamicFont" id=7]
 [ext_resource path="res://shared/themes/main_menu.tres" type="Theme" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
+[ext_resource path="res://shared/fonts/tite_byline.tres" type="DynamicFont" id=10]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -150,10 +151,11 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -19.0
-custom_fonts/font = ExtResource( 6 )
+margin_top = -30.0
+custom_fonts/font = ExtResource( 10 )
 text = "A Microgame Collection
-by swashberry"
+by
+swashberry"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
