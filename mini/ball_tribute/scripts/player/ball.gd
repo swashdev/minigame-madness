@@ -47,7 +47,7 @@ func _physics_process( delta ):
 	var collision = move_and_collide( _velocity )
 
 	# If the ball collides with a wall, signal the gameloop.
-	if typeof( collision ) != null:
+	if collision:
 		emit_signal( "collided", position )
 
 
