@@ -2,6 +2,6 @@ extends Minigame
 # A script for the Ball tribute.
 
 
-# Initialize the player in the correct position.
-func _ready():
-	$Ball.position = $PlayerStart.position
+# Move the player back to the spawn point.
+func respawn():
+	$Ball.respawn( $PlayerStart.position )

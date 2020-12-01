@@ -49,3 +49,10 @@ func _process( delta ):
 	# If the ball collides with a wall, signal the gameloop.
 	if typeof( collision ) != null:
 		emit_signal( "collided", position )
+
+
+# The ball will respawn at the given coordinates.
+func respawn( location ):
+	position = location
+	_velocity = Vector2( 0, 0 )
+	_spin = 0.0
