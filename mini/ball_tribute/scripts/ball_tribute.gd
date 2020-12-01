@@ -32,5 +32,5 @@ func _on_Ball_collided( location, degrees, collision: KinematicCollision2D ):
 		# Respawn the ball.
 		respawn( location, degrees )
 	else:
+		$Ball.position = $Goal.position
 		emit_signal( "won" )
-		$Ball.stop()
