@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mini/ball_tribute/scripts/ball_tribute.gd" type="Script" id=1]
 [ext_resource path="res://mini/ball_tribute/scenes/player/ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mini/ball_tribute/scenes/player/ball_ghost.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 240, 16 )
@@ -11,6 +12,7 @@ extents = Vector2( 320, 16 )
 
 [node name="BallTribute" type="Node2D"]
 script = ExtResource( 1 )
+_ghost = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 640.0
