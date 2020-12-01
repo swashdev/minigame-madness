@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 
 # A signal to inform the gameloop that the ball's to the wall.
-signal collided( location, degrees )
+signal collided( location, degrees, collision )
 
 # The ball's acceleration due to gravity per second.
 const GRAVITY: float = 20.0
@@ -16,7 +16,7 @@ const MOVE_SPEED: float = 40.0
 const HOP_SPEED: float = 5.0
 
 # Whether or not to allow movement.
-var allow_movement: bool = false
+var allow_movement: bool = true
 
 # The ball's velocity.
 var _velocity: Vector2
@@ -55,7 +55,8 @@ func _physics_process( delta ):
 
 		# If the ball collides with a wall, signal the gameloop.
 		if collision:
-			emit_signal( "collided", position, $Sprite.rotation_degrees )
+			emit_signal( "collided", position, $Sprite.rotation_degrees,
+					collision )
 
 
 # The ball will respawn at the given coordinates.

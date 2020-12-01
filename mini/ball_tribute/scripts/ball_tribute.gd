@@ -27,6 +27,10 @@ func respawn( location, degrees ):
 
 
 # The ball has collided with a wall.
-func _on_Ball_collided( location, degrees ):
-	# Respawn the ball.
-	respawn( location, degrees )
+func _on_Ball_collided( location, degrees, collision: KinematicCollision2D ):
+	if collision.get_collider_id() != $Goal.get_instance_id():
+		# Respawn the ball.
+		respawn( location, degrees )
+	else:
+		emit_signal( "won" )
+		$Ball.stop()
