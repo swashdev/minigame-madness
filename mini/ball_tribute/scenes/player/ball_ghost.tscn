@@ -4,5 +4,6 @@
 [ext_resource path="res://mini/ball_tribute/scripts/player/ball_ghost.gd" type="Script" id=2]
 
 [node name="BallGhost" type="Sprite"]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
