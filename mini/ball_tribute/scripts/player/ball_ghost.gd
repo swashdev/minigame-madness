@@ -3,7 +3,7 @@ extends Sprite
 
 
 # The rate at which the sprite's alpha changes per second.
-const ALPHA_RATE: float = 500.0
+const ALPHA_RATE: float = 2.0
 
 
 # The ghost's mainloop.
