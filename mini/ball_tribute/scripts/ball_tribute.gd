@@ -5,6 +5,16 @@ extends Minigame
 export (PackedScene) var _ghost
 
 
+# Unlock the ball when the minigame starts.
+func start():
+	$Ball.start()
+
+
+# Lock the ball's position when the minigame ends.
+func stop():
+	$Ball.stop()
+
+
 # Move the player back to the spawn point.
 func respawn():
 	$Ball.respawn( $PlayerStart.position )
