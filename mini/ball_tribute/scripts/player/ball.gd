@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 
 # A signal to inform the gameloop that the ball's to the wall.
-signal collided( location )
+signal collided( location, degrees )
 
 # The ball's acceleration due to gravity per second.
 const GRAVITY: float = 20.0
@@ -48,7 +48,7 @@ func _physics_process( delta ):
 
 	# If the ball collides with a wall, signal the gameloop.
 	if collision:
-		emit_signal( "collided", position )
+		emit_signal( "collided", position, rotation_degrees )
 
 
 # The ball will respawn at the given coordinates.
