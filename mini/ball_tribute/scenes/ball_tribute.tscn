@@ -116,3 +116,4 @@ __meta__ = {
 
 [node name="Ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 80, 80 )
+[connection signal="collided" from="Ball" to="." method="_on_Ball_collided"]
