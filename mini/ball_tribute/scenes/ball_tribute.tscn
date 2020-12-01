@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/ball_tribute/scripts/ball_tribute.gd" type="Script" id=1]
 [ext_resource path="res://mini/ball_tribute/scenes/player/ball.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -19,6 +19,9 @@ color = Color( 0, 0.721569, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PlayerStart" type="Position2D" parent="."]
+position = Vector2( 80, 80 )
 
 [node name="Wall1" type="StaticBody2D" parent="."]
 position = Vector2( 0, 240 )
@@ -112,4 +115,4 @@ __meta__ = {
 }
 
 [node name="Ball" parent="." instance=ExtResource( 2 )]
-position = Vector2( 90.4102, 67.604 )
+position = Vector2( 80, 80 )
