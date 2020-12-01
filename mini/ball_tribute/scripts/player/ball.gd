@@ -18,6 +18,9 @@ const HOP_SPEED: float = 5.0
 # Whether or not to allow movement.
 var allow_movement: bool = true
 
+# Whether or not to do a "win animation."
+var _won: bool = false
+
 # The ball's velocity.
 var _velocity: Vector2
 
@@ -43,8 +46,12 @@ func _physics_process( delta ):
 	# Spin the ball
 	$Sprite.rotation_degrees += _spin
 
-	# Apply gravity.
-	_velocity.y += GRAVITY * delta
+	# Cancel out velocity if we're doing the win animation.
+	if _won:
+		_velocity = Vector2( 0.0, 100.0 )
+	else:
+		# Apply gravity.
+		_velocity.y += GRAVITY * delta
 
 	# Note that this `if` statement ignores velocity but does not prevent the
 	# ball from spinning.  This is intentional, as it reflects a harmless
@@ -57,6 +64,9 @@ func _physics_process( delta ):
 		if collision:
 			emit_signal( "collided", position, $Sprite.rotation_degrees,
 					collision )
+	# If we've already won the minigame, don't do collision, just do movement.
+	elif _won:
+		move_and_slide( _velocity )
 
 
 # The ball will respawn at the given coordinates.
@@ -77,3 +87,11 @@ func start():
 # Lock movement when the minigame ends.
 func stop():
 	allow_movement = false
+
+
+# If the "won" signal is emitted by the minigame, stop taking inputs and
+# collisions and make a note to do a "win animation"
+func _on_Minigame_won():
+	stop()
+	$CollisionShape2D.set_deferred( "disabled", true )
+	_won = true

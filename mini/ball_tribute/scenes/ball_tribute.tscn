@@ -145,4 +145,5 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="won" from="." to="Ball" method="_on_Minigame_won"]
 [connection signal="collided" from="Ball" to="." method="_on_Ball_collided"]
