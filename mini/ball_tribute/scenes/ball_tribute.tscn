@@ -124,9 +124,12 @@ __meta__ = {
 position = Vector2( 80, 80 )
 
 [node name="Goal" type="StaticBody2D" parent="."]
-position = Vector2( 500, 420 )
+position = Vector2( 500, 370 )
 collision_layer = 2
 collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource( 3 )
