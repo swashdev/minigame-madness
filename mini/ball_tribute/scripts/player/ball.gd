@@ -22,7 +22,7 @@ var _velocity: Vector2
 var _spin: float = 0.0
 
 
-func _process( delta ):
+func _physics_process( delta ):
 	var accel = MOVE_SPEED * delta
 	if Input.is_action_just_pressed( "move_up" ):
 		_velocity.y -= HOP_SPEED
