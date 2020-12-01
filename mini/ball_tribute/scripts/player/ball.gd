@@ -48,7 +48,7 @@ func _physics_process( delta ):
 
 	# If the ball collides with a wall, signal the gameloop.
 	if collision:
-		emit_signal( "collided", position, rotation_degrees )
+		emit_signal( "collided", position, $Sprite.rotation_degrees )
 
 
 # The ball will respawn at the given coordinates.
