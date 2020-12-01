@@ -2,6 +2,9 @@ extends KinematicBody2D
 # A script for the player in the Ball Tribute minigame.
 
 
+# A signal to inform the gameloop that the ball's to the wall.
+signal collided( location )
+
 # The ball's acceleration due to gravity per second.
 const GRAVITY: float = 20.0
 
@@ -40,6 +43,9 @@ func _process( delta ):
 	# Apply gravity.
 	_velocity.y += GRAVITY * delta
 
-	# Update position.
-	position.x += _velocity.x
-	position.y += _velocity.y
+	# Update position and detect collision.
+	var collision = move_and_collide( _velocity )
+
+	# If the ball collides with a wall, signal the gameloop.
+	if typeof( collision ) != null:
+		emit_signal( "collided", position )
