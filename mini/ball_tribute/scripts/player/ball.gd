@@ -15,6 +15,9 @@ const MOVE_SPEED: float = 40.0
 # pressing the "up" key.
 const HOP_SPEED: float = 5.0
 
+# Whether or not to allow movement.
+var allow_movement: bool = false
+
 # The ball's velocity.
 var _velocity: Vector2
 
@@ -43,12 +46,16 @@ func _physics_process( delta ):
 	# Apply gravity.
 	_velocity.y += GRAVITY * delta
 
-	# Update position and detect collision.
-	var collision = move_and_collide( _velocity )
+	# Note that this `if` statement ignores velocity but does not prevent the
+	# ball from spinning.  This is intentional, as it reflects a harmless
+	# oversight in the early entries of jmtb02's Ball series.
+	if allow_movement:
+		# Update position and detect collision.
+		var collision = move_and_collide( _velocity )
 
-	# If the ball collides with a wall, signal the gameloop.
-	if collision:
-		emit_signal( "collided", position, $Sprite.rotation_degrees )
+		# If the ball collides with a wall, signal the gameloop.
+		if collision:
+			emit_signal( "collided", position, $Sprite.rotation_degrees )
 
 
 # The ball will respawn at the given coordinates.
@@ -56,3 +63,16 @@ func respawn( location ):
 	position = location
 	_velocity = Vector2( 0, 0 )
 	_spin = 0.0
+
+
+# Start the minigame by unlocking movement.  Note that this function will
+# reset any velocity and spin that the ball might have gained while it was
+# waiting.  This is intentional.  See the comment on line 50.
+func start():
+	allow_movement = true
+	respawn( position )
+
+
+# Lock movement when the minigame ends.
+func stop():
+	allow_movement = false
