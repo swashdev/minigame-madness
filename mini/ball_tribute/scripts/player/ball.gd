@@ -66,6 +66,7 @@ func _physics_process( delta ):
 					collision )
 	# If we've already won the minigame, don't do collision, just do movement.
 	elif _won:
+# warning-ignore:return_value_discarded
 		move_and_slide( _velocity )
 
 
