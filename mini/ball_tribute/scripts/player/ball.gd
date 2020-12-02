@@ -16,7 +16,7 @@ const MOVE_SPEED: float = 40.0
 const HOP_SPEED: float = 5.0
 
 # Whether or not to allow movement.
-var allow_movement: bool = true
+var allow_movement: bool = false
 
 # Whether or not to do a "win animation."
 var _won: bool = false
