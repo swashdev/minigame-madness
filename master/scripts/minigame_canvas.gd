@@ -41,8 +41,11 @@ func set_minigame( minigame_id ):
 	else:
 		_minigame = Minigames[minigame_id].instance()
 	
+# warning-ignore:return_value_discarded
 	_minigame.connect( "won", self, "_on_Minigame_won" )
+# warning-ignore:return_value_discarded
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )
+# warning-ignore:return_value_discarded
 	_minigame.connect( "found_secret", self, "_on_Minigame_won", [true] )
 	
 	add_child( _minigame )
