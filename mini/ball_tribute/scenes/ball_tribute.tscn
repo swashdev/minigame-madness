@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://mini/ball_tribute/scripts/ball_tribute.gd" type="Script" id=1]
 [ext_resource path="res://mini/ball_tribute/scenes/player/ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/ball_tribute/scenes/player/ball_ghost.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/ball_tribute/images/environment/goal.png" type="Texture" id=4]
+[ext_resource path="res://mini/ball_tribute/fonts/tribute_font.tres" type="DynamicFont" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 240, 16 )
@@ -26,6 +27,18 @@ color = Color( 0, 0.721569, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tribute" type="Label" parent="Background"]
+margin_left = 380.0
+margin_top = 20.0
+margin_right = 620.0
+margin_bottom = 68.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 1, 1 )
+text = "A tribute to
+the Ball series by
+John \"jmtb02\" Cooney"
+align = 2
 
 [node name="PlayerStart" type="Position2D" parent="."]
 position = Vector2( 80, 80 )
