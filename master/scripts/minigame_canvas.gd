@@ -34,7 +34,12 @@ func decide():
 # Sets the current minigame according to the specified ID and adds it to the
 # canvas.
 func set_minigame( minigame_id ):
-	_minigame = Minigames[minigame_id].instance()
+	if minigame_id < 0:
+		_minigame = \
+				preload( "res://mini/ball_tribute/scenes/ball_tribute.tscn" \
+				).instance()
+	else:
+		_minigame = Minigames[minigame_id].instance()
 	
 	_minigame.connect( "won", self, "_on_Minigame_won" )
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )
