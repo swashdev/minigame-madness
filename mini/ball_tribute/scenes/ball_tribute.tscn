@@ -151,17 +151,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource( 3 )
 
-[node name="TextureRect" type="TextureRect" parent="Goal"]
-margin_left = -60.0
-margin_top = -30.0
-margin_right = 67.0
-margin_bottom = 61.0
-rect_scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="BigFatHead" type="StaticBody2D" parent="."]
 position = Vector2( 550, 440 )
 collision_layer = 2
@@ -169,5 +158,16 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BigFatHead"]
 shape = SubResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="BigFatHead"]
+margin_left = -110.0
+margin_top = -100.0
+margin_right = 17.0
+margin_bottom = -9.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="won" from="." to="Ball" method="_on_Minigame_won"]
 [connection signal="collided" from="Ball" to="." method="_on_Ball_collided"]
