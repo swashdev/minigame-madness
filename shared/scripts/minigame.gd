@@ -6,6 +6,7 @@ extends Node2D
 # This signal is used when the player has beaten the minigame, especially if
 # the win state occurs before the timer runs down
 # warning-ignore:unused_signal
+signal found_secret
 signal won
 # Similarly, this signal is used when the player has lost the minigame
 signal lost
