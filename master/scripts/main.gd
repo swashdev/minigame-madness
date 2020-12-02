@@ -38,6 +38,10 @@ var minigames_won = []
 # arrays.
 var current_minigame = []
 
+# This boolean determines if the next/current minigame is the _secret_
+# minigame.
+var _secret: bool = false
+
 
 # Initial setup.
 func _ready():
@@ -121,11 +125,14 @@ func setup_minigame( minigame_id ):
 # Having completed one minigame, proceed to the next, if any remain.
 func do_next_minigame():
 	played = played + 1
-	if list_minigames.size() == 0:
+	if list_minigames.size() == 0 and not _secret:
 		# Signal game over.
 		game_ended( WON )
 	else:
-		if not _mode == GameMode.DEBUG:
+		# If the player found the secret, use that as the next minigame.
+		if _secret:
+			current_minigame = [-1]
+		elif not _mode == GameMode.DEBUG:
 			get_minigame()
 		setup_minigame( current_minigame[0] )
 		$InGameHUD.message( $MinigameCanvas.get_instruction() )
@@ -158,14 +165,25 @@ func _on_GameTimer_timeout():
 
 
 # The player wins a minigame.
-func _on_Minigame_won():
+func _on_Minigame_won( found_secret ):
 	if game_in_progress:
 		$GameTimer.stop()
 		game_in_progress = false
 		streak = streak + 1
+		# If the current minigame is the secret minigame, give the player a
+		# bonus life.
+		if _secret:
+			lives += 1
+			_secret = false
 		if _mode == GameMode.NORMAL:
 			minigames_won = minigames_won + current_minigame
-		$InGameHUD.message( "Well-done!" )
+		# If the player found the secret during this minigame, make a note to
+		# play the secret minigame next.
+		if found_secret:
+			_secret = true
+			$InGameHUD.message( "Secret found!" )
+		else:
+			$InGameHUD.message( "Well-done!" )
 		# Resume when the message is off-screen.
 		yield( $InGameHUD, "message_exited" )
 		$InGameHUD.hide_progress_bar()

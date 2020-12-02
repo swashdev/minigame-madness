@@ -6,7 +6,7 @@ extends Node2D
 
 # Signals the mainloop whether the player has `won` or `lost` the current
 # minigame.
-signal won
+signal won( secret )
 signal lost
 
 # The canonical list of minigames.
@@ -43,6 +43,7 @@ func set_minigame( minigame_id ):
 	
 	_minigame.connect( "won", self, "_on_Minigame_won" )
 	_minigame.connect( "lost", self, "_on_Minigame_lost" )
+	_minigame.connect( "found_secret", self, "_on_Minigame_won", [true] )
 	
 	add_child( _minigame )
 
@@ -68,5 +69,5 @@ func _on_Minigame_lost():
 
 
 # Passes the signal that the player has `won` the minigame up the stack.
-func _on_Minigame_won():
-	emit_signal( "won" )
+func _on_Minigame_won( found_secret: bool = false ):
+	emit_signal( "won", found_secret )
