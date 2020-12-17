@@ -73,6 +73,8 @@ func _on_Player_shoot( location, direction ):
 	bullet.position = location
 	# Set the bullet's direction appropriately.
 	bullet.set_direction( direction )
+	# Connect the bullet's collision detection.
+	bullet.connect( "collided", self, "_on_bullet_collided" )
 
 
 # A pizza has reported a collision.
@@ -84,3 +86,9 @@ func _on_pizza_collided( data: KinematicCollision2D ):
 	else:
 		var collider = data.get_collider()
 		collider.queue_free()
+
+
+# A pepperoni has reported a collision.
+func _on_bullet_collided( data: KinematicCollision2D ):
+	var body = data.get_collider()
+	body.explode()
