@@ -175,6 +175,7 @@ func _on_Minigame_won( found_secret ):
 		if _secret:
 			lives += 1
 			_secret = false
+			$InGameHUD.update_life_counter( lives )
 		if _mode == GameMode.NORMAL:
 			minigames_won = minigames_won + current_minigame
 		# If the player found the secret during this minigame, make a note to
