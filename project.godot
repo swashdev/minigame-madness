@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://mini/anchovy_quest/scripts/effects/explosion.gd"
 }, {
-"base": "Pizza",
-"class": "HalfPizza",
-"language": "GDScript",
-"path": "res://mini/anchovy_quest/scripts/obstacles/half_pizza.gd"
-}, {
 "base": "Control",
 "class": "InGameHUD",
 "language": "GDScript",
@@ -67,7 +62,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ArrowKeys": "",
 "Explosion": "",
-"HalfPizza": "",
 "InGameHUD": "",
 "InstructionLabel": "",
 "KeyPrompt": "",

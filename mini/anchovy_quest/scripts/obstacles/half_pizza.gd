@@ -1,5 +1,4 @@
-class_name HalfPizza
-extends Pizza
+extends "res://mini/anchovy_quest/scripts/obstacles/pizza.gd"
 # A half-pizza combining two pizza slices.
 
 
@@ -20,7 +19,9 @@ func explode():
 	slice2.position = position
 
 	# Adjust the velocities of the two slices by rotating each of them.
-	slice1.linear_velocity = linear_velocity.rotated( deg2rad( 45.0 ) )
-	slice2.linear_velocity = linear_velocity.rotated( deg2rad( -45.0 ) )
+	slice1.set_velocity( get_velocity().rotated( deg2rad( 45.0 ) ) )
+	slice1.set_spin( get_spin() )
+	slice2.set_velocity( get_velocity().rotated( deg2rad( -45.0 ) ) )
+	slice2.set_spin( get_spin() * -1.0 )
 
 	.explode()
