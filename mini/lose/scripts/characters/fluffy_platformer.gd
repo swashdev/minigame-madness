@@ -6,7 +6,7 @@ extends KinematicBody2D
 signal died
 
 # Signals the minigame that Fluffy has won.
-signal won
+signal won( cave )
 
 # Fluffy's movement speed.
 const MOVE_SPEED: float = 400.0
@@ -46,6 +46,9 @@ func _physics_process( delta ):
 			_velocity.x -= MOVE_SPEED
 			$Sprite.animation = "run"
 			$Sprite.play()
+		elif Input.is_action_just_pressed( "move_down" ):
+			if position.x >= 567.0 and is_on_floor():
+				fall_over( true )
 		else:
 			# Stop animations if no inputs are pressed.
 			$Sprite.animation = "default"
@@ -106,12 +109,12 @@ func die():
 
 
 # Fluffy wins the game & falls over.
-func fall_over():
+func fall_over( cave: bool = false ):
 	flip( false )
 	$Sprite.animation = "fall_over"
 	_velocity = Vector2()
 	_won = true
-	emit_signal( "won" )
+	emit_signal( "won", cave )
 
 
 # Fluffy is inside the effective area of the ladder.

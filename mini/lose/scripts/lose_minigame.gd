@@ -55,8 +55,11 @@ func _on_FluffyPlatformer_died():
 
 
 # Fluffy won the game, which means the player lost the game.
-func _on_FluffyPlatformer_won():
-	emit_signal( "lost" )
+func _on_FluffyPlatformer_won( cave: bool = false ):
+	if cave:
+		emit_signal( "found_secret" )
+	else:
+		emit_signal( "lost" )
 	$FluffyPlatformer.allow_movement = false
 	# If the archer is firing arrows, stop.
 	if _hazard == Hazards.ARCHER:
