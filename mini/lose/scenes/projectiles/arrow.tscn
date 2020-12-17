@@ -10,8 +10,6 @@ extents = Vector2( 30.0218, 5.23836 )
 [node name="Arrow" instance=ExtResource( 1 )]
 collision_layer = 0
 collision_mask = 1
-contacts_reported = 1
-contact_monitor = true
 script = ExtResource( 3 )
 _speed = 300.0
 _direction = -180.0
@@ -27,4 +25,4 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 position = Vector2( -30, 0 )
 shape = SubResource( 1 )
-[connection signal="body_entered" from="." to="." method="_on_Arrow_body_entered"]
+[connection signal="collided" from="." to="." method="_on_Arrow_collided"]

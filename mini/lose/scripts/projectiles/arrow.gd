@@ -3,6 +3,7 @@ extends Projectile2D
 
 
 # The arrow strikes Fluffy who, of course, must die.
-func _on_Arrow_body_entered( body ):
+func _on_Arrow_collided( data ):
+	var body = data.get_collider()
 	body.die()
 	queue_free()
