@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://master/scripts/minigame_canvas.gd"
 }, {
-"base": "RigidBody2D",
+"base": "KinematicBody2D",
 "class": "Projectile2D",
 "language": "GDScript",
 "path": "res://shared/scripts/projectiles/projectile.gd"
