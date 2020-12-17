@@ -26,8 +26,8 @@ var _velocity: Vector2
 
 
 # Handle player movement.
-func _physics_process( _delta ):
-	var collision = move_and_collide( _velocity )
+func _physics_process( delta ):
+	var collision = move_and_collide( _velocity * delta )
 	if collision:
 		emit_signal( "hit" )
 

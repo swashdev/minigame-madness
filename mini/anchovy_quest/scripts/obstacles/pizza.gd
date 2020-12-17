@@ -31,7 +31,7 @@ func _physics_process( delta ):
 		$CollisionPolygon2D.rotation_degrees += spin_degrees * delta
 	
 	# Move & check for collisions.
-	var collision = move_and_collide( _velocity )
+	var collision = move_and_collide( _velocity * delta )
 	# If there is a collision, report it & explode.
 	if collision:
 		emit_signal( "collided", collision )
