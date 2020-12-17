@@ -47,7 +47,7 @@ animations = [ {
 
 [node name="Ragdoll" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-_instruction = "Be a Ragdoll!"
+_instruction = "Don't Move!"
 
 [node name="Background" type="ColorRect" parent="." index="0"]
 margin_right = 640.0
