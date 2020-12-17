@@ -7,13 +7,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.0156, 11.9988 )
 
-[node name="Anchovy" type="RigidBody2D"]
+[node name="Anchovy" type="KinematicBody2D"]
 collision_mask = 2
-gravity_scale = 0.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
@@ -30,4 +26,3 @@ shape = SubResource( 1 )
 
 [node name="ProjectileSpawnPoint" type="Position2D" parent="."]
 position = Vector2( 48, 0 )
-[connection signal="body_entered" from="." to="." method="_on_Anchovy_body_entered"]

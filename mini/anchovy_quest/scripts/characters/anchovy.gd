@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 # The anchovy from the "Anchovy Quest" minigame.
 
 
@@ -22,6 +22,7 @@ var allow_movement: bool = false
 # The player's current speed.
 var _speed: float = 0.0
 var _direction: float = -90.0
+var _velocity: Vector2
 
 
 # The player's mainloop.
@@ -63,16 +64,5 @@ func _process( delta ):
 
 # This function is used to recalculate the player's velocity.
 func _recalc_velocity():
-	linear_velocity = Vector2( _speed, 0 ).rotated( deg2rad( _direction ) )
+	_velocity = Vector2( _speed, 0 ).rotated( deg2rad( _direction ) )
 	rotation_degrees = _direction
-
-
-# Detect collisions with obstacles and handle them appropriately.
-func _on_Anchovy_body_entered( _body ):
-	if allow_movement:
-		# Show the "ouch" sprite and emit the "hit" signal to signal the
-		# minigame that the player's death sequence needs to be started.
-		$Sprite.set_visible( false )
-		$BoomSprite.set_visible( true )
-		emit_signal( "hit" )
-		$Hitbox.set_deferred( "disabled", true )
