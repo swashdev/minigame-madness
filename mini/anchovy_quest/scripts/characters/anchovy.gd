@@ -25,12 +25,19 @@ var _direction: float = -90.0
 var _velocity: Vector2
 
 
-# The player's mainloop.
-func _process( delta ):
+# Handle player movement.
+func _physics_process( _delta ):
+	var collision = move_and_collide( _velocity )
+	if collision:
+		emit_signal( "hit" )
+
 	# Wrap the player around the edges of the screen.
 	position.x = wrapf( position.x, 0, 640.0 )
 	position.y = wrapf( position.y, 0, 480.0 )
 
+
+# Handle player inputs.
+func _process( delta ):
 	if allow_movement:
 		var dspeed = ACCELERATION * delta
 		var ddir = ROTATIONAL_SPEED * delta
