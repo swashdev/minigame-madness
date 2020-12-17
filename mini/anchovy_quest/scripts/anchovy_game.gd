@@ -45,7 +45,7 @@ func start():
 	for pizza in pizzas:
 		var velocity = Vector2( rand_range( MIN_PIZZA, MAX_PIZZA ), 0 )
 		velocity = velocity.rotated( deg2rad( randi() % 360 ) )
-		pizza.linear_velocity = velocity
+		pizza.set_velocity( velocity )
 
 
 # If the player makes it to the end of the timer without dying, they win.
