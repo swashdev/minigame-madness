@@ -8,6 +8,7 @@ radius = 14.6304
 
 [node name="Pepperoni" instance=ExtResource( 1 )]
 collision_layer = 4
+collision_mask = 2
 _speed = 600.0
 spin_degrees = 180.0
 
