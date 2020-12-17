@@ -1,5 +1,4 @@
-class_name Pizza
-extends RigidBody2D
+extends KinematicBody2D
 # A colliding pizza that flies through space trying to smoosh anchovies.
 
 
@@ -54,8 +53,3 @@ func explode():
 
 	# Exit stage none.
 	queue_free()
-
-
-# The pizza will explode when it detects a collision.
-func _on_Pizza_body_entered( _body ):
-	explode()
