@@ -2,9 +2,6 @@ extends KinematicBody2D
 # A colliding pizza that flies through space trying to smoosh anchovies.
 
 
-# Signals the gameloop that there has been a collision.
-signal collided( data )
-
 # This variable contains the pizza's "Explosion" scene, which it spawns in as
 # its explosion animation.
 export (PackedScene) var _explosion
@@ -30,14 +27,9 @@ func _physics_process( delta ):
 		$Sprite.rotation_degrees += spin_degrees * delta
 		$CollisionPolygon2D.rotation_degrees += spin_degrees * delta
 	
-	# Move & check for collisions.
-	var collision = move_and_collide( _velocity * delta )
-	# If there is a collision, report it & explode.
-	if collision:
-		emit_signal( "collided", collision )
-		explode()
-
-	# Wrap around the edges of the screen.
+	# Move & wrap around the edges of the screen.
+# warning-ignore:return_value_discarded
+	move_and_slide( _velocity )
 	position.x = wrapf( position.x, 0, 640.0 )
 	position.y = wrapf( position.y, 0, 480.0 )
 
