@@ -181,7 +181,7 @@ func _on_Minigame_won( found_secret ):
 		# If the player found the secret during this minigame, make a note to
 		# play the secret minigame next.
 		if found_secret:
-			_secret = true
+			_secret = _mode != GameMode.DEBUG
 			$InGameHUD.message( "Secret found!" )
 		else:
 			$InGameHUD.message( "Well-done!" )
