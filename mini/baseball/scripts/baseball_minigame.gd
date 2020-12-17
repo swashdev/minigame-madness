@@ -15,6 +15,7 @@ func _process( _delta ):
 		elif !_swung:
 			if Input.is_action_pressed( "action" ):
 				_swung = true
+				_unlock_controls = false
 				$Spacebar.dim()
 				$Batter.animation = "swing"
 				$Batter.play()
