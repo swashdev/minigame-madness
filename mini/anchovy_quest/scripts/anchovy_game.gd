@@ -33,6 +33,7 @@ func _ready():
 		pizza_position.x = wrapf( pizza_position.x, 0.0, 640.0 )
 		pizza_position.y = wrapf( pizza_position.y, 0.0, 480.0 )
 		pizza.position = pizza_position
+		pizza.connect( "collided", self, "_on_pizza_collided" )
 		add_child( pizza )
 
 
@@ -72,3 +73,14 @@ func _on_Player_shoot( location, direction ):
 	bullet.position = location
 	# Set the bullet's direction appropriately.
 	bullet.set_direction( direction )
+
+
+# A pizza has reported a collision.
+func _on_pizza_collided( data: KinematicCollision2D ):
+	# De-queue the collider.  If the collider happens to be the player, act
+	# appropriately.
+	if data.get_collider_id() == $Player.get_instance_id():
+		_on_Player_hit()
+	else:
+		var collider = data.get_collider()
+		collider.queue_free()
