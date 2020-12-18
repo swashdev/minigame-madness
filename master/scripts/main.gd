@@ -66,6 +66,7 @@ func _process( _delta ):
 func new_game( mode: int = GameMode.NORMAL, id: int = 0 ):
 	_mode = mode
 	reset_everything()
+	$MainMusic.play()
 	if _mode == GameMode.DEBUG:
 		$InGameHUD.message( "Debug mode.  Press Escape to finish." )
 		yield( $InGameHUD, "message_exited" )
@@ -147,6 +148,7 @@ func do_next_minigame():
 
 # Performs "game over" functions.
 func game_ended( reason ):
+	$MainMusic.stop()
 	match reason:
 		WON:
 			$InGameHUD.message( "You win!" )
