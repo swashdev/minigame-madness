@@ -72,6 +72,10 @@ func _on_ControlsButton_pressed():
 	$ControlsDialog.popup_centered()
 
 
+# The "Credits" button has been pressed.  Open a dialog box.
+func _on_CreditsButton_pressed():
+	$CreditsDialog.popup( Rect2( Vector2( 0, 20 ), Vector2( 640, 480 ) ) )
+
 
 # The "Legal Stuff" button has been pressed.  This will open a dialog box
 # containing licensing information.

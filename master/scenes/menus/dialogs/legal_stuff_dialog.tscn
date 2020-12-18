@@ -28,21 +28,21 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 507.0
-margin_bottom = 490.0
+margin_right = 555.0
+margin_bottom = 327.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MMLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_right = 495.0
+margin_right = 543.0
 margin_bottom = 92.0
 text = "Minigame Madness is free and unencumbered software released into the public domain.  Included with all copies of Minigame Madness is a copy of the Unlicense stating the developer's intention to waive all copyright interests in the software.  You can press the button below for more information."
 autowrap = true
 
 [node name="MMLicenseButton" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_left = 173.0
+margin_left = 197.0
 margin_top = 96.0
-margin_right = 322.0
+margin_right = 346.0
 margin_bottom = 118.0
 size_flags_horizontal = 4
 toggle_mode = true
@@ -92,29 +92,46 @@ text = "unlicense.org"
 
 [node name="Separator1" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
 margin_top = 122.0
-margin_right = 495.0
+margin_right = 543.0
 margin_bottom = 126.0
 
 [node name="GodotLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 130.0
-margin_right = 495.0
-margin_bottom = 241.0
+margin_right = 543.0
+margin_bottom = 222.0
 text = "Although Minigame Madness itself is in the public domain, compiled binaries are subject to the Godot Engine license, as it uses the Godot Engine.  As such, all copies of Minigame Madness, whether original or modified, must include a link to the Godot Engine license or a copy of the full text of the license itself.  You can click below to view the license on their website."
 autowrap = true
 
 [node name="GodotLicenseLink" type="LinkButton" parent="ScrollContainer/VBoxContainer"]
-margin_top = 245.0
-margin_right = 495.0
-margin_bottom = 261.0
+margin_top = 226.0
+margin_right = 543.0
+margin_bottom = 242.0
 custom_colors/font_color = Color( 0, 0, 1, 1 )
 text = "godotengine.org/license"
 
 [node name="Separator2" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
-margin_top = 265.0
+margin_top = 246.0
+margin_right = 543.0
+margin_bottom = 250.0
+
+[node name="MusicNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 254.0
+margin_right = 543.0
+margin_bottom = 327.0
+text = "The song \"Skippitybop\" used in Minigame Madness is licensed under the CC-BY 3.0 license.  All copies of Minigame Madness which include this song must retain the relevant attribution notices.  See the \"Credits\" screen on the main menu for more information."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Separator4" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 273.0
 margin_right = 495.0
-margin_bottom = 269.0
+margin_bottom = 277.0
 
 [node name="MDOSSample" type="Label" parent="ScrollContainer/VBoxContainer"]
+visible = false
 margin_top = 273.0
 margin_right = 495.0
 margin_bottom = 281.0
@@ -123,16 +140,18 @@ text = "Modern DOS"
 autowrap = true
 
 [node name="MDOSLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 285.0
+visible = false
+margin_top = 273.0
 margin_right = 495.0
-margin_bottom = 358.0
+margin_bottom = 346.0
 text = "Minigame Madness uses the Modern DOS font by Jayvee Enaguas for some notices on the main menu.  Modern DOS has been released into the public domain by Jayvee under the CC0 1.0 Universal public domain dedication."
 autowrap = true
 
 [node name="MDOSLicenseLinks" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 362.0
+visible = false
+margin_top = 273.0
 margin_right = 495.0
-margin_bottom = 378.0
+margin_bottom = 289.0
 
 [node name="DaFontsLink" type="LinkButton" parent="ScrollContainer/VBoxContainer/MDOSLicenseLinks"]
 margin_right = 108.0
@@ -148,22 +167,25 @@ custom_colors/font_color = Color( 0, 0, 1, 1 )
 text = "cc0 1.0"
 
 [node name="Separator3" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
-margin_top = 382.0
+visible = false
+margin_top = 273.0
 margin_right = 495.0
-margin_bottom = 386.0
+margin_bottom = 277.0
 
 [node name="JLHLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 390.0
+visible = false
+margin_top = 273.0
 margin_right = 495.0
-margin_bottom = 444.0
+margin_bottom = 327.0
 text = "Minigame Madness uses some fonts by JLH Fonts for various styles.  All JLH fonts have been released into the public domain by JLH Fonts."
 autowrap = true
 
 [node name="JLHSamplesButton" type="Button" parent="ScrollContainer/VBoxContainer"]
+visible = false
 margin_left = 153.0
-margin_top = 448.0
+margin_top = 273.0
 margin_right = 342.0
-margin_bottom = 470.0
+margin_bottom = 295.0
 size_flags_horizontal = 4
 toggle_mode = true
 text = "View full JLH Fonts list"
@@ -196,9 +218,10 @@ text = "Janitor"
 autowrap = true
 
 [node name="JLHFontsLink" type="LinkButton" parent="ScrollContainer/VBoxContainer"]
-margin_top = 474.0
+visible = false
+margin_top = 273.0
 margin_right = 495.0
-margin_bottom = 490.0
+margin_bottom = 289.0
 custom_colors/font_color = Color( 0, 0, 1, 1 )
 text = "JLH Fonts Terms of Use"
 [connection signal="toggled" from="ScrollContainer/VBoxContainer/MMLicenseButton" to="." method="_on_MMLicenseButton_toggled"]
