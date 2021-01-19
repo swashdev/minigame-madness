@@ -43,25 +43,25 @@ func _process( delta ):
 		var ddir = ROTATIONAL_SPEED * delta
 
 		# Rotate the player on left or right inputs.
-		if Input.is_action_pressed( "ui_left" ):
+		if Input.is_action_pressed( "move_left" ):
 			_direction -= ddir
-		if Input.is_action_pressed( "ui_right" ):
+		if Input.is_action_pressed( "move_right" ):
 			_direction += ddir
 
 		# Accelerate to MAX_SPEED on an up input, decelerate to 0 on a down.
-		if Input.is_action_pressed( "ui_up" ):
+		if Input.is_action_pressed( "move_up" ):
 			if _speed < MAX_SPEED - dspeed:
 				_speed += dspeed
 			else:
 				_speed = MAX_SPEED
-		elif Input.is_action_pressed( "ui_down" ):
+		elif Input.is_action_pressed( "move_down" ):
 			if _speed > dspeed:
 				_speed -= dspeed
 			else:
 				_speed = 0.0
 
 		# Fire a projectile on a press of the space bar.
-		if Input.is_action_just_pressed( "ui_select" ):
+		if Input.is_action_just_pressed( "action" ):
 			emit_signal( "shoot", $ProjectileSpawnPoint.global_position, \
 					rotation_degrees )
 
