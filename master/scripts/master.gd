@@ -16,11 +16,15 @@ export (int, 01, 53) var _version_week
 export (int, 1, 7) var _version_day
 export (int) var _hotfix = 0
 
+# "Version Type" is a prefix added to the version number to indicate that it is
+# a prerelease version, an alpha, &c.
+enum BuildType { PRERELEASE, ALPHA, BETA, RELEASE }
+export (BuildType) var _version_type = 1
 
 # Perform final setup.
 func _ready():
 	$MainMenu.set_version_number( _version_year, _version_week, _version_day,
-			_hotfix )
+			_hotfix, _version_type )
 
 	# Populate the debug menu.
 	var minigames = $Main/MinigameCanvas.Minigames.size()
