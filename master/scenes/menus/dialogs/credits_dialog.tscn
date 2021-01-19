@@ -88,10 +88,11 @@ custom_fonts/font = ExtResource( 2 )
 text = "Spadezer
 \"Skippitybop\""
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="CCBYButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 57.0
 margin_right = 248.0
 margin_bottom = 88.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 
 [node name="SkippitybopButton" type="LinkButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -132,10 +133,11 @@ text = "Loyalty Freak Music
 \"Everyone is so alive\"
 Robot Dance !"
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="CC0Button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 260.0
 margin_right = 248.0
 margin_bottom = 291.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 7 )
 
 [node name="LoyaltyFreakButton" type="LinkButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -233,6 +235,8 @@ text = "Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CCBYButton" to="." method="_on_CC_BY_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SkippitybopButton" to="." method="_on_SkippitybopButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CC0Button" to="." method="_on_CC0_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/LoyaltyFreakButton" to="." method="_on_LoyaltyFreakButton_pressed"]
 [connection signal="pressed" from="MarginContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

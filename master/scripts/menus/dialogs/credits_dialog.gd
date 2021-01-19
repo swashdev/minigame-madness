@@ -15,3 +15,11 @@ func _on_SkippitybopButton_pressed():
 
 func _on_LoyaltyFreakButton_pressed():
 	emit_signal( "open_external", "https://loyaltyfreakmusic.com/" )
+
+
+func _on_CC_BY_button_pressed():
+	emit_signal( "open_external", "https://creativecommons.org/licenses/by/3.0/" )
+
+
+func _on_CC0_button_pressed():
+	emit_signal( "open_external", "https://creativecommons.org/publicdomain/zero/1.0/" )
