@@ -6,7 +6,7 @@ teach myself the Godot engine and some basic principles of design.  The
 original goal was to have twenty minigames finished by the end of 2020, but
 due to certain inevitable delays that got pushed back.
 
-The game is currently in a prerelease state with 8 fully playable minigames.
+The game is currently in a prerelease state with 9 fully playable minigames.
 
 Legal Stuff
 -----------
