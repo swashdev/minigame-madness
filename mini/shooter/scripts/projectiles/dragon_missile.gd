@@ -12,6 +12,15 @@ const SPEED: float = 200.0
 var _exploded: bool = false
 
 
+# Reset the missile's collision shape on game start.
+# Testing has shown that the missile's hit box is too large after the game has
+# already been run once, presumably because it's not being reset properly for
+# some reason.  This function will reset the hit box explicitly when the game
+# starts.
+func _ready():
+	$CollisionShape2D.shape.set_radius( 5.909 )
+
+
 # `blow_up` when the missile reaches a certain y coordinate.
 func _process( delta ):
 	if not _exploded:
