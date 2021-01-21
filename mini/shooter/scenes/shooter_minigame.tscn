@@ -79,7 +79,7 @@ position = Vector2( 120, 400 )
 position = Vector2( 120, 430 )
 
 [node name="Boundary" type="Line2D" parent="."]
-points = PoolVector2Array( 0, 0, 240, 0, 240, 440, 0, 440, 0, 0 )
+points = PoolVector2Array( 0, 0, 240, 0, 240, 460, 0, 460, 0, 0 )
 width = 2.0
 default_color = Color( 0.764706, 0, 0, 1 )
 
