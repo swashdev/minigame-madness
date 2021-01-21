@@ -21,6 +21,7 @@ export (int) var _hotfix = 0
 enum BuildType { PRERELEASE, ALPHA, BETA, RELEASE }
 export (BuildType) var _version_type = 1
 
+
 # Perform final setup.
 func _ready():
 	$MainMenu.set_version_number( _version_year, _version_week, _version_day,

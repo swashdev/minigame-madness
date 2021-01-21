@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
 [ext_resource path="res://master/fonts/descriptive_text.tres" type="DynamicFont" id=10]
 [ext_resource path="res://master/scenes/menus/dialogs/credits_dialog.tscn" type="PackedScene" id=11]
+[ext_resource path="res://master/images/menus/buttons/music_button_off.png" type="Texture" id=12]
+[ext_resource path="res://master/images/menus/buttons/music_button_on.png" type="Texture" id=13]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -147,6 +149,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MusicButton" type="TextureButton" parent="."]
+anchor_left = 0.071875
+anchor_top = 0.825
+anchor_right = 0.134875
+anchor_bottom = 0.908
+toggle_mode = true
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="ControlsDialog" parent="." instance=ExtResource( 5 )]
 margin_right = 500.0
 margin_bottom = 300.0
@@ -172,6 +187,7 @@ dialog_text = "Are you sure you want to quit?"
 [connection signal="pressed" from="Menu/Buttons/LegalStuffButton" to="." method="_on_LegalStuffButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="toggled" from="MusicButton" to="." method="_on_MusicButton_toggled"]
 [connection signal="open_external" from="CreditsDialog" to="ConfirmOpenExternal" method="_on_open_external"]
 [connection signal="open_external" from="LegalStuffDialog" to="ConfirmOpenExternal" method="_on_open_external"]
 [connection signal="confirmed" from="ReallyQuit" to="." method="_on_ReallyQuit_confirmed"]

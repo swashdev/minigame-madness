@@ -6,6 +6,9 @@ extends Control
 # attention.
 signal button_pressed( button )
 
+# Used to signal Master that the music has been muted.
+signal music_muted( button_toggled )
+
 var _sequence: int = 0
 
 
@@ -110,3 +113,8 @@ func _on_ReallyQuit_confirmed():
 # The "Debug Menu" button has been pressed.  Signal Master.
 func _on_DebugButton_pressed():
 	emit_signal( "button_pressed", "debug" )
+
+
+# The "Mute Music" button has been pressed.  Signal Master.
+func _on_MusicButton_toggled( button_pressed ):
+	emit_signal( "music_muted", button_pressed )

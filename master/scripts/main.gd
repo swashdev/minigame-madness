@@ -38,6 +38,9 @@ var minigames_won = []
 # arrays.
 var current_minigame = []
 
+# Determines whether or not to play music when the game starts.
+var _music: bool = true
+
 # This boolean determines if the next/current minigame is the _secret_
 # minigame.
 var _secret: bool = false
@@ -62,11 +65,17 @@ func _process( _delta ):
 			game_ended( CANCELLED )
 
 
+# Sets the music on or off.
+func mute_music( button_toggled ):
+	_music = not button_toggled
+
+
 # Starts a new game.
 func new_game( mode: int = GameMode.NORMAL, id: int = 0 ):
 	_mode = mode
 	reset_everything()
-	$MainMusic.play()
+	if _music:
+		$MainMusic.play()
 	if _mode == GameMode.DEBUG:
 		$InGameHUD.message( "Debug mode.  Press Escape to finish." )
 		yield( $InGameHUD, "message_exited" )
