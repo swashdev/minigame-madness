@@ -199,6 +199,7 @@ func _on_Minigame_lost():
 	if game_in_progress:
 		$GameTimer.stop()
 		game_in_progress = false
+		_secret = false
 		streak = 0
 		lives = lives - 1
 		$InGameHUD.update_life_counter( lives )
