@@ -27,7 +27,7 @@ func _process( delta ):
 			position.x += speed
 		if Input.is_action_pressed( "move_left" ):
 			position.x -= speed
-		position.x = clamp( position.x, 20, 220 )
+		position.x = clamp( position.x, 20, 440 )
 		# The player fires a standard bullet with the spacebar.
 		if Input.is_action_pressed( "action" ):
 			# Only fire the shot if the player's cooldown timer has expired.

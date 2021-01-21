@@ -21,7 +21,7 @@ __meta__ = {
 }
 
 [node name="Minigame" parent="." instance=ExtResource( 6 )]
-position = Vector2( 200, 0 )
+position = Vector2( 90, 0 )
 
 [node name="Spacebar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 100, 410 )
