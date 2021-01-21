@@ -32,6 +32,16 @@ texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="KillCounter" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 48.0
+text = "Kills:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="lost" from="Minigame" to="." method="_on_Minigame_lost"]
 [connection signal="missile_deployed" from="Minigame" to="." method="_on_Minigame_missile_deployed"]
 [connection signal="won" from="Minigame" to="." method="_on_Minigame_won"]

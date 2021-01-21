@@ -5,6 +5,10 @@ extends Minigame
 # Since the ShooterFrame functions as a frame around the actual minigame, this
 # script pretty much defers everything to the ShooterMinigame.
 
+# Gameloop.  Pretty much just updates the kill counter.
+func _process( _delta ):
+	$KillCounter.text = "Kills: %d" % $Minigame.get_kills()
+
 
 func decide():
 	$Minigame.decide()

@@ -47,6 +47,11 @@ func _process( _delta ):
 		$Missile.position.x = $Player.position.x
 
 
+# Returns the number of kills the player has.  Used for the score counter.
+func get_kills() -> int:
+	return _kills
+
+
 # Unlock the player's controls on starting the minigame.
 func start():
 	_unlock_controls = true
