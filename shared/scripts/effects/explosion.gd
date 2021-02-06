@@ -1,4 +1,3 @@
-class_name Explosion
 extends AnimatedSprite
 # An explosion which animates once and then disappears.
 

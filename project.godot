@@ -10,66 +10,18 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
-"class": "ArrowKeys",
-"language": "GDScript",
-"path": "res://shared/scripts/ui/keys/arrow_keys.gd"
-}, {
-"base": "AnimatedSprite",
-"class": "Explosion",
-"language": "GDScript",
-"path": "res://shared/scripts/effects/explosion.gd"
-}, {
-"base": "Control",
-"class": "InGameHUD",
-"language": "GDScript",
-"path": "res://master/scripts/in-game_HUD.gd"
-}, {
-"base": "Label",
-"class": "InstructionLabel",
-"language": "GDScript",
-"path": "res://master/scripts/hud/instruction_label.gd"
-}, {
-"base": "AnimatedSprite",
-"class": "KeyPrompt",
-"language": "GDScript",
-"path": "res://shared/scripts/ui/keys/key_prompt.gd"
-}, {
-"base": "Node",
-"class": "Main",
-"language": "GDScript",
-"path": "res://master/scripts/main.gd"
-}, {
-"base": "Node2D",
 "class": "Minigame",
 "language": "GDScript",
 "path": "res://shared/scripts/minigame.gd"
-}, {
-"base": "Node2D",
-"class": "MinigameCanvas",
-"language": "GDScript",
-"path": "res://master/scripts/minigame_canvas.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Projectile2D",
 "language": "GDScript",
 "path": "res://shared/scripts/projectiles/projectile.gd"
-}, {
-"base": "Minigame",
-"class": "Ragdoll",
-"language": "GDScript",
-"path": "res://mini/ragdoll/scripts/ragdoll.gd"
 } ]
 _global_script_class_icons={
-"ArrowKeys": "",
-"Explosion": "",
-"InGameHUD": "",
-"InstructionLabel": "",
-"KeyPrompt": "",
-"Main": "",
 "Minigame": "",
-"MinigameCanvas": "",
-"Projectile2D": "",
-"Ragdoll": ""
+"Projectile2D": ""
 }
 
 [application]

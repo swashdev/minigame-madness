@@ -3,7 +3,6 @@
 
 
 extends Node2D
-class_name ArrowKeys
 
 
 # instructs the given arrow to do a certain animation.  if `which_key` is

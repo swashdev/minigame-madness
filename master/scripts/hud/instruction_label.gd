@@ -1,4 +1,3 @@
-class_name InstructionLabel
 extends Label
 # A label used to display instructions and other messages in Minigame Madness.
 

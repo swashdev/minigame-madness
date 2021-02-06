@@ -1,4 +1,3 @@
-class_name InGameHUD
 extends Control
 # The in-game HUD for Minigame Madness.
 

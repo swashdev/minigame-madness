@@ -1,4 +1,3 @@
-class_name Ragdoll
 extends Minigame
 # The "Be a Ragdoll!" minigame.
 

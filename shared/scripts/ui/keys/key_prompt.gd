@@ -1,4 +1,3 @@
-class_name KeyPrompt
 extends AnimatedSprite
 # A template for an on-screen prompt to press a key, with built-in animations
 # to light, dim, or blink the key appropriately.

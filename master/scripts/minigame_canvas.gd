@@ -1,4 +1,3 @@
-class_name MinigameCanvas
 extends Node2D
 # A canvas to host the minigames on.
 
