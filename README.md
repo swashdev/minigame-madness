@@ -24,7 +24,7 @@ In spite of this, all of the work done by me on Minigame Madness will remain
 fully in the public domain.  Further information on other assets used in the
 game can be found on the Credits screen in-game.
 
-[public domain software]: UNLICENSE
+[public domain software]: LICENSE
 
 [the song "Skippitybop" by Spadezer]: https://www.newgrounds.com/audio/listen/944805
 
