@@ -33,6 +33,18 @@ func start():
 # trains.
 func stop():
 	$Train.unlock( false )
-	$EvilTrain1.queue_free()
-	$EvilTrain2.queue_free()
-	$EvilTrain3.queue_free()
+
+
+# The train has detected a collision with an evil train.
+func _on_Train_body_entered( body ):
+	# Stop the evil train.
+	body.unlock( false )
+	# Stop emitting smoke particles.
+	body.get_node( "Particles2D" ).emitting = false
+	$Train/Particles2D.emitting = false
+	# Stop scrolling the background.
+	$ParallaxBackground.stop_scrolling()
+	
+	# Signal loss and stop the minigame.
+	stop()
+	emit_signal( "lost" )
