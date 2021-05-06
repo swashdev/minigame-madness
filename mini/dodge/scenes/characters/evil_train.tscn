@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.1984, 32.886 )
 
-[node name="EvilTrain" type="Area2D"]
+[node name="EvilTrain" type="KinematicBody2D"]
 rotation = 3.14159
 script = ExtResource( 1 )
 
