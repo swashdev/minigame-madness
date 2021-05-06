@@ -14,6 +14,13 @@ func _on_MMLicenseButton_toggled( button_pressed ):
 	$ScrollContainer/VBoxContainer/UnlicenseLink.visible = button_pressed
 
 
+# The "Godot Engine Licensing Information" button has been pressed, which will
+# popup the Godot Enginge License Dialog.
+func _on_GodotLicenseButton_pressed():
+	$GodotEngineLicenseDialog.popup_centered()
+	
+
+
 # The link to the Unlicense website has been pressed, so we're going to send
 # an instruction to the operating system to visit that website.
 func _on_UnlicenseLink_pressed():
@@ -24,23 +31,3 @@ func _on_UnlicenseLink_pressed():
 # an instruction to the operating system to visit that website.
 func _on_GodotLicenseLink_pressed():
 	emit_signal( "open_external", "https://godotengine.org/license" )
-
-
-func _on_DaFontsLink_pressed():
-	emit_signal( "open_external", "https://www.dafont.com/modern-dos.font" )
-
-
-func _on_CC0Link_pressed():
-	emit_signal( "open_external",
-			"https://creativecommons.org/share-your-work/public-domain/cc0/" )
-
-
-func _on_JLHSamplesButton_toggled( button_pressed ):
-	$ScrollContainer/VBoxContainer/JLHSampleHalogen.visible = button_pressed
-	$ScrollContainer/VBoxContainer/JLHSampleHeavyEquip.visible = button_pressed
-	$ScrollContainer/VBoxContainer/JLHSampleJanitor.visible = button_pressed
-
-
-func _on_JLHFontsLink_pressed():
-	emit_signal( "open_external",
-			"https://jlhfonts.blogspot.com/p/terms-of-use.html" )
