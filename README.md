@@ -6,7 +6,13 @@ teach myself the Godot engine and some basic principles of design.  The
 original goal was to have twenty minigames finished by the end of 2020, but
 due to certain inevitable delays that got pushed back.
 
-The game is currently in a prerelease state with 9 fully playable minigames.
+Minigame Madness is designed for web platforms but can also be exported for
+desktop environments including Windows, MacOS, Linux, and maybe more!  See the
+[Compiling] section for more details.
+
+[Compiling]: #compiling
+
+The game is currently in a prerelease state with 10 fully playable minigames.
 
 Legal Stuff
 -----------
@@ -23,6 +29,10 @@ runs in the Godot engine.
 In spite of this, all of the work done by me on Minigame Madness will remain
 fully in the public domain.  Further information on other assets used in the
 game can be found on the Credits screen in-game.
+
+As of version 21.18.3-alpha, the game contains a comprehensive list of
+third-party licenses to which the Godot Engine is subject as of version
+3.3-stable, so license compliance shouldn't be a problem.
 
 [public domain software]: LICENSE
 
