@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/dodge/images/background/bg.png" type="Texture" id=2]
 [ext_resource path="res://mini/dodge/scripts/background/bg.gd" type="Script" id=3]
 [ext_resource path="res://mini/dodge/scenes/characters/train.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mini/dodge/scenes/characters/evil_train.tscn" type="PackedScene" id=5]
 
 [node name="Dodge" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,3 +27,15 @@ region_rect = Rect2( 0, 0, 1280, 480 )
 
 [node name="Train" parent="." instance=ExtResource( 4 )]
 position = Vector2( 100, 242 )
+
+[node name="EvilTrain1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 740, 130 )
+rotation = -3.14159
+
+[node name="EvilTrain2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 740, 242 )
+rotation = -3.14159
+
+[node name="EvilTrain3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 740, 354 )
+rotation = -3.14159
