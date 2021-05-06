@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/dodge/scripts/dodge.gd" type="Script" id=1]
 [ext_resource path="res://mini/dodge/images/background/bg.png" type="Texture" id=2]
 [ext_resource path="res://mini/dodge/scripts/background/bg.gd" type="Script" id=3]
 [ext_resource path="res://mini/dodge/scenes/characters/train.tscn" type="PackedScene" id=4]
