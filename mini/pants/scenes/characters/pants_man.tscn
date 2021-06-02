@@ -5,16 +5,5 @@
 
 [node name="PantsMan" type="Sprite"]
 texture = ExtResource( 1 )
-offset = Vector2( -6, -38 )
+offset = Vector2( 0, -37 )
 script = ExtResource( 2 )
-
-[node name="CensorBar" type="ColorRect" parent="."]
-margin_left = -21.7991
-margin_top = -30.3735
-margin_right = 18.2009
-margin_bottom = 9.62652
-rect_scale = Vector2( 1.0543, 0.522502 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
