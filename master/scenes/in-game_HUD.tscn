@@ -5,15 +5,14 @@
 [ext_resource path="res://master/textures/progress_bar/under.png" type="Texture" id=3]
 [ext_resource path="res://master/textures/progress_bar/over.png" type="Texture" id=4]
 [ext_resource path="res://master/textures/progress_bar/progress.png" type="Texture" id=5]
-[ext_resource path="res://master/textures/life_bar/under.png" type="Texture" id=6]
-[ext_resource path="res://master/textures/life_bar/progress.png" type="Texture" id=7]
-[ext_resource path="res://master/textures/life_bar/over.png" type="Texture" id=8]
+[ext_resource path="res://master/textures/life_bar/short_progress.png" type="Texture" id=6]
+[ext_resource path="res://master/textures/life_bar/short_over.png" type="Texture" id=7]
+[ext_resource path="res://master/textures/life_bar/short_under.png" type="Texture" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
 [ext_resource path="res://master/themes/instruction_box.stylebox" type="StyleBox" id=10]
 
-
-
 [node name="InGameHUD" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 9 )
@@ -40,15 +39,15 @@ __meta__ = {
 [node name="LifeCounter" type="TextureProgress" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -150.0
-margin_bottom = 40.0
-max_value = 6.0
-value = 5.0
+margin_left = -100.0
+margin_bottom = 20.0
+max_value = 4.0
+value = 3.0
 rounded = true
 allow_greater = true
-texture_under = ExtResource( 6 )
-texture_over = ExtResource( 8 )
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 8 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 6 )
 fill_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false

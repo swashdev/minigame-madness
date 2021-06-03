@@ -15,7 +15,7 @@ enum GameMode { NORMAL, ENDURANCE, SUDDEN_DEATH, DEBUG }
 var _mode: int = GameMode.NORMAL
 
 # The number of lives the player currently has.
-var lives = 5
+var lives = 3
 # The number of minigames that have been played.
 var played = 0
 # The player's current victory streak.
@@ -94,7 +94,7 @@ func reset_everything():
 	if _mode == GameMode.SUDDEN_DEATH:
 		lives = 1
 	else:
-		lives = 5
+		lives = 3
 	played = 0
 	streak = 0
 
