@@ -3,29 +3,26 @@ extends Node
 
 
 # Export the version number so it can be modified easily from the editor.
-# Minigame Madness's version number is the date that this version was
-# finalized and built on, rendered as %g.%V.%u, where %g is the two-digit ISO
-# week year, %V is the two-digit ISO week number, and %u is the day of the
-# week, 1-7, where 1 is Monday and 7 is Sunday.
-# See https://en.wikipedia.org/wiki/ISO_week_date for ISO week date
-# information.
-# "Hotfix" indicates that this version applies a hotfix to an existing
-# version and defaults to 0.
-export (int, 0, 99) var _version_year
-export (int, 01, 53) var _version_week
-export (int, 1, 7) var _version_day
-export (int) var _hotfix = 0
+# Effective as of version 0.11.0, Minigame Madness uses a Release.Major.Patch
+# version numbering system.  Release is incremented once with every entry in
+# the Minigame Madness series.  Major is incremented any time something is
+# added to the game, such as a new minigame or other feature.  Patch is
+# incremented for patches to existing content and hotfixes.  If Patch is 0, it
+# will not be displayed.
+# The version number which preceded this version numbering system was 21.18.3
+export (int) var _version_release
+export (int) var _version_major
+export (int) var _version_patch
 
 # "Version Type" is a prefix added to the version number to indicate that it is
 # a prerelease version, an alpha, &c.
-enum BuildType { PRERELEASE, ALPHA, BETA, RELEASE }
-export (BuildType) var _version_type = 1
+export (int, "Prerelease", "Alpha", "Beta", "Release") var _version_type = 1
 
 
 # Perform final setup.
 func _ready():
-	$MainMenu.set_version_number( _version_year, _version_week, _version_day,
-			_hotfix, _version_type )
+	$MainMenu.set_version_number( _version_release, _version_major,
+			_version_patch, _version_type )
 
 	# Populate the debug menu.
 	var minigames = $Main/MinigameCanvas.Minigames.size()

@@ -43,14 +43,11 @@ func _process( _delta ):
 
 
 # Sets the version number for the label.
-func set_version_number( year: int, week: int, day: int, hotfix: int = 0,
+func set_version_number( release: int, major: int, patch: int,
 		build_type: int = 1 ):
-	var version = "%d.%d.%d" % [year, week, day]
-	var hotfix_label
-	if hotfix > 0:
-		hotfix_label = "-hotfix%d" % hotfix
-	else:
-		hotfix_label = ""
+	var version = "%d.%d" % [release, major]
+	if patch > 0:
+		version = "%s.%d" % [version, patch]
 
 	var type: String
 	match build_type:
@@ -63,7 +60,7 @@ func set_version_number( year: int, week: int, day: int, hotfix: int = 0,
 		_: # Release
 			type = "Version"
 
-	var full_version_string = "%s %s%s" % [type, version, hotfix_label]
+	var full_version_string = "%s %s" % [type, version]
 	$VersionNumberLabel.text = full_version_string
 
 
