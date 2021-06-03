@@ -6,6 +6,12 @@ extends Minigame
 var _pants_sprites = [
 	preload( "res://mini/pants/images/pants/jeans.png" ),
 	preload( "res://mini/pants/images/pants/jeans_shorts.png" ),
+	preload( "res://mini/pants/images/pants/cargo_pants.png" ),
+	preload( "res://mini/pants/images/pants/cargo_shorts.png" ),
+	preload( "res://mini/pants/images/pants/dress_pants.png" ),
+	preload( "res://mini/pants/images/pants/camo_pants.png" ),
+	preload( "res://mini/pants/images/pants/clown_pants.png" ),
+	preload( "res://mini/pants/images/pants/kilt.png" ),
 	# Comma on last line intentional for efficient diff files.
 ]
 

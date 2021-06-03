@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jeans_shorts.png-0e86d7d052f7cfde13d9c74fe96a3d54.stex"
+path="res://.import/camo_pants.png-86f4cd0d0b8a550a674bdc7d518176dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/pants/images/pants/jeans_shorts.png"
-dest_files=[ "res://.import/jeans_shorts.png-0e86d7d052f7cfde13d9c74fe96a3d54.stex" ]
+source_file="res://mini/pants/images/pants/camo_pants.png"
+dest_files=[ "res://.import/camo_pants.png-86f4cd0d0b8a550a674bdc7d518176dc.stex" ]
 
 [params]
 
