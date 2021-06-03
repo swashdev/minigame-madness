@@ -1,4 +1,4 @@
-extends Sprite
+extends KinematicBody2D
 # A script for the player character in the "Put on Pants!" minigame.
 
 
