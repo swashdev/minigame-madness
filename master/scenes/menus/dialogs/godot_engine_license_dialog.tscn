@@ -33,7 +33,7 @@ __meta__ = {
 margin_right = 628.0
 margin_bottom = 133.0
 custom_fonts/font = ExtResource( 1 )
-text = "What follows is a copy of the COPYRIGHT.txt file from the Godot Engine source code repository, as of the release of version 3.3-stable.  Depending on the specific export template used to export this copy of Minigame Madness, not all of the licensing included may apply.  Future versions of Godot may be subject to different software licenses.
+text = "What follows is a copy of the COPYRIGHT.txt file from the Godot Engine source code repository, as of the release of version 3.3.2-stable.  Depending on the specific export template used to export this copy of Minigame Madness, not all of the licensing included may apply.  Future versions of Godot may be subject to different software licenses.
 
 For more up-to-date information on licensing, visit the licensing page on the Godot Engine website at"
 autowrap = true
@@ -190,6 +190,11 @@ Comment: Convection Texture Tools Stand-Alone Kernels
 Copyright: 2018, Eric Lasota
  2018, Microsoft Corp.
 License: Expat
+
+Files: ./thirdparty/embree/
+Comment: Embree
+Copyright: 2009-2021 Intel Corporation
+License: Apache-2.0
 
 Files: ./thirdparty/enet/
 Comment: ENet
