@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://mini/pants/pants_minigame.gd" type="Script" id=1]
 [ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/pants/scenes/characters/pants_man.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/pants/textures/scenery/brick_wall.png" type="Texture" id=4]
 [ext_resource path="res://mini/pants/images/characters/fig_leaf.png" type="Texture" id=5]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 608, 0 )
+}
 
 [node name="PantsMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,3 +34,14 @@ position = Vector2( 320, 461 )
 [node name="FigLeaf" type="Sprite" parent="PantsMan"]
 position = Vector2( 0, -21.5 )
 texture = ExtResource( 5 )
+
+[node name="PantsPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PantsSpawnPoint" type="PathFollow2D" parent="PantsPath"]
+position = Vector2( 32, 0 )
+rotate = false
+
+[node name="PantsTimer" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="timeout" from="PantsTimer" to="." method="_on_PantsTimer_timeout"]
