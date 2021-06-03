@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mini/pants/pants_minigame.gd" type="Script" id=1]
 [ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/pants/scenes/characters/pants_man.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mini/pants/textures/scenery/brick_wall.png" type="Texture" id=4]
 
 [node name="PantsMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,5 +11,15 @@ _instruction = "Put on Pants!"
 
 [node name="Sky" parent="." instance=ExtResource( 2 )]
 
+[node name="BrickWall" type="TextureRect" parent="."]
+margin_top = 461.0
+margin_right = 640.0
+margin_bottom = 481.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PantsMan" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 480 )
+position = Vector2( 320, 461 )
