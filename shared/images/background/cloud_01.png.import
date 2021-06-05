@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cloud_02.png-edfa52044fbb3e65c53a5102cd36a20b.stex"
+path="res://.import/cloud_01.png-56e68f1029f8e0b48fbc6dc3ead065c0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/wind/images/background/cloud_02.png"
-dest_files=[ "res://.import/cloud_02.png-edfa52044fbb3e65c53a5102cd36a20b.stex" ]
+source_file="res://shared/images/background/cloud_01.png"
+dest_files=[ "res://.import/cloud_01.png-56e68f1029f8e0b48fbc6dc3ead065c0.stex" ]
 
 [params]
 
