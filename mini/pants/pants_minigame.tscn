@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://mini/pants/pants_minigame.gd" type="Script" id=1]
 [ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/pants/scenes/characters/pants_man.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/pants/textures/scenery/brick_wall.png" type="Texture" id=4]
 [ext_resource path="res://mini/pants/images/characters/fig_leaf.png" type="Texture" id=5]
+[ext_resource path="res://shared/images/background/cloud_01.png" type="Texture" id=6]
+[ext_resource path="res://shared/images/background/cloud_02.png" type="Texture" id=7]
+[ext_resource path="res://shared/scripts/background/windy_cloud.gd" type="Script" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -16,6 +19,17 @@ script = ExtResource( 1 )
 _instruction = "Put on Pants!"
 
 [node name="Sky" parent="." instance=ExtResource( 2 )]
+
+[node name="Cloud1" type="Sprite" parent="."]
+position = Vector2( 368, 80 )
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+_speed_multiplier = 0.75
+
+[node name="Cloud2" type="Sprite" parent="."]
+position = Vector2( 160, 96 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="BrickWall" type="TextureRect" parent="."]
 margin_top = 461.0

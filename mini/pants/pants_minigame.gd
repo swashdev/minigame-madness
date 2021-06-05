@@ -2,6 +2,10 @@ extends Minigame
 # The main script for the "Put on Pants!" minigame.
 
 
+# Controls the speed of the clouds in the background.
+const WIND_SPEED: float = 10.0
+
+
 # A list of available sprites for the pants.
 var _pants_sprites = [
 	preload( "res://mini/pants/images/pants/jeans.png" ),
@@ -17,6 +21,12 @@ var _pants_sprites = [
 
 # A template for random pants.
 var pants_template = preload( "res://mini/pants/scenes/pants/pants.tscn" )
+
+
+# The mainloop for the minigame.  Just moves the clouds in the background.
+func _process( delta ):
+	$Cloud1.blow( WIND_SPEED * delta )
+	$Cloud2.blow( WIND_SPEED * delta )
 
 
 func start():
