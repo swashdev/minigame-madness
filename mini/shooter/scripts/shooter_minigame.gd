@@ -13,7 +13,7 @@ export (PackedScene) var bullet
 export (PackedScene) var explosion
 
 # The target number of kills.
-const KILLS_REQUIRED: int = 3
+const KILLS_REQUIRED: int = 5
 
 # An array of paths which can spawn enemies.
 var _paths: Array
