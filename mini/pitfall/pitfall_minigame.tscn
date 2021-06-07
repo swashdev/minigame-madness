@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/pitfall/images/background/background.png" type="Texture" id=2]
+[ext_resource path="res://mini/pitfall/scenes/platforms/lily_pad.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/pitfall/images/obstacles/pit.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -69,3 +70,18 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="LilyPads" type="Node2D" parent="."]
+position = Vector2( 16, 45 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LilyPad1" parent="LilyPads" instance=ExtResource( 3 )]
+position = Vector2( 10, 0 )
+
+[node name="LilyPad2" parent="LilyPads" instance=ExtResource( 3 )]
+position = Vector2( 24, 0 )
+
+[node name="LilyPad3" parent="LilyPads" instance=ExtResource( 3 )]
+position = Vector2( 38, 0 )
