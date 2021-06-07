@@ -31,6 +31,7 @@ position = Vector2( 8, 53 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorLeft"]
 shape = SubResource( 2 )
+one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -49,6 +50,7 @@ position = Vector2( 72, 53 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorRight"]
 shape = SubResource( 2 )
+one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -68,13 +70,10 @@ __meta__ = {
 }
 
 [node name="LilyPad1" parent="LilyPads" instance=ExtResource( 3 )]
-position = Vector2( 10, 0 )
+position = Vector2( 16, 0 )
 
 [node name="LilyPad2" parent="LilyPads" instance=ExtResource( 3 )]
-position = Vector2( 24, 0 )
-
-[node name="LilyPad3" parent="LilyPads" instance=ExtResource( 3 )]
-position = Vector2( 38, 0 )
+position = Vector2( 32, 0 )
 
 [node name="IndianaJumpman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, 38 )
