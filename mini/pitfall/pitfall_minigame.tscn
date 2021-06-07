@@ -77,3 +77,8 @@ position = Vector2( 32, 0 )
 
 [node name="IndianaJumpman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, 38 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 40, 30 )
+current = true
+zoom = Vector2( 0.125, 0.125 )
