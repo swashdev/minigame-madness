@@ -97,4 +97,5 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinZone"]
 shape = SubResource( 3 )
 [connection signal="died" from="IndianaJumpman" to="." method="_on_IndianaJumpman_died"]
+[connection signal="body_entered" from="WinZone" to="IndianaJumpman" method="_on_WinZone_body_entered"]
 [connection signal="body_entered" from="WinZone" to="." method="_on_WinZone_body_entered"]

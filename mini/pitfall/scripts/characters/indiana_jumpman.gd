@@ -16,24 +16,29 @@ const MOVE_SPEED: float = 160.0
 var momentum: Vector2
 
 
+# Whether or not the player's controls have been locked.
+var _unlock_controls: bool = false
+
+# Whether or not to do the victory march.
+var _victory_march: bool = false
+
+
 # The player's mainloop.  Handles basic movement.
 func _physics_process( delta ):
 	var grounded = is_on_floor()
 	
-	# Zero out the player's horizontal momentum.
-	momentum.x = 0.0
+	# Zero out the player's horizontal momentum, unless we're doing a
+	# victory march.
+	momentum.x = 0.0 if not _victory_march else MOVE_SPEED
 
-	# Handle left and right movement.
-	if Input.is_action_pressed( "move_left" ):
-		$Sprite.flip_h = true
-		momentum.x -= MOVE_SPEED
-		if grounded:
-			$Sprite.animation = "walking"
-	if Input.is_action_pressed( "move_right" ):
-		$Sprite.flip_h = false
-		momentum.x += MOVE_SPEED
-		if grounded:
-			$Sprite.animation = "walking"
+	if _unlock_controls:
+		# Handle left and right movement.
+		if Input.is_action_pressed( "move_left" ):
+			$Sprite.flip_h = true
+			momentum.x -= MOVE_SPEED
+		if Input.is_action_pressed( "move_right" ):
+			$Sprite.flip_h = false
+			momentum.x += MOVE_SPEED
 
 	if not grounded:
 		momentum.y += GRAVITY * delta
@@ -46,6 +51,9 @@ func _physics_process( delta ):
 		# animation.
 		elif momentum.x == 0.0:
 			$Sprite.animation = "default"
+		# If the player is grounded and moving, start their walking animation.
+		else:
+			$Sprite.animation = "walking"
 
 	# Move the player according to what we've determined above.
 # warning-ignore:return_value_discarded
@@ -55,7 +63,27 @@ func _physics_process( delta ):
 	for i in get_slide_count():
 		var collision = get_slide_collision( i )
 		if( collision.collider.collision_layer == 2 ):
+			lock()
+			$Sprite.animation = "dead"
 			emit_signal( "died" )
 
-	# Clamp the player's position to within the game window.
-	position.x = clamp( position.x, 4.0, 76.0 )
+	# Clamp the player's position to within the game window unless we're doing
+	# a victory march.
+	if not _victory_march:
+		position.x = clamp( position.x, 4.0, 76.0 )
+
+
+# Unlocks the player's controls.
+func unlock():
+	_unlock_controls = true
+
+
+# Locks the player's controls.
+func lock():
+	_unlock_controls = false
+
+
+# The player has entered the win zone, so do a victory march.
+func _on_WinZone_body_entered( _body ):
+	lock()
+	_victory_march = true
