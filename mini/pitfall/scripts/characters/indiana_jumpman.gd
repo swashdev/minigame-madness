@@ -6,21 +6,24 @@ extends KinematicBody2D
 signal died;
 
 
+# The player's possible states.
+enum States { DEFAULT, VICTORIOUS, DEAD }
+
+
 # Determines the player's jump, gravity, and movement speed.
 const JUMP_SPEED: float = -160.0
 const GRAVITY: float = 320.0
 const MOVE_SPEED: float = 160.0
 
 
+# The player's current state.
+var _state: int = States.DEFAULT
+
 # The player's current momentum.
 var momentum: Vector2
 
-
 # Whether or not the player's controls have been locked.
 var _unlock_controls: bool = false
-
-# Whether or not to do the victory march.
-var _victory_march: bool = false
 
 
 # The player's mainloop.  Handles basic movement.
@@ -29,9 +32,9 @@ func _physics_process( delta ):
 	
 	# Zero out the player's horizontal momentum, unless we're doing a
 	# victory march.
-	momentum.x = 0.0 if not _victory_march else MOVE_SPEED
+	momentum.x = 0.0 if _state != States.VICTORIOUS else MOVE_SPEED
 
-	if _unlock_controls:
+	if _unlock_controls and _state == States.DEFAULT:
 		# Handle left and right movement.
 		if Input.is_action_pressed( "move_left" ):
 			$Sprite.flip_h = true
@@ -41,19 +44,22 @@ func _physics_process( delta ):
 			momentum.x += MOVE_SPEED
 
 	if not grounded:
-		momentum.y += GRAVITY * delta
+		momentum.y += delta * (GRAVITY if _state != States.DEAD \
+				else GRAVITY / 2)
 	else:
 		momentum.y = 0.0
-		if Input.is_action_pressed( "action" ):
-			momentum.y = JUMP_SPEED
-			$Sprite.animation = "jumping"
-		# If the player is grounded and is not jumping or moving, reset his
-		# animation.
-		elif momentum.x == 0.0:
-			$Sprite.animation = "default"
-		# If the player is grounded and moving, start their walking animation.
-		else:
-			$Sprite.animation = "walking"
+		if _state != States.DEAD:
+			if Input.is_action_pressed( "action" ):
+				momentum.y = JUMP_SPEED
+				$Sprite.animation = "jumping"
+			# If the player is grounded and is not jumping or moving, reset
+			# his animation.
+			elif momentum.x == 0.0:
+				$Sprite.animation = "default"
+			# If the player is grounded and moving, start their walking
+			# animation.
+			else:
+				$Sprite.animation = "walking"
 
 	# Move the player according to what we've determined above.
 # warning-ignore:return_value_discarded
@@ -67,7 +73,7 @@ func _physics_process( delta ):
 
 	# Clamp the player's position to within the game window unless we're doing
 	# a victory march.
-	if not _victory_march:
+	if _state == States.DEFAULT:
 		position.x = clamp( position.x, 4.0, 76.0 )
 
 
@@ -83,12 +89,15 @@ func lock():
 
 # Kills the player.
 func die():
-	lock()
-	$Sprite.animation = "dead"
-	emit_signal( "died" )
+	if _state == States.DEFAULT:
+		lock()
+		_state = States.DEAD
+		$Sprite.animation = "dead"
+		position.y -= 10
+		emit_signal( "died" )
 
 
 # The player has entered the win zone, so do a victory march.
 func _on_WinZone_body_entered( _body ):
 	lock()
-	_victory_march = true
+	_state = States.VICTORIOUS
