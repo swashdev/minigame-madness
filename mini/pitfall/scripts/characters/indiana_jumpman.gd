@@ -35,7 +35,7 @@ func _physics_process( delta ):
 		momentum.y += GRAVITY * delta
 	else:
 		momentum.y = 0.0
-		if Input.is_action_just_pressed( "action" ):
+		if Input.is_action_pressed( "action" ):
 			momentum.y = JUMP_SPEED
 			$Sprite.animation = "jumping"
 		# If the player is grounded and is not jumping or moving, reset his
