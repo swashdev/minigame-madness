@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://mini/pitfall/pitfall_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/pitfall/images/background/background.png" type="Texture" id=2]
 [ext_resource path="res://mini/pitfall/scenes/platforms/lily_pad.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/pitfall/images/obstacles/pit.png" type="Texture" id=4]
 [ext_resource path="res://mini/pitfall/scenes/characters/indiana_jumpman.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mini/pitfall/scenes/obstacles/gator.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -85,6 +86,18 @@ position = Vector2( 16, 0 )
 [node name="LilyPad2" parent="LilyPads" instance=ExtResource( 3 )]
 position = Vector2( 32, 0 )
 
+[node name="Gators" type="Node2D" parent="."]
+position = Vector2( 16, 45 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Gator1" parent="Gators" instance=ExtResource( 6 )]
+position = Vector2( 16, 0 )
+
+[node name="Gator2" parent="Gators" instance=ExtResource( 6 )]
+position = Vector2( 32, 0 )
+
 [node name="IndianaJumpman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, 38 )
 collision_mask = 6
@@ -96,6 +109,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinZone"]
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="died" from="IndianaJumpman" to="." method="_on_IndianaJumpman_died"]
 [connection signal="body_entered" from="WinZone" to="IndianaJumpman" method="_on_WinZone_body_entered"]
 [connection signal="body_entered" from="WinZone" to="." method="_on_WinZone_body_entered"]
