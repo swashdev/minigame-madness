@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/pitfall/pitfall_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/pitfall/images/background/background.png" type="Texture" id=2]
 [ext_resource path="res://mini/pitfall/scenes/platforms/lily_pad.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/pitfall/images/obstacles/pit.png" type="Texture" id=4]
@@ -12,12 +12,16 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 4 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 8 )
+
 [node name="PitfallMinigame" type="Node2D"]
 scale = Vector2( 8, 8 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+_instruction = "Get Across!"
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 40.0
@@ -29,6 +33,8 @@ __meta__ = {
 
 [node name="FloorLeft" type="StaticBody2D" parent="."]
 position = Vector2( 8, 53 )
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorLeft"]
 shape = SubResource( 1 )
@@ -39,6 +45,7 @@ __meta__ = {
 
 [node name="KillZone" type="StaticBody2D" parent="."]
 position = Vector2( 40, 52 )
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 shape = SubResource( 2 )
@@ -48,6 +55,8 @@ __meta__ = {
 
 [node name="FloorRight" type="StaticBody2D" parent="."]
 position = Vector2( 72, 53 )
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorRight"]
 shape = SubResource( 1 )
@@ -78,3 +87,14 @@ position = Vector2( 32, 0 )
 
 [node name="IndianaJumpman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, 38 )
+collision_mask = 6
+
+[node name="WinZone" type="Area2D" parent="."]
+position = Vector2( 72, 37 )
+monitorable = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinZone"]
+shape = SubResource( 3 )
+[connection signal="died" from="IndianaJumpman" to="." method="_on_IndianaJumpman_died"]
+[connection signal="body_entered" from="WinZone" to="." method="_on_WinZone_body_entered"]

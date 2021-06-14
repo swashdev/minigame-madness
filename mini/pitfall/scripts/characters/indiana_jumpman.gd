@@ -2,6 +2,10 @@ extends KinematicBody2D
 # A script for the jumpman character from "Get Across!"
 
 
+# Signals the minigame that the player has died.
+signal died;
+
+
 # Determines the player's jump, gravity, and movement speed.
 const JUMP_SPEED: float = -160.0
 const GRAVITY: float = 320.0
@@ -46,6 +50,12 @@ func _physics_process( delta ):
 	# Move the player according to what we've determined above.
 # warning-ignore:return_value_discarded
 	move_and_slide( momentum, Vector2.UP )
+	
+	# Check to see if we collided with the kill zone (collision layer 2)
+	for i in get_slide_count():
+		var collision = get_slide_collision( i )
+		if( collision.collider.collision_layer == 2 ):
+			emit_signal( "died" )
 
 	# Clamp the player's position to within the game window.
 	position.x = clamp( position.x, 4.0, 76.0 )
