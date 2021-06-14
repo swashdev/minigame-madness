@@ -6,13 +6,14 @@
 [ext_resource path="res://mini/pitfall/images/obstacles/pit.png" type="Texture" id=4]
 [ext_resource path="res://mini/pitfall/scenes/characters/indiana_jumpman.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 4 )
 
 [node name="PitfallMinigame" type="Node2D"]
+scale = Vector2( 8, 8 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -30,7 +31,7 @@ __meta__ = {
 position = Vector2( 8, 53 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorLeft"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
@@ -40,7 +41,7 @@ __meta__ = {
 position = Vector2( 40, 52 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -49,7 +50,7 @@ __meta__ = {
 position = Vector2( 72, 53 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorRight"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
@@ -77,8 +78,3 @@ position = Vector2( 32, 0 )
 
 [node name="IndianaJumpman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, 38 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 40, 30 )
-current = true
-zoom = Vector2( 0.125, 0.125 )

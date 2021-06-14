@@ -3,9 +3,9 @@ extends KinematicBody2D
 
 
 # Determines the player's jump, gravity, and movement speed.
-const JUMP_SPEED: float = -20.0
-const GRAVITY: float = 40.0
-const MOVE_SPEED: float = 20.0
+const JUMP_SPEED: float = -160.0
+const GRAVITY: float = 320.0
+const MOVE_SPEED: float = 160.0
 
 
 # The player's current momentum.
