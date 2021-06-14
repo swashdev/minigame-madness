@@ -63,9 +63,7 @@ func _physics_process( delta ):
 	for i in get_slide_count():
 		var collision = get_slide_collision( i )
 		if( collision.collider.collision_layer == 2 ):
-			lock()
-			$Sprite.animation = "dead"
-			emit_signal( "died" )
+			die()
 
 	# Clamp the player's position to within the game window unless we're doing
 	# a victory march.
@@ -81,6 +79,13 @@ func unlock():
 # Locks the player's controls.
 func lock():
 	_unlock_controls = false
+
+
+# Kills the player.
+func die():
+	lock()
+	$Sprite.animation = "dead"
+	emit_signal( "died" )
 
 
 # The player has entered the win zone, so do a victory march.
