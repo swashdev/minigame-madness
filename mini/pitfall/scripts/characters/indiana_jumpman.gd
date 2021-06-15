@@ -7,7 +7,7 @@ signal died;
 
 
 # The player's possible states.
-enum States { DEFAULT, VICTORIOUS, DEAD }
+enum States { DEFAULT, VICTORIOUS, DEAD, SWINGING }
 
 
 # Determines the player's jump, gravity, and movement speed.
@@ -17,7 +17,7 @@ const MOVE_SPEED: float = 160.0
 
 
 # The player's current state.
-var _state: int = States.DEFAULT
+var _state: int = States.DEFAULT setget , get_state
 
 # The player's current momentum.
 var momentum: Vector2
@@ -28,6 +28,7 @@ var _unlock_controls: bool = false
 
 # The player's mainloop.  Handles basic movement.
 func _physics_process( delta ):
+	# If the player is swinging, all other movement rules are ignored.
 	var grounded = is_on_floor()
 	
 	# Zero out the player's horizontal momentum, unless we're doing a
@@ -43,12 +44,12 @@ func _physics_process( delta ):
 			$Sprite.flip_h = false
 			momentum.x += MOVE_SPEED
 
-	if not grounded:
+	if not grounded and _state != States.SWINGING:
 		momentum.y += delta * (GRAVITY if _state != States.DEAD \
 				else GRAVITY / 2)
 	else:
 		momentum.y = 0.0
-		if _state != States.DEAD:
+		if _state != States.DEAD and _state != States.SWINGING:
 			if Input.is_action_pressed( "action" ):
 				momentum.y = JUMP_SPEED
 				$Sprite.animation = "jumping"
@@ -77,6 +78,11 @@ func _physics_process( delta ):
 		position.x = clamp( position.x, 4.0, 76.0 )
 
 
+# Returns the player's current state.
+func get_state():
+	return _state
+
+
 # Unlocks the player's controls.
 func unlock():
 	_unlock_controls = true
@@ -95,6 +101,22 @@ func die():
 		$Sprite.animation = "dead"
 		position.y -= 10
 		emit_signal( "died" )
+
+
+# Causes the player to enter a swinging state.
+func start_swinging():
+	_state = States.SWINGING
+	$Sprite.animation = "jumping"
+	lock()
+
+
+# Causes the player to stop swinging.
+func stop_swinging():
+	_state = States.DEFAULT
+	$Sprite.animation = "jumping"
+	# The player jumps off the vine to give them a little boost.
+	momentum.y = JUMP_SPEED
+	unlock()
 
 
 # The player has entered the win zone, so do a victory march.

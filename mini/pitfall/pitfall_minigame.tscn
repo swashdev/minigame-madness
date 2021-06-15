@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://mini/pitfall/pitfall_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/pitfall/images/background/background.png" type="Texture" id=2]
@@ -12,6 +12,9 @@ extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 4 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 2.0
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
@@ -66,14 +69,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Pit" type="Sprite" parent="."]
-visible = false
-position = Vector2( 40, 45 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="LilyPads" type="Node2D" parent="."]
 position = Vector2( 16, 45 )
 __meta__ = {
@@ -98,6 +93,34 @@ position = Vector2( 16, 0 )
 [node name="Gator2" parent="Gators" instance=ExtResource( 6 )]
 position = Vector2( 32, 0 )
 
+[node name="Vine" type="Line2D" parent="."]
+position = Vector2( 40, 14 )
+rotation = 0.436332
+scale = Vector2( 1, 1 )
+points = PoolVector2Array( 0, 0, 0, 20 )
+width = 1.0
+default_color = Color( 0, 0.529412, 0.317647, 1 )
+
+[node name="VineTip" type="Area2D" parent="Vine"]
+position = Vector2( -0.0200882, 19.9392 )
+rotation = -0.436332
+scale = Vector2( 1, 1 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vine/VineTip"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pit" type="Sprite" parent="."]
+visible = false
+position = Vector2( 40, 45 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="IndianaJumpman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, 38 )
 collision_mask = 6
@@ -112,6 +135,7 @@ shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+[connection signal="body_entered" from="Vine/VineTip" to="." method="_on_VineTip_body_entered"]
 [connection signal="died" from="IndianaJumpman" to="." method="_on_IndianaJumpman_died"]
 [connection signal="body_entered" from="WinZone" to="IndianaJumpman" method="_on_WinZone_body_entered"]
 [connection signal="body_entered" from="WinZone" to="." method="_on_WinZone_body_entered"]
