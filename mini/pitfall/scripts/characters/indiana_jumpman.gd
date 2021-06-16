@@ -53,6 +53,8 @@ func _physics_process( delta ):
 			if Input.is_action_pressed( "action" ):
 				momentum.y = JUMP_SPEED
 				$Sprite.animation = "jumping"
+				# The player has just jumped, so he is no longer grounded.
+				grounded = false
 			# If the player is grounded and is not jumping or moving, reset
 			# his animation.
 			elif momentum.x == 0.0:
@@ -63,8 +65,11 @@ func _physics_process( delta ):
 				$Sprite.animation = "walking"
 
 	# Move the player according to what we've determined above.
+	# If the player is on the ground, he must adhere to any moving platforms he
+	# might be standing on.
+	var snap: Vector2 = Vector2.DOWN * 4 if grounded else Vector2.ZERO
 # warning-ignore:return_value_discarded
-	move_and_slide( momentum, Vector2.UP )
+	move_and_slide_with_snap( momentum, snap, Vector2.UP )
 	
 	# Check to see if we collided with the kill zone (collision layer 2)
 	for i in get_slide_count():
