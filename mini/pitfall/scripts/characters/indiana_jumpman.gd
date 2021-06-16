@@ -49,7 +49,7 @@ func _physics_process( delta ):
 				else GRAVITY / 2)
 	else:
 		momentum.y = 0.0
-		if _state != States.DEAD and _state != States.SWINGING:
+		if _unlock_controls or _state == States.VICTORIOUS:
 			if Input.is_action_pressed( "action" ):
 				momentum.y = JUMP_SPEED
 				$Sprite.animation = "jumping"
