@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://mini/pitfall/pitfall_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/pitfall/images/background/background.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://mini/pitfall/images/obstacles/pit.png" type="Texture" id=4]
 [ext_resource path="res://mini/pitfall/scenes/characters/indiana_jumpman.tscn" type="PackedScene" id=5]
 [ext_resource path="res://mini/pitfall/scenes/obstacles/gator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mini/pitfall/scenes/platforms/duck.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -13,10 +14,10 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 4 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 2.0
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 8 )
 
 [node name="PitfallMinigame" type="Node2D"]
@@ -32,6 +33,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 2 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -96,7 +98,6 @@ position = Vector2( 32, 0 )
 [node name="Vine" type="Line2D" parent="."]
 position = Vector2( 40, 14 )
 rotation = 0.436332
-scale = Vector2( 1, 1 )
 points = PoolVector2Array( 0, 0, 0, 20 )
 width = 1.0
 default_color = Color( 0, 0.529412, 0.317647, 1 )
@@ -104,14 +105,16 @@ default_color = Color( 0, 0.529412, 0.317647, 1 )
 [node name="VineTip" type="Area2D" parent="Vine"]
 position = Vector2( -0.0200882, 19.9392 )
 rotation = -0.436332
-scale = Vector2( 1, 1 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vine/VineTip"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Duck" parent="." instance=ExtResource( 7 )]
+position = Vector2( 40, 43 )
 
 [node name="Pit" type="Sprite" parent="."]
 visible = false
@@ -131,7 +134,7 @@ monitorable = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinZone"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }

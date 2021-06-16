@@ -9,11 +9,11 @@ enum { MIN_X = 22, MAX_X = 58 }
 enum { LEFT, RIGHT }
 
 # The duck's movement speed.
-const MOVE_SPEED: float = 38.0
+const MOVE_SPEED: float = 180.0
 
 
 # The direction the duck is currently moving.
-var _direction: int = LEFT
+var _direction: int = RIGHT
 
 # The duck's current movement vector.
 var _movement: Vector2 = Vector2( 0, 0 )
@@ -35,9 +35,11 @@ func _physics_process( _delta ):
 	if _direction == LEFT and position.x <= MIN_X:
 		_direction = RIGHT
 		$Sprite.flip_h = true
+		$Sprite.position.x += 1
 	elif _direction == RIGHT and position.x >= MAX_X:
 		_direction = LEFT
 		$Sprite.flip_h = false
+		$Sprite.position.x -= 1
 
 
 # When the timer goes off, decide whether or not to quack.

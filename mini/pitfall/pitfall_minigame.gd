@@ -4,7 +4,13 @@ extends Minigame
 
 # This enum represents the various hazards that may present themselves when
 # the player starts the game.
-enum Hazards { WATER, GATORS, PIT }
+enum Hazards \
+{
+	WATER,
+	PIT,
+	DUCK_POND,
+	GATORS,
+}
 
 # Directions the vine might be swinging.
 enum { LEFT, RIGHT }
@@ -37,20 +43,29 @@ func _ready():
 			# dequeue the gators and the vine.  Nice and easy.
 			$Gators.queue_free()
 			$Vine.queue_free()
+			$Duck.queue_free()
 
 		Hazards.PIT:
 			# `PIT` is the gaping hole over the pit.  Dequeue the lily pads
 			# and the gators and reveal the pit.
 			$LilyPads.queue_free()
 			$Gators.queue_free()
+			$Duck.queue_free()
 
 			$Pit.show()
+
+		Hazards.DUCK_POND:
+			# `DUCK_POND` means we use the duck, so dequeue everything else.
+			$LilyPads.queue_free()
+			$Gators.queue_free()
+			$Vine.queue_free()
 
 		Hazards.GATORS:
 			# `GATORS` means we use the gators, so dequeue the lily pads and
 			# the vine.
 			$LilyPads.queue_free()
 			$Vine.queue_free()
+			$Duck.queue_free()
 
 			# We need to connect the gators' "chomped" signals.
 			var e1 = $Gators/Gator1.connect( "chomped", $IndianaJumpman, "die" )
