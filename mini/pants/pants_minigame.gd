@@ -50,7 +50,7 @@ func _spawn_pants():
 	var pants = pants_template.instance()
 
 	# Get a random spawn position.
-	$PantsPath/PantsSpawnPoint.unit_offset += randf()
+	$PantsPath/PantsSpawnPoint.unit_offset += rand_range( 0.25, 1.5 )
 	pants.position = $PantsPath/PantsSpawnPoint.global_position
 
 	# Give the pants a random sprite.
