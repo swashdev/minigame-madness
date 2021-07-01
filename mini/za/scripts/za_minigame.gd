@@ -3,7 +3,7 @@ extends Minigame
 
 
 # The margin of error for the slicer's rotation during slicing.
-const MARGIN_OF_ERROR: float = 5.0
+const MARGIN_OF_ERROR: float = 10.0
 
 # Used to store whether or not the 'za is fully sliced.
 var _sliced: bool = false
