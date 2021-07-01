@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://mini/big_rigs/scripts/big_rig_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/big_rigs/images/characters/rig1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://mini/big_rigs/images/backgrounds/bg.png" type="Texture" id=5]
 [ext_resource path="res://mini/big_rigs/images/characters/rig2.png" type="Texture" id=6]
 [ext_resource path="res://mini/big_rigs/images/misc/trophy.png" type="Texture" id=7]
+[ext_resource path="res://shared/fonts/modern_DOS.tres" type="DynamicFont" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -30,7 +31,7 @@ curve = SubResource( 1 )
 
 [node name="Rig2" type="PathFollow2D" parent="RigPath"]
 position = Vector2( 31.822, 462.88 )
-rotation = -0.0136729
+rotation = -0.0136958
 offset = 30.0
 loop = false
 
@@ -39,8 +40,8 @@ texture = ExtResource( 6 )
 offset = Vector2( -30, -25 )
 
 [node name="Rig1" type="PathFollow2D" parent="RigPath"]
-position = Vector2( 46.84, 462.674 )
-rotation = -0.0137174
+position = Vector2( 46.8399, 462.674 )
+rotation = -0.0137021
 offset = 45.0
 loop = false
 script = ExtResource( 3 )
@@ -74,6 +75,7 @@ margin_top = 166.972
 margin_right = 76.3065
 margin_bottom = 180.972
 rect_scale = Vector2( 1.8, 1.96 )
+custom_fonts/font = ExtResource( 8 )
 text = "You're Winner!"
 uppercase = true
 [connection signal="finished" from="RigPath/Rig1" to="." method="_on_Rig1_finished"]
