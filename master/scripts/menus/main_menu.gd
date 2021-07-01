@@ -13,17 +13,17 @@ var _sequence: int = 0
 
 
 func _process( _delta ):
-	if _sequence < 10:
+	if _sequence < 9:
 		if Input.is_action_just_pressed( "move_up" ):
 			if _sequence < 2:
 				_sequence += 1
-			else:
+			elif _sequence > 2:
 				_sequence = 0
 		elif Input.is_action_just_pressed( "move_down" ):
-			if _sequence < 4:
-				_sequence += 1
-			else:
+			if _sequence < 2 or _sequence >= 4:
 				_sequence = 0
+			else:
+				_sequence += 1
 		elif Input.is_action_just_pressed( "move_right" ):
 			if _sequence == 5 or _sequence == 7:
 				_sequence += 1
