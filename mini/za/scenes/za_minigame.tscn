@@ -38,6 +38,7 @@ position = Vector2( 20, 0 )
 
 [node name="Spacebar" parent="." instance=ExtResource( 7 )]
 position = Vector2( 115.772, 442.5 )
+_label = "Slice!"
 
 [node name="Label" type="Label" parent="Spacebar"]
 margin_left = -74.0
@@ -45,7 +46,6 @@ margin_top = -14.0
 margin_right = 74.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Slice!"
 align = 1
 valign = 1
 __meta__ = {
