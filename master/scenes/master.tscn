@@ -8,6 +8,7 @@
 [node name="Master" type="Node"]
 script = ExtResource( 2 )
 _version_major = 12
+_version_patch = 1
 
 [node name="Main" parent="." instance=ExtResource( 1 )]
 
