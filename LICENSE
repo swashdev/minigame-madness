@@ -1,61 +1,18 @@
-Minigame Madness itself is public domain software, released under the
-Unlicense.  The full text of the Unlicense follows for your
-convenience.
+The base Minigame Madness source files have been released into the public
+domain.  You may use either the Unlicense (https://unlicense.org/) or the
+Creative Commons Zero 1.0 Universal Public Domain Dedication
+(https://creativecommons.org/publicdomain/zero/1.0/) according to your
+convenience; for our purposes, Minigame Madness is dual-licensed under both.
 
-However, Minigame Madness is dependent on some files which are not in
-the public domain.  Details on these files follow, beneath the Unlicense
-text.  The licenses for these files do not affect the public domain
-status of those files which are original parts of Minigame Madness;
-however, they will affect the license terms of compiled binaries which
-incorporate them.
+The song "Skippitybop", included in the file "master/music/main.ogg", is
+released under the Creative Commons Attribution 3.0 Unported license and is
+not in the public domain.
 
----
+Compiled binaries, including web releases of Minigame Madness, will be subject
+to the licensing terms of the Godot Engine, as this is the engine which
+Minigame Madness was built on, and will be subject to the licensing terms of
+Skippitybop, as it is incorporated into the binary at compile-time.
 
-The Unlicense
-
-This is free and unencumbered software released into the public domain.
-
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
-
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <http://unlicense.org/>
-
----
-
-Compiled binaries of Minigame Madness will contain Godot Engine code,
-and will thereby be subject to the Godot Engine license.
-
-Please refer to <https://godotengine.org/license> for more
-information.
-
-The Godot Engine itself contains many third-party assets which may
-also affect the licensing of compiled Minigame Madness binaries.  For
-more information on complying with the terms of these licenses, please
-refer to the following link:
-<https://docs.godotengine.org/en/latest/about/complying_with_licenses.html>
-
----
-
-Included with every copy of Minigame Madness is the song "Skippitybop"
-by Spadezer, which is released under a Creative Commons
-Attribution 3.0 Unported License.
-
-For more information, see <https://creativecommons.org/licenses/by/3.0/>
+More comprehensive licensing information, including the full text of the
+relevant licenses, can be found in "COPYRIGHT.txt" or in the "Legal Stuff" menu
+in-game.
