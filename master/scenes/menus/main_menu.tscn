@@ -189,5 +189,4 @@ dialog_text = "Are you sure you want to quit?"
 [connection signal="pressed" from="Menu/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="toggled" from="MusicButton" to="." method="_on_MusicButton_toggled"]
 [connection signal="open_external" from="CreditsDialog" to="ConfirmOpenExternal" method="_on_open_external"]
-[connection signal="open_external" from="LegalStuffDialog" to="ConfirmOpenExternal" method="_on_open_external"]
 [connection signal="confirmed" from="ReallyQuit" to="." method="_on_ReallyQuit_confirmed"]

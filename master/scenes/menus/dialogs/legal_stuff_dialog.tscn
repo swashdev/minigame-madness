@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://master/scripts/menus/dialogs/legal_stuff_dialog.gd" type="Script" id=1]
-[ext_resource path="res://master/scenes/menus/dialogs/godot_engine_license_dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=6]
 
 [node name="LegalStuffDialog" type="WindowDialog"]
-margin_right = 507.0
-margin_bottom = 352.0
+margin_right = 640.0
+margin_bottom = 460.0
 rect_min_size = Vector2( 350, 160 )
 theme = ExtResource( 6 )
 window_title = "Legal Stuff"
@@ -16,115 +15,62 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-follow_focus = true
-scroll_horizontal_enabled = false
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 507.0
-margin_bottom = 352.0
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+margin_right = 630.0
+margin_bottom = 450.0
+split_offset = 240
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer"]
+margin_top = 19.0
+margin_right = 241.0
+margin_bottom = 434.0
+text = "Minigame Madness is built on the Godot Engine and uses different licensing terms from that engine.  As a result, compiled binaries are subject to the Godot Engine license, but source files are not.
+
+Both Minigame Madness and the Godot Engine use components developed by different people and released under different licenses, meaning that different files used to build them are subject to different licenses.  The buttons to the right will provide you with comprehensive licensing information for your copy of Minigame Madness based on what configuration of the Godot Engine was used to build it and what version of Minigame Madness you are running."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComponentList" type="Tree" parent="MarginContainer/HSplitContainer"]
+margin_left = 241.0
+margin_right = 630.0
+margin_bottom = 453.0
+theme = ExtResource( 6 )
+allow_reselect = true
+hide_root = true
+drop_mode_flags = 1
+
+[node name="LicenseDialog" type="AcceptDialog" parent="."]
+margin_right = 600.0
+margin_bottom = 400.0
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LicenseDialog"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 592.0
+margin_bottom = 362.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MMLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_right = 507.0
-margin_bottom = 92.0
-text = "Minigame Madness is free and unencumbered software released into the public domain.  Included with all copies of Minigame Madness is a copy of the Unlicense stating the developer's intention to waive all copyright interests in the software.  You can press the button below for more information."
-autowrap = true
-
-[node name="MMLicenseButton" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_left = 179.0
-margin_top = 96.0
-margin_right = 328.0
-margin_bottom = 118.0
-size_flags_horizontal = 4
-toggle_mode = true
-text = "Read the Unlicense"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MMLicenseText" type="Label" parent="ScrollContainer/VBoxContainer"]
-visible = false
-margin_top = 122.0
-margin_right = 495.0
-margin_bottom = 727.0
-text = "This is free and unencumbered software released into the public domain.
-
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
-
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
-
-THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <http://unlicense.org/>"
-autowrap = true
-
-[node name="UnlicenseLink" type="LinkButton" parent="ScrollContainer/VBoxContainer"]
-visible = false
-margin_top = 825.0
-margin_right = 350.0
-margin_bottom = 839.0
-custom_colors/font_color = Color( 0, 0, 1, 1 )
-text = "unlicense.org"
-
-[node name="Separator1" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
-margin_top = 122.0
-margin_right = 507.0
-margin_bottom = 126.0
-
-[node name="GodotLicenseNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 130.0
-margin_right = 507.0
-margin_bottom = 241.0
-text = "Although Minigame Madness itself is in the public domain, it uses the Godot Engine, which is not in the public domain.  The effect of this is that compiled binary copies of Minigame Madness are subject to the Godot Engine license and the licenses of all of the third-party libraries that the Godot Engine uses. You can press the button below for comprehensive licensing information."
-autowrap = true
-
-[node name="GodotLicenseButton" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_left = 125.0
-margin_top = 245.0
-margin_right = 381.0
-margin_bottom = 267.0
-size_flags_horizontal = 4
-text = "Godot Engine Licensing Information"
-
-[node name="Separator2" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
-margin_top = 271.0
-margin_right = 507.0
-margin_bottom = 275.0
-
-[node name="MusicNotice" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 279.0
-margin_right = 507.0
-margin_bottom = 352.0
-text = "The song \"Skippitybop\" used in Minigame Madness is licensed under the CC-BY 3.0 license.  All copies of Minigame Madness which include this song must retain the relevant attribution notices.  See the \"Credits\" screen on the main menu for more information."
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GodotEngineLicenseDialog" parent="." instance=ExtResource( 2 )]
-[connection signal="toggled" from="ScrollContainer/VBoxContainer/MMLicenseButton" to="." method="_on_MMLicenseButton_toggled"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/UnlicenseLink" to="." method="_on_UnlicenseLink_pressed"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/GodotLicenseButton" to="." method="_on_GodotLicenseButton_pressed"]
-[connection signal="pressed_godot_link" from="GodotEngineLicenseDialog" to="." method="_on_GodotLicenseLink_pressed"]
+[node name="Label" type="Label" parent="LicenseDialog/ScrollContainer"]
+margin_bottom = 16.0
+[connection signal="item_selected" from="MarginContainer/HSplitContainer/ComponentList" to="." method="_on_ComponentList_item_selected"]
