@@ -3,6 +3,8 @@
 #
 # This file MUST be included with all copies of Minigame Madness, as it is used
 # by the game to read licensing information for the legal disclosures in-game!
+# To include a copy of this licensing information in Minigame Madness, you
+# should make sure that your export presets include COPYRIGHT.txt
 #
 # This file aims to document the copyright and license for every source file in
 # the Minigame Madness repository, and especially outline the files whose

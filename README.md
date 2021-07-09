@@ -79,6 +79,13 @@ copied this repository to and finally
 
 [exporting a binary for your chosen system]: https://docs.godotengine.org/en/stable/getting_started/workflow/export/exporting_projects.html#export-menu
 
+**NOTE:** While exporting a copy of Minigame Madness, you should go into the
+Resources tab on the export screen and find the text box labelled "Filters to
+export non-resource files/folders" and type "COPYRIGHT.txt" (without the
+quotes) into this box.  This will export Minigame Madness's licensing
+information into the binary file you end up with, so that the game will be
+able to display the licenses for Minigame Madness's various components.
+
 I Found a Bug!
 --------------
 

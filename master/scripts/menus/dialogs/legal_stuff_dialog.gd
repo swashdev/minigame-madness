@@ -9,7 +9,7 @@ extends WindowDialog
 enum { FILE, COPYRIGHT, COMMENT, LICENSE }
 
 # A file containing licensing information for the game.
-onready var _game_copyright_file = "COPYRIGHT.txt"
+onready var _game_copyright_file = "res://COPYRIGHT.txt"
 
 # A dictionary which will store licensing information for the game, parsed from
 # the game copyright file, and a corresponding TreeItem which will display this
