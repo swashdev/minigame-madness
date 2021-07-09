@@ -30,9 +30,9 @@ In spite of this, all of the work done by me on Minigame Madness will remain
 fully in the public domain.  Further information on other assets used in the
 game can be found on the Credits screen in-game.
 
-As of version 0.11-alpha, the game contains a comprehensive list of
-third-party licenses to which the Godot Engine is subject as of version
-3.3.2-stable, so license compliance shouldn't be a problem.
+As of version 0.12.2-alpha, the game will display a comprehensive list of
+third-party licenses to which any particular copy of Minigame Madness is
+subject in the "Legal Stuff" menu in-game.
 
 [public domain software]: LICENSE
 
