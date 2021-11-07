@@ -96,17 +96,6 @@ func _on_LegalStuffButton_pressed():
 	$LegalStuffDialog.popup_centered()
 
 
-# The "Quit" button has been pressed.  Pop up a dialog confirming this is what
-# the player wants.
-func _on_QuitButton_pressed():
-	$ReallyQuit.popup_centered()
-
-
-# The player has confirmed that they want to quit.  Signal Master.
-func _on_ReallyQuit_confirmed():
-	emit_signal( "button_pressed", "quit" )
-
-
 # The "Debug Menu" button has been pressed.  Signal Master.
 func _on_DebugButton_pressed():
 	emit_signal( "button_pressed", "debug" )

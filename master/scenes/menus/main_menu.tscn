@@ -46,8 +46,8 @@ __meta__ = {
 }
 
 [node name="NewGameButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
-margin_top = 144.0
-margin_bottom = 184.0
+margin_top = 188.0
+margin_bottom = 228.0
 rect_min_size = Vector2( 0, 40 )
 text = "New Game"
 _descriptive_text = "play 8 minigames with 5 lives"
@@ -81,17 +81,17 @@ __meta__ = {
 }
 
 [node name="ControlsButton" type="Button" parent="Menu/Buttons"]
-margin_top = 188.0
+margin_top = 232.0
 margin_right = 400.0
-margin_bottom = 228.0
+margin_bottom = 272.0
 rect_min_size = Vector2( 0, 40 )
 text = "Controls"
 flat = true
 
 [node name="LegalStuffButton" type="Button" parent="Menu/Buttons"]
-margin_top = 232.0
+margin_top = 276.0
 margin_right = 400.0
-margin_bottom = 272.0
+margin_bottom = 316.0
 rect_min_size = Vector2( 0, 40 )
 text = "Legal Stuff"
 flat = true
@@ -100,19 +100,11 @@ __meta__ = {
 }
 
 [node name="CreditsButton" type="Button" parent="Menu/Buttons"]
-margin_top = 276.0
-margin_right = 400.0
-margin_bottom = 316.0
-rect_min_size = Vector2( 0, 40 )
-text = "Credits"
-flat = true
-
-[node name="QuitButton" type="Button" parent="Menu/Buttons"]
 margin_top = 320.0
 margin_right = 400.0
 margin_bottom = 360.0
 rect_min_size = Vector2( 0, 40 )
-text = "Quit"
+text = "Credits"
 flat = true
 
 [node name="VersionNumberLabel" type="Label" parent="."]
@@ -170,15 +162,8 @@ margin_bottom = 300.0
 
 [node name="LegalStuffDialog" parent="." instance=ExtResource( 2 )]
 
-[node name="ReallyQuit" type="ConfirmationDialog" parent="."]
-margin_left = 215.0
-margin_top = 205.0
-margin_right = 460.0
-margin_bottom = 275.0
-window_title = "Really Quit?"
-dialog_text = "Are you sure you want to quit?"
-
 [node name="ConfirmOpenExternal" parent="." instance=ExtResource( 3 )]
+
 [connection signal="pressed" from="Menu/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/EnduranceModeButton" to="." method="_on_EnduranceModeButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/SuddenDeath" to="." method="_on_SuddenDeath_pressed"]
@@ -186,7 +171,5 @@ dialog_text = "Are you sure you want to quit?"
 [connection signal="pressed" from="Menu/Buttons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/LegalStuffButton" to="." method="_on_LegalStuffButton_pressed"]
 [connection signal="pressed" from="Menu/Buttons/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="Menu/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="toggled" from="MusicButton" to="." method="_on_MusicButton_toggled"]
 [connection signal="open_external" from="CreditsDialog" to="ConfirmOpenExternal" method="_on_open_external"]
-[connection signal="confirmed" from="ReallyQuit" to="." method="_on_ReallyQuit_confirmed"]

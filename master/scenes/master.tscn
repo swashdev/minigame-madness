@@ -16,6 +16,7 @@ _version_patch = 3
 
 [node name="DebugMenu" parent="." instance=ExtResource( 4 )]
 visible = false
+
 [connection signal="game_over" from="Main" to="." method="_on_Main_game_over"]
 [connection signal="button_pressed" from="MainMenu" to="." method="_on_MainMenu_button_pressed"]
 [connection signal="music_muted" from="MainMenu" to="Main" method="mute_music"]
