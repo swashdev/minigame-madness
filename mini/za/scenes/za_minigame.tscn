@@ -12,6 +12,34 @@
 script = ExtResource( 2 )
 _instruction = "Slice that 'Za!"
 
+[node name="Prompt" type="Node2D" parent="."]
+position = Vector2( 507.702, 367.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LeftKey" parent="Prompt" instance=ExtResource( 6 )]
+position = Vector2( -20, 0 )
+
+[node name="RightKey" parent="Prompt" instance=ExtResource( 5 )]
+position = Vector2( 20, 0 )
+
+[node name="Spacebar" parent="." instance=ExtResource( 7 )]
+position = Vector2( 113.394, 367.5 )
+_label = "Slice!"
+
+[node name="Label" type="Label" parent="Spacebar"]
+margin_left = -74.0
+margin_top = -99.0
+margin_right = 74.0
+margin_bottom = -71.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Za" parent="." instance=ExtResource( 1 )]
 position = Vector2( 320, 240 )
 scale = Vector2( 2, 2 )
@@ -24,32 +52,5 @@ texture = ExtResource( 3 )
 [node name="Slicer" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 240 )
 
-[node name="Prompt" type="Node2D" parent="."]
-position = Vector2( 575.702, 442.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="LeftKey" parent="Prompt" instance=ExtResource( 6 )]
-position = Vector2( -20, 0 )
-
-[node name="RightKey" parent="Prompt" instance=ExtResource( 5 )]
-position = Vector2( 20, 0 )
-
-[node name="Spacebar" parent="." instance=ExtResource( 7 )]
-position = Vector2( 115.772, 442.5 )
-_label = "Slice!"
-
-[node name="Label" type="Label" parent="Spacebar"]
-margin_left = -74.0
-margin_top = -14.0
-margin_right = 74.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="eaten" from="Za" to="." method="_on_Za_eaten"]
 [connection signal="sliced" from="Za" to="." method="_on_Za_sliced"]
