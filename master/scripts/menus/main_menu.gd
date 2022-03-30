@@ -61,6 +61,8 @@ func set_version_number( release: int, major: int, patch: int,
 			type = "Version"
 
 	var full_version_string = "%s %s" % [type, version]
+	full_version_string += ", built on Godot Engine version %s" \
+			% Engine.get_version_info()["string"]
 	$VersionNumberLabel.text = full_version_string
 
 
