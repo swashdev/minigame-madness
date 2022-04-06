@@ -25,8 +25,10 @@ onready var arrow_t = preload( "res://mini/dance/scenes/ui/dance_arrow.tscn" )
 onready var spawn_y: float = $SpawnPosition.position.y
 
 
-# Override `start` and `stop` to start the arrow timer.
+# Override `start` and `stop` to start the arrow timer.  `start` will also spawn
+# the first arrow.
 func start():
+	_spawn_arrow()
 	$ArrowTimer.start()
 
 func stop():
