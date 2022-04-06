@@ -18,11 +18,19 @@ const LANES: Dictionary = \
 }
 
 
+# The maximum number of arrows to spawn.
+const MAX_ARROWS: int = 8
+
+
 # A template for arrows to spawn.
 onready var arrow_t = preload( "res://mini/dance/scenes/ui/dance_arrow.tscn" )
 
 # A hint for spawning positions.
 onready var spawn_y: float = $SpawnPosition.position.y
+
+
+# A counter for spawned arrows.
+var spawned_arrows: int = 0
 
 
 # Override `start` and `stop` to start the arrow timer.  `start` will also spawn
@@ -47,3 +55,8 @@ func _spawn_arrow():
 
 	# Position the arrow in the appropriate lane for its direction.
 	arrow.position = Vector2( LANES[direction], spawn_y )
+
+	# Increment the arrow counter.  If it reaches the max, stop spawning.
+	spawned_arrows += 1
+	if spawned_arrows >= MAX_ARROWS:
+		$ArrowTimer.stop()
