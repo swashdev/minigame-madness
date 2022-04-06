@@ -27,6 +27,19 @@ const DEGREES: Dictionary = \
 }
 
 
+const FALL_SPEED: float = 600.0
+
+
+# Mainloop for the dance arrows.
+func _process( delta ):
+	var distance = position.y
+	# if the arrow has fallen below the edge of the screen, remove it.
+	if distance > 540:
+		queue_free()
+	else:
+		position.y += FALL_SPEED * delta
+
+
 # sets the arrow's direction.
 func set_direction( direction: int ):
 	if DEGREES.has( direction ):
