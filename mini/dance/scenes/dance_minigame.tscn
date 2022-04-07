@@ -63,5 +63,13 @@ texture = ExtResource( 3 )
 
 [node name="ArrowTimer" type="Timer" parent="."]
 wait_time = 0.5
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="ArrowTimer" to="." method="_spawn_arrow"]

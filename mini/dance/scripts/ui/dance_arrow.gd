@@ -4,6 +4,16 @@ extends Sprite
 # based on its direction.
 
 
+# A signal informing the minigame that the arrow has despawned, either because
+# of a miss or a hit, and providing the `score` resulting from the despawn.
+# Anything higher than 0 is a hit.
+signal despawned( score )
+
+
+# Possible values for `score` in the "despawned" signal.
+enum { MISS, OK, GOOD, GREAT, PERFECT }
+
+
 # Valid directions for the arrow to point.
 enum { UP, DOWN, LEFT, RIGHT }
 
@@ -51,13 +61,19 @@ func _process( delta ):
 	var distance = position.y
 	# if the arrow has fallen below the edge of the screen, remove it.
 	if distance > 540:
-		queue_free()
+		despawn( MISS )
 	else:
 		position.y += FALL_SPEED * delta
 
 	# if the arrow's trigger has been pressed, delet.
 	if Input.is_action_just_pressed( TRIGGERS[_direction] ):
-		queue_free()
+		despawn( PERFECT )
+
+
+# Despawns the arrow and provides a resulting score.
+func despawn( score: int ):
+	emit_signal( "despawned", score )
+	queue_free()
 
 
 # sets the arrow's direction.
