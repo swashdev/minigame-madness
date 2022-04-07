@@ -32,6 +32,9 @@ onready var arrow_t = preload( "res://mini/dance/scenes/ui/dance_arrow.tscn" )
 # A hint for spawning positions.
 onready var spawn_y: float = $SpawnPosition.position.y
 
+# The score indicator that shows the player how close they were.
+onready var announcer = $Label
+
 
 # A counter for spawned arrows.
 var spawned_arrows: int = 0
@@ -75,4 +78,22 @@ func _spawn_arrow():
 # An arrow has despawned, causing the minigame to increment the player's score.
 func _add_score( score: int ):
 	player_score += score
-	$Label.text = "%d / %d" % [player_score, 2 * MAX_ARROWS]
+
+	if score <= MISS:
+		announcer.set_text( "MISS" )
+		announcer.add_color_override( "font_color", Color.gray )
+	elif score == OK:
+		announcer.set_text( "OK" )
+		announcer.add_color_override( "font_color", Color.blue )
+	elif score == GOOD:
+		announcer.set_text( "GOOD!" )
+		announcer.add_color_override( "font_color", Color.orange )
+	elif score == GREAT:
+		announcer.set_text( "GREAT!!" )
+		announcer.add_color_override( "font_color", Color.green )
+	elif score == PERFECT:
+		announcer.set_text( "PERFECT!!!" )
+		announcer.add_color_override( "font_color", Color.red )
+	else:
+		announcer.set_text( "ORGASMIC!!!" )
+		announcer.add_color_override( "font_color", Color.white )
