@@ -74,6 +74,6 @@ __meta__ = {
 }
 
 [node name="ArrowTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 
 [connection signal="timeout" from="ArrowTimer" to="." method="_spawn_arrow"]
