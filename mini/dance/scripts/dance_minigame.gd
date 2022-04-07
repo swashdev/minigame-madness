@@ -59,8 +59,15 @@ func decide():
 	stop()
 	if player_score >= GOOD * MAX_ARROWS:
 		emit_signal( "won" )
+		if player_score >= PERFECT * MAX_ARROWS:
+			announcer.set_text( "GODLIKE!!!!!" )
+		else:
+			announcer.set_text( "YOU ROCK!!!" )
+		announcer.add_color_override( "font_color", Color.red )
 	else:
 		emit_signal( "lost" )
+		announcer.set_text( "Too Bad!" )
+		announcer.add_color_override( "font_color", Color.whitesmoke )
 
 
 # Spawns an arrow.
