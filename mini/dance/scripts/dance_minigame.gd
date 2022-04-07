@@ -43,6 +43,10 @@ var spawned_arrows: int = 0
 var player_score: int = 0
 
 
+func _ready():
+	$ProgressBar1.share( $ProgressBar2 )
+
+
 # Override `start` and `stop` to start the arrow timer.  `start` will also spawn
 # the first arrow.
 func start():
@@ -95,6 +99,7 @@ func _spawn_arrow():
 # An arrow has despawned, causing the minigame to increment the player's score.
 func _add_score( score: int ):
 	player_score += score
+	$ProgressBar1.value += score
 
 	if score <= MISS:
 		announcer.set_text( "MISS" )
