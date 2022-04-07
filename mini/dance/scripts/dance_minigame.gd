@@ -53,6 +53,16 @@ func stop():
 	$ArrowTimer.stop()
 
 
+# In order to `decide` whether the player won or not, the minigame will check
+# if the player has scored the equivalent of a "good" for every arrow.
+func decide():
+	stop()
+	if player_score >= GOOD * MAX_ARROWS:
+		emit_signal( "won" )
+	else:
+		emit_signal( "lost" )
+
+
 # Spawns an arrow.
 func _spawn_arrow():
 	var arrow = arrow_t.instance()
