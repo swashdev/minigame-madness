@@ -8,7 +8,8 @@ This changelog follows the
 convention.  
 Minigame Madness _does not_ use Semantic Versioning.
 
-## [Unreleased]
+
+## [0.13] - 2022-04-06
 
 ### Added
 
@@ -20,3 +21,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 ### Changed
 
 - Minigames in the Debug menu are now listed by title rather than number.
+
+### Deprecated
+
+- The version number "types," i.e. "Pre-Release," "Alpha," and "Beta" have been
+  deprecated.  For the time being, Minigame Madness will now simply use its own
+  version number without additional unnecessary fluff.
