@@ -25,7 +25,7 @@ func _ready():
 			_version_patch, _version_type )
 
 	# Populate the debug menu.
-	var minigames = $Main/MinigameCanvas.Minigames.size()
+	var minigames = $Main/MinigameCanvas.Minigames
 	$DebugMenu.populate_menu( minigames )
 
 

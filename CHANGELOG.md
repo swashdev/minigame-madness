@@ -16,3 +16,7 @@ Minigame Madness _does not_ use Semantic Versioning.
   for the version of the Godot Engine that was used to build Minigame Madness.
 
 - New minigame: Dance, Dance, Dance!
+
+### Changed
+
+- Minigames in the Debug menu are now listed by title rather than number.
