@@ -67,8 +67,23 @@ func _process( delta ):
 
 	# if the arrow's trigger has been pressed, delet.
 	if Input.is_action_just_pressed( TRIGGERS[_direction] ):
-		despawn( PERFECT )
+		# If the arrow isn't anywhere near the target, just ignore the input.
+		if distance > 340:
+			# Calculate the player's accuracy from the arrow's distance to the
+			# target.
+			var error: float = abs( 400.0 - distance )
 
+			# Assign more points for a lower `error`.
+			if error <= 1:
+				despawn( PERFECT )
+			elif error <= 10:
+				despawn( GREAT )
+			elif error <= 20:
+				despawn( GOOD )
+			elif error <= 30:
+				despawn( OK )
+			else:
+				despawn( MISS )
 
 # Despawns the arrow and provides a resulting score.
 func despawn( score: int ):
