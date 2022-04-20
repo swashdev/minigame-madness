@@ -61,13 +61,17 @@ push-button-get-game affair.
 
 The next step is to download a copy of the [Godot Engine].  You can acquire
 Godot from their website or [on Steam] or grab the source code
-[right here on GitHub].
+[right here on GitHub].  If you choose to compile your own version of the
+Godot Engine, you might consider using the profile included in [custom.py] to
+remove any modules that aren't needed to export a Minigame Madness binary.
 
 [Godot Engine]: https://godotengine.org/
 
 [on Steam]: https://store.steampowered.com/app/404790/Godot_Engine/
 
 [right here on GitHub]: https://github.com/godotengine/godot
+
+[custom.py]: ./custom.py
 
 After you've acquired Godot, it's a simple matter of [importing the project]
 by pointing the project manager to the project file in the directory you

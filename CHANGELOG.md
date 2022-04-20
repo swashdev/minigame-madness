@@ -18,6 +18,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - New minigame: Dance, Dance, Dance!
 
+- A SConstruct profile used to compile an optimal version of the Godot Engine
+  for Minigame Madness exports is now available in custom.py.
+
 ### Changed
 
 - Minigames in the Debug menu are now listed by title rather than number.
