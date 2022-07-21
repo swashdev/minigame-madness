@@ -20,7 +20,13 @@ Minigame Madness _does not_ use Semantic Versioning.
   - The `GameMode` enum, which defines which "game mode" (debug, normal,
     endurance, &c) is available.
 
+  - The `WON`, `LOST`, and `CANCELLED` enums, which are used to specify why the
+    game has ended.  (now stored in the `Global.GameOver` enum)
+
 - The values of `GameMode.NORMAL` and `GameMode.DEBUG` have been swapped.
+
+- The values of `GameOver.WON`, `GameOver.LOST`, and `GameOver.CANCELLED` have
+  been moved around to `1`, `2`, and `0`, respectively.
 
 
 ## [0.13] - 2022-04-20

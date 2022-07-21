@@ -5,9 +5,6 @@ extends Node
 # This signal is used to tell Master that there's been a game over.
 signal game_over( result )
 
-# Aliases for the `game_ended` function.
-enum { WON, LOST, CANCELLED }
-
 # The game mode being employed for this game.
 var _mode: int = Global.GameMode.NORMAL
 
@@ -58,7 +55,7 @@ func _process( _delta ):
 			$MinigameCanvas.cleanup()
 			$GameTimer.stop()
 			$InGameHUD.hide()
-			game_ended( CANCELLED )
+			game_ended(Global.GameOver.CANCELLED)
 
 
 # Sets the music on or off.
@@ -133,7 +130,7 @@ func do_next_minigame():
 	played = played + 1
 	if list_minigames.size() == 0 and not _secret:
 		# Signal game over.
-		game_ended( WON )
+		game_ended(Global.GameOver.WON)
 	else:
 		# If the player found the secret, use that as the next minigame.
 		if _secret:
@@ -155,10 +152,10 @@ func do_next_minigame():
 func game_ended( reason ):
 	$MainMusic.stop()
 	match reason:
-		WON:
+		Global.GameOver.WON:
 			$InGameHUD.message( "You win!" )
 			yield( $InGameHUD, "message_exited" )
-		LOST:
+		Global.GameOver.LOST:
 			$InGameHUD.message( "Game Over." )
 			yield( $InGameHUD, "message_exited" )
 	$InGameHUD.hide()
@@ -218,6 +215,6 @@ func _on_Minigame_lost():
 		$MinigameCanvas.cleanup()
 
 		if( lives <= 0 ):
-			game_ended( LOST )
+			game_ended(Global.GameOver.LOST)
 		else:
 			do_next_minigame()
