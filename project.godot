@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://master/singletons/global.gd"
+Version="*res://master/singletons/version.gd"
 
 [display]
 

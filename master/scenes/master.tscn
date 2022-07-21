@@ -7,8 +7,6 @@
 
 [node name="Master" type="Node"]
 script = ExtResource( 2 )
-_version_major = 13
-_version_type = 3
 
 [node name="Main" parent="." instance=ExtResource( 1 )]
 

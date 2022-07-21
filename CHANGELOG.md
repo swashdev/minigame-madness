@@ -28,6 +28,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The values of `GameOver.WON`, `GameOver.LOST`, and `GameOver.CANCELLED` have
   been moved around to `1`, `2`, and `0`, respectively.
 
+- A new singleton, `Version`, will be used from here on out to store
+  the game's version number and information relevant to it, including how to
+  convert it to a string.
+
 
 ## [0.13] - 2022-04-20
 
