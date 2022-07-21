@@ -9,6 +9,20 @@ convention.
 Minigame Madness _does not_ use Semantic Versioning.
 
 
+## [UNRELEASED]
+
+### Changed
+
+- A new singleton, `Global`, will be used from here on out to store global
+  variables and utility functions.  In this inaugural update of this feature,
+  the following features will be stored in `Global`:
+
+  - The `GameMode` enum, which defines which "game mode" (debug, normal,
+    endurance, &c) is available.
+
+- The values of `GameMode.NORMAL` and `GameMode.DEBUG` have been swapped.
+
+
 ## [0.13] - 2022-04-20
 
 ### Added

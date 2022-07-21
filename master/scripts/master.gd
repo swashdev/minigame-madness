@@ -43,9 +43,9 @@ func _on_MainMenu_button_pressed( button ):
 			_on_new_game()
 		# Endurance Mode and Sudden Death are game modes 1 and 2.
 		"endurance_mode":
-			_on_new_game( 1 )
+			_on_new_game(Global.GameMode.ENDURANCE)
 		"sudden_death":
-			_on_new_game( 2 )
+			_on_new_game(Global.GameMode.SUDDEN_DEATH)
 		"debug":
 			_on_debug_menu()
 		"quit":
@@ -53,8 +53,8 @@ func _on_MainMenu_button_pressed( button ):
 
 
 # This function is used to handle the "new game" button being pressed.
-# `mode` is the game mode being used.  Default is 0 (GameMode.NORMAL)
-func _on_new_game( mode = 0 ):
+# `mode` is the game mode being used.  Default is GameMode.NORMAL
+func _on_new_game(mode = Global.GameMode.NORMAL):
 	# Hide the main menu.
 	$MainMenu.hide()
 	# Start a new game.
@@ -85,5 +85,5 @@ func _on_DebugMenu_debug_closed():
 func _on_debug_button_pressed( id ):
 	# Hide the debug menu.
 	$DebugMenu.hide()
-	# Start a new game in debug mode (3) with the given minigame's ID number.
-	$Main.new_game( 3, id )
+	# Start a new game in debug mode with the given minigame's ID number.
+	$Main.new_game(Global.GameMode.DEBUG, id)

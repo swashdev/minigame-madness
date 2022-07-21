@@ -30,6 +30,10 @@ config/name="Minigame Madness"
 run/main_scene="res://master/scenes/master.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://master/singletons/global.gd"
+
 [display]
 
 window/size/width=640

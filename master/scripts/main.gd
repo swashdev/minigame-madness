@@ -8,11 +8,8 @@ signal game_over( result )
 # Aliases for the `game_ended` function.
 enum { WON, LOST, CANCELLED }
 
-# Enums for game modes.
-enum GameMode { NORMAL, ENDURANCE, SUDDEN_DEATH, DEBUG }
-
 # The game mode being employed for this game.
-var _mode: int = GameMode.NORMAL
+var _mode: int = Global.GameMode.NORMAL
 
 # The number of lives the player currently has.
 var lives = 3
@@ -70,12 +67,12 @@ func mute_music( button_toggled ):
 
 
 # Starts a new game.
-func new_game( mode: int = GameMode.NORMAL, id: int = 0 ):
+func new_game(mode: int = Global.GameMode.NORMAL, id: int = 0):
 	_mode = mode
 	reset_everything()
 	if _music:
 		$MainMusic.play()
-	if _mode == GameMode.DEBUG:
+	if _mode == Global.GameMode.DEBUG:
 		$InGameHUD.message( "Debug mode.  Press Escape to finish." )
 		yield( $InGameHUD, "message_exited" )
 		current_minigame = [ id ]
@@ -91,7 +88,7 @@ func new_game( mode: int = GameMode.NORMAL, id: int = 0 ):
 
 # Resets all of the above variables to their default values.
 func reset_everything():
-	if _mode == GameMode.SUDDEN_DEATH:
+	if _mode == Global.GameMode.SUDDEN_DEATH:
 		lives = 1
 	else:
 		lives = 3
@@ -122,7 +119,7 @@ func get_minigame():
 	# Copy the ID into `current_minigame`
 	current_minigame = [ list_minigames[select] ]
 	# Remove this ID from the original list, as we no longer need it.
-	if _mode == GameMode.NORMAL:
+	if _mode == Global.GameMode.NORMAL:
 		list_minigames.remove( select )
 
 
@@ -141,7 +138,7 @@ func do_next_minigame():
 		# If the player found the secret, use that as the next minigame.
 		if _secret:
 			current_minigame = [-1]
-		elif not _mode == GameMode.DEBUG:
+		elif not _mode == Global.GameMode.DEBUG:
 			get_minigame()
 		setup_minigame( current_minigame[0] )
 		$InGameHUD.message( $MinigameCanvas.get_instruction() )
@@ -186,12 +183,12 @@ func _on_Minigame_won( found_secret ):
 			lives += 1
 			_secret = false
 			$InGameHUD.update_life_counter( lives )
-		if _mode == GameMode.NORMAL:
+		if _mode == Global.GameMode.NORMAL:
 			minigames_won = minigames_won + current_minigame
 		# If the player found the secret during this minigame, make a note to
 		# play the secret minigame next.
 		if found_secret:
-			_secret = _mode != GameMode.DEBUG
+			_secret = _mode != Global.GameMode.DEBUG
 			$InGameHUD.message( "Secret found!" )
 		else:
 			$InGameHUD.message( "Well-done!" )
@@ -211,7 +208,7 @@ func _on_Minigame_lost():
 		streak = 0
 		lives = lives - 1
 		$InGameHUD.update_life_counter( lives )
-		if _mode == GameMode.NORMAL:
+		if _mode == Global.GameMode.NORMAL:
 			minigames_lost = minigames_lost + current_minigame
 
 		$InGameHUD.message( "Booooo!" )
