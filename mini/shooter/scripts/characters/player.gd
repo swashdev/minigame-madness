@@ -55,9 +55,6 @@ func _on_ShotCooldown_timeout():
 
 
 # The player has collided with a bad guy and so must die.
-func _on_Player_body_entered(body):
-	# Destroy the bad guy.
-	body.explode()
-
+func blow_up():
 	# Signal the gameloop that the player has died.
 	emit_signal( "died", global_position )
