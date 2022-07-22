@@ -141,8 +141,10 @@ default_color = Color( 0.764706, 0, 0, 1 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
+
 [connection signal="spawn_star" from="Starfield/StarSpawner" to="." method="_on_StarSpawner_spawn_star"]
 [connection signal="timeout" from="Starfield/StarSpawner/Timer" to="Starfield/StarSpawner" method="_on_Timer_timeout"]
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="fired_missile" from="Player" to="." method="_on_Player_fired_missile"]
 [connection signal="shot" from="Player" to="." method="_on_Player_shot"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]

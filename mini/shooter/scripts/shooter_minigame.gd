@@ -99,6 +99,24 @@ func _on_enemy_exploded( location ):
 		emit_signal( "won" )
 
 
+# The player has died and must be deleted.  This function will cause a game
+# over.
+func _on_Player_died( location ):
+	# Spawn an explosion much like in `_on_enemy_exploded()`
+	var boom = explosion.instance()
+	boom.position = location
+	boom.position.x -= position.x
+	add_child( boom )
+	boom.play()
+
+	# Delete the player character.
+	$Player.queue_free()
+
+	# End the game.  Note that the player may still win if they've killed enough
+	# bad guys.
+	decide()
+
+
 func _on_StarSpawner_spawn_star( x_coordinate ):
 	var star = _star.instance()
 	star.rect_position = Vector2( x_coordinate, 0 )
