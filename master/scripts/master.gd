@@ -4,8 +4,6 @@ extends Node
 
 # Perform final setup.
 func _ready():
-	$MainMenu.set_version_number(Version.MAJOR, Version.MINOR, Version.PATCH, 3)
-
 	# Populate the debug menu.
 	var minigames = $Main/MinigameCanvas.Minigames
 	$DebugMenu.populate_menu( minigames )

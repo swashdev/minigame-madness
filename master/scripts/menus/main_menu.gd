@@ -12,6 +12,13 @@ signal music_muted( button_toggled )
 var _sequence: int = 0
 
 
+func _ready():
+	var version: String = Version.to_string()
+	var godot: String = Engine.get_version_info()["string"]
+	$VersionNumberLabel.set_text("Version %s, built on Godot %s"
+			% [version, godot])
+
+
 func _process( _delta ):
 	if _sequence < 9:
 		if Input.is_action_just_pressed( "move_up" ):
@@ -40,30 +47,6 @@ func _process( _delta ):
 				_sequence += 1
 			else:
 				_sequence = 0
-
-
-# Sets the version number for the label.
-func set_version_number( release: int, major: int, patch: int,
-		build_type: int = 1 ):
-	var version = "%d.%d" % [release, major]
-	if patch > 0:
-		version = "%s.%d" % [version, patch]
-
-	var type: String
-	match build_type:
-		0: # Prerelease
-			type = "Prerelease"
-		1: # Alpha
-			type = "Alpha"
-		2: # Beta
-			type = "Beta"
-		_: # Release
-			type = "Version"
-
-	var full_version_string = "%s %s" % [type, version]
-	full_version_string += ", built on Godot Engine version %s" \
-			% Engine.get_version_info()["string"]
-	$VersionNumberLabel.text = full_version_string
 
 
 # The "New Game" button has been pressed.  It's time to signal Master.

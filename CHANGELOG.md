@@ -32,6 +32,9 @@ Minigame Madness _does not_ use Semantic Versioning.
   the game's version number and information relevant to it, including how to
   convert it to a string.
 
+- Moved functions to display the version number into `MainMenu` where it
+  belongs.
+
 
 ## [0.13] - 2022-04-20
 
