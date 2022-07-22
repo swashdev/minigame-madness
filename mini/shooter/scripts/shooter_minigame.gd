@@ -102,6 +102,10 @@ func _on_enemy_exploded( location ):
 # The player has died and must be deleted.  This function will cause a game
 # over.
 func _on_Player_died( location ):
+	# The missile needs to be removed and disabled in order to avoid errors.
+	_fired_missile = true
+	$Missile.queue_free()
+
 	# Spawn an explosion much like in `_on_enemy_exploded()`
 	var boom = explosion.instance()
 	boom.position = location
