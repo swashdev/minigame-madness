@@ -6,6 +6,9 @@ extends Area2D
 signal shot
 signal fired_missile
 
+# Signals the gameloop that the player has been killed.
+signal died( position )
+
 # The player's speed.
 const SPEED: float = 400.0
 
@@ -49,3 +52,12 @@ func _process( delta ):
 # The player's cooldown timer has expired, allowing them to fire another shot.
 func _on_ShotCooldown_timeout():
 	_cooldown = true
+
+
+# The player has collided with a bad guy and so must die.
+func _on_Player_body_entered(body):
+	# Destroy the bad guy.
+	body.explode()
+
+	# Signal the gameloop that the player has died.
+	emit_signal( "died", global_position )
