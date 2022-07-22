@@ -35,6 +35,8 @@ Minigame Madness _does not_ use Semantic Versioning.
 - Moved functions to display the version number into `MainMenu` where it
   belongs.
 
+- The player character in the "Shoot Five!" minigame now collides with enemies.
+
 
 ## [0.13] - 2022-04-20
 
