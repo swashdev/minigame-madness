@@ -25,6 +25,10 @@ var _kills: int = 0
 # Whether or not the player has fired their missile.
 var _fired_missile: bool = false
 
+# Set to `true` if the player dies.  This will prevent the game from continuing
+# to query the player in some circumstances.
+var _player_died: bool = false
+
 # A star node which can be instanced to create a starfield.
 var _star = preload( "res://mini/shooter/scenes/effects/star/star.tscn" )
 
@@ -62,7 +66,8 @@ func start():
 # Stop player movement & enemy spawn timers.
 func stop():
 	_unlock_controls = false
-	$Player.allow_movement = false
+	if not _player_died:
+		$Player.allow_movement = false
 	$EnemySpawnTimer.stop()
 
 
@@ -115,6 +120,7 @@ func _on_Player_died( location ):
 
 	# Delete the player character.
 	$Player.queue_free()
+	_player_died = true
 
 	# End the game.  Note that the player may still win if they've killed enough
 	# bad guys.
