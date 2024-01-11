@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/skippitybop.ogg-eeab9d68b69a85718f8fc2e4a2a35f4d.oggstr"
+
+[deps]
+
+source_file="res://assets/spadezer/skippitybop/skippitybop.ogg"
+dest_files=[ "res://.import/skippitybop.ogg-eeab9d68b69a85718f8fc2e4a2a35f4d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

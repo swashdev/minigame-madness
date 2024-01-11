@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/everyone_is_so_alive.ogg-2a768c622a0b3c755edc345f228db3f0.oggstr"
+
+[deps]
+
+source_file="res://assets/loyalty_freak_music/robot_dance/everyone_is_so_alive.ogg"
+dest_files=[ "res://.import/everyone_is_so_alive.ogg-2a768c622a0b3c755edc345f228db3f0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

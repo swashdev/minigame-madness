@@ -37,6 +37,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - The player character in the "Shoot Five!" minigame now collides with enemies.
 
+- Third-party assets have been moved to appropriate folders in the "assets"
+  directory.
+
 
 ## [0.13] - 2022-04-20
 
