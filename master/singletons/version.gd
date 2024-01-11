@@ -7,13 +7,13 @@ extends Node
 # system is not compliant with the Semantic Versioning standard.
 const MAJOR: int = 0
 const MINOR: int = 13
-const PATCH: int = 0
+const PATCH: int = 1
 
 # `AS_HEX` is the version number expressed as a single hexadecimal value where
 # each of `MAJOR`, `MINOR`, and `PATCH` are given two hexadecimal digits.  This
 # can be used to quickly compare version numbers in source code, but has no
 # practical user-facing function.
-const AS_HEX: int = 0x00_13_00
+const AS_HEX: int = 0x00_13_01
 
 
 func _to_string() -> String:
