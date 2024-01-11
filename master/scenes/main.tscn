@@ -18,6 +18,7 @@ one_shot = true
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
 [connection signal="lost" from="MinigameCanvas" to="." method="_on_Minigame_lost"]
 [connection signal="won" from="MinigameCanvas" to="." method="_on_Minigame_won"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
