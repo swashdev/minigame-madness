@@ -9,7 +9,7 @@ convention.
 Minigame Madness _does not_ use Semantic Versioning.
 
 
-## [UNRELEASED]
+## [0.13.1] - 2024-01-11
 
 ### Changed
 
