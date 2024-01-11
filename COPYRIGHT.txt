@@ -41,7 +41,7 @@ Source: https://github.com/swashdev/minigame-madness
 
 Files: *
 Comment: Minigame Madness
-Copyright: 2020-2021 Philip Pavlick
+Copyright: 2020-2024 Philip Pavlick
 License: Unlicense or CC0-1.0
 
 Files: ./assets/spadezer/skippitybop/skippitybop.ogg
