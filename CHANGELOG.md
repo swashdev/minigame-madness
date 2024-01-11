@@ -40,6 +40,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - Third-party assets have been moved to appropriate folders in the "assets"
   directory.
 
+- The `Version.AS_HEX` constant has been removed for having no conceivable
+  purpose.
+
 
 ## [0.13] - 2022-04-20
 

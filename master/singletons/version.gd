@@ -9,12 +9,6 @@ const MAJOR: int = 0
 const MINOR: int = 13
 const PATCH: int = 1
 
-# `AS_HEX` is the version number expressed as a single hexadecimal value where
-# each of `MAJOR`, `MINOR`, and `PATCH` are given two hexadecimal digits.  This
-# can be used to quickly compare version numbers in source code, but has no
-# practical user-facing function.
-const AS_HEX: int = 0x00_13_01
-
 
 func _to_string() -> String:
 	var string: String = "%d.%d" % [MAJOR, MINOR]
@@ -22,4 +16,4 @@ func _to_string() -> String:
 	if PATCH > 0:
 		string = string + ".%d" % PATCH
 
-	return string + "-custom_build"
+	return string
