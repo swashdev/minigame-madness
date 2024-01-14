@@ -9,6 +9,16 @@ convention.
 Minigame Madness _does not_ use Semantic Versioning.
 
 
+## [0.13.2-hotfix] - 2024-01-14
+
+### Fixed
+
+- Implemented a bugfix from an archived version of the repository.  This fix
+  prevents the "Shoot Five!" minigame from causing crashes by attempting to
+  do work with the player node after it has been removed due to the player's
+  ship being destroyed.
+
+
 ## [0.13.1] - 2024-01-11
 
 ### Changed
