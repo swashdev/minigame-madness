@@ -9,7 +9,22 @@ convention.
 Minigame Madness _does not_ use Semantic Versioning.
 
 
-## [0.13.2-hotfix] - 2024-01-14
+## Unreleased
+
+### Changed
+
+- Updated to Godot Engine 3.5.3-stable.
+
+
+### Corrections
+
+- In version 0.13.1, some source files were moved around in order to be more
+  compliant with standard practice for Godot projects, but relevant licensing
+  documentation was updated incompletely.  The documentation in the LICENSE
+  file was corrected with this version.
+
+
+## [0.13.2-hotfix] - 2024-01-14 [YANKED]
 
 ### Fixed
 
@@ -19,7 +34,7 @@ Minigame Madness _does not_ use Semantic Versioning.
   ship being destroyed.
 
 
-## [0.13.1] - 2024-01-11
+## [0.13.1] - 2024-01-11 [YANKED]
 
 ### Changed
 
