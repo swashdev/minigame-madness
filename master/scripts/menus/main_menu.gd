@@ -17,6 +17,8 @@ func _ready():
 	var godot: String = Engine.get_version_info()["string"]
 	$VersionNumberLabel.set_text("Version %s, running on Godot %s"
 			% [version, godot])
+	if OS.is_debug_build():
+		$VersionNumberLabel.text += " (debug)"
 
 
 func _process( _delta ):
