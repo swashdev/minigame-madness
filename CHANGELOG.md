@@ -9,6 +9,14 @@ convention.
 Minigame Madness _does not_ use Semantic Versioning.
 
 
+## [UNRELEASED]
+
+## Changed
+
+- The version number disclosure in the main menu now says that the game is
+  "running" on a particular Godot version, rather than "built" on it.
+
+
 ## [0.13.3] - 2024-03-17
 
 ### Changed

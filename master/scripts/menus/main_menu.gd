@@ -15,7 +15,7 @@ var _sequence: int = 0
 func _ready():
 	var version: String = Version.to_string()
 	var godot: String = Engine.get_version_info()["string"]
-	$VersionNumberLabel.set_text("Version %s, built on Godot %s"
+	$VersionNumberLabel.set_text("Version %s, running on Godot %s"
 			% [version, godot])
 
 
