@@ -24,6 +24,13 @@ Minigame Madness _does not_ use Semantic Versioning.
   The duck's speed is unmodified.
 
 
+## Fixed
+
+- The player can now only grab the vine in the "Get Across!" minigame once.
+  This is to prevent the vine from "catching" the player after they try to
+  jump across the pit, which can kill some runs.
+
+
 ## [0.13.3] - 2024-03-17
 
 ### Changed

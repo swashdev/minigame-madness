@@ -145,3 +145,5 @@ func _on_VineTip_body_entered( _body ):
 	if $IndianaJumpman.get_state() != $IndianaJumpman.States.DEAD:
 		_swinging = true
 		$IndianaJumpman.start_swinging()
+	# Disconnect the signal so that the player can only grab the vine once.
+	$Vine/VineTip.disconnect("body_entered", self, "_on_VineTip_body_entered")
