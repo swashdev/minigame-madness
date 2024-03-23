@@ -26,6 +26,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - Indiana Jumpman's hat is now a darker shade of brown, so that it doesn't
   blend in with the background graphics too much.
 
+- Joypad button 1 can now be used in addition to button 0 for the "action"
+  button in minigames.
+
 
 ## Fixed
 
