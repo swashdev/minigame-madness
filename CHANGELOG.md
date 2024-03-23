@@ -19,6 +19,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The version number disclosure now specifies whether the game is running on
   a debug build of Godot.
 
+- The vine in the "Get Across!" minigame now moves twice as fast, to provide
+  players with extra opportunities to get across if they miss the first vine.
+  The duck's speed is unmodified.
+
 
 ## [0.13.3] - 2024-03-17
 

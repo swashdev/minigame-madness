@@ -20,7 +20,7 @@ enum { LEFT, RIGHT }
 const MAX_VINE_ANGLE: float = 25.0
 
 # The speed at which the vine will swing.
-const VINE_SWING_SPEED: float = 40.0
+const VINE_SWING_SPEED: float = 80.0
 
 
 # The currently-selected hazard.
