@@ -23,6 +23,9 @@ Minigame Madness _does not_ use Semantic Versioning.
   players with extra opportunities to get across if they miss the first vine.
   The duck's speed is unmodified.
 
+- Indiana Jumpman's hat is now a darker shade of brown, so that it doesn't
+  blend in with the background graphics too much.
+
 
 ## Fixed
 
