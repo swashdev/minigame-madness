@@ -30,7 +30,7 @@ var _unlock_controls: bool = false
 func _physics_process( delta ):
 	# If the player is swinging, all other movement rules are ignored.
 	var grounded = is_on_floor()
-	
+
 	# Zero out the player's horizontal momentum, unless we're doing a
 	# victory march.
 	momentum.x = 0.0 if _state != States.VICTORIOUS else MOVE_SPEED
@@ -70,7 +70,7 @@ func _physics_process( delta ):
 	var snap: Vector2 = Vector2.DOWN * 4 if grounded else Vector2.ZERO
 # warning-ignore:return_value_discarded
 	move_and_slide_with_snap( momentum, snap, Vector2.UP )
-	
+
 	# Check to see if we collided with the kill zone (collision layer 2)
 	for i in get_slide_count():
 		var collision = get_slide_collision( i )

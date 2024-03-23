@@ -30,6 +30,9 @@ Minigame Madness _does not_ use Semantic Versioning.
   This is to prevent the vine from "catching" the player after they try to
   jump across the pit, which can kill some runs.
 
+- The assets in the "Get Across!" minigame now use a darker green color, to
+  make certain obstacles more visible on some monitors.
+
 
 ## [0.13.3] - 2024-03-17
 
