@@ -10,8 +10,6 @@
 [ext_resource path="res://master/images/menus/buttons/next_button.png" type="Texture" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
 
-
-
 [sub_resource type="InputEventAction" id=1]
 action = "move_left"
 pressed = true
@@ -444,7 +442,7 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 480.0
-margin_bottom = 304.0
+margin_bottom = 280.0
 custom_constants/separation = 10
 
 [node name="Label1" type="Label" parent="Panel/Slide3/VBoxContainer"]
@@ -523,6 +521,7 @@ margin_right = 221.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 24, 24 )
 rect_pivot_offset = Vector2( 12, 12 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 2 )
 texture_normal = ExtResource( 7 )
 
@@ -539,8 +538,10 @@ margin_left = 279.0
 margin_right = 303.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 24, 24 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 4 )
 texture_normal = ExtResource( 8 )
+
 [connection signal="popup_hide" from="." to="." method="_on_ControlsDialog_popup_hide"]
 [connection signal="pressed" from="HBoxContainer/PrevSlideButton" to="." method="prev_slide"]
 [connection signal="value_changed" from="HBoxContainer/HScrollBar" to="." method="_on_HScrollBar_changed"]

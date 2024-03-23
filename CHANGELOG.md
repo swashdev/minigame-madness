@@ -39,6 +39,8 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The assets in the "Get Across!" minigame now use a darker green color, to
   make certain obstacles more visible on some monitors.
 
+- The left and right buttons on the Controls menu no longer have tooltips.
+
 
 ## [0.13.3] - 2024-03-17
 
