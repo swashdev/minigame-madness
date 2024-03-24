@@ -11,7 +11,7 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [UNRELEASED]
 
-## Changed
+### Changed
 
 - The version number disclosure in the main menu now says that the game is
   "running" on a particular Godot version, rather than "built" on it.
@@ -30,7 +30,7 @@ Minigame Madness _does not_ use Semantic Versioning.
   button in minigames.
 
 
-## Fixed
+### Fixed
 
 - The player can now only grab the vine in the "Get Across!" minigame once.
   This is to prevent the vine from "catching" the player after they try to
