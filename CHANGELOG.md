@@ -41,6 +41,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - The left and right buttons on the Controls menu no longer have tooltips.
 
+- The player now destroys pizzas on colliding with them in the "Don't Get
+  Pizza'd!" minigame.  This does not prevent the player from dying.
+
 
 ## [0.13.3] - 2024-03-17
 

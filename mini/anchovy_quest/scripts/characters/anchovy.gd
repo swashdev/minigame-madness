@@ -30,6 +30,7 @@ func _physics_process( delta ):
 	var collision = move_and_collide( _velocity * delta )
 	if collision:
 		emit_signal( "hit" )
+		collision.collider.explode()
 
 	# Wrap the player around the edges of the screen.
 	position.x = wrapf( position.x, 0, 640.0 )
