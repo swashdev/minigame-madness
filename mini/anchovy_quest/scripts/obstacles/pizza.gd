@@ -26,12 +26,20 @@ func _physics_process( delta ):
 	if spin_degrees != 0.0:
 		$Sprite.rotation_degrees += spin_degrees * delta
 		$CollisionPolygon2D.rotation_degrees += spin_degrees * delta
-	
-	# Move & wrap around the edges of the screen.
-# warning-ignore:return_value_discarded
-	move_and_slide( _velocity )
-	position.x = wrapf( position.x, 0, 640.0 )
-	position.y = wrapf( position.y, 0, 480.0 )
+
+	# Try to move, checking for collisions.
+	var collision: KinematicCollision2D = move_and_collide( _velocity * delta )
+	if not collision:
+		# If there was no collision, assume movement was successful and wrap
+		# around the edges of the screen.
+		position.x = wrapf( position.x, 0, 640.0 )
+		position.y = wrapf( position.y, 0, 480.0 )
+	else:
+		# Explode if the pizza collided with something.  If that something is
+		# the player, explode that too.
+		if collision.collider.has_signal( "hit" ):
+			collision.collider.emit_signal( "hit" )
+		explode()
 
 
 func set_spin( new_spin: float ):

@@ -44,6 +44,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The player now destroys pizzas on colliding with them in the "Don't Get
   Pizza'd!" minigame.  This does not prevent the player from dying.
 
+- The pizzas in the "Don't Get Pizza'd!" minigame now check for collisions
+  while moving rather than "sliding."  If they detect a collision, they will
+  self-destruct and check if the entity they hit is the player.
+
 
 ## [0.13.3] - 2024-03-17
 
