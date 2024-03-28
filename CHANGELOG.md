@@ -17,6 +17,11 @@ Minigame Madness _does not_ use Semantic Versioning.
   this function has been assigned to the Select button and the Escape key.
   Button 1 is still used to navigate backwards in menus and close dialogs.
 
+- The missile in the "Shoot Five!" minigame is now only removed after the
+  player's death if it has not yet been fired, removing a bug which could cause
+  crashes.  If the missile has been fired by the time the player dies, it will
+  now continue on its course until detonation, as normal.
+
 
 ### Added
 

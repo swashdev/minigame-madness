@@ -108,8 +108,9 @@ func _on_enemy_exploded( location ):
 # over.
 func _on_Player_died( location ):
 	# The missile needs to be removed and disabled in order to avoid errors.
-	_fired_missile = true
-	$Missile.queue_free()
+	if not _fired_missile:
+		_fired_missile = true
+		$Missile.queue_free()
 
 	# Spawn an explosion much like in `_on_enemy_exploded()`
 	var boom = explosion.instance()
