@@ -51,7 +51,7 @@ func _process( _delta ):
 		# Update the progress bar.
 		$InGameHUD.update_progress_bar( $GameTimer.time_left )
 		# End the game immediately if the Escape key is pressed.
-		if Input.is_action_just_pressed( "ui_cancel" ):
+		if Input.is_action_just_pressed( "quit" ):
 			$MinigameCanvas.cleanup()
 			$GameTimer.stop()
 			$InGameHUD.hide()

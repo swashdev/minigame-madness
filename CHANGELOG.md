@@ -11,6 +11,13 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [UNRELEASED]
 
+### Fixed
+
+- Pressing button 1 on a controller will no longer exit the game.  Instead,
+  this function has been assigned to the Select button and the Escape key.
+  Button 1 is still used to navigate backwards in menus and close dialogs.
+
+
 ### Added
 
 - The "Don't Get Pizza'd!" minigame now has a starry background!
