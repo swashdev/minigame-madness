@@ -22,6 +22,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - The "Don't Get Pizza'd!" minigame now has a starry background!
 
+- There is now a slide in the Controls menu explaining the controller
+  mappings.
+
 
 ## [0.13.4] - 2024-03-23
 

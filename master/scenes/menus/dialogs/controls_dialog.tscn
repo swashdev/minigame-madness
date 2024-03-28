@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://shared/scenes/ui/keys/left_key.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shared/scenes/ui/keys/right_key.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://master/images/menus/buttons/prev_button.png" type="Texture" id=7]
 [ext_resource path="res://master/images/menus/buttons/next_button.png" type="Texture" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
+[ext_resource path="res://master/images/menus/controller.png" type="Texture" id=10]
 
 [sub_resource type="InputEventAction" id=1]
 action = "move_left"
@@ -426,6 +427,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Slide2AndAHalf" type="MarginContainer" parent="Panel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Slide2AndAHalf"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 280.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Slide2AndAHalf/VBoxContainer"]
+margin_top = 18.0
+margin_right = 460.0
+margin_bottom = 110.0
+text = "You can also play Minigame Madness with a controller. Use the left analog stick or D-pad instead of the arrow keys, and face buttons 1 or 2 in place of the spacebar.
+The Select/Share button is used to quit.
+"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/Slide2AndAHalf/VBoxContainer"]
+margin_top = 114.0
+margin_right = 460.0
+margin_bottom = 242.0
+
+[node name="Controller" type="TextureRect" parent="Panel/Slide2AndAHalf/VBoxContainer/CenterContainer"]
+margin_left = 126.0
+margin_right = 334.0
+margin_bottom = 128.0
+texture = ExtResource( 10 )
+
 [node name="Slide3" type="MarginContainer" parent="Panel"]
 visible = false
 anchor_right = 1.0
@@ -448,7 +487,7 @@ custom_constants/separation = 10
 [node name="Label1" type="Label" parent="Panel/Slide3/VBoxContainer"]
 margin_right = 460.0
 margin_bottom = 35.0
-text = "Some minigames will show you a prompt like this indicating what the spacebar does."
+text = "Some minigames will show you a prompt like this indicating what the action button does."
 align = 1
 autowrap = true
 
