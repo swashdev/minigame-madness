@@ -9,6 +9,13 @@ convention.
 Minigame Madness _does not_ use Semantic Versioning.
 
 
+## [UNRELEASED]
+
+### Added
+
+- The "Don't Get Pizza'd!" minigame now has a starry background!
+
+
 ## [0.13.4] - 2024-03-23
 
 ### Changed
