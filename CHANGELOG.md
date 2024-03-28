@@ -22,7 +22,6 @@ Minigame Madness _does not_ use Semantic Versioning.
   crashes.  If the missile has been fired by the time the player dies, it will
   now continue on its course until detonation, as normal.
 
-
 ### Added
 
 - The "Don't Get Pizza'd!" minigame now has a starry background!
@@ -51,7 +50,6 @@ Minigame Madness _does not_ use Semantic Versioning.
 - Joypad button 1 can now be used in addition to button 0 for the "action"
   button in minigames.
 
-
 ### Fixed
 
 - The player can now only grab the vine in the "Get Across!" minigame once.
@@ -76,7 +74,6 @@ Minigame Madness _does not_ use Semantic Versioning.
 ### Changed
 
 - Updated to Godot Engine 3.5.3-stable.
-
 
 ### Corrections
 
