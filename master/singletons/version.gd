@@ -8,7 +8,7 @@ extends Node
 const MAJOR: int = 0
 const MINOR: int = 14
 const PATCH: int = 0
-const BUILD: String = "dev.1"
+const BUILD: String = "alpha.1"
 
 
 func _to_string() -> String:
