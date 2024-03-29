@@ -21,5 +21,5 @@ func _physics_process(delta):
 		# Constrain the goalie's movement.
 		if position.y < 50.0:
 			position.y = 50.0
-		elif position.y > 430.0:
-			position.y = 430.0
+		elif position.y > 420.0:
+			position.y = 420.0

@@ -27,32 +27,32 @@ margin_bottom = 480.0
 color = Color( 0.133333, 0.545098, 0.133333, 1 )
 
 [node name="Goalie" parent="." instance=ExtResource( 2 )]
-position = Vector2( 120, 240 )
+position = Vector2( 120, 235 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 600, 240 )
+position = Vector2( 600, 235 )
 
 [node name="Walls" type="Node2D" parent="."]
-position = Vector2( 320, 240 )
+position = Vector2( 320, 235 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="Wall1" type="StaticBody2D" parent="Walls"]
-position = Vector2( 0, -340 )
+position = Vector2( 0, -335 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
 shape = SubResource( 1 )
 
 [node name="Wall2" type="StaticBody2D" parent="Walls"]
-position = Vector2( 0, 340 )
+position = Vector2( 0, 330 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
 shape = SubResource( 1 )
 
 [node name="Wall3" type="StaticBody2D" parent="Walls"]
-position = Vector2( -420, 0 )
+position = Vector2( -420, 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
 shape = SubResource( 2 )
