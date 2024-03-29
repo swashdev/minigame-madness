@@ -36,8 +36,8 @@ margin_left = 380.0
 margin_top = 20.0
 margin_right = 620.0
 margin_bottom = 68.0
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 1, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "A tribute to
 the Ball series by
 John \"jmtb02\" Cooney"
@@ -169,5 +169,6 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="won" from="." to="Ball" method="_on_Minigame_won"]
 [connection signal="collided" from="Ball" to="." method="_on_Ball_collided"]

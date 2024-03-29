@@ -63,4 +63,5 @@ position = Vector2( 79.4323, 358.077 )
 
 [node name="SwingMax" type="Position2D" parent="." index="7"]
 position = Vector2( 20.6743, 357.572 )
+
 [connection signal="threw_ball" from="Pitcher" to="." method="_on_Pitcher_threw_ball"]
