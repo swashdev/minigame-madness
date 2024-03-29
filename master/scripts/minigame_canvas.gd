@@ -23,6 +23,7 @@ var Minigames = [
 	preload( "res://mini/pants/pants_minigame.tscn" ),
 	preload( "res://mini/pitfall/pitfall_minigame.tscn" ),
 	preload( "res://mini/dance/scenes/dance_minigame.tscn" ),
+	preload( "res://mini/goalie/goalie_minigame.tscn" ),
 	# Comma on last element intentional for efficient diff files.
 ]
 
