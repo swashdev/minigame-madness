@@ -22,8 +22,14 @@ func _ready():
 
 
 func _process( _delta ):
-	if _sequence < 9:
-		if Input.is_action_just_pressed( "move_up" ):
+	if _sequence < 10:
+		if Input.is_action_just_pressed( "secret_a" ):
+			if _sequence == 9:
+				$Menu/Buttons/DebugButton.show()
+				_sequence += 1
+			else:
+				_sequence = 0
+		elif Input.is_action_just_pressed( "move_up" ):
 			if _sequence < 2:
 				_sequence += 1
 			elif _sequence > 2:
@@ -43,12 +49,13 @@ func _process( _delta ):
 				_sequence += 1
 			else:
 				_sequence = 0
-		elif Input.is_action_just_pressed( "action" ):
+		elif Input.is_action_just_pressed( "secret_b" ):
 			if _sequence == 8:
-				$Menu/Buttons/DebugButton.show()
 				_sequence += 1
 			else:
 				_sequence = 0
+		elif Input.is_action_just_pressed( "action" ):
+			_sequence = 0
 
 
 # The "New Game" button has been pressed.  It's time to signal Master.

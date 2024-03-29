@@ -16,6 +16,8 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The "sky" texture used in several minigames is now imported with a lossless
   compression method, substantially improving its appearance.
 
+- The cheat code to open the debug menu has been changed.
+
 ### Added
 
 - A brand-new minigame: "Defend!" (legally distinct from Pong)
