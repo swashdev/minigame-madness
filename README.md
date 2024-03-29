@@ -60,8 +60,11 @@ export I've ever done for this game has been a very simple
 push-button-get-game affair.
 
 The next step is to download a copy of the [Godot Engine].  You can acquire
-Godot from their website or [on Steam] or grab the source code
-[right here on GitHub].  If you choose to compile your own version of the
+Godot from their website or grab the source code [right here on GitHub].  Just
+make sure that you're downloading Godot 3 &ndash; at least 3.5-stable &ndash;
+rather than Godot 4, as Minigame Madness was made on Godot 3.5.  The version
+you're looking for might be referred to on the website as an LTS version.  
+If you choose to compile your own version of the
 Godot Engine, you might consider using the profile included in [custom.py] to
 remove any modules that aren't needed to export a Minigame Madness binary.
 
