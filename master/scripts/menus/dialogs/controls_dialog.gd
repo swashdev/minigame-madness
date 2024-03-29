@@ -38,7 +38,7 @@ func _refresh_slides():
 	while slide < slides.size():
 		slides[slide].visible = slide == _slide
 		slide += 1
-	if _slide == 2:
+	if _slide == 3:
 		$Panel/Slide3/VBoxContainer/SpaceFiller2/RightKey.play()
 	else:
 		$Panel/Slide3/VBoxContainer/SpaceFiller2/RightKey.stop()
