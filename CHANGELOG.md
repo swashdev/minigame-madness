@@ -9,6 +9,14 @@ convention.
 Minigame Madness _does not_ use Semantic Versioning.
 
 
+## [UNRELEASED]
+
+### Changed
+
+- The "sky" texture used in several minigames is now imported with a lossless
+  compression method, substantially improving its appearance.
+
+
 ## [0.13.5] - 2024-03-28
 
 ### Fixed
