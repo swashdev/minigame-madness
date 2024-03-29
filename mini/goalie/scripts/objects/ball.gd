@@ -19,6 +19,7 @@ var moving: bool = false
 # This boolean is set to `true` when the ball has passed the goal or gone
 # out-of-bounds, so that it doesn't spam the "passed_goal" signal.
 var out_of_play: bool = false
+var passed_goal: bool = false
 
 # The ball's velocity.  This value is constant unless the ball has moved into
 # the goal.
@@ -27,6 +28,9 @@ var velocity: Vector2 = Vector2(-BASE_SPEED, 0.0)
 
 # The ball's physics process.
 func _physics_process(delta):
+	# If the ball is has reached the goal, it will slow to a stop.
+	if passed_goal:
+		velocity = velocity.move_toward(Vector2.ZERO, BASE_SPEED * delta)
 	if moving:
 		# Move the ball according to its `velocity`, checking for collisions
 		# as we go.
@@ -35,13 +39,13 @@ func _physics_process(delta):
 		# Bounce off of anything we collide with.
 		if collision:
 			velocity = velocity.bounce(collision.normal)
-
 		if not out_of_play:
 			# If the ball moves past the goal, signal the game that the player
 			# has lost.
 			if position.x < 100.0:
 				emit_signal("passed_goal")
 				out_of_play = true
+				passed_goal = true
 			# If the ball moves out-of-bounds, do the same.
 			elif position.x > 640.0:
 				emit_signal("out_of_bounds")
