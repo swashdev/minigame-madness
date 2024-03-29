@@ -12,7 +12,7 @@ desktop environments including Windows, MacOS, Linux, and maybe more!  See the
 
 [Compiling]: #compiling
 
-The game is currently in a prerelease state with 13 fully playable minigames.
+The game is currently in a prerelease state with 14 fully playable minigames.
 
 Legal Stuff
 -----------
