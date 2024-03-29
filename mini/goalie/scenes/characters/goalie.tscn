@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 50 )
+
+[node name="Goalie" type="KinematicBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -10.0
+margin_top = -50.0
+margin_right = 10.0
+margin_bottom = 50.0
+color = Color( 0.729412, 0, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
