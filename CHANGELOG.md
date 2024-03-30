@@ -11,6 +11,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [UNRELEASED]
 
+### Added
+
+- A brand-new minigame: "Defend!" (legally distinct from Pong)
+
 ### Fixed
 
 - A bug existed in the code which allowed the player to attempt to quit before
@@ -45,10 +49,6 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - The pizzas in the "Don't Get Pizza'd!" minigame can now move farther off of
   the screen before wrapping around, making them easier to dodge.
-
-### Added
-
-- A brand-new minigame: "Defend!" (legally distinct from Pong)
 
 
 ## [0.13.5] - 2024-03-28
