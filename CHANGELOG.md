@@ -11,6 +11,12 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [UNRELEASED]
 
+### Fixed
+
+- A bug existed in the code which allowed the player to attempt to quit before
+  the game has begun, causing the game to try to clear data that doesn't exist.
+  This update should have fixed that.
+
 ### Changed
 
 - The "sky" texture used in several minigames is now imported with a lossless

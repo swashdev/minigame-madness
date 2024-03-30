@@ -151,6 +151,7 @@ func do_next_minigame():
 # Performs "game over" functions.
 func game_ended( reason ):
 	$MainMusic.stop()
+	game_in_progress = false
 	match reason:
 		Global.GameOver.WON:
 			$InGameHUD.message( "You win!" )
