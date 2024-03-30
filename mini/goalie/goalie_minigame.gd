@@ -2,15 +2,33 @@ extends Minigame
 # A minigame that doesn't in any way resemble Pong.
 
 
+# A scene representing a ball to be thrown at the player.
+var ball: PackedScene = preload("res://mini/goalie/scenes/objects/ball.tscn")
+
+# The spawn point for balls.  This is derived from the position of the first
+# ball when the minigame is loaded.
+var ball_spawn: Vector2
+
+# Counts the number of balls we've spawned already so we don't throw too many
+# at the player.
+var ball_count: int = 1
+
+
+func _ready():
+	ball_spawn = Vector2($Ball.position)
+
+
 # Starts the minigame.
 func start():
 	$Goalie.unlock_movement = true
 	$Ball.start()
+	$Timer.start()
 
 
 # Stops the minigame.
 func stop():
 	$Goalie.unlock_movement = false
+	$Timer.stop()
 
 
 # The ball has passed the goal, and the player has lost.
