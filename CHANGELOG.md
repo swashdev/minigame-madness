@@ -24,6 +24,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - The cheat code to open the debug menu has been changed.
 
+- The "Hit a Home Run!" minigame has been made more forgiving.  It is now
+  substantially easier to hit a home run.
+
 ### Added
 
 - A brand-new minigame: "Defend!" (legally distinct from Pong)

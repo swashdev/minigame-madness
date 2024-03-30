@@ -59,7 +59,7 @@ visible = false
 position = Vector2( 459.465, 367.038 )
 
 [node name="SwingMin" type="Position2D" parent="." index="6"]
-position = Vector2( 79.4323, 358.077 )
+position = Vector2( 95, 358.077 )
 
 [node name="SwingMax" type="Position2D" parent="." index="7"]
 position = Vector2( 20.6743, 357.572 )
