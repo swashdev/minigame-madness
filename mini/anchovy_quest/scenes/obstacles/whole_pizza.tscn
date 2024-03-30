@@ -6,7 +6,7 @@
 [ext_resource path="res://mini/anchovy_quest/scripts/obstacles/half_pizza.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 60.1166
+radius = 60.0
 
 [node name="WholePizza" type="KinematicBody2D"]
 collision_layer = 2

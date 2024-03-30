@@ -27,6 +27,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The "Hit a Home Run!" minigame has been made more forgiving.  It is now
   substantially easier to hit a home run.
 
+- The whole pizzas in the "Don't Get Pizza'd!" minigame have had their
+  collision radius tweaked very slightly to remain inside the sprite.
+
 ### Added
 
 - A brand-new minigame: "Defend!" (legally distinct from Pong)
