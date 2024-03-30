@@ -17,6 +17,10 @@ Minigame Madness _does not_ use Semantic Versioning.
   the game has begun, causing the game to try to clear data that doesn't exist.
   This update should have fixed that.
 
+- The spawn rules for the pizzas in the "Don't Get Pizza'd!" minigame have been
+  overhauled so that the pizzas will consistently appear at a fair distance
+  away from the player.
+
 ### Changed
 
 - The "sky" texture used in several minigames is now imported with a lossless

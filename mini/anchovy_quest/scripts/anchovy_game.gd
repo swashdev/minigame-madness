@@ -7,7 +7,7 @@ const MAX_PIZZA: float = 200.0
 const MIN_PIZZA: float = 100.0
 
 # The max & minimum distance from the player that pizzas will spawn.
-const MIN_DISTANCE: float = 200.0
+const MIN_DISTANCE: float = 150.0
 const MAX_DISTANCE: float = 300.0
 
 # The scene to be used for the initial pizza instances.
@@ -18,20 +18,29 @@ export (PackedScene) var _explosion
 export (PackedScene) var _bullet
 
 # An array storing the initial pizzas.  Initialized in `_init`
-var pizzas
+var pizzas: Array
 
 
 # When the game is initialized, generate three pizzas at random locations.
 func _ready():
 	pizzas = [ _pizza.instance(), _pizza.instance(), _pizza.instance() ]
-
+	var player_position: Vector2 = $Player.position
+	var pizza_position: Vector2
+	var diff_x: float
+	var diff_y: float
+	var flip: int
 	for pizza in pizzas:
 		# Spawn the pizza a random distance away from the player.
-		var pizza_position: Vector2 = $Player.position
-		pizza_position.x += rand_range( MIN_DISTANCE, MAX_DISTANCE )
-		pizza_position = pizza_position.rotated( deg2rad( randi() % 360 ) )
-		pizza_position.x = wrapf( pizza_position.x, pizza.MIN_X, pizza.MAX_X )
-		pizza_position.y = wrapf( pizza_position.y, pizza.MIN_Y, pizza.MAX_Y )
+		diff_x = rand_range(MIN_DISTANCE, MAX_DISTANCE)
+		diff_y = rand_range(MIN_DISTANCE, MAX_DISTANCE)
+		flip = randi()
+		if flip & 1:
+			diff_x *= -1
+		if flip & 2:
+			diff_y *= -1
+		pizza_position = player_position
+		pizza_position.x += diff_x
+		pizza_position.y += diff_y
 		pizza.position = pizza_position
 		add_child( pizza )
 
