@@ -5,12 +5,14 @@ extends Minigame
 # Starts the minigame.
 func start():
 	$Goalie.unlock_movement = true
+	$Kicker.start()
 	$Ball.start()
 
 
 # Stops the minigame.
 func stop():
 	$Goalie.unlock_movement = false
+	$Kicker.unlock_movement = false
 	$Ball.out_of_play = true
 
 
