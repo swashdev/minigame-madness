@@ -30,7 +30,7 @@ color = Color( 0.133333, 0.545098, 0.133333, 1 )
 position = Vector2( 120, 235 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 600, 235 )
+position = Vector2( 650, 235 )
 
 [node name="Walls" type="Node2D" parent="."]
 position = Vector2( 320, 235 )
