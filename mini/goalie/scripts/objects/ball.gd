@@ -5,9 +5,6 @@ extends KinematicBody2D
 # This signal is emitted when the ball reaches the goal.
 signal passed_goal
 
-# This signal is emitted if the ball has gone out-of-bounds.
-signal out_of_bounds
-
 
 # The ball's linear speed.
 const BASE_SPEED: float = 400.0
@@ -46,10 +43,6 @@ func _physics_process(delta):
 				emit_signal("passed_goal")
 				out_of_play = true
 				passed_goal = true
-			# If the ball moves out-of-bounds, do the same.
-			elif position.x > 640.0:
-				emit_signal("out_of_bounds")
-				out_of_play = true
 
 
 # How to draw the ball.  This function only really exists because Godot doesn't
