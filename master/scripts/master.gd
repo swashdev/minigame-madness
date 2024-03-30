@@ -14,6 +14,7 @@ func _ready():
 	$DebugMenu.populate_menu( minigames )
 
 	if debug_minigame >= 0:
+		$MainMenu/Menu/Buttons/DebugButton.show()
 		$MainMenu.hide()
 		$Main.new_game(Global.GameMode.DEBUG, debug_minigame)
 
