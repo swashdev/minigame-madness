@@ -30,6 +30,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The whole pizzas in the "Don't Get Pizza'd!" minigame have had their
   collision radius tweaked very slightly to remain inside the sprite.
 
+- The pizzas in the "Don't Get Pizza'd!" minigame can now move farther off of
+  the screen before wrapping around, making them easier to dodge.
+
 ### Added
 
 - A brand-new minigame: "Defend!" (legally distinct from Pong)

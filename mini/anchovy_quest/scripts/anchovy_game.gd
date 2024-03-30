@@ -30,8 +30,8 @@ func _ready():
 		var pizza_position: Vector2 = $Player.position
 		pizza_position.x += rand_range( MIN_DISTANCE, MAX_DISTANCE )
 		pizza_position = pizza_position.rotated( deg2rad( randi() % 360 ) )
-		pizza_position.x = wrapf( pizza_position.x, 0.0, 640.0 )
-		pizza_position.y = wrapf( pizza_position.y, 0.0, 480.0 )
+		pizza_position.x = wrapf( pizza_position.x, pizza.MIN_X, pizza.MAX_X )
+		pizza_position.y = wrapf( pizza_position.y, pizza.MIN_Y, pizza.MAX_Y )
 		pizza.position = pizza_position
 		add_child( pizza )
 

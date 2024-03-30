@@ -2,6 +2,13 @@ extends KinematicBody2D
 # A colliding pizza that flies through space trying to smoosh anchovies.
 
 
+# The max & minimum coordinates that the pizzas can occupy.
+const MIN_X: float = -45.0
+const MAX_X: float = 685.0
+const MIN_Y: float = -45.0
+const MAX_Y: float = 525.0
+
+
 # This variable contains the pizza's "Explosion" scene, which it spawns in as
 # its explosion animation.
 export (PackedScene) var _explosion
@@ -32,8 +39,8 @@ func _physics_process( delta ):
 	if not collision:
 		# If there was no collision, assume movement was successful and wrap
 		# around the edges of the screen.
-		position.x = wrapf( position.x, 0, 640.0 )
-		position.y = wrapf( position.y, 0, 480.0 )
+		position.x = wrapf( position.x, MIN_X, MAX_X )
+		position.y = wrapf( position.y, MIN_Y, MAX_Y )
 	else:
 		# Explode if the pizza collided with something.  If that something is
 		# the player, explode that too.
