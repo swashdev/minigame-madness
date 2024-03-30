@@ -2,11 +2,20 @@ extends Node
 # The script for the master scene.
 
 
+# Set this to any nonnegative value before export to produce a binary which
+# opens in Debug Mode for this minigame.
+export var debug_minigame: int = -1
+
+
 # Perform final setup.
 func _ready():
 	# Populate the debug menu.
 	var minigames = $Main/MinigameCanvas.Minigames
 	$DebugMenu.populate_menu( minigames )
+
+	if debug_minigame >= 0:
+		$MainMenu.hide()
+		$Main.new_game(Global.GameMode.DEBUG, debug_minigame)
 
 
 # Main has signalled game over.
