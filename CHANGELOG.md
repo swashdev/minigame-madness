@@ -21,6 +21,14 @@ Minigame Madness _does not_ use Semantic Versioning.
   overhauled so that the pizzas will consistently appear at a fair distance
   away from the player.
 
+- The minigames are now loaded on-demand.  This has the effect of requiring
+  less memory, but also means that there are no longer leaked resources on
+  exit, because the engine now has an opportunity to free up resources
+  in-between minigames.  
+  This has the unfortunate side-effect that the debug menu no longer has
+  descriptive titles for the minigames, and has been reverted to simply listing
+  the minigames by numeric ID.
+
 ### Changed
 
 - The "sky" texture used in several minigames is now imported with a lossless

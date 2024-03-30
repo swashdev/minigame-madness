@@ -9,23 +9,23 @@ signal won( secret )
 signal lost
 
 # The canonical list of minigames.
-var Minigames = [
-	preload( "res://mini/ragdoll/scenes/ragdoll.tscn" ),
-	preload( "res://mini/saw/scenes/saw_minigame.tscn" ),
-	preload( "res://mini/baseball/scenes/baseball_minigame.tscn" ),
-	preload( "res://mini/lose/scenes/lose_minigame.tscn" ),
-	preload( "res://mini/za/scenes/za_minigame.tscn" ),
-	preload( "res://mini/big_rigs/big_rig_minigame.tscn" ),
-	preload( "res://mini/wind/scenes/wind_minigame.tscn" ),
-	preload( "res://mini/shooter/scenes/shooter_frame.tscn" ),
-	preload( "res://mini/anchovy_quest/scenes/anchovy_game.tscn" ),
-	preload( "res://mini/dodge/scenes/dodge.tscn" ),
-	preload( "res://mini/pants/pants_minigame.tscn" ),
-	preload( "res://mini/pitfall/pitfall_minigame.tscn" ),
-	preload( "res://mini/dance/scenes/dance_minigame.tscn" ),
-	preload( "res://mini/goalie/goalie_minigame.tscn" ),
+var Minigames: PoolStringArray = PoolStringArray([
+	"res://mini/ragdoll/scenes/ragdoll.tscn",
+	"res://mini/saw/scenes/saw_minigame.tscn",
+	"res://mini/baseball/scenes/baseball_minigame.tscn",
+	"res://mini/lose/scenes/lose_minigame.tscn",
+	"res://mini/za/scenes/za_minigame.tscn",
+	"res://mini/big_rigs/big_rig_minigame.tscn",
+	"res://mini/wind/scenes/wind_minigame.tscn",
+	"res://mini/shooter/scenes/shooter_frame.tscn",
+	"res://mini/anchovy_quest/scenes/anchovy_game.tscn",
+	"res://mini/dodge/scenes/dodge.tscn",
+	"res://mini/pants/pants_minigame.tscn",
+	"res://mini/pitfall/pitfall_minigame.tscn",
+	"res://mini/dance/scenes/dance_minigame.tscn",
+	"res://mini/goalie/goalie_minigame.tscn",
 	# Comma on last element intentional for efficient diff files.
-]
+])
 
 # The minigame currently in progress.
 var _minigame: Minigame setget set_minigame
@@ -41,10 +41,10 @@ func decide():
 func set_minigame( minigame_id ):
 	if minigame_id < 0:
 		_minigame = \
-				preload( "res://mini/ball_tribute/scenes/ball_tribute.tscn" \
+				load( "res://mini/ball_tribute/scenes/ball_tribute.tscn" \
 				).instance()
 	else:
-		_minigame = Minigames[minigame_id].instance()
+		_minigame = load(Minigames[minigame_id]).instance()
 
 # warning-ignore:return_value_discarded
 	_minigame.connect( "won", self, "_on_Minigame_won" )
