@@ -13,6 +13,10 @@ var ball_spawn: Vector2
 # at the player.
 var ball_count: int = 1
 
+# Keeps track of the angle that the last ball was thrown at.  The initial value
+# is the angle of the first ball.
+onready var ball_angle: float = rand_range(-0.5, 0.5)
+
 
 func _ready():
 	ball_spawn = Vector2($Ball.position)
@@ -21,6 +25,7 @@ func _ready():
 # Starts the minigame.
 func start():
 	$Goalie.unlock_movement = true
+	$Ball.velocity = $Ball.velocity.rotated(ball_angle)
 	$Ball.start()
 	$Timer.start()
 
@@ -42,6 +47,17 @@ func _on_Timer_timeout():
 	var new_ball = ball.instance()
 	new_ball.position = ball_spawn
 	new_ball.connect("passed_goal", self, "_on_Ball_passed_goal")
+
+	# Rotate the ball.  The angle should be sharper for each ball in sequence.
+	var r: float = rand_range(0.0, 0.35)
+	if ball_angle < 0.0:
+		ball_angle -= r
+	else:
+		ball_angle += r
+	if randi() & 1:
+		ball_angle *= -1
+	new_ball.velocity = new_ball.velocity.rotated(ball_angle)
+
 	add_child(new_ball)
 	new_ball.start()
 	ball_count += 1

@@ -52,6 +52,4 @@ func _draw():
 
 # Starts the ball, having it pick a direction and then start moving.
 func start():
-	# Rotate `velocity` so that the ball moves at a random angle.
-	velocity = velocity.rotated(rand_range(-1.0, 1.0))
 	moving = true
