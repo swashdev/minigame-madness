@@ -11,7 +11,6 @@ func start():
 # Stops the minigame.
 func stop():
 	$Goalie.unlock_movement = false
-	$Ball.out_of_play = true
 
 
 # The ball has passed the goal, and the player has lost.
@@ -20,7 +19,15 @@ func _on_Ball_passed_goal():
 	emit_signal("lost")
 
 
-# The ball has moved out-of-bounds, triggering an early win.
-func _on_Ball_out_of_bounds():
-	stop()
-	emit_signal("won")
+# The ball timer has gone off, so spawn a new ball.
+func _on_Timer_timeout():
+	var new_ball = ball.instance()
+	new_ball.position = ball_spawn
+	new_ball.connect("passed_goal", self, "_on_Ball_passed_goal")
+	add_child(new_ball)
+	new_ball.start()
+	ball_count += 1
+
+	# If we've reached the maximum number of balls, stop spawning them.
+	if ball_count >= 3:
+		$Timer.stop()
