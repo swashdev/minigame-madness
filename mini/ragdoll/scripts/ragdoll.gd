@@ -61,6 +61,6 @@ func tip_fluffy_over( direction ):
 # loser, goes off and causes the "lost" signal to be emitted.
 func _on_Timer_timeout():
 	emit_signal( "lost" )
-	
+
 	# a temporary animation I'll use to test that the timer is working:
 	#$FluffyRagdoll.flip_v = true
