@@ -31,8 +31,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The "Hit a Home Run!" minigame has been made more forgiving.  It is now
   substantially easier to hit a home run.
 
-- The whole pizzas in the "Don't Get Pizza'd!" minigame have had their
-  collision radius tweaked very slightly to remain inside the sprite.
+- The hit boxes in the "Don't Get Pizza'd!" minigame have been tweaked very
+  slightly to align with their sprites.  This probably won't have a noticeable
+  impact on gameplay.
 
 - The pizzas in the "Don't Get Pizza'd!" minigame can now move farther off of
   the screen before wrapping around, making them easier to dodge.

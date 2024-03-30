@@ -5,7 +5,7 @@
 [ext_resource path="res://mini/anchovy_quest/images/characters/anchovy/animations/boom_blue.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18.0156, 11.9988 )
+extents = Vector2( 18, 12 )
 
 [node name="Anchovy" type="KinematicBody2D"]
 collision_mask = 2
