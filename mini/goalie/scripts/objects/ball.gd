@@ -29,8 +29,8 @@ var velocity: Vector2 = Vector2(-BASE_SPEED, 0.0)
 # The ball's physics process.
 func _physics_process(delta):
 	# If the ball is has reached the goal, it will slow to a stop.
-	if passed_goal:
-		velocity = velocity.move_toward(Vector2.ZERO, BASE_SPEED * delta)
+	#if passed_goal:
+	#	velocity = velocity.move_toward(Vector2.ZERO, BASE_SPEED * delta)
 	if moving:
 		# Move the ball according to its `velocity`, checking for collisions
 		# as we go.
@@ -42,7 +42,7 @@ func _physics_process(delta):
 		if not out_of_play:
 			# If the ball moves past the goal, signal the game that the player
 			# has lost.
-			if position.x < 100.0:
+			if position.x < 0.0:
 				emit_signal("passed_goal")
 				out_of_play = true
 				passed_goal = true

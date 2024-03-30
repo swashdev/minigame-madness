@@ -22,13 +22,8 @@ margin_right = 640.0
 margin_bottom = 480.0
 color = Color( 0.298039, 0.733333, 0.0901961, 1 )
 
-[node name="GoalMarker" type="ColorRect" parent="Background"]
-margin_right = 100.0
-margin_bottom = 480.0
-color = Color( 0.133333, 0.545098, 0.133333, 1 )
-
 [node name="Goalie" parent="." instance=ExtResource( 2 )]
-position = Vector2( 120, 235 )
+position = Vector2( 25, 235 )
 
 [node name="Kicker" parent="." instance=ExtResource( 4 )]
 position = Vector2( 615, 235 )
