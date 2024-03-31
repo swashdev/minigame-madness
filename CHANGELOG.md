@@ -29,9 +29,9 @@ Minigame Madness _does not_ use Semantic Versioning.
   less memory, but also means that there are no longer leaked resources on
   exit, because the engine now has an opportunity to free up resources
   in-between minigames.  
-  This has the unfortunate side-effect that the debug menu no longer has
-  descriptive titles for the minigames, and has been reverted to simply listing
-  the minigames by numeric ID.
+  This change has the unfortunate side-effect that the debug menu can no longer
+  pull instructions from the minigames themselves to label the buttons, so
+  instead names are taken from their scene paths.
 
 ### Changed
 

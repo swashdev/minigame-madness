@@ -17,9 +17,15 @@ var _button = \
 # minigames.
 func populate_menu( minigames ):
 	var count: int = 0
+	var title: String
+	var index: int
 	while count < minigames.size():
 		var button = _button.instance()
-		button.set_text( "Minigame %d" % count )
+		title = minigames[count]
+		title = title.right(11)
+		index = title.find("/")
+		title = title.left(index)
+		button.set_text( title )
 		button.set_id( count )
 		count += 1
 		$VBoxContainer.add_child( button )
