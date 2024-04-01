@@ -42,6 +42,35 @@ subject in the "Legal Stuff" menu in-game.
 
 [the Godot Engine license]: https://godotengine.org/license
 
+Debugging
+---------
+
+Trying to narrow down a bug?  You can access a debug menu by entering the
+Konami Code on the main menu: Up, Up, Down, Down, Left, Right, Left, Right, B,
+A.
+
+Alternatively, you can start the game in debug mode for a specific minigame
+using the following command-line option:
+
+```dosbatch
+--debug-minigame <id_num>
+```
+
+Replace `<id_num>` with a numeric identifier indicating which minigame you want
+to test.  If you don't enter an ID number, the game will print out a list for
+you.
+
+I Found a Bug!
+--------------
+
+Good for you!  Go ahead and let me know by [leaving an Issue] on Minigame
+Madness's GitHub page.  Be sure to include details like the game's version
+number (displayed in the lower-left when you start the game), what system
+you're running it on, and which minigame you encountered the bug on.  Oh, and
+describe the bug in detail, too.  That step is pretty important.
+
+[leaving an Issue]: https://github.com/swashdev/minigame-madness/issues
+
 Compiling
 ---------
 
@@ -92,14 +121,3 @@ export non-resource files/folders" and type "COPYRIGHT.txt" (without the
 quotes) into this box.  This will export Minigame Madness's licensing
 information into the binary file you end up with, so that the game will be
 able to display the licenses for Minigame Madness's various components.
-
-I Found a Bug!
---------------
-
-Good for you!  Go ahead and let me know by [leaving an Issue] on Minigame
-Madness's GitHub page.  Be sure to include details like the game's version
-number (displayed in the lower-left when you start the game), what system
-you're running it on, and which minigame you encountered the bug on.  Oh, and
-describe the bug in detail, too.  That step is pretty important.
-
-[leaving an Issue]: https://github.com/swashdev/minigame-madness/issues

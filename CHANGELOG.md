@@ -15,6 +15,13 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - A brand-new minigame: "Defend!" (legally distinct from Pong)
 
+- The player can now enter debug mode for a specific minigame using the
+  --debug-minigame command-line option.  This will also show the "Debug Menu"
+  button on the main menu.
+
+- A list of minigames is output to the command line, and the Debug Menu button
+  is shown, if "--debug-minigame" is passed but no minigame ID is given.
+
 ### Fixed
 
 - A bug existed in the code which allowed the player to attempt to quit before
