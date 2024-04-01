@@ -82,12 +82,6 @@ vary.
 Minigame Madness was originally designed for the web and desktops, but if you
 want to try and get it working on a smart phone you be my guest.
 
-Compiling a Godot Engine game is _super_ easy.  The first step is to clone a
-copy of this repository into a directory on your computer.  The source code
-and other assets in this repository don't require any additional setup; every
-export I've ever done for this game has been a very simple
-push-button-get-game affair.
-
 The next step is to download a copy of the [Godot Engine].  You can acquire
 Godot from their website or grab the source code [right here on GitHub].  Just
 make sure that you're downloading Godot 3 &ndash; at least 3.5-stable &ndash;
