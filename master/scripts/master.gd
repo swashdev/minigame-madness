@@ -2,6 +2,11 @@ extends Node
 # The script for the master scene.
 
 
+# Constants used to determine the status of looking for the "--debug-minigame"
+# command-line argument.
+enum Arg_Debug_Minigame { SEARCHING, GOT_KEY, GOT_VALUE }
+
+
 # Set this to any nonnegative value before export to produce a binary which
 # opens in Debug Mode for this minigame.
 export var debug_minigame: int = -1
@@ -13,7 +18,54 @@ func _ready():
 	var minigames = $Main/MinigameCanvas.Minigames
 	$DebugMenu.populate_menu( minigames )
 
+	# Override `debug_minigame` if the user requests it.
+	var arguments: PoolStringArray = PoolStringArray(OS.get_cmdline_args())
+	var length: int = arguments.size()
+	var argument: int = 0
+	var key: String
+	var str_value: String
+	var value: int
+	var status: int = Arg_Debug_Minigame.SEARCHING
+	while argument < length and status != Arg_Debug_Minigame.GOT_VALUE:
+		key = arguments[argument]
+		argument += 1
+		if OS.is_debug_build():
+			print("Got CMD argument %s." % key)
+		# If the argument we're looking for is the actual value, rather than
+		# the key, set `str_value` to the argument and then call it quits.
+		if status == Arg_Debug_Minigame.GOT_KEY:
+			str_value = key
+			status = Arg_Debug_Minigame.GOT_VALUE
+		else:
+			# The specific argument we're looking for is "debug-minigame"
+			if key.begins_with("--debug-minigame") \
+			or key.begins_with("--debug_minigame"):
+				# Determine if it was written in the format "--arg=value"
+				if key.find("=") > -1:
+					# If it was, split it up.
+					var key_value: Array = key.split("=")
+					str_value = key_value[1]
+					status = Arg_Debug_Minigame.GOT_VALUE
+				else:
+					# If it wasn't, assume that the next argument will be the value
+					# we need.
+					status = Arg_Debug_Minigame.GOT_KEY
+
+	# If we got a possible value for the "debug-minigame" key, parse it now.
+	if status == Arg_Debug_Minigame.GOT_VALUE:
+		value = str_value.to_int()
+		if value >= 0 and value < minigames.size():
+			# If we got a valid minigame ID, set it and carry on.
+			debug_minigame = value
+		else:
+			# If we got an invalid minigame ID, tell the user.
+			var err = "Got invalid minigame ID %d (%s).  " % [value, str_value]
+			err += "Possible values are from 0 to %d, inclusive." \
+					% (minigames.size() - 1)
+			push_error(err)
+
 	if debug_minigame >= 0:
+		print("Starting in debug mode for minigame %d." % debug_minigame)
 		$MainMenu/Menu/Buttons/DebugButton.show()
 		$MainMenu.hide()
 		$Main.new_game(Global.GameMode.DEBUG, debug_minigame)
