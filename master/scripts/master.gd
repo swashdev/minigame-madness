@@ -51,6 +51,7 @@ func _ready():
 					# we need.
 					status = Arg_Debug_Minigame.GOT_KEY
 
+	var need_help: bool = false
 	# If we got a possible value for the "debug-minigame" key, parse it now.
 	if status == Arg_Debug_Minigame.GOT_VALUE:
 		value = str_value.to_int()
@@ -59,10 +60,22 @@ func _ready():
 			debug_minigame = value
 		else:
 			# If we got an invalid minigame ID, tell the user.
-			var err = "Got invalid minigame ID %d (%s).  " % [value, str_value]
-			err += "Possible values are from 0 to %d, inclusive." \
-					% (minigames.size() - 1)
+			var err = "Got invalid minigame ID %d (%s)." % [value, str_value]
 			push_error(err)
+			need_help = true
+	elif status == Arg_Debug_Minigame.GOT_KEY:
+		# If we got the key but not a value, assume the player wants help.
+		need_help = true
+
+	if need_help:
+		value = minigames.size()
+		var help_msg: String
+		var title: String
+		help_msg = "Here are the numeric IDs for the included minigames:"
+		for game in range(value):
+			title = $DebugMenu/VBoxContainer.get_child(game + 1).text
+			help_msg += "\n%2d - %s" % [game, title]
+		print(help_msg)
 
 	if debug_minigame >= 0:
 		print("Starting in debug mode for minigame %d." % debug_minigame)
