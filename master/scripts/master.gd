@@ -68,6 +68,7 @@ func _ready():
 		need_help = true
 
 	if need_help:
+		$MainMenu/Menu/Buttons/DebugButton.show()
 		value = minigames.size()
 		var help_msg: String
 		var title: String
