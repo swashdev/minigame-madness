@@ -9,7 +9,7 @@ enum Arg_Debug_Minigame { SEARCHING, GOT_KEY, GOT_VALUE }
 
 # Set this to any nonnegative value before export to produce a binary which
 # opens in Debug Mode for this minigame.
-export var debug_minigame: int = -1
+export var debug_minigame: int = -2
 
 
 # Perform final setup.
@@ -55,7 +55,7 @@ func _ready():
 	# If we got a possible value for the "debug-minigame" key, parse it now.
 	if status == Arg_Debug_Minigame.GOT_VALUE:
 		value = str_value.to_int()
-		if value >= 0 and value < minigames.size():
+		if value >= -1 and value < minigames.size():
 			# If we got a valid minigame ID, set it and carry on.
 			debug_minigame = value
 		else:
@@ -78,7 +78,7 @@ func _ready():
 			help_msg += "\n%2d - %s" % [game, title]
 		print(help_msg)
 
-	if debug_minigame >= 0:
+	if debug_minigame >= -1:
 		print("Starting in debug mode for minigame %d." % debug_minigame)
 		$MainMenu/Menu/Buttons/DebugButton.show()
 		$MainMenu.hide()
