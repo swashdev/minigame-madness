@@ -18,6 +18,11 @@ const HOP_SPEED: float = 5.0
 # Whether or not to allow movement.
 var allow_movement: bool = false
 
+# Values used to do that little victory hop animation.
+var accel_dscale: Vector2 = Vector2(-6.0, -6.0)
+var dscale: Vector2 = Vector2(2.0, 2.0)
+var dspin: float = -15.0
+
 # Whether or not to do a "win animation."
 var _won: bool = false
 
@@ -30,33 +35,32 @@ var _spin: float = 0.0
 
 func _physics_process( delta ):
 	var accel = MOVE_SPEED * delta
-	if Input.is_action_just_pressed( "move_up" ):
-		_velocity.y -= HOP_SPEED
-	elif Input.is_action_pressed( "move_up" ):
-		_velocity.y -= accel
-	if Input.is_action_pressed( "move_down" ):
-		_velocity.y += accel
-	if Input.is_action_pressed( "move_right" ):
-		_velocity.x += accel
-		_spin += accel
-	if Input.is_action_pressed( "move_left" ):
-		_velocity.x -= accel
-		_spin -= accel
 
 	# Spin the ball
 	$Sprite.rotation_degrees += _spin
 
 	# Cancel out velocity if we're doing the win animation.
-	if _won:
-		_velocity = Vector2( 0.0, 100.0 )
-	else:
+	if not _won:
 		# Apply gravity.
 		_velocity.y += GRAVITY * delta
+		if Input.is_action_pressed( "move_right" ):
+			_velocity.x += accel
+			_spin += accel
+		if Input.is_action_pressed( "move_left" ):
+			_velocity.x -= accel
+			_spin -= accel
 
 	# Note that this `if` statement ignores velocity but does not prevent the
 	# ball from spinning.  This is intentional, as it reflects a harmless
 	# oversight in the early entries of jmtb02's Ball series.
 	if allow_movement:
+		if Input.is_action_just_pressed( "move_up" ):
+			_velocity.y -= HOP_SPEED
+		elif Input.is_action_pressed( "move_up" ):
+			_velocity.y -= accel
+		if Input.is_action_pressed( "move_down" ):
+			_velocity.y += accel
+
 		# Update position and detect collision.
 		var collision = move_and_collide( _velocity )
 
@@ -67,7 +71,9 @@ func _physics_process( delta ):
 	# If we've already won the minigame, don't do collision, just do movement.
 	elif _won:
 # warning-ignore:return_value_discarded
-		move_and_slide( _velocity )
+		scale += dscale * delta
+		dscale += accel_dscale * delta
+		_spin += dspin * delta
 
 
 # The ball will respawn at the given coordinates.
