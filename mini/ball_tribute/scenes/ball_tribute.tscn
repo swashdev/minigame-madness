@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://mini/ball_tribute/scripts/ball_tribute.gd" type="Script" id=1]
 [ext_resource path="res://mini/ball_tribute/scenes/player/ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/ball_tribute/scenes/player/ball_ghost.tscn" type="PackedScene" id=3]
-[ext_resource path="res://mini/ball_tribute/images/environment/goal.png" type="Texture" id=4]
 [ext_resource path="res://mini/ball_tribute/fonts/tribute_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://mini/ball_tribute/images/environment/new_goal.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 240, 16 )
@@ -15,9 +15,6 @@ extents = Vector2( 320, 16 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 15, 15 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 100, 60 )
-
 [node name="BallTribute" type="Node2D"]
 script = ExtResource( 1 )
 _instruction = "Get in my Mouth!"
@@ -27,9 +24,6 @@ _ghost = ExtResource( 3 )
 margin_right = 640.0
 margin_bottom = 480.0
 color = Color( 0, 0.721569, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tribute" type="Label" parent="Background"]
 margin_left = 380.0
@@ -137,9 +131,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ball" parent="." instance=ExtResource( 2 )]
-position = Vector2( 80, 80 )
-
 [node name="Goal" type="StaticBody2D" parent="."]
 position = Vector2( 500, 370 )
 collision_layer = 2
@@ -151,24 +142,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource( 3 )
 
-[node name="BigFatHead" type="StaticBody2D" parent="."]
-position = Vector2( 550, 440 )
-collision_layer = 2
-collision_mask = 0
+[node name="Sprite" type="Sprite" parent="Goal"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigFatHead"]
-shape = SubResource( 4 )
-
-[node name="TextureRect" type="TextureRect" parent="BigFatHead"]
-margin_left = -110.0
-margin_top = -100.0
-margin_right = 17.0
-margin_bottom = -9.0
-rect_scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, 80 )
 
 [connection signal="won" from="." to="Ball" method="_on_Minigame_won"]
 [connection signal="collided" from="Ball" to="." method="_on_Ball_collided"]
