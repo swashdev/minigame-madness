@@ -42,9 +42,6 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ### Changed
 
-- The "sky" texture used in several minigames is now imported with a lossless
-  compression method, substantially improving its appearance.
-
 - The cheat code to open the debug menu has been changed.
 
 - The "Hit a Home Run!" minigame has been made more forgiving.  It is now
@@ -70,6 +67,12 @@ Minigame Madness _does not_ use Semantic Versioning.
   and faster loading times.
 
 - The logo now uses the Janitor font, the same one used on the title screen.
+
+- The "sky" texture used in several minigames has been replaced with a gradient
+  which uses much more pleasant colors, which blend together much better
+  without the nasty brown-ish color that the previous sky texture suffered
+  from.  This also has the unintended but very pleasant side-effect of making
+  some (but not all) of the cloud textures blend into the sky much better.
 
 
 ## [0.13.5] - 2024-03-28
