@@ -57,6 +57,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The pizzas in the "Don't Get Pizza'd!" minigame can now move farther off of
   the screen before wrapping around, making them easier to dodge.
 
+- Some identical arrow sprites have been consolidated into a single sprite and
+  now use color modulation to change colors to save space.
+
 
 ## [0.13.5] - 2024-03-28
 
