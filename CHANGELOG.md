@@ -60,6 +60,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 - Some identical arrow sprites have been consolidated into a single sprite and
   now use color modulation to change colors to save space.
 
+- Several elements of the foreground image in the "Race that Rig!" minigame
+  have been moved to the background to make for a less janky appearance without
+  detracting from the intended jankiness of the minigame.
+
 
 ## [0.13.5] - 2024-03-28
 
