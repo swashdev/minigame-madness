@@ -66,6 +66,11 @@ Minigame Madness _does not_ use Semantic Versioning.
   have been moved to the background to make for a less janky appearance without
   detracting from the intended jankiness of the minigame.
 
+- Every image in the game has been compressed to allow for smaller file sizes
+  and faster loading times.
+
+- The logo now uses the Janitor font, the same one used on the title screen.
+
 
 ## [0.13.5] - 2024-03-28
 
