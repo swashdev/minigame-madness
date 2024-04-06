@@ -8,6 +8,10 @@ export_presets.cfg
 # Binaries:
 bin/
 
+# Temporary files
+temp/
+*.tmp
+*.swp
 
 # Miscellany:
 dodge-the-creeps/

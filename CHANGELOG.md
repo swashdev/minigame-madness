@@ -57,6 +57,20 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The pizzas in the "Don't Get Pizza'd!" minigame can now move farther off of
   the screen before wrapping around, making them easier to dodge.
 
+- Some identical arrow sprites have been consolidated into a single sprite and
+  now use color modulation to change colors to save space.
+  The "next" and "previous" buttons in the Controls dialog in particular now
+  use the same arrow sprite, just pointed in different directions.
+
+- Several elements of the foreground image in the "Race that Rig!" minigame
+  have been moved to the background to make for a less janky appearance without
+  detracting from the intended jankiness of the minigame.
+
+- Every image in the game has been compressed to allow for smaller file sizes
+  and faster loading times.
+
+- The logo now uses the Janitor font, the same one used on the title screen.
+
 
 ## [0.13.5] - 2024-03-28
 

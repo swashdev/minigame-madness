@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://shared/scenes/ui/keys/left_key.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shared/scenes/ui/keys/right_key.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://master/scripts/menus/dialogs/controls_dialog.gd" type="Script" id=5]
 [ext_resource path="res://shared/scenes/ui/keys/arrow_keys.tscn" type="PackedScene" id=6]
 [ext_resource path="res://master/images/menus/buttons/prev_button.png" type="Texture" id=7]
-[ext_resource path="res://master/images/menus/buttons/next_button.png" type="Texture" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
 [ext_resource path="res://master/images/menus/controller.png" type="Texture" id=10]
 
@@ -579,7 +578,8 @@ margin_bottom = 24.0
 rect_min_size = Vector2( 24, 24 )
 shortcut_in_tooltip = false
 shortcut = SubResource( 4 )
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 7 )
+flip_h = true
 
 [connection signal="popup_hide" from="." to="." method="_on_ControlsDialog_popup_hide"]
 [connection signal="pressed" from="HBoxContainer/PrevSlideButton" to="." method="prev_slide"]
