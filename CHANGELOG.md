@@ -59,6 +59,8 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - Some identical arrow sprites have been consolidated into a single sprite and
   now use color modulation to change colors to save space.
+  The "next" and "previous" buttons in the Controls dialog in particular now
+  use the same arrow sprite, just pointed in different directions.
 
 - Several elements of the foreground image in the "Race that Rig!" minigame
   have been moved to the background to make for a less janky appearance without
