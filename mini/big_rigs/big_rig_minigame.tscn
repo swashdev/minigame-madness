@@ -22,9 +22,6 @@ _instruction = "Race that Rig!"
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RigPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
@@ -78,4 +75,5 @@ rect_scale = Vector2( 1.8, 1.96 )
 custom_fonts/font = ExtResource( 8 )
 text = "You're Winner!"
 uppercase = true
+
 [connection signal="finished" from="RigPath/Rig1" to="." method="_on_Rig1_finished"]

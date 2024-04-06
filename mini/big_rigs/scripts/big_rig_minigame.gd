@@ -2,6 +2,21 @@ extends Minigame
 # A script for the "Race that Rig!" minigame.
 
 
+onready var _day_sky = load("res://shared/scenes/scenery/sky.tscn")
+onready var _night_sky = load("res://shared/scenes/scenery/night_sky.tscn")
+
+
+func _ready():
+	var sky: Control
+	# Randomly choose between a daytime sky or a nighttime sky.
+	if randi() & 1:
+		sky = _day_sky.instance()
+	else:
+		sky = _night_sky.instance()
+	sky.show_behind_parent = true
+	add_child(sky)
+
+
 # Mainloop for the minigame.  Moves the second player rig.
 func _process( delta ):
 	if _unlock_controls:

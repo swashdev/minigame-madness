@@ -63,6 +63,10 @@ Minigame Madness _does not_ use Semantic Versioning.
   have been moved to the background to make for a less janky appearance without
   detracting from the intended jankiness of the minigame.
 
+- - The background in the "Race that Rig!" minigame has been changed to no
+    longer be a dark blue gradient.  Instead the minigame will randomly choose
+    between a daytime or a nighttime sky.
+
 - Every image in the game has been compressed to allow for smaller file sizes
   and faster loading times.
 
