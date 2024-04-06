@@ -79,8 +79,8 @@ Minigame Madness _does not_ use Semantic Versioning.
   some (but not all) of the cloud textures blend into the sky much better.
 
 - The background in the "Hit a Home Run!" minigame has been changed so that
-  the pitcher is standing on his pitcher's mound and the ugly clouds are no
-  longer visible.
+  the pitcher is standing on his pitcher's mound.  The ugly turd clouds have
+  also been replaced with the fluffier cloud sprites used in other minigames.
 
 
 ## [0.13.5] - 2024-03-28
