@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mini/goalie/goalie_minigame.gd" type="Script" id=1]
-[ext_resource path="res://mini/goalie/scenes/characters/goalie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mini/goalie/scenes/characters/football_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/goalie/scenes/objects/football.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -26,7 +26,7 @@ margin_right = 100.0
 margin_bottom = 480.0
 color = Color( 0.133333, 0.545098, 0.133333, 1 )
 
-[node name="Goalie" parent="." instance=ExtResource( 2 )]
+[node name="FootballPlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 235 )
 
 [node name="Football" parent="." instance=ExtResource( 3 )]

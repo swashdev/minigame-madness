@@ -24,7 +24,7 @@ func _ready():
 
 # Starts the minigame.
 func start():
-	$Goalie.unlock_movement = true
+	$FootballPlayer.unlock_movement = true
 	$Football.velocity = $Football.velocity.rotated(ball_angle)
 	$Football.start()
 	$Timer.start()
@@ -32,7 +32,7 @@ func start():
 
 # Stops the minigame.
 func stop():
-	$Goalie.unlock_movement = false
+	$FootballPlayer.unlock_movement = false
 	$Timer.stop()
 
 
