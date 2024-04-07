@@ -14,11 +14,20 @@ var _sequence: int = 0
 
 func _ready():
 	var version: String = Version.to_string()
-	var godot: String = Engine.get_version_info()["string"]
+	var godot_version_info = Engine.get_version_info()
+	var godot: String
+	godot = "%d.%d" % [godot_version_info["major"],
+			godot_version_info["minor"]]
+	if godot_version_info["patch"] > 0:
+		godot += ".%d" % godot_version_info["patch"]
+	godot += "." + godot_version_info["status"] + "." + \
+			godot_version_info["build"]
+	if godot_version_info["hex"] >= 0x03_02_00:
+		godot += "." + godot_version_info["hash"].left(9)
+	if OS.is_debug_build():
+		godot += " (debug)"
 	$VersionNumberLabel.set_text("Version %s, running on Godot %s"
 			% [version, godot])
-	if OS.is_debug_build():
-		$VersionNumberLabel.text += " (debug)"
 
 
 func _process( _delta ):
