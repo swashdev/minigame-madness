@@ -5,28 +5,23 @@ extends Minigame
 # A scene representing a ball to be thrown at the player.
 var ball: PackedScene = preload("res://mini/goalie/scenes/objects/football.tscn")
 
-# The spawn point for balls.  This is derived from the position of the first
-# ball when the minigame is loaded.
-var ball_spawn: Vector2
-
 # Counts the number of balls we've spawned already so we don't throw too many
 # at the player.
-var ball_count: int = 1
+var ball_count: int = 0
 
 # Keeps track of the angle that the last ball was thrown at.  The initial value
 # is the angle of the first ball.
 onready var ball_angle: float = rand_range(-0.5, 0.5)
 
-
-func _ready():
-	ball_spawn = Vector2($Football.position)
+# A spawn point for the balls, which also stores the ball nodes so that they
+# draw behind the player.
+onready var _spawner: Node2D = $Footballs
 
 
 # Starts the minigame.
 func start():
 	$FootballPlayer.unlock_movement = true
-	$Football.velocity = $Football.velocity.rotated(ball_angle)
-	$Football.start()
+	spawn_ball()
 	$Timer.start()
 
 
@@ -42,10 +37,9 @@ func _on_Ball_passed_goal():
 	emit_signal("lost")
 
 
-# The ball timer has gone off, so spawn a new ball.
-func _on_Timer_timeout():
+func spawn_ball():
 	var new_ball = ball.instance()
-	new_ball.position = ball_spawn
+	new_ball.position = Vector2.ZERO
 	new_ball.connect("passed_goal", self, "_on_Ball_passed_goal")
 
 	# Rotate the ball.  The angle should be sharper for each ball in sequence.
@@ -58,9 +52,14 @@ func _on_Timer_timeout():
 		ball_angle *= -1
 	new_ball.velocity = new_ball.velocity.rotated(ball_angle)
 
-	add_child(new_ball)
+	_spawner.add_child(new_ball)
 	new_ball.start()
 	ball_count += 1
+
+
+# The ball timer has gone off, so spawn a new ball.
+func _on_Timer_timeout():
+	spawn_ball()
 
 	# If we've reached the maximum number of balls, stop spawning them.
 	if ball_count >= 3:

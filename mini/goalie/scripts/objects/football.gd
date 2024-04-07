@@ -38,7 +38,7 @@ func _physics_process(delta):
 	else:
 		# If the ball moves past the goal, signal the game that the player
 		# has lost.
-		if position.x < 100.0:
+		if global_position.x < 100.0:
 			emit_signal("passed_goal")
 			passed_goal = true
 
