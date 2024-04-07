@@ -21,6 +21,9 @@ var passed_goal: bool = false
 # the goal.
 var velocity: Vector2 = Vector2(-BASE_SPEED, 0.0)
 
+# The ball's sprite.
+onready var sprite: Sprite = $Sprite
+
 
 # The ball's physics process.
 func _physics_process(delta):
@@ -32,6 +35,8 @@ func _physics_process(delta):
 		# Bounce off of anything we collide with.
 		if collision:
 			velocity = velocity.bounce(collision.normal)
+		sprite.rotation_degrees += velocity.length_squared() * \
+				(-delta if velocity.y > 0 else delta)
 	if passed_goal:
 		# If the ball is has reached the goal, it will slow to a stop.
 		velocity = velocity.move_toward(Vector2.ZERO, BASE_SPEED * delta)
