@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mini/goalie/goalie_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/goalie/scenes/characters/football_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mini/goalie/textures/net.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 100 )
@@ -57,5 +58,17 @@ position = Vector2( -420, 5 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Goal" type="TextureRect" parent="."]
+margin_right = 100.0
+margin_bottom = 480.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="Line2D" type="Line2D" parent="Goal"]
+position = Vector2( 100, 0 )
+points = PoolVector2Array( 0, 0, 0, 480 )
+width = 4.0
+default_color = Color( 1, 1, 0, 1 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
