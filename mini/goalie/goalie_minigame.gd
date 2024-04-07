@@ -3,7 +3,7 @@ extends Minigame
 
 
 # A scene representing a ball to be thrown at the player.
-var ball: PackedScene = preload("res://mini/goalie/scenes/objects/ball.tscn")
+var ball: PackedScene = preload("res://mini/goalie/scenes/objects/football.tscn")
 
 # The spawn point for balls.  This is derived from the position of the first
 # ball when the minigame is loaded.
@@ -19,14 +19,14 @@ onready var ball_angle: float = rand_range(-0.5, 0.5)
 
 
 func _ready():
-	ball_spawn = Vector2($Ball.position)
+	ball_spawn = Vector2($Football.position)
 
 
 # Starts the minigame.
 func start():
 	$Goalie.unlock_movement = true
-	$Ball.velocity = $Ball.velocity.rotated(ball_angle)
-	$Ball.start()
+	$Football.velocity = $Football.velocity.rotated(ball_angle)
+	$Football.start()
 	$Timer.start()
 
 

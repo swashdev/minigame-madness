@@ -2,7 +2,7 @@
 
 [ext_resource path="res://mini/goalie/goalie_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/goalie/scenes/characters/goalie.tscn" type="PackedScene" id=2]
-[ext_resource path="res://mini/goalie/scenes/objects/ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mini/goalie/scenes/objects/football.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 100 )
@@ -29,7 +29,7 @@ color = Color( 0.133333, 0.545098, 0.133333, 1 )
 [node name="Goalie" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 235 )
 
-[node name="Ball" parent="." instance=ExtResource( 3 )]
+[node name="Football" parent="." instance=ExtResource( 3 )]
 position = Vector2( 650, 235 )
 
 [node name="Walls" type="Node2D" parent="."]
@@ -59,5 +59,5 @@ shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="passed_goal" from="Ball" to="." method="_on_Ball_passed_goal"]
+[connection signal="passed_goal" from="Football" to="." method="_on_Ball_passed_goal"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
