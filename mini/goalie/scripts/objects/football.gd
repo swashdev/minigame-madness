@@ -45,9 +45,8 @@ func _physics_process(delta):
 
 # How to draw the ball.  This function only really exists because Godot doesn't
 # have a default node for drawing a circle.
-# TODO: Replace this with a sprite.
-func _draw():
-	draw_circle(Vector2.ZERO, 10.0, Color.white)
+#func _draw():
+#	draw_circle(Vector2.ZERO, 10.0, Color.white)
 
 
 # Starts the ball, having it pick a direction and then start moving.
