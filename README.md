@@ -34,7 +34,7 @@ As of version 0.12.2-alpha, the game will display a comprehensive list of
 third-party licenses to which any particular copy of Minigame Madness is
 subject in the "Legal Stuff" menu in-game.
 
-[public domain software]: LICENSE
+[public domain software]: LICENSE.txt
 
 [the song "Skippitybop" by Spadezer]: https://www.newgrounds.com/audio/listen/944805
 
