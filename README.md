@@ -93,7 +93,7 @@ remove any modules that aren't needed to export a Minigame Madness binary.
 
 [Godot Engine]: https://godotengine.org/
 
-[right here on GitHub]: https://github.com/godotengine/godot
+[right here on GitHub]: https://github.com/godotengine/godot/tree/3.5
 
 [custom.py]: ./custom.py
 
