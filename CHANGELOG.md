@@ -10,11 +10,11 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [Unreleased]
 
-### Fixed
+### Changed
 
-- The explosion effect caused by the dragon missile in the "Shoot Five!"
-  minigame is now a proper circle which roughly represents the actual collision
-  geometry of the killing explosion.
+- The large explosion effect from the dragon missile in the "Shoot Five!"
+  minigame now looks like a large explosion with a circular shape which
+  matches its killing geometry.
 
 ### Removed
 

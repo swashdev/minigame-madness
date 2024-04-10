@@ -12,6 +12,10 @@ const SPEED: float = 200.0
 var _exploded: bool = false
 
 
+# The visual effect for the explosion.
+onready var _big_boom: Circle = $BigBoom
+
+
 # Reset the missile's collision shape on game start.
 # Testing has shown that the missile's hit box is too large after the game has
 # already been run once, presumably because it's not being reset properly for
@@ -27,10 +31,17 @@ func _process( delta ):
 		if position.y <= BOOM_AT_Y:
 			blow_up()
 	else:
-		var alpha = $BigBoom.modulate.a
+		var alpha = _big_boom.modulate.a
+		var boom_scale = _big_boom.scale.x
 		if alpha > 0.0:
 			alpha -= 1.0 * delta
-			$BigBoom.modulate.a = alpha
+			_big_boom.modulate.a = alpha
+			if boom_scale < 1.0:
+				boom_scale += 2.7 * delta
+				_big_boom.scale.x = boom_scale
+				_big_boom.scale.y = boom_scale
+			elif boom_scale > 1.0:
+				_big_boom.scale = Vector2(1.0, 1.0)
 		else:
 			queue_free()
 
