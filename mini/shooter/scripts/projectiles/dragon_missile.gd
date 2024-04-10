@@ -27,10 +27,10 @@ func _process( delta ):
 		if position.y <= BOOM_AT_Y:
 			blow_up()
 	else:
-		var alpha = $BigBoom.color.a
+		var alpha = $BigBoom.modulate.a
 		if alpha > 0.0:
 			alpha -= 1.0 * delta
-			$BigBoom.color = Color( 1, 1, 1, alpha )
+			$BigBoom.modulate.a = alpha
 		else:
 			queue_free()
 
