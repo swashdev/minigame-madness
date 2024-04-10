@@ -7,8 +7,8 @@ extends Node
 # system is not compliant with the Semantic Versioning standard.
 const MAJOR: int = 0
 const MINOR: int = 14
-const PATCH: int = 0
-const BUILD: String = "uncursed"
+const PATCH: int = 1
+const BUILD: String = "dev.1"
 
 
 func _to_string() -> String:
