@@ -70,7 +70,8 @@ Minigame Madness _does not_ use Semantic Versioning.
 - Every image in the game has been compressed to allow for smaller file sizes
   and faster loading times.
 
-- The logo now uses the Janitor font, the same one used on the title screen.
+- The executable icon now uses the Janitor font, the same one used on the title
+  screen.
 
 - The "sky" texture used in several minigames has been replaced with a gradient
   which uses much more pleasant colors, which blend together much better
