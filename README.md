@@ -93,8 +93,6 @@ remove any modules that aren't needed to export a Minigame Madness binary.
 
 [Godot Engine]: https://godotengine.org/
 
-[on Steam]: https://store.steampowered.com/app/404790/Godot_Engine/
-
 [right here on GitHub]: https://github.com/godotengine/godot
 
 [custom.py]: ./custom.py
