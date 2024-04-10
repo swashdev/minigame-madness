@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Circle",
+"language": "GDScript",
+"path": "res://shared/scripts/circle.gd"
+}, {
+"base": "Node2D",
 "class": "Minigame",
 "language": "GDScript",
 "path": "res://shared/scripts/minigame.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://shared/scripts/projectiles/projectile.gd"
 } ]
 _global_script_class_icons={
+"Circle": "",
 "Minigame": "",
 "Projectile2D": ""
 }
