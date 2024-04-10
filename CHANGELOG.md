@@ -16,6 +16,11 @@ Minigame Madness _does not_ use Semantic Versioning.
   minigame is now a proper circle which roughly represents the actual collision
   geometry of the killing explosion.
 
+### Removed
+
+- Optimized binaries no longer include the Bullet physics engine, because this
+  engine is only used for 3D scenes in Godot.
+
 
 ## [0.14-uncursed] - 2024-04-09
 

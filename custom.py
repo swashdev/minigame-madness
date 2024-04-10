@@ -56,7 +56,7 @@ module_vorbis_enabled = "no"
 module_webm_enabled = "no"
 
 # physics
-module_bullet_enabled = "yes"
+module_bullet_enabled = "no"
 
 # other
 module_csg_enabled = "no"
