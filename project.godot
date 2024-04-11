@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Projectile2D",
 "language": "GDScript",
 "path": "res://shared/scripts/projectiles/projectile.gd"
+}, {
+"base": "Control",
+"class": "VirtualJoystick",
+"language": "GDScript",
+"path": "res://addons/marco_f/virtual_joystick/joystick/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
 "Circle": "",
 "Minigame": "",
-"Projectile2D": ""
+"Projectile2D": "",
+"VirtualJoystick": ""
 }
 
 [application]

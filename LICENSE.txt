@@ -8,6 +8,9 @@ The song "Skippitybop", included in the file
 "addons/spadezer/skippitybop/skippitybop.ogg", is released under the Creative
 Commons Attribution 3.0 Unported license and is not in the public domain.
 
+The virtual joystick contained in the "addons/marco_f/virtual_joystick"
+folder is released under the MIT license and is not in the public domain.
+
 Compiled binaries, including web releases of Minigame Madness, will be subject
 to the licensing terms of the Godot Engine, as this is the engine which
 Minigame Madness was built on, and will be subject to the licensing terms of
