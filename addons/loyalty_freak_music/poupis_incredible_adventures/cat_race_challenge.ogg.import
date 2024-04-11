@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cat_race_challenge.ogg-575b448738adaaa2caa63cd02c8c3a8d.oggstr"
+
+[deps]
+
+source_file="res://addons/loyalty_freak_music/poupis_incredible_adventures/cat_race_challenge.ogg"
+dest_files=[ "res://.import/cat_race_challenge.ogg-575b448738adaaa2caa63cd02c8c3a8d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

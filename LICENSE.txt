@@ -5,7 +5,7 @@ Creative Commons Zero 1.0 Universal Public Domain Dedication
 convenience; for our purposes, Minigame Madness is dual-licensed under both.
 
 The song "Skippitybop", included in the file
-"assets/spadezer/skippitybop/skippitybop.ogg", is released under the Creative
+"addons/spadezer/skippitybop/skippitybop.ogg", is released under the Creative
 Commons Attribution 3.0 Unported license and is not in the public domain.
 
 Compiled binaries, including web releases of Minigame Madness, will be subject

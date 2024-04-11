@@ -10,6 +10,12 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [Unreleased]
 
+### Fixed
+
+- Third-party assets are now stored in a folder named "addons," not "assets."
+  The initial mistake was due to me misreading the documentation for standard
+  project organization in Godot.
+
 ### Changed
 
 - The large explosion effect from the dragon missile in the "Shoot Five!"

@@ -1,6 +1,6 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://assets/jlh_fonts/fonts/heavy_equipment.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/jlh_fonts/fonts/heavy_equipment.ttf" type="DynamicFontData" id=1]
 
 [resource]
 resource_name = "Heavy Equipment"

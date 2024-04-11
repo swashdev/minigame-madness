@@ -44,38 +44,38 @@ Comment: Minigame Madness
 Copyright: 2020-2024 Philip Pavlick
 License: Unlicense or CC0-1.0
 
-Files: ./assets/spadezer/skippitybop/skippitybop.ogg
+Files: ./addons/spadezer/skippitybop/skippitybop.ogg
 Comment: Skippitybop
 Copyright: 2020 Spadezer
 License: CC-BY-3.0
 
-Files: ./assets/loyalty_freak_music/poupis_incredible_adventures/cat_race_challenge.ogg
+Files: ./addons/loyalty_freak_music/poupis_incredible_adventures/cat_race_challenge.ogg
 Comment: Loyalty Freak Music
 Copyright: 2020 Komiku
 License: CC0-1.0
 
-Files: ./assets/loyalty_freak_music/robot_dance/everyone_is_so_alive.ogg
+Files: ./addons/loyalty_freak_music/robot_dance/everyone_is_so_alive.ogg
 Comment: Loyalty Freak Music
 Copyright: 2020 Loyalty Freak Music
 License: CC0-1.0
 
-Files: ./assets/jlh_fonts/fonts/heavy_equipment.ttf
+Files: ./addons/jlh_fonts/fonts/heavy_equipment.ttf
 Comment: JLH Fonts
 Copyright: 2013 JLH Fonts
 License: public-domain
  Public domain status is specified by the JLH Fonts Terms of Use:
  https://jlhfonts.blogspot.com/p/terms-of-use.html
 
-Files: ./assets/jlh_fonts/fonts/janitor.ttf
- ./assets/jlh_fonts/fonts/halogen.ttf
+Files: ./addons/jlh_fonts/fonts/janitor.ttf
+ ./addons/jlh_fonts/fonts/halogen.ttf
 Comment: JLH Fonts
 Copyright: 2012 JLH Fonts
 License: public-domain
  Public domain status is specified by the JLH Fonts Terms of Use:
  https://jlhfonts.blogspot.com/p/terms-of-use.html
 
-Files: ./assets/jayvee_enaguas/modern_DOS/modern_DOS_8x8.ttf
- ./assets/jayvee_enaguas/modern_DOS/modern_DOS_8x14.ttf
+Files: ./addons/jayvee_enaguas/modern_DOS/modern_DOS_8x8.ttf
+ ./addons/jayvee_enaguas/modern_DOS/modern_DOS_8x14.ttf
 Comment: Modern DOS
 Copyright: 2009-2019 Jayvee Enaguas
 License: CC0-1.0

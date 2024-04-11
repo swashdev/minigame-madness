@@ -1,6 +1,6 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://assets/jayvee_enaguas/modern_DOS/modern_DOS_8x14.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/jayvee_enaguas/modern_DOS/modern_DOS_8x14.ttf" type="DynamicFontData" id=1]
 
 [resource]
 font_data = ExtResource( 1 )
