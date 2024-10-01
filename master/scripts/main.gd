@@ -63,6 +63,11 @@ func mute_music( button_toggled ):
 	_music = not button_toggled
 
 
+# Changes the music volume.
+func change_music_volume( volume ):
+	$MainMusic.set_volume_db( volume )
+
+
 # Starts a new game.
 func new_game(mode: int = Global.GameMode.NORMAL, id: int = 0):
 	_mode = mode

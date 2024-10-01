@@ -9,6 +9,9 @@ signal button_pressed( button )
 # Used to signal Master that the music has been muted.
 signal music_muted( button_toggled )
 
+# Used to signal Master that the music volume has been adjusted.
+signal music_volume_changed( new_volume )
+
 var _sequence: int = 0
 
 
@@ -107,3 +110,7 @@ func _on_DebugButton_pressed():
 # The "Mute Music" button has been pressed.  Signal Master.
 func _on_MusicButton_toggled( button_pressed ):
 	emit_signal( "music_muted", button_pressed )
+
+
+func _on_VolumeSlider_value_changed( value: float ):
+	emit_signal( "music_volume_changed", value )

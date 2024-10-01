@@ -10,6 +10,11 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [Unreleased]
 
+### Added
+
+- There is now a volume slider on the main menu which can be used to change
+  the music volume in-game.
+
 ### Fixed
 
 - Third-party assets are now stored in a folder named "addons," not "assets."
