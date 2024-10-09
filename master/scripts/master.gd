@@ -77,6 +77,7 @@ func _ready():
 			title = $DebugMenu/VBoxContainer.get_child(game + 1).text
 			help_msg += "\n%2d - %s" % [game, title]
 		print(help_msg)
+		get_tree().quit()
 
 	if debug_minigame >= -1:
 		print("Starting in debug mode for minigame %d." % debug_minigame)

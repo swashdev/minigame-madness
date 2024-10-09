@@ -27,6 +27,9 @@ Minigame Madness _does not_ use Semantic Versioning.
   minigame now looks like a large explosion with a circular shape which
   matches its killing geometry.
 
+- The game now exits early after displaying a help message for the
+  "--debug-minigame" command.
+
 ### Removed
 
 - Optimized binaries no longer include the Bullet physics engine, because this
