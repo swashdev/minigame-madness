@@ -30,6 +30,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The game now exits early after displaying a help message for the
   "--debug-minigame" command.
 
+- The "Lose!" minigame has been repurposed into a much more straightforward
+  "Get to the Exit!" minigame.  This is being done due to persistent confusion
+  as to the nature of the minigame, causing consistent player frustration.
+
 ### Removed
 
 - Optimized binaries no longer include the Bullet physics engine, because this
