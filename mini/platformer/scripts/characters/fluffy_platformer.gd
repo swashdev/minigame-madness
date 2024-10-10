@@ -31,6 +31,9 @@ var _won: bool = false
 # Whether or not Fluffy can climb the ladder.
 var _ladder: bool = false
 
+# Whether or not Fluffy is currently on the ground.
+var _grounded: bool = false
+
 
 # Fluffy's mainloop.
 func _physics_process( delta ):
@@ -47,11 +50,17 @@ func _physics_process( delta ):
 			$Sprite.animation = "run"
 			$Sprite.play()
 		elif Input.is_action_just_pressed( "move_down" ):
-			if position.x >= 567.0 and is_on_floor():
+			if position.x >= 567.0 and _grounded:
 				fall_over( true )
 		else:
 			# Stop animations if no inputs are pressed.
 			$Sprite.animation = "default"
+		# If the player is on the floor, they have the opportunity to jump.
+		if _grounded and Input.is_action_pressed( "action" ):
+			_velocity.y = JUMP
+		# If the player is on the ladder, they have the option to climb it.
+		elif _ladder and Input.is_action_pressed( "move_up" ):
+			position.y -= MOVE_SPEED * delta
 
 		# Adjust sprite orientation based on inputs.
 		if Input.is_action_just_pressed( "move_right" ):
@@ -63,18 +72,12 @@ func _physics_process( delta ):
 # warning-ignore:return_value_discarded
 	move_and_slide( _velocity, Vector2.UP )
 
+	_grounded = is_on_floor() or (_ladder and _velocity.y > -1.0)
 	# Apply gravity.
-	if is_on_floor() or _ladder:
+	if _grounded:
 		_velocity.y = 0.0
 	else:
 		_velocity.y += GRAVITY * delta
-	if !_dead and !_won:
-		# If the player is on the floor, they have the opportunity to jump.
-		if is_on_floor() and Input.is_action_pressed( "action" ):
-			_velocity.y = JUMP
-		# If the player is on the ladder, they have the option to climb it.
-		elif _ladder and Input.is_action_pressed( "move_up" ):
-			_velocity.y = -MOVE_SPEED
 
 	# If dead, Fluffy's sprite will rotate in an assuredly amusing manner.
 	if _dead:

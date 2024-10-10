@@ -21,6 +21,12 @@ Minigame Madness _does not_ use Semantic Versioning.
   The initial mistake was due to me misreading the documentation for standard
   project organization in Godot.
 
+- Fluffy is now able to jump while on the ladder in the "Lose!" / "Get to the
+  Exit!" minigame.
+
+- Fluffy no longer flies off of the top of the ladder while climbing in the
+  "Lose!" / "Get to the Exit!" minigame.
+
 ### Changed
 
 - The large explosion effect from the dragon missile in the "Shoot Five!"
