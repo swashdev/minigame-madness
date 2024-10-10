@@ -71,7 +71,7 @@ func _ready():
 	var key_count: int = keys.size()
 	for index in key_count:
 		_licenses[keys[index]] = license_info[keys[index]]
-	
+
 	# Create a subtree for the licenses list.
 	_licenses_tree = component_list.create_item( root )
 	_licenses_tree.set_text( 0, "Licenses" )
@@ -115,7 +115,7 @@ func _read_copyright_file():
 	while not f.eof_reached():
 		line_count += 1
 		var line: String = f.get_line()
-	
+
 		# Decide how to parse each line depending on its prefix.
 		if line.begins_with( "Files: " ):
 			blank_line_count = 0
@@ -198,15 +198,15 @@ func _read_copyright_file():
 				and license_paragraph.size() > 0:
 					reading_file_paragraph = false
 					var full_paragraph: Dictionary = {}
-	
+
 					full_paragraph["files"] = []
 					for file in file_paragraph:
 						full_paragraph["files"].append( file )
-	
+
 					full_paragraph["copyright"] = []
 					for copyright in copyright_paragraph:
 						full_paragraph["copyright"].append( copyright )
-	
+
 					var license_line_count: int = 0
 					var license = ""
 					for license_line in license_paragraph:
@@ -215,14 +215,14 @@ func _read_copyright_file():
 						license += license_line
 						license_line_count += 1
 					full_paragraph["license"] = license
-	
+
 					for comment in comment_paragraph:
 						if not _game_components.has( comment ):
 							_game_components[comment] = []
 						_game_components[comment].append( full_paragraph )
 						#print_debug( "Line %d: Finished reading file paragraph for %s"
 						#		% [line_count, comment] )
-					
+
 					file_paragraph = []
 					comment_paragraph = []
 					copyright_paragraph = []
@@ -299,7 +299,7 @@ func _on_ComponentList_item_selected():
 	var parent: TreeItem = selected.get_parent()
 	var title: String = selected.get_text( 0 )
 	var parent_title: String = parent.get_text( 0 )
-	
+
 	if parent_title == "Godot Engine":
 		_display_game_component_info( title, _godot_components[title] )
 	elif parent_title == "Licenses":

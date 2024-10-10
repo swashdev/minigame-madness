@@ -110,7 +110,10 @@ func _on_DebugButton_pressed():
 # The "Mute Music" button has been pressed.  Signal Master.
 func _on_MusicButton_toggled( button_pressed ):
 	emit_signal( "music_muted", button_pressed )
+	$VolumePercentage.visible = not button_pressed
 
 
 func _on_VolumeSlider_value_changed( value: float ):
 	emit_signal( "music_volume_changed", value )
+	var new_vol_percent: float = ((value + 80) / 80) * 100
+	$VolumePercentage.set_text( "%03.0f%%" % new_vol_percent )
