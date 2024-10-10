@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bridge.png-b27022184414af0826484e8ddbe0bd8f.stex"
+path="res://.import/spike.png-b665786243c1e33e14fa77b891a4880f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/lose/images/platforms/bridge.png"
-dest_files=[ "res://.import/bridge.png-b27022184414af0826484e8ddbe0bd8f.stex" ]
+source_file="res://mini/platformer/images/obstacles/spike.png"
+dest_files=[ "res://.import/spike.png-b665786243c1e33e14fa77b891a4880f.stex" ]
 
 [params]
 

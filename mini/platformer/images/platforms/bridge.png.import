@@ -2,20 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg.png-f3e5db0c72b96ac802939e897f84970f.stex"
+path="res://.import/bridge.png-cd388a6c8d4c10446d23714b60f4c75f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/lose/images/background/bg.png"
-dest_files=[ "res://.import/bg.png-f3e5db0c72b96ac802939e897f84970f.stex" ]
+source_file="res://mini/platformer/images/platforms/bridge.png"
+dest_files=[ "res://.import/bridge.png-cd388a6c8d4c10446d23714b60f4c75f.stex" ]
 
 [params]
 
 compress/mode=0
-compress/lossy_quality=1.0
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

@@ -13,7 +13,7 @@ var Minigames: PoolStringArray = PoolStringArray([
 	"res://mini/ragdoll/scenes/ragdoll.tscn",
 	"res://mini/saw/scenes/saw_minigame.tscn",
 	"res://mini/baseball/scenes/baseball_minigame.tscn",
-	"res://mini/lose/scenes/lose_minigame.tscn",
+	"res://mini/platformer/scenes/platformer_minigame.tscn",
 	"res://mini/za/scenes/za_minigame.tscn",
 	"res://mini/big_rigs/big_rig_minigame.tscn",
 	"res://mini/wind/scenes/wind_minigame.tscn",

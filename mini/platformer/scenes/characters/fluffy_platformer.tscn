@@ -16,7 +16,7 @@
 [ext_resource path="res://shared/images/characters/fluffy/animations/fall_left_02.png" type="Texture" id=14]
 [ext_resource path="res://shared/images/characters/fluffy/animations/run_01.png" type="Texture" id=15]
 [ext_resource path="res://shared/images/characters/fluffy/animations/run_02.png" type="Texture" id=16]
-[ext_resource path="res://mini/lose/scripts/characters/fluffy_platformer.gd" type="Script" id=17]
+[ext_resource path="res://mini/platformer/scripts/characters/fluffy_platformer.gd" type="Script" id=17]
 [ext_resource path="res://shared/images/characters/fluffy/animations/death_01.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=1]

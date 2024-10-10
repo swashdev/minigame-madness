@@ -2,20 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spike.png-b03d430f1a671f7b57eafe5e8cf49abf.stex"
+path="res://.import/bg.png-bf6ad61e3fa04e87cd08413c071af3b8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/lose/images/obstacles/spike.png"
-dest_files=[ "res://.import/spike.png-b03d430f1a671f7b57eafe5e8cf49abf.stex" ]
+source_file="res://mini/platformer/images/background/bg.png"
+dest_files=[ "res://.import/bg.png-bf6ad61e3fa04e87cd08413c071af3b8.stex" ]
 
 [params]
 
 compress/mode=0
-compress/lossy_quality=0.7
+compress/lossy_quality=1.0
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

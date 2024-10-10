@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrow.png-522517ee417b7e08aeab0aff56d28d7c.stex"
+path="res://.import/arrow.png-185fdeb3b7e0fee4c72c14ce93e34e5a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini/lose/images/projectiles/arrow.png"
-dest_files=[ "res://.import/arrow.png-522517ee417b7e08aeab0aff56d28d7c.stex" ]
+source_file="res://mini/platformer/images/projectiles/arrow.png"
+dest_files=[ "res://.import/arrow.png-185fdeb3b7e0fee4c72c14ce93e34e5a.stex" ]
 
 [params]
 
