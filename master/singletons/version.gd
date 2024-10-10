@@ -7,12 +7,16 @@ extends Node
 # system is not compliant with the Semantic Versioning standard.
 const MAJOR: int = 0
 const MINOR: int = 14
-const PATCH: int = 1
-const BUILD: String = "dev.1"
+const MINOR_2nd: int = 1
+const PATCH: int = 0
+const BUILD: String = "alpha.1"
 
 
 func _to_string() -> String:
 	var string: String = "%d.%d" % [MAJOR, MINOR]
+
+	if MINOR_2nd > 0:
+		string = string + "_%d" % MINOR_2nd
 
 	if PATCH > 0:
 		string = string + ".%d" % PATCH
