@@ -43,6 +43,9 @@ Minigame Madness _does not_ use Semantic Versioning.
   "Get to the Exit!" minigame.  This is being done due to persistent confusion
   as to the nature of the minigame, causing consistent player frustration.
 
+- The bridge and all hazards except for the lava have been removed from the
+  "Lose!" / "Get to the Exit!" minigame.
+
 ### Removed
 
 - Optimized binaries no longer include the Bullet physics engine, because this
