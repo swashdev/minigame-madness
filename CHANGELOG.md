@@ -30,6 +30,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - It is now easier to get onto the cliffside from the ladder in the "Lose!" /
   "Get to the Exit!" minigame.
 
+- Objects outside of the frame in the "Shoot Five!" minigame are no longer
+  visible.
+
 ### Changed
 
 - The large explosion effect from the dragon missile in the "Shoot Five!"

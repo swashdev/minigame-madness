@@ -21,6 +21,25 @@ __meta__ = {
 [node name="Minigame" parent="." instance=ExtResource( 6 )]
 position = Vector2( 90, 0 )
 
+[node name="FrameLeft" type="ColorRect" parent="."]
+margin_right = 89.0
+margin_bottom = 484.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="FrameRight" type="ColorRect" parent="."]
+margin_left = 551.21
+margin_top = -0.597622
+margin_right = 640.21
+margin_bottom = 483.402
+color = Color( 0, 0, 0, 1 )
+
+[node name="FrameBottom" type="ColorRect" parent="."]
+margin_left = 89.0
+margin_top = 461.0
+margin_right = 550.0
+margin_bottom = 497.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="MissileKey" parent="." instance=ExtResource( 5 )]
 position = Vector2( 595, 410 )
 
@@ -44,6 +63,7 @@ text = "Kills:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="lost" from="Minigame" to="." method="_on_Minigame_lost"]
 [connection signal="missile_deployed" from="Minigame" to="." method="_on_Minigame_missile_deployed"]
 [connection signal="won" from="Minigame" to="." method="_on_Minigame_won"]
