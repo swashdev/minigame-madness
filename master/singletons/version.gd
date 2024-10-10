@@ -9,7 +9,7 @@ const MAJOR: int = 0
 const MINOR: int = 14
 const MINOR_2nd: int = 1
 const PATCH: int = 0
-const BUILD: String = "alpha.1"
+const BUILD: String = "alpha.2"
 
 
 func _to_string() -> String:
