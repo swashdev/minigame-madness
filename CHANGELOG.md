@@ -27,6 +27,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - Fluffy no longer flies off of the top of the ladder while climbing in the
   "Lose!" / "Get to the Exit!" minigame.
 
+- It is now easier to get onto the cliffside from the ladder in the "Lose!" /
+  "Get to the Exit!" minigame.
+
 ### Changed
 
 - The large explosion effect from the dragon missile in the "Shoot Five!"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/platformer/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
@@ -16,6 +16,9 @@ extents = Vector2( 86.9017, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 287.047, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 100, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 69.0001, 88 )
@@ -74,6 +77,18 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
 position = Vector2( 367.094, 166.972 )
 shape = SubResource( 3 )
+one_way_collision = true
+
+[node name="HelpfulRamp" type="StaticBody2D" parent="."]
+position = Vector2( 227.113, 185.324 )
+rotation = -0.174533
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HelpfulRamp"]
+shape = SubResource( 7 )
 one_way_collision = true
 
 [node name="EvilExitSign" type="Area2D" parent="."]
