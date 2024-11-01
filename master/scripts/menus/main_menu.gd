@@ -16,7 +16,7 @@ var _sequence: int = 0
 
 
 func _ready():
-	var version: String = Version.to_string()
+	var version: String = Version.get_nice_version()
 	var godot_version_info = Engine.get_version_info()
 	var godot: String
 	godot = "%d.%d" % [godot_version_info["major"],
