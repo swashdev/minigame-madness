@@ -23,8 +23,11 @@ func _ready():
 			godot_version_info["minor"]]
 	if godot_version_info["patch"] > 0:
 		godot += ".%d" % godot_version_info["patch"]
-	godot += "." + godot_version_info["status"] + "." + \
-			godot_version_info["build"]
+	godot += "." + godot_version_info["status"]
+	if godot_version_info["status"] != "stable" \
+	and godot_version_info.has("status_version"):
+		godot += "." + str(godot_version_info["status_version"])
+	godot += "." + godot_version_info["build"]
 	if godot_version_info["hex"] >= 0x03_02_00:
 		godot += "." + godot_version_info["hash"].left(9)
 	if OS.is_debug_build():
