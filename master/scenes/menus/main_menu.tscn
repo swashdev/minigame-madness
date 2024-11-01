@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://master/scenes/menus/dialogs/credits_dialog.tscn" type="PackedScene" id=11]
 [ext_resource path="res://master/images/menus/buttons/music_button_off.png" type="Texture" id=12]
 [ext_resource path="res://master/images/menus/buttons/music_button_on.png" type="Texture" id=13]
+[ext_resource path="res://master/fonts/volume_slider.tres" type="DynamicFont" id=14]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -147,10 +148,11 @@ min_value = -80.0
 max_value = 8.0
 
 [node name="VolumePercentage" type="Label" parent="."]
-margin_left = 114.166
-margin_top = 377.486
-margin_right = 157.166
-margin_bottom = 393.486
+margin_left = 111.785
+margin_top = 372.724
+margin_right = 177.785
+margin_bottom = 407.724
+custom_fonts/font = ExtResource( 14 )
 text = "100%"
 
 [node name="MusicButton" type="TextureButton" parent="."]
