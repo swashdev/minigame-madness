@@ -14,6 +14,9 @@ export var debug_minigame: int = -2
 
 # Perform final setup.
 func _ready():
+	# Report the version number.
+	print("Minigame Madness " + Version.get_version_string())
+
 	# Populate the debug menu.
 	var minigames = $Main/MinigameCanvas.Minigames
 	$DebugMenu.populate_menu( minigames )
