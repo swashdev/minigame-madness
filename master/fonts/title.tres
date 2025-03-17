@@ -5,7 +5,7 @@
 [resource]
 resource_name = "Janitor"
 size = 72
-outline_size = 2
+outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 6
 extra_spacing_bottom = 6
