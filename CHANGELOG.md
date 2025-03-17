@@ -46,8 +46,12 @@ Minigame Madness _does not_ use Semantic Versioning.
   "Get to the Exit!" minigame.  This is being done due to persistent confusion
   as to the nature of the minigame, causing consistent player frustration.
 
-- The bridge and all hazards except for the lava have been removed from the
-  "Lose!" / "Get to the Exit!" minigame.
+- Rather than choosing a random hazard, only the spike in the cave is present
+  in the "Lose!" / "Get to the Exit!" minigame.
+
+    - The spike in the "Get to the Exit!" minigame now triggers when the player
+      comes near, rather than on a timer, but visibly warns the player it is
+      about to drop before actually dropping.
 
 ### Removed
 
