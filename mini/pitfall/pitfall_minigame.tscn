@@ -100,7 +100,7 @@ position = Vector2( 40, 14 )
 rotation = 0.436332
 points = PoolVector2Array( 0, 0, 0, 20 )
 width = 1.0
-default_color = Color( 0, 0.709804, 0.262745, 1 )
+default_color = Color( 0, 0.529412, 0.317647, 1 )
 
 [node name="VineTip" type="Area2D" parent="Vine"]
 position = Vector2( -0.0200882, 19.9392 )

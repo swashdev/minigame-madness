@@ -53,6 +53,10 @@ Minigame Madness _does not_ use Semantic Versioning.
       comes near, rather than on a timer, but visibly warns the player it is
       about to drop before actually dropping.
 
+- The vine, gators, and trees in the "Get Across!" minigame now use a much
+  darker shade of green, to make them more visible against the light blue
+  background and the pond.
+
 ### Removed
 
 - Optimized binaries no longer include the Bullet physics engine, because this
