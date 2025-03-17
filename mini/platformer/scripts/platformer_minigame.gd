@@ -21,3 +21,5 @@ func _on_FluffyPlatformer_won( cave: bool = false ):
 	else:
 		emit_signal( "won" )
 	$FluffyPlatformer.allow_movement = false
+	$Spike/Timer.stop()
+	$Spike/ShakeTimer.stop()
