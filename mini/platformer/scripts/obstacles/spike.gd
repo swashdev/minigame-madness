@@ -17,6 +17,9 @@ func _physics_process( delta ):
 	if !_sleeping:
 		_velocity += GRAVITY * delta
 		position.y += _velocity
+		# Stop moving when the spike is well off the screen.
+		if position.y >= 580.0:
+			_sleeping = true
 
 
 # The spike has struck Fluffy and kills him.

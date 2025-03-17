@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/platformer/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://mini/platformer/scripts/platformer_minigame.gd" type="Script" id=5]
 [ext_resource path="res://mini/platformer/images/platforms/bridge.png" type="Texture" id=6]
 [ext_resource path="res://mini/platformer/images/background/bg.png" type="Texture" id=7]
+[ext_resource path="res://mini/platformer/images/obstacles/spike.png" type="Texture" id=8]
+[ext_resource path="res://mini/platformer/scripts/obstacles/spike.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 142.27, 10 )
@@ -133,9 +135,24 @@ texture = ExtResource( 6 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bridge"]
 polygon = PoolVector2Array( -119.793, 43.2021, -0.344666, -9.69638, 131.048, 38.6517 )
 
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2( 578.022, 233.992 )
+collision_layer = 0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Spike"]
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spike"]
+polygon = PoolVector2Array( -38.3488, -45.8244, 38.4417, -45.8244, 1.06395, 42.6422 )
+
 [connection signal="died" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_died"]
 [connection signal="won" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_won"]
 [connection signal="body_entered" from="EvilExitSign" to="EvilExitSign" method="_on_EvilExitSign_body_entered"]
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="body_entered" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_entered"]
 [connection signal="body_exited" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_exited"]
+[connection signal="body_entered" from="Spike" to="Spike" method="_on_Spike_body_entered"]
