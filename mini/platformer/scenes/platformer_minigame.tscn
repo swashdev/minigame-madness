@@ -149,10 +149,25 @@ texture = ExtResource( 8 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spike"]
 polygon = PoolVector2Array( -38.3488, -45.8244, 38.4417, -45.8244, 1.06395, 42.6422 )
 
+[node name="Timer" type="Timer" parent="Spike"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ShakeTimer" type="Timer" parent="Spike"]
+wait_time = 0.063
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 502.856, 199.292 )
+
 [connection signal="died" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_died"]
+[connection signal="entered_cave" from="FluffyPlatformer" to="Spike/Timer" method="start"]
+[connection signal="entered_cave" from="FluffyPlatformer" to="Spike/ShakeTimer" method="start"]
 [connection signal="won" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_won"]
 [connection signal="body_entered" from="EvilExitSign" to="EvilExitSign" method="_on_EvilExitSign_body_entered"]
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="body_entered" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_entered"]
 [connection signal="body_exited" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_exited"]
 [connection signal="body_entered" from="Spike" to="Spike" method="_on_Spike_body_entered"]
+[connection signal="timeout" from="Spike/Timer" to="Spike" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Spike/Timer" to="Spike/ShakeTimer" method="stop"]
+[connection signal="timeout" from="Spike/ShakeTimer" to="Spike" method="_shake"]

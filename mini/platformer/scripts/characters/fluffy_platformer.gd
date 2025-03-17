@@ -8,6 +8,9 @@ signal died
 # Signals the minigame that Fluffy has won.
 signal won( cave )
 
+# Signals that Fluffy has entered the cave and is now in the danger zone.
+signal entered_cave
+
 # Fluffy's movement speed.
 const MOVE_SPEED: float = 400.0
 
@@ -33,6 +36,7 @@ var _ladder: bool = false
 
 # Whether or not Fluffy is currently on the ground.
 var _grounded: bool = false
+var _has_entered_cave: bool = false
 
 
 # Fluffy's mainloop.
@@ -45,6 +49,13 @@ func _physics_process( delta ):
 			_velocity.x += MOVE_SPEED
 			$Sprite.animation = "run"
 			$Sprite.play()
+			# Once and once only, Fluffy will tell the minigame when he has
+			# approached the cave.
+			if not _has_entered_cave:
+				if position.x >= 506.0 and position.y > 200.0:
+					_has_entered_cave = true
+					emit_signal( "entered_cave" )
+					#print_debug( "Danger zone!" )
 		elif Input.is_action_pressed( "move_left" ):
 			_velocity.x -= MOVE_SPEED
 			$Sprite.animation = "run"

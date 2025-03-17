@@ -5,6 +5,9 @@ extends Area2D
 # The spike's gravitational acceleration.
 const GRAVITY: float = 60.0
 
+# The spike's sprite.
+onready var _sprite: Sprite = $Sprite
+
 # Whether or not the spike is sleeping.
 var _sleeping: bool = true
 
@@ -22,6 +25,15 @@ func _physics_process( delta ):
 			_sleeping = true
 
 
+func _shake():
+	# If the spike is currently shaking, offset the sprite alternatingly:
+	if _sprite.position.x < 0.0:
+		_sprite.position.x = 2.0
+	else:
+		_sprite.position.x = -2.0
+
+
+
 # The spike has struck Fluffy and kills him.
 func _on_Spike_body_entered( body ):
 	body.die()
@@ -29,6 +41,7 @@ func _on_Spike_body_entered( body ):
 
 # The timer has gone off, causing the spike to start falling.
 func _on_Timer_timeout():
+	_sprite.position.x = 0.0
 	_sleeping = false
 
 
