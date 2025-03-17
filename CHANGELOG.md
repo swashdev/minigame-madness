@@ -57,6 +57,8 @@ Minigame Madness _does not_ use Semantic Versioning.
   darker shade of green, to make them more visible against the light blue
   background and the pond.
 
+- The outline around the title in the main menu has been made thicker.
+
 ### Removed
 
 - Optimized binaries no longer include the Bullet physics engine, because this
