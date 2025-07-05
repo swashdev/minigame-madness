@@ -20,7 +20,7 @@ func get_version_string() -> String:
 		result += "." + str(PATCH)
 
 	if BUILD != "" and BUILD != "stable":
-		result += "-" + BUILD
+		result += "-" + BUILD.replace("\\.", ".")
 
 	return result
 
@@ -56,7 +56,7 @@ func get_nice_version() -> String:
 				include_dot = element.ends_with('\\')
 				if include_dot:
 					# Strip the trailing backslash from the element.
-					element = element.left(-1)
+					element = element.trim_suffix("\\")
 				result += element.capitalize()
 
 	return result
