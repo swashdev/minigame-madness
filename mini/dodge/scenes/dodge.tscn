@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://mini/dodge/scripts/dodge.gd" type="Script" id=1]
 [ext_resource path="res://mini/dodge/images/background/bg.png" type="Texture" id=2]
 [ext_resource path="res://mini/dodge/scripts/background/bg.gd" type="Script" id=3]
 [ext_resource path="res://mini/dodge/scenes/characters/train.tscn" type="PackedScene" id=4]
 [ext_resource path="res://mini/dodge/scenes/characters/evil_train.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mini/dodge/images/background/white-lines.png" type="Texture" id=6]
 
 [node name="Dodge" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,12 +19,17 @@ script = ExtResource( 3 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.5, 0.5 )
-motion_mirroring = Vector2( 1280, 0 )
+motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 1280, 480 )
+region_rect = Rect2( 0, 16, 1024, 480 )
+
+[node name="WhiteLines" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 128 )
 
 [node name="Train" parent="." instance=ExtResource( 4 )]
 position = Vector2( 100, 242 )
@@ -39,4 +45,5 @@ rotation = -3.14159
 [node name="EvilTrain3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 740, 354 )
 rotation = -3.14159
+
 [connection signal="body_entered" from="Train" to="." method="_on_Train_body_entered"]

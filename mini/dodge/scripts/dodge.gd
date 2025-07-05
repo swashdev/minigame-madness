@@ -44,7 +44,7 @@ func _on_Train_body_entered( body ):
 	$Train/Particles2D.emitting = false
 	# Stop scrolling the background.
 	$ParallaxBackground.stop_scrolling()
-	
+
 	# Signal loss and stop the minigame.
 	stop()
 	emit_signal( "lost" )
