@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://mini/dance/scripts/dance_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/dance/fonts/score_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://mini/dance/images/ui/arrow_target.png" type="Texture" id=3]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 1, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.6, 0.6, 0.6, 0.266667 )
+[ext_resource path="res://mini/dance/styles/progress_bar_3.tres" type="StyleBox" id=4]
+[ext_resource path="res://mini/dance/styles/progress_bar_1.tres" type="StyleBox" id=5]
+[ext_resource path="res://mini/dance/styles/progress_bar_invisible.tres" type="StyleBox" id=6]
+[ext_resource path="res://mini/dance/styles/progress_bar_bg.tres" type="StyleBox" id=7]
+[ext_resource path="res://mini/dance/styles/progress_bar_2.tres" type="StyleBox" id=8]
 
 [node name="DanceMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -79,14 +78,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar1" type="ProgressBar" parent="."]
+[node name="ProgressBar1_1" type="ProgressBar" parent="."]
 margin_left = 60.0
 margin_top = 300.0
 margin_right = 260.0
 margin_bottom = 340.0
 rect_rotation = 270.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 7 )
+max_value = 8.0
+step = 1.0
+allow_greater = true
+percent_visible = false
+
+[node name="ProgressBar1_2" type="ProgressBar" parent="."]
+margin_left = 540.0
+margin_top = 300.0
+margin_right = 740.0
+margin_bottom = 340.0
+rect_rotation = 270.0
+custom_styles/fg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 7 )
 max_value = 8.0
 step = 1.0
 allow_greater = true
@@ -95,17 +107,71 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar2" type="ProgressBar" parent="."]
+[node name="ProgressBar2_1" type="ProgressBar" parent="."]
+margin_left = 60.0
+margin_top = 300.0
+margin_right = 260.0
+margin_bottom = 340.0
+rect_rotation = 270.0
+custom_styles/fg = ExtResource( 8 )
+custom_styles/bg = ExtResource( 6 )
+min_value = 8.0
+max_value = 16.0
+step = 1.0
+value = 8.0
+allow_greater = true
+allow_lesser = true
+percent_visible = false
+
+[node name="ProgressBar2_2" type="ProgressBar" parent="."]
 margin_left = 540.0
 margin_top = 300.0
 margin_right = 740.0
 margin_bottom = 340.0
 rect_rotation = 270.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = ExtResource( 8 )
+custom_styles/bg = ExtResource( 6 )
 min_value = 8.0
+max_value = 16.0
 step = 1.0
+value = 8.0
 allow_greater = true
+allow_lesser = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3_1" type="ProgressBar" parent="."]
+margin_left = 60.0
+margin_top = 300.0
+margin_right = 260.0
+margin_bottom = 340.0
+rect_rotation = 270.0
+custom_styles/fg = ExtResource( 4 )
+custom_styles/bg = ExtResource( 6 )
+min_value = 16.0
+max_value = 32.0
+step = 1.0
+value = 16.0
+allow_greater = true
+allow_lesser = true
+percent_visible = false
+
+[node name="ProgressBar3_2" type="ProgressBar" parent="."]
+margin_left = 540.0
+margin_top = 300.0
+margin_right = 740.0
+margin_bottom = 340.0
+rect_rotation = 270.0
+custom_styles/fg = ExtResource( 4 )
+custom_styles/bg = ExtResource( 6 )
+min_value = 16.0
+max_value = 32.0
+step = 1.0
+value = 16.0
+allow_greater = true
+allow_lesser = true
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false

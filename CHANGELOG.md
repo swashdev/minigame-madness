@@ -25,6 +25,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The score required to win the "Dance, Dance, Dance!" minigame has been
   greatly reduced.
 
+- The progress bars in the "Dance, Dance, Dance!" minigame have been adjusted
+  to try to encourage players to excel beyond the skill level needed to simply
+  win.
+
 ### Removed
 
 - The main menu no longer displays the engine version it is running on.
