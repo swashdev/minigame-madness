@@ -39,9 +39,6 @@ func stop():
 func _on_Train_body_entered( body ):
 	# Stop the evil train.
 	body.unlock( false )
-	# Stop emitting smoke particles.
-	body.get_node( "Particles2D" ).emitting = false
-	$Train/Particles2D.emitting = false
 	# Stop scrolling the background.
 	$ParallaxBackground.stop_scrolling()
 

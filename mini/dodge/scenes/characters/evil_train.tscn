@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mini/dodge/scripts/characters/evil_train.gd" type="Script" id=1]
-[ext_resource path="res://mini/dodge/images/characters/evil_train.png" type="Texture" id=2]
 [ext_resource path="res://mini/dodge/images/particles/smoke.png" type="Texture" id=3]
+[ext_resource path="res://mini/dodge/images/characters/wololo.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.1984, 32.886 )
@@ -17,14 +17,3 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 5, 0 )
 shape = SubResource( 1 )
-
-[node name="Particles2D" type="CPUParticles2D" parent="."]
-position = Vector2( 33.0824, -2.27521 )
-amount = 12
-lifetime = 2.0
-preprocess = 2.0
-texture = ExtResource( 3 )
-direction = Vector2( -1, 0 )
-spread = 20.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 100.0
