@@ -6,18 +6,24 @@ extends Minigame
 # evil trains.
 func _ready():
 	var trains = [$EvilTrain1, $EvilTrain2, $EvilTrain3]
+	var index: int = 0
+	var train: Node
 	var distance: float = 400.0
-	var modifier: int = 1
 
-	while modifier < 3:
+	trains.shuffle()
+	while index < 3:
 		# Pick a random train and move it down the track.
-		var index = randi() % trains.size()
-		var train = trains[index]
+		train = trains[index]
+		train.position.x += distance * index
+		index += 1
 
-		train.position.x += distance * modifier
-
-		trains.remove( index )
-		modifier += 1
+	index = 0
+	trains.shuffle()
+	while index < 3:
+		# Randomize the order of the trains.
+		train = trains[index]
+		train.position.y = 130 + (112 * index)
+		index += 1
 
 
 # When the time has come to start the minigame, unlock the player's controls
