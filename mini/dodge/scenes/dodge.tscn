@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://mini/dodge/scripts/dodge.gd" type="Script" id=1]
 [ext_resource path="res://mini/dodge/images/background/bg.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://mini/dodge/scenes/characters/evil_pickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://mini/dodge/images/background/white-lines.png" type="Texture" id=6]
 [ext_resource path="res://mini/dodge/scenes/characters/evil_train.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mini/dodge/scenes/characters/evil_pizza_guy.tscn" type="PackedScene" id=8]
 
 [node name="Dodge" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,7 +39,7 @@ position = Vector2( 100, 242 )
 [node name="EvilTrain1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 740, 130 )
 
-[node name="EvilTrain2" parent="." instance=ExtResource( 7 )]
+[node name="EvilTrain2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 740, 242 )
 
 [node name="EvilTrain3" parent="." instance=ExtResource( 5 )]
