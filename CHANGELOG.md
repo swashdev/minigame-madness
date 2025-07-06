@@ -15,6 +15,10 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The trains in the "Dodge!" minigame have been changed into cars, and the
   tracks into roads.
 
+- The player and the evil cars in the "Dodge!" minigame now use proper physics
+  movement, and the player now moves smoothly rather than snapping from one
+  lane to another.
+
 ### Removed
 
 - The main menu no longer displays the engine version it is running on.

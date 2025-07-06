@@ -46,4 +46,7 @@ position = Vector2( 740, 242 )
 position = Vector2( 740, 354 )
 rotation = -3.14159
 
-[connection signal="body_entered" from="Train" to="." method="_on_Train_body_entered"]
+[connection signal="crashed" from="Train" to="." method="_on_Train_crashed"]
+[connection signal="crashed" from="EvilTrain1" to="." method="_on_Train_crashed"]
+[connection signal="crashed" from="EvilTrain2" to="." method="_on_Train_crashed"]
+[connection signal="crashed" from="EvilTrain3" to="." method="_on_Train_crashed"]

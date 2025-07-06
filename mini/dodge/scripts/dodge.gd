@@ -42,9 +42,9 @@ func stop():
 
 
 # The train has detected a collision with an evil train.
-func _on_Train_body_entered( body ):
+func _on_Train_crashed():
 	# Stop the evil train.
-	body.unlock( false )
+	#body.unlock( false )
 	# Stop scrolling the background.
 	$ParallaxBackground.stop_scrolling()
 
