@@ -19,6 +19,9 @@ Minigame Madness _does not_ use Semantic Versioning.
   movement, and the player now moves smoothly rather than snapping from one
   lane to another.
 
+- The player in the "Dodge!" minigame is now animated &ndash; the car rotates
+  as it moves.
+
 ### Removed
 
 - The main menu no longer displays the engine version it is running on.

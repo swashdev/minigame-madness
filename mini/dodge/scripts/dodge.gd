@@ -26,6 +26,14 @@ func _ready():
 		index += 1
 
 
+# If the game ends due to timeout rather than player loss, rotate the player
+# so that they are driving forward.
+func decide():
+	emit_signal( "won" )
+	$Train.unlock( false )
+	$Train.rotation_degrees = 0.0
+
+
 # When the time has come to start the minigame, unlock the player's controls
 # and release the evil trains.
 func start():

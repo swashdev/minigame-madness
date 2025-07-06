@@ -36,6 +36,14 @@ func _process( _delta ):
 				emit_signal( "crashed" )
 				body.unlock( false )
 
+		# Rotate the player's car:
+		if velocity.y > 0.0:
+			rotation_degrees = 30.0
+		elif velocity.y < 0.0:
+			rotation_degrees = -30.0
+		else:
+			rotation_degrees = 0.0
+
 
 # Unlocks the controls for the train.
 func unlock( switch: bool = true ):
