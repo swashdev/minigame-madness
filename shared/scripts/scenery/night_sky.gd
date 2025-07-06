@@ -4,7 +4,7 @@ extends Control
 
 
 # The number of stars to draw in the sky.  Must be non-negative.
-export var num_stars = 1024 setget set_num_stars
+export(int, 0xffff) var num_stars = 1024 setget set_num_stars
 
 # The minimum & maximum brightness of each star.
 export(float, 0.1, 1.0, 0.05) var min_brightness = 0.25 setget set_min_brightness

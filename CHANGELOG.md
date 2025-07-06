@@ -29,6 +29,11 @@ Minigame Madness _does not_ use Semantic Versioning.
   to try to encourage players to excel beyond the skill level needed to simply
   win.
 
+- The night sky background, shared between a few minigames, now only accepts
+  numbers of stars between 0 and 65,535 in the editor.  I believe it's
+  theoretically possible to go higher using a script, but the setter has not
+  been changed, so it is not possible to go lower than 0.
+
 ### Removed
 
 - The main menu no longer displays the engine version it is running on.
