@@ -24,6 +24,7 @@ const LANES: Dictionary = \
 
 # The maximum number of arrows to spawn.
 const MAX_ARROWS: int = 8
+const SCORE_TO_WIN: int = OK * MAX_ARROWS
 
 
 # A template for arrows to spawn.
@@ -61,7 +62,7 @@ func stop():
 # if the player has scored the equivalent of a "good" for every arrow.
 func decide():
 	stop()
-	if player_score >= GOOD * MAX_ARROWS:
+	if player_score >= SCORE_TO_WIN:
 		emit_signal( "won" )
 		if player_score >= PERFECT * MAX_ARROWS:
 			announcer.set_text( "GODLIKE!!!!!" )

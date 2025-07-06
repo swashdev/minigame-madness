@@ -22,6 +22,9 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The player in the "Dodge!" minigame is now animated &ndash; the car rotates
   as it moves.
 
+- The score required to win the "Dance, Dance, Dance!" minigame has been
+  greatly reduced.
+
 ### Removed
 
 - The main menu no longer displays the engine version it is running on.
