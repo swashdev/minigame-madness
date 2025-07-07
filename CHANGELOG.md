@@ -36,6 +36,8 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 - The player character in the "Get to the Exit!" minigame has been changed.
 
+- Jumping has been removed from the "Get to the Exit!" minigame.
+
 ### Removed
 
 - The main menu no longer displays the engine version it is running on.

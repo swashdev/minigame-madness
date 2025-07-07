@@ -63,21 +63,22 @@ func _physics_process( delta ):
 		elif Input.is_action_just_pressed( "move_down" ):
 			if position.x >= 567.0 and _grounded:
 				fall_over( true )
-		else:
-			# Stop animations if no inputs are pressed.
-			$Sprite.animation = "default"
-		# If the player is on the floor, they have the opportunity to jump.
-		if _grounded and Input.is_action_pressed( "action" ):
-			_velocity.y = JUMP
 		# If the player is on the ladder, they have the option to climb it.
 		elif _ladder and Input.is_action_pressed( "move_up" ):
 			position.y -= MOVE_SPEED * delta
+			$Sprite.animation = "climbing"
+		else:
+			# Stop animations if no inputs are pressed.
+			$Sprite.animation = "default"
 
 		# Adjust sprite orientation based on inputs.
 		if Input.is_action_just_pressed( "move_right" ):
 			$Sprite.flip_h = false
 		if Input.is_action_just_pressed( "move_left" ):
 			$Sprite.flip_h = true
+		if $Sprite.animation == "climbing":
+			if Engine.get_idle_frames() % 8 == 0:
+				$Sprite.flip_h = !$Sprite.flip_h
 
 	# Move Fluffy.
 # warning-ignore:return_value_discarded
