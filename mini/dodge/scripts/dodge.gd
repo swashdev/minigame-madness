@@ -2,6 +2,9 @@ extends Minigame
 # A script for the "Dodge!" minigame.
 
 
+onready var _player = $Train
+
+
 # When the minigame is ready, assign random positions to each of the three
 # evil trains.
 func _ready():
@@ -30,14 +33,14 @@ func _ready():
 # so that they are driving forward.
 func decide():
 	emit_signal( "won" )
-	$Train.unlock( false )
-	$Train.rotation_degrees = 0.0
+	_player.unlock( false )
+	_player.rotation_degrees = 0.0
 
 
 # When the time has come to start the minigame, unlock the player's controls
 # and release the evil trains.
 func start():
-	$Train.unlock()
+	_player.unlock()
 	$EvilTrain1.unlock()
 	$EvilTrain2.unlock()
 	$EvilTrain3.unlock()
@@ -46,11 +49,11 @@ func start():
 # When the minigame finishes, lock the player's controls and remove the evil
 # trains.
 func stop():
-	$Train.unlock( false )
+	_player.unlock( false )
 
 
 # The train has detected a collision with an evil train.
-func _on_Train_crashed():
+func _on_player_crashed():
 	# Stop the evil train.
 	#body.unlock( false )
 	# Stop scrolling the background.

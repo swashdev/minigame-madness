@@ -39,6 +39,10 @@ var _grounded: bool = false
 var _has_entered_cave: bool = false
 
 
+# The player character's animated sprite object.
+onready var _sprite: AnimatedSprite = $Sprite
+
+
 # Fluffy's mainloop.
 func _physics_process( delta ):
 	# Start by resetting the horizontal velocity.
@@ -47,8 +51,8 @@ func _physics_process( delta ):
 	if allow_movement and !_dead and !_won:
 		if Input.is_action_pressed( "move_right" ):
 			_velocity.x += MOVE_SPEED
-			$Sprite.animation = "run"
-			$Sprite.play()
+			_sprite.set_animation( "run" )
+			_sprite.play()
 			# Once and once only, Fluffy will tell the minigame when he has
 			# approached the cave.
 			if not _has_entered_cave:
@@ -58,27 +62,27 @@ func _physics_process( delta ):
 					#print_debug( "Danger zone!" )
 		elif Input.is_action_pressed( "move_left" ):
 			_velocity.x -= MOVE_SPEED
-			$Sprite.animation = "run"
-			$Sprite.play()
+			_sprite.set_animation( "run" )
+			_sprite.play()
 		elif Input.is_action_just_pressed( "move_down" ):
 			if position.x >= 567.0 and _grounded:
 				fall_over( true )
 		# If the player is on the ladder, they have the option to climb it.
 		elif _ladder and Input.is_action_pressed( "move_up" ):
 			position.y -= MOVE_SPEED * delta
-			$Sprite.animation = "climbing"
+			_sprite.set_animation( "climbing" )
 		else:
 			# Stop animations if no inputs are pressed.
-			$Sprite.animation = "default"
+			_sprite.set_animation( "default" )
 
 		# Adjust sprite orientation based on inputs.
 		if Input.is_action_just_pressed( "move_right" ):
-			$Sprite.flip_h = false
+			_sprite.flip_h = false
 		if Input.is_action_just_pressed( "move_left" ):
-			$Sprite.flip_h = true
-		if $Sprite.animation == "climbing":
+			_sprite.flip_h = true
+		if _sprite.animation == "climbing":
 			if Engine.get_idle_frames() % 8 == 0:
-				$Sprite.flip_h = !$Sprite.flip_h
+				_sprite.flip_h = !_sprite.flip_h
 
 	# Move Fluffy.
 # warning-ignore:return_value_discarded
@@ -97,15 +101,15 @@ func _physics_process( delta ):
 
 # Fluffy is hit by an obstacle & dies.
 func die():
-	$Sprite.animation = "die"
-	$Sprite.play()
+	_sprite.set_animation( "die" )
+	_sprite.play()
 	_dead = true
 	emit_signal( "died" )
 
 
 # Fluffy wins the game & falls over.
 func fall_over( cave: bool = false ):
-	$Sprite.animation = "fall_over"
+	_sprite.set_animation( "fall_over" )
 	_velocity = Vector2()
 	_won = true
 	emit_signal( "won", cave )
