@@ -8,7 +8,7 @@ This changelog follows the
 convention.  
 Minigame Madness _does not_ use Semantic Versioning.
 
-## [Unreleased]
+## [0.14\_2] - 2025-07-07
 
 ### Notes
 
