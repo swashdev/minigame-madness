@@ -10,6 +10,12 @@ Minigame Madness _does not_ use Semantic Versioning.
 
 ## [Unreleased]
 
+### Notes
+
+- Windows binaries have been renamed to "minigame-madness.exe" in order to
+  match the naming scheme used by Linux and make it easier to drop in new
+  data files after installing.
+
 ### Changed
 
 - The trains in the "Dodge!" minigame have been changed into cars, and the
