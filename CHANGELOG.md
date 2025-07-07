@@ -34,6 +34,8 @@ Minigame Madness _does not_ use Semantic Versioning.
   theoretically possible to go higher using a script, but the setter has not
   been changed, so it is not possible to go lower than 0.
 
+- The player character in the "Get to the Exit!" minigame has been changed.
+
 ### Removed
 
 - The main menu no longer displays the engine version it is running on.

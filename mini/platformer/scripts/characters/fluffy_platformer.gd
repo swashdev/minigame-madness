@@ -75,9 +75,9 @@ func _physics_process( delta ):
 
 		# Adjust sprite orientation based on inputs.
 		if Input.is_action_just_pressed( "move_right" ):
-			flip( false )
+			$Sprite.flip_h = false
 		if Input.is_action_just_pressed( "move_left" ):
-			flip( true )
+			$Sprite.flip_h = true
 
 	# Move Fluffy.
 # warning-ignore:return_value_discarded
@@ -90,41 +90,20 @@ func _physics_process( delta ):
 	else:
 		_velocity.y += GRAVITY * delta
 
-	# If dead, Fluffy's sprite will rotate in an assuredly amusing manner.
-	if _dead:
-		$Sprite.rotation_degrees += 90.0 * delta
-	else:
-		position.x = clamp( position.x, 0.0, 640.0 )
-		position.y = clamp( position.y, 0.0, 480.0 )
-
-
-# Horizontally flips Fluffy's sprite.
-func flip( yn: bool ):
-	# Fluffy's sprite is already flipped, so we do the opposite of what the
-	# parameters say.
-	$Sprite.flip_h = !yn
-	# If the sprite is being flipped, we need to adjust the sprite offset to
-	# recenter it.  We won't worry too much about animations here, since they
-	# don't move the center of mass around too much.
-	if yn:
-		$Sprite.offset = Vector2( -5.5, -8 )
-	else:
-		$Sprite.offset = Vector2( -10.5, -8 )
+	position.x = clamp( position.x, 0.0, 640.0 )
+	position.y = clamp( position.y, 0.0, 480.0 )
 
 
 # Fluffy is hit by an obstacle & dies.
 func die():
-	$Hitbox.set_deferred( "disabled", true )
 	$Sprite.animation = "die"
 	$Sprite.play()
-	_velocity.y = JUMP
 	_dead = true
 	emit_signal( "died" )
 
 
 # Fluffy wins the game & falls over.
 func fall_over( cave: bool = false ):
-	flip( false )
 	$Sprite.animation = "fall_over"
 	_velocity = Vector2()
 	_won = true

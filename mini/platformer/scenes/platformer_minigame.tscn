@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=1]
-[ext_resource path="res://mini/platformer/scenes/characters/fluffy_platformer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mini/platformer/scenes/characters/platformer_guy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/platformer/scripts/obstacles/evil_exit_sign.gd" type="Script" id=3]
 [ext_resource path="res://mini/platformer/scripts/obstacles/lava.gd" type="Script" id=4]
 [ext_resource path="res://mini/platformer/scripts/platformer_minigame.gd" type="Script" id=5]
@@ -45,7 +45,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FluffyPlatformer" parent="." instance=ExtResource( 2 )]
+[node name="PlatformerGuy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 47.9442, 372.968 )
 
 [node name="Floor1" type="StaticBody2D" parent="."]
@@ -159,14 +159,14 @@ wait_time = 0.063
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 502.856, 199.292 )
 
-[connection signal="died" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_died"]
-[connection signal="entered_cave" from="FluffyPlatformer" to="Spike/Timer" method="start"]
-[connection signal="entered_cave" from="FluffyPlatformer" to="Spike/ShakeTimer" method="start"]
-[connection signal="won" from="FluffyPlatformer" to="." method="_on_FluffyPlatformer_won"]
+[connection signal="died" from="PlatformerGuy" to="." method="_on_FluffyPlatformer_died"]
+[connection signal="entered_cave" from="PlatformerGuy" to="Spike/Timer" method="start"]
+[connection signal="entered_cave" from="PlatformerGuy" to="Spike/ShakeTimer" method="start"]
+[connection signal="won" from="PlatformerGuy" to="." method="_on_FluffyPlatformer_won"]
 [connection signal="body_entered" from="EvilExitSign" to="EvilExitSign" method="_on_EvilExitSign_body_entered"]
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
-[connection signal="body_entered" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_entered"]
-[connection signal="body_exited" from="Ladder" to="FluffyPlatformer" method="_on_Ladder_body_exited"]
+[connection signal="body_entered" from="Ladder" to="PlatformerGuy" method="_on_Ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="PlatformerGuy" method="_on_Ladder_body_exited"]
 [connection signal="body_entered" from="Spike" to="Spike" method="_on_Spike_body_entered"]
 [connection signal="timeout" from="Spike/Timer" to="Spike" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Spike/Timer" to="Spike/ShakeTimer" method="stop"]

@@ -1,0 +1,118 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://mini/platformer/images/characters/gamer_guy.png" type="Texture" id=1]
+[ext_resource path="res://mini/platformer/images/characters/gamer_guy_climbing.png" type="Texture" id=2]
+[ext_resource path="res://mini/platformer/scripts/characters/fluffy_platformer.gd" type="Script" id=17]
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 32, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 32, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 144, 32, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 32, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 32, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 144, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 144, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 48, 32 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "climbing",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "die",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "fall_over",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": false,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "run",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21.994, 31.9682 )
+
+[node name="PlatformerGuy" type="KinematicBody2D"]
+collision_mask = 2
+script = ExtResource( 17 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -96, -96 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 16 )
+centered = false
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
