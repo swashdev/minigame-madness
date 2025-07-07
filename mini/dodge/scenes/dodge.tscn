@@ -20,7 +20,7 @@ transform = Transform2D( 1, 0, 0, 1, 320, 240 )
 script = ExtResource( 3 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.5, 0.5 )
+motion_scale = Vector2( 0.75, 0.75 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -46,7 +46,7 @@ position = Vector2( 740, 242 )
 position = Vector2( 740, 354 )
 rotation = -3.14159
 
-[connection signal="crashed" from="Train" to="." method="_on_Train_crashed"]
-[connection signal="crashed" from="EvilTrain1" to="." method="_on_Train_crashed"]
-[connection signal="crashed" from="EvilTrain2" to="." method="_on_Train_crashed"]
-[connection signal="crashed" from="EvilTrain3" to="." method="_on_Train_crashed"]
+[connection signal="crashed" from="Train" to="." method="_on_player_crashed"]
+[connection signal="crashed" from="EvilTrain1" to="." method="_on_player_crashed"]
+[connection signal="crashed" from="EvilTrain2" to="." method="_on_player_crashed"]
+[connection signal="crashed" from="EvilTrain3" to="." method="_on_player_crashed"]
