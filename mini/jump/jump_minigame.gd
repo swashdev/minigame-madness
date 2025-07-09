@@ -50,6 +50,11 @@ func _physics_process(delta):
 				player.position += remainder
 				pusher.position += remainder
 
+		# If the player has been pushed off of the screen, lose the minigame.
+		if player.position.x < -32.0:
+			stop()
+			emit_signal("lost")
+
 	# Move the player.
 	velocity = player.move_and_slide(velocity, Vector2.UP)
 	# Detect if the player is grounded.
