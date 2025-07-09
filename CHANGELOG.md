@@ -7,7 +7,11 @@ This changelog loosely follows the
 [Keep a Changelog version 1.0.0][Keep a Changelog] convention.
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0
 
-Minigame Madness _does not_ use Semantic Versioning.
+Minigame Madness's version numbers are _not_ compliant with the
+[Semantic Versioning][SemVer] standard.  To find out what the version numbers
+mean, see the [Versioning System](#versioning-system) section at the bottom of
+this document.
+[SemVer]: https://semver.org/
 
 
 ## [Unreleased]
@@ -331,3 +335,85 @@ Minigame Madness _does not_ use Semantic Versioning.
 - The version number "types," i.e. "Pre-Release," "Alpha," and "Beta" have been
   deprecated.  For the time being, Minigame Madness will now simply use its own
   version number without additional unnecessary fluff.
+
+
+# Versioning System
+
+When Minigame Madness started, the anticipation was that development would be
+very rapid and would quickly lead in to other projects.  As such, some early
+versions used the year, week, and day of release as the basis for the version
+number.  However, this was determined to be confusing and unhelpful, and so
+this versioning system was dropped.  These version numbers are no longer
+considered to be a part of the version history of Minigame Madness.
+
+Minigame Madness's current version numbering system is similar to
+[semantic versioning][SemVer] in intent but differs in important details.
+This is partly because Minigame Madness is a solo project and I am still in
+the process of learning best practices, but it's also because I think semantic
+versioning, as specified in the _de facto_ standard, leaves a little to be
+desired from a game development perspective.
+
+As it stands, here are what the version numbers mean for Minigame Madness.
+The version numbers are split into four sections, but by default only two are
+shown.  
+For the purposes of illustration, two example versions will be used:
+A: `0.14_2.3`, and B: `1.0`
+
+- **Major**: The "Major" version number is as it is defined in the semantic
+  versioning standard, and refers to the backwards compatibility of the
+  current version of Minigame Madness.  For our purposes, "backwards
+  compatible" is a somewhat arbitrary specification, because this project is
+  not meant to interface with anything, but that may change in the future.  
+  At time of writing, the Major version is 0, indicating that Minigame
+  Madness's codebase is in a prerelease state and should not be considered
+  stable.  
+  In example A, the Major version is 0.  In example B, the Major version is 1.
+
+- **Minor**: The "Minor" version number is incremented any time a new minigame
+  is added to Minigame Madness.  After version 1.0 is released, however, the
+  meaning of this number may change to simply indicate any newly-added
+  features, as in the semantic versioning standard.  
+  This number will revert to 0 any time the Major version is changed.  
+  In example A, the Minor version is 14.  In example B, the Minor version is
+  0.
+
+- **Minor 2nd**: The "Minor 2nd" version number, for lack of a better name,
+  functions as a "second" Minor version, and is appended to the Minor version
+  following an `_` underscore.  This number is used to indicate when a
+  minigame has been replaced or has changed form siginficantly, effectively
+  meaning that a new minigame has been created without adding to the total
+  number of minigames, hence why this is called a "second Major version."  
+  This number will revert to 0 any time the Major or Minor version is changed.
+  If the Minor 2nd version is 0, it is not displayed.  
+  Following version 1.0, Minor 2nd versions will not be used.  
+  In example A, the Minor 2nd version is 2.  Example B does not have a Minor
+  2nd version, but if it did it would be 0.
+
+- **Patch**:  The "Patch" version number is as defined in the semantic
+  versioning standard, and indicates minor changes &ndash; usually bug fixes,
+  tweaks to gameplay, or optimizations &ndash; which have been included in a
+  release which _does not_ include substantive additions of new features.  
+  This number will revert to 0 any time the Major, Minor, or Minor 2nd
+  versions are changed.  
+  If the Patch version is 0, it is not displayed.  
+  In example A, the Patch version is 3.  In example B, the Patch version is 0,
+  but it is not shown.
+
+The reason why Minor 2nd and Patch versions are not shown if they are at 0 is
+largely a historical contrivance, and is done to make the version number less
+cumbersome and more aesthetically pleasing to the end-user.  In my experience,
+most non-technical people like the "number-dot-number" rhythm of simpler
+versioning schemes, and so patches are indicated only when they are relevant.
+
+Suffixes used to indicate prereleases such as alphas and betas have largely
+been abandoned due to the limited need for prerelease versions.  However,
+builds which are not yet production-ready are still indicated by appending the
+`-pre` tag to the version number; for example, prerelease versions of version
+`0.15` would be indicated as `0.15-pre`.  In-game, this is displayed to the
+user as `0.15 Prerelease`.  Minigame Madness's versioning system is still able
+to accommodate numbered prerelease versions such as `0.15-pre.3` (`0.15
+Prerelease 3`) or `1.0-alpha.1` (`1.0 Alpha 1`) if necessary, but there are no
+plans to use this until development begins on version 1.0.
+
+To see how the version number is encoded, please see the
+[Version](master/singletons/version.gd) singleton.
