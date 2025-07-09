@@ -1,8 +1,41 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://shared/scripts/minigame.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 320, 104 )
 
 [node name="JumpMinigame" type="Node2D"]
 script = ExtResource( 1 )
 _instruction = "Jump!"
 _win_by_default = true
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 320, 176 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 320, 272 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 0, 104 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+margin_left = -320.0
+margin_right = 320.0
+margin_bottom = 208.0
+color = Color( 0, 0, 0, 1 )
