@@ -1,7 +1,7 @@
 # Changelog
 
 This is the changelog for Minigame Madness.  All noteworthy changes to the game
-will be documented in this file.
+since version 0.13 will be documented in this file.
 
 This changelog follows the
 [Keep a Changelog version 1.0.0](https://keepachangelog.com/en/1.0.0/)
