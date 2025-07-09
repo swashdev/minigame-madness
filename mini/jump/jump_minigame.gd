@@ -37,7 +37,6 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("action") \
 			or Input.is_action_just_pressed("move_up"):
 				velocity.y -= JUMP_VELOCITY
-				print_debug("Jump button pressed!  Y velocity = " + str(velocity.y))
 
 		# Advance the pushers.
 		for pusher in pushers:
