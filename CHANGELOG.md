@@ -8,6 +8,15 @@ This changelog follows the
 convention.  
 Minigame Madness _does not_ use Semantic Versioning.
 
+
+## [Unreleased]
+
+### Fixed
+
+- Fixed a syntax error in the `Version.get_nice_version()` function which
+  prevented the function from appending patch numbers to the version number.
+
+
 ## [0.14\_2] - 2025-07-07
 
 ### Notes

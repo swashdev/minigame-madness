@@ -33,7 +33,7 @@ func get_nice_version() -> String:
 	if MINOR_2nd > 0:
 		result += "_" + str(MINOR_2nd)
 	if PATCH > 0:
-		result += "." % str(PATCH)
+		result += "." + str(PATCH)
 
 	if BUILD != "" and BUILD != "stable":
 		var prerelease_data: Array = BUILD.split(".", false)
