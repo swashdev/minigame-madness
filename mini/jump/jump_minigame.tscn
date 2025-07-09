@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mini/jump/jump_minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/jump/scenes/pusher.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -15,6 +16,7 @@ _win_by_default = true
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 320, 176 )
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )
@@ -28,6 +30,8 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 320, 272 )
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2( 0, 104 )
@@ -39,3 +43,14 @@ margin_left = -320.0
 margin_right = 320.0
 margin_bottom = 208.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="Pushers" type="Node" parent="."]
+
+[node name="Pusher1" parent="Pushers" instance=ExtResource( 2 )]
+position = Vector2( 656, 272 )
+
+[node name="Pusher2" parent="Pushers" instance=ExtResource( 2 )]
+position = Vector2( 976, 272 )
+
+[node name="Pusher3" parent="Pushers" instance=ExtResource( 2 )]
+position = Vector2( 1296, 272 )
