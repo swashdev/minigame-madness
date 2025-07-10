@@ -5,12 +5,13 @@ since version 0.13 will be documented in this file.
 
 This changelog loosely follows the
 [Keep a Changelog version 1.0.0][Keep a Changelog] convention.
-[Keep a Changelog]: https://keepachangelog.com/en/1.0.0
 
 Minigame Madness's version numbers are _not_ compliant with the
 [Semantic Versioning][SemVer] standard.  To find out what the version numbers
 mean, see the [Versioning System](#versioning-system) section at the bottom of
 this document.
+
+[Keep a Changelog]: https://keepachangelog.com/en/1.0.0
 [SemVer]: https://semver.org/
 
 
