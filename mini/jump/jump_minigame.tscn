@@ -47,10 +47,10 @@ color = Color( 0, 0, 0, 1 )
 [node name="Pushers" type="Node" parent="."]
 
 [node name="Pusher1" parent="Pushers" instance=ExtResource( 2 )]
-position = Vector2( 656, 272 )
+position = Vector2( 1320, 272 )
 
 [node name="Pusher2" parent="Pushers" instance=ExtResource( 2 )]
-position = Vector2( 976, 272 )
+position = Vector2( 1960, 272 )
 
 [node name="Pusher3" parent="Pushers" instance=ExtResource( 2 )]
-position = Vector2( 1296, 272 )
+position = Vector2( 2600, 272 )
