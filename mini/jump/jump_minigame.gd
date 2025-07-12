@@ -2,8 +2,8 @@ extends Minigame
 # A script for the "Jump!" minigame.
 
 
-const GRAVITY: float = 1024.0
-const JUMP_VELOCITY: float = 512.0
+const GRAVITY: float = 2048.0
+const JUMP_VELOCITY: float = 768.0
 const PUSHER_VELOCITY: Vector2 = Vector2(-320.0, 0.0)
 
 
