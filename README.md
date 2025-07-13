@@ -17,14 +17,15 @@ The game is currently in a prerelease state with 14 fully playable minigames.
 Legal Stuff
 -----------
 
-Minigame Madness is **mostly** [public domain software].  I
+Minigame Madness is **mostly** [public domain software][license].  I
 emphasize "mostly" because the game contains exactly one non-public-domain
-asset: [the song "Skippitybop" by Spadezer], which is released under the
-[Creative Commons Attribution 3.0 Unported] license.
+asset: [the song "Skippitybop" by Spadezer][skippitybop], which is released
+under the [Creative Commons Attribution 3.0 Unported][cc-by] license.
 
 Additionally, even though Minigame Madness itself is in the public domain,
-compiled binaries are subject to [the Godot Engine license], because the game
-runs in the Godot engine.
+compiled binaries are subject to [the Godot Engine license][godot-license],
+and to [other open-source licenses used by Godot][4th-party],
+because the game runs in the Godot engine.
 
 In spite of this, all of the work done by me on Minigame Madness will remain
 fully in the public domain.  Further information on other assets used in the
@@ -34,13 +35,11 @@ As of version 0.12.2-alpha, the game will display a comprehensive list of
 third-party licenses to which any particular copy of Minigame Madness is
 subject in the "Legal Stuff" menu in-game.
 
-[public domain software]: LICENSE.txt
-
-[the song "Skippitybop" by Spadezer]: https://www.newgrounds.com/audio/listen/944805
-
-[Creative Commons Attribution 3.0 Unported]: https://creativecommons.org/licenses/by/3.0/
-
-[the Godot Engine license]: https://godotengine.org/license
+[license]: LICENSE.txt
+[skippitybop]: https://www.newgrounds.com/audio/listen/944805
+[cc-by]: https://creativecommons.org/licenses/by/3.0/
+[godot-license]: https://godotengine.org/license
+[4th-party]: https://github.com/godotengine/godot/blob/3.5/COPYRIGHT.txt
 
 Debugging
 ---------
@@ -63,49 +62,49 @@ you.
 I Found a Bug!
 --------------
 
-Good for you!  Go ahead and let me know by [leaving an Issue] on Minigame
-Madness's GitHub page.  Be sure to include details like the game's version
-number (displayed in the lower-left when you start the game), what system
-you're running it on, and which minigame you encountered the bug on.  Oh, and
-describe the bug in detail, too.  That step is pretty important.
+Good for you!  Go ahead and let me know by [leaving an Issue][Issues] on
+Minigame Madness's GitHub page.  Be sure to include details like the game's
+version number (displayed in the lower-left when you start the game), what
+system you're running it on, and which minigame you encountered the bug on.
+Oh, and describe the bug in detail, too.  That step is pretty important.
 
-[leaving an Issue]: https://github.com/swashdev/minigame-madness/issues
+[Issue]: https://github.com/swashdev/minigame-madness/issues
 
 Compiling
 ---------
 
 To my knowledge, the Godot Engine currently allows exports of projects for
-HTML5, Windows, Mac OSX, Linux, Android, and iOS.  Wikipedia and a distant
-memory suggests that it also supports FreeBSD, NetBSD, and OpenBSD, but for
-the life of me I can't find export templates for those.  Your mileage may
-vary.  
+HTML5, Windows, Mac OSX, Linux, Android, and iOS.  Godot can also be compiled
+for the BSDs if you wish, but this is not technically supported.
 Minigame Madness was originally designed for the web and desktops, but if you
 want to try and get it working on a smart phone you be my guest.
 
-The next step is to download a copy of the [Godot Engine].  You can acquire
-Godot from their website or grab the source code [right here on GitHub].  Just
-make sure that you're downloading Godot 3 &ndash; at least 3.5-stable &ndash;
-rather than Godot 4, as Minigame Madness was made on Godot 3.5.  The version
-you're looking for might be referred to on the website as an LTS version.  
-If you choose to compile your own version of the
-Godot Engine, you might consider using the profile included in [custom.py] to
+The next step is to download a copy of the [Godot Engine][godot].  You can
+acquire Godot from their website or grab the source code
+[right here on GitHub][godot-github].  Just make sure that you're downloading
+Godot 3 &ndash; at least 3.5-stable &ndash; rather than Godot 4, as Minigame
+Madness was made on Godot 3.5.  The version you're looking for might be
+referred to on the website as an LTS version.
+
+If you choose to [compile your own version of the Godot Engine][compile-godot],
+you might consider using the profile included in [custom.py][custom.py] to
 remove any modules that aren't needed to export a Minigame Madness binary.
 
-[Godot Engine]: https://godotengine.org/
-
-[right here on GitHub]: https://github.com/godotengine/godot/tree/3.5
-
+[godot]: https://godotengine.org/
+[godot-github]: https://github.com/godotengine/godot/tree/3.5
+[compile-godot]: https://docs.godotengine.org/en/3.5/development/compiling/index.html
 [custom.py]: ./custom.py
 
-After you've acquired Godot, it's a simple matter of [importing the project]
-by pointing the project manager to the project file in the directory you
-copied this repository to and finally
-[exporting a binary for your chosen system].  The Godot documentation has
-*exceptionally* well-written tutorials that will show you how to do this.
+After you've acquired Godot, it's a simple matter of
+[importing the project][importing] by pointing the project manager to the
+project file in the directory you copied this repository to and finally
+[exporting a binary for your chosen system][exporting].  The Godot
+documentation has *exceptionally* well-written tutorials that will show you
+how to do this.
 
-[importing the project]: https://docs.godotengine.org/en/latest/tutorials/editor/project_manager.html#opening-and-importing-projects
+[importing]: https://docs.godotengine.org/en/3.5/tutorials/editor/project_manager.html#opening-and-importing-projects
 
-[exporting a binary for your chosen system]: https://docs.godotengine.org/en/stable/getting_started/workflow/export/exporting_projects.html#export-menu
+[exporting]: https://docs.godotengine.org/en/3.5/getting_started/workflow/export/exporting_projects.html#export-menu
 
 **NOTE:** While exporting a copy of Minigame Madness, you should go into the
 Resources tab on the export screen and find the text box labelled "Filters to
