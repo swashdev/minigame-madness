@@ -21,6 +21,8 @@ this document.
 
 - A new minigame, "Jump!"  Hop over the obstacles on your night run!
 
+- A small surprise in the background of the "Dodge!" minigame.
+
 ### Changed
 
 - The number of lives the player is given at the beginning of the game has

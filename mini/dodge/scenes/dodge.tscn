@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://mini/dodge/scripts/dodge.gd" type="Script" id=1]
 [ext_resource path="res://mini/dodge/images/background/bg.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://mini/dodge/images/background/white-lines.png" type="Texture" id=6]
 [ext_resource path="res://mini/dodge/scenes/characters/evil_train.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mini/dodge/scenes/characters/evil_pizza_guy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mini/dodge/images/background/sign.png" type="Texture" id=9]
 
 [node name="Dodge" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,6 +33,13 @@ region_rect = Rect2( 0, 16, 1024, 480 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 128 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+
+[node name="Sign" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 1587.45, -215.458 )
+texture = ExtResource( 9 )
 
 [node name="Train" parent="." instance=ExtResource( 4 )]
 position = Vector2( 100, 242 )
