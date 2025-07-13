@@ -93,7 +93,7 @@ func reset_everything():
 	if _mode == Global.GameMode.SUDDEN_DEATH:
 		lives = 1
 	else:
-		lives = 3
+		lives = 5
 	played = 0
 	streak = 0
 
