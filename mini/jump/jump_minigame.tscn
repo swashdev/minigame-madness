@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://mini/jump/jump_minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/jump/scenes/pusher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://shared/scenes/scenery/night_sky.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mini/jump/sprites/characters/running_man_1.png" type="Texture" id=4]
+[ext_resource path="res://mini/jump/sprites/characters/running_man_2.png" type="Texture" id=5]
+[ext_resource path="res://mini/jump/sprites/characters/running_man_3.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 320, 104 )
+
+[node name="JumpMinigame" type="Node2D"]
+script = ExtResource( 1 )
+_instruction = "Jump!"
+_win_by_default = true
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+margin_right = 1440.0
+margin_bottom = 272.0
+num_stars = 2048
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 320, 176 )
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Player"]
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 320, 272 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 0, 104 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+margin_left = -320.0
+margin_right = 320.0
+margin_bottom = 208.0
+color = Color( 0.8, 0.8, 0.866667, 1 )
+
+[node name="Pushers" type="Node" parent="."]
+
+[node name="Pusher1" parent="Pushers" instance=ExtResource( 2 )]
+position = Vector2( 1320, 272 )
+
+[node name="Pusher2" parent="Pushers" instance=ExtResource( 2 )]
+position = Vector2( 1960, 272 )
+
+[node name="Pusher3" parent="Pushers" instance=ExtResource( 2 )]
+position = Vector2( 2600, 272 )
