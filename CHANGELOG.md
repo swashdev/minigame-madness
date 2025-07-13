@@ -3,8 +3,9 @@
 This is the changelog for Minigame Madness.  All noteworthy changes to the game
 since version 0.13 will be documented in this file.
 
-This changelog loosely follows the
-[Keep a Changelog version 1.0.0][Keep a Changelog] convention.
+As of the release of version 0.15, this changelog _is not_ following the
+[Keep a Changelog][Keep a Changelog] convention.  To find out why, please see
+[this notice][new-changelog] from Minigame Madness's GitHub release notes.
 
 Minigame Madness's version numbers are _not_ compliant with the
 [Semantic Versioning][SemVer] standard.  To find out what the version numbers
@@ -12,18 +13,19 @@ mean, see the [Versioning System](#versioning-system) section at the bottom of
 this document.
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0
+[new-changelog]: https://github.com/swashdev/minigame-madness/releases/tag/new-changelog
 [SemVer]: https://semver.org/
 
 
-## [Unreleased]
+## Unreleased - 2025-07-13
 
-### Added
+**Added**
 
 - A new minigame, "Jump!"  Hop over the obstacles on your night run!
 
 - A small surprise in the background of the "Dodge!" minigame.
 
-### Changed
+**Changed**
 
 - The number of lives the player is given at the beginning of the game has
   been increased from 3 to 5.
@@ -31,21 +33,21 @@ this document.
 - The font size used by the message bar and in-game control prompts has been
   increased to be more readable on higher-resolution displays.
 
-### Fixed
+**Fixed**
 
 - Fixed a syntax error in the `Version.get_nice_version()` function which
   prevented the function from appending patch numbers to the version number.
 
 
-## [0.14\_2] - 2025-07-07
+## Version 0.14\_2 - 2025-07-07
 
-### Notes
+**Notes**
 
 - Windows binaries have been renamed to "minigame-madness.exe" in order to
   match the naming scheme used by Linux and make it easier to drop in new
   data files after installing.
 
-### Changed
+**Changed**
 
 - The trains in the "Dodge!" minigame have been changed into cars, and the
   tracks into roads.
@@ -73,19 +75,19 @@ this document.
 
 - Jumping has been removed from the "Get to the Exit!" minigame.
 
-### Removed
+**Removed**
 
 - The main menu no longer displays the engine version it is running on.
 
 
-## [0.14\_1]
+## Version 0.14\_1 - Unreleased
 
-### Added
+**Added**
 
 - There is now a volume slider on the main menu which can be used to change
   the music volume in-game.
 
-### Fixed
+**Fixed**
 
 - Third-party assets are now stored in a folder named "addons," not "assets."
   The initial mistake was due to me misreading the documentation for standard
@@ -103,7 +105,7 @@ this document.
 - Objects outside of the frame in the "Shoot Five!" minigame are no longer
   visible.
 
-### Changed
+**Changed**
 
 - The large explosion effect from the dragon missile in the "Shoot Five!"
   minigame now looks like a large explosion with a circular shape which
@@ -129,15 +131,15 @@ this document.
 
 - The outline around the title in the main menu has been made thicker.
 
-### Removed
+**Removed**
 
 - Optimized binaries no longer include the Bullet physics engine, because this
   engine is only used for 3D scenes in Godot.
 
 
-## [0.14-uncursed] - 2024-04-09
+## Version 0.14-uncursed - 2024-04-09
 
-### Added
+**Added**
 
 - A brand-new minigame: "Defend!" (legally distinct from Pong)
 
@@ -148,7 +150,7 @@ this document.
 - A list of minigames is output to the command line, and the Debug Menu button
   is shown, if "--debug-minigame" is passed but no minigame ID is given.
 
-### Fixed
+**Fixed**
 
 - A bug existed in the code which allowed the player to attempt to quit before
   the game has begun, causing the game to try to clear data that doesn't exist.
@@ -166,7 +168,7 @@ this document.
   pull instructions from the minigames themselves to label the buttons, so
   instead names are taken from their scene paths.
 
-### Changed
+**Changed**
 
 - The cheat code to open the debug menu has been changed.
 
@@ -210,9 +212,9 @@ this document.
   also been replaced with the fluffier cloud sprites used in other minigames.
 
 
-## [0.13.5] - 2024-03-28
+## Version 0.13.5 - 2024-03-28
 
-### Fixed
+**Fixed**
 
 - Pressing button 1 on a controller will no longer exit the game.  Instead,
   this function has been assigned to the Select button and the Escape key.
@@ -223,7 +225,7 @@ this document.
   crashes.  If the missile has been fired by the time the player dies, it will
   now continue on its course until detonation, as normal.
 
-### Added
+**Added**
 
 - The "Don't Get Pizza'd!" minigame now has a starry background!
 
@@ -231,9 +233,9 @@ this document.
   mappings.
 
 
-## [0.13.4] - 2024-03-23
+## Version 0.13.4 - 2024-03-23
 
-### Changed
+**Changed**
 
 - The version number disclosure in the main menu now says that the game is
   "running" on a particular Godot version, rather than "built" on it.
@@ -251,7 +253,7 @@ this document.
 - Joypad button 1 can now be used in addition to button 0 for the "action"
   button in minigames.
 
-### Fixed
+**Fixed**
 
 - The player can now only grab the vine in the "Get Across!" minigame once.
   This is to prevent the vine from "catching" the player after they try to
@@ -270,13 +272,13 @@ this document.
   self-destruct and check if the entity they hit is the player.
 
 
-## [0.13.3] - 2024-03-17
+## Version 0.13.3 - 2024-03-17
 
-### Changed
+**Changed**
 
 - Updated to Godot Engine 3.5.3-stable.
 
-### Corrections
+**Corrections**
 
 - In version 0.13.1, some source files were moved around in order to be more
   compliant with standard practice for Godot projects, but relevant licensing
@@ -284,9 +286,9 @@ this document.
   file was corrected with this version.
 
 
-## [0.13.2-hotfix] - 2024-01-14 [YANKED]
+## Version 0.13.2-hotfix - 2024-01-14 [YANKED]
 
-### Fixed
+**Fixed**
 
 - Implemented a bugfix from an archived version of the repository.  This fix
   prevents the "Shoot Five!" minigame from causing crashes by attempting to
@@ -294,9 +296,9 @@ this document.
   ship being destroyed.
 
 
-## [0.13.1] - 2024-01-11 [YANKED]
+## Version 0.13.1 - 2024-01-11 [YANKED]
 
-### Changed
+**Changed**
 
 - A new singleton, `Global`, will be used from here on out to store global
   variables and utility functions.  In this inaugural update of this feature,
@@ -329,9 +331,9 @@ this document.
   purpose.
 
 
-## [0.13] - 2022-04-20
+## Version 0.13 - 2022-04-20
 
-### Added
+**Added**
 
 - The version number label on the main menu will now display the version number
   for the version of the Godot Engine that was used to build Minigame Madness.
@@ -341,11 +343,11 @@ this document.
 - A SConstruct profile used to compile an optimal version of the Godot Engine
   for Minigame Madness exports is now available in custom.py.
 
-### Changed
+**Changed**
 
 - Minigames in the Debug menu are now listed by title rather than number.
 
-### Deprecated
+**Deprecated**
 
 - The version number "types," i.e. "Pre-Release," "Alpha," and "Beta" have been
   deprecated.  For the time being, Minigame Madness will now simply use its own
