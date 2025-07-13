@@ -13,8 +13,8 @@ const PUSHER_VELOCITY: Vector2 = Vector2(-660.0, 0.0)
 const BACKGROUND_SCROLL_SPEED: float = 110.0
 
 # A little animation when the player jumps.
-const ROTATION_SPEED: float = 360.0
-const ROTATION_DEGREES: float = 90.0
+const ROTATION_SPEED: float = 720.0
+const ROTATION_DEGREES: float = 360.0
 
 
 # The player's current velocity.
@@ -29,7 +29,7 @@ var rotation_animation: float = 0.0
 
 # The player character.
 onready var player: KinematicBody2D = $Player
-onready var player_sprite: ColorRect = $Player/ColorRect
+onready var player_sprite = $Player/Sprite
 
 # The pushers (obstacles)
 onready var pushers: Array = $Pushers.get_children()
@@ -38,15 +38,19 @@ onready var pushers: Array = $Pushers.get_children()
 onready var background: Control = $Background
 
 
+func _ready():
+	player_sprite.play()
+
+
 # The mainloop.
 func _process(delta):
 	var rotation_frame: float
 	if _unlock_controls and jumped:
 		rotation_frame = ROTATION_SPEED * delta
 		rotation_animation += rotation_frame
-		player_sprite.rect_rotation += rotation_frame
+		player_sprite.rotation_degrees += rotation_frame
 		if rotation_animation > ROTATION_DEGREES:
-			player_sprite.rect_rotation = 0.0
+			player_sprite.rotation_degrees = 0.0
 			rotation_animation = 0.0
 			jumped = false
 
@@ -95,4 +99,4 @@ func _physics_process(delta):
 
 func stop():
 	.stop()
-	player_sprite.rect_rotation = 0.0
+	player_sprite.rotation_degrees = 0.0
