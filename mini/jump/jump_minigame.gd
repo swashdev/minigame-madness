@@ -6,6 +6,9 @@ const GRAVITY: float = 2048.0
 const JUMP_VELOCITY: float = 768.0
 const PUSHER_VELOCITY: Vector2 = Vector2(-660.0, 0.0)
 
+# How quickly the background scrolls.
+const BACKGROUND_SCROLL_SPEED: float = 110.0
+
 # A little animation when the player jumps.
 const ROTATION_SPEED: float = 360.0
 const ROTATION_DEGREES: float = 90.0
@@ -28,6 +31,9 @@ onready var player_sprite: ColorRect = $Player/ColorRect
 # The pushers (obstacles)
 onready var pushers: Array = $Pushers.get_children()
 
+# The scrolling starry background.
+onready var background: Control = $Background
+
 
 # The mainloop.
 func _process(delta):
@@ -40,6 +46,8 @@ func _process(delta):
 			player_sprite.rect_rotation = 0.0
 			rotation_animation = 0.0
 			jumped = false
+
+	background.rect_position.x -= BACKGROUND_SCROLL_SPEED * delta
 
 
 func _physics_process(delta):

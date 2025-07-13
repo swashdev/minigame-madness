@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mini/jump/jump_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/jump/scenes/pusher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://shared/scenes/scenery/night_sky.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -13,6 +14,11 @@ extents = Vector2( 320, 104 )
 script = ExtResource( 1 )
 _instruction = "Jump!"
 _win_by_default = true
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+margin_right = 1440.0
+margin_bottom = 272.0
+num_stars = 2048
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 320, 176 )
