@@ -2,8 +2,11 @@ extends Minigame
 # A script for the "Jump!" minigame.
 
 
+# The speed of the player's vertical movement.
 const GRAVITY: float = 2048.0
 const JUMP_VELOCITY: float = 768.0
+
+# The speed of the pushers.
 const PUSHER_VELOCITY: Vector2 = Vector2(-660.0, 0.0)
 
 # How quickly the background scrolls.
