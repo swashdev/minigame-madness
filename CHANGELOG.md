@@ -26,8 +26,8 @@ this document.
 - The number of lives the player is given at the beginning of the game has
   been increased from 3 to 5.
 
-- The font size used by the message bar has been increased to be more readable
-  on higher-resolution displays.
+- The font size used by the message bar and in-game control prompts has been
+  increased to be more readable on higher-resolution displays.
 
 ### Fixed
 
