@@ -17,6 +17,10 @@ this document.
 
 ## [Unreleased]
 
+### Added
+
+- A new minigame, "Jump!"  Hop over the obstacles on your night run!
+
 ### Fixed
 
 - Fixed a syntax error in the `Version.get_nice_version()` function which
