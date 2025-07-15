@@ -9,7 +9,7 @@
 [ext_resource path="res://mini/baseball/scenes/characters/baseball_pitcher.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mini/baseball/scenes/projectiles/baseball.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mini/baseball/scripts/baseball_minigame.gd" type="Script" id=9]
-[ext_resource path="res://shared/scenes/scenery/sky.tscn" type="PackedScene" id=10]
+[ext_resource path="res://shared/scenes/background/sky.tscn" type="PackedScene" id=10]
 [ext_resource path="res://shared/images/background/cloud_02.png" type="Texture" id=11]
 [ext_resource path="res://shared/images/background/cloud_01.png" type="Texture" id=12]
 
