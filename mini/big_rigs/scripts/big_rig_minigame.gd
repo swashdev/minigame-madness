@@ -7,12 +7,14 @@ onready var _night_sky = load("res://shared/scenes/background/night_sky.tscn")
 
 
 func _ready():
-	var sky: Control
-	# Randomly choose between a daytime sky or a nighttime sky.
-	if randi() & 1:
-		sky = _day_sky.instance()
-	else:
-		sky = _night_sky.instance()
+	var sky: SkyBackground
+	# TODO: Revert this change!
+	sky = SkyBackground.new()
+	## Randomly choose between a daytime sky or a nighttime sky.
+	#if randi() & 1:
+	#	sky = _day_sky.instance()
+	#else:
+	#	sky = _night_sky.instance()
 	sky.show_behind_parent = true
 	add_child(sky)
 
