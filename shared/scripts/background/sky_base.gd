@@ -42,6 +42,10 @@ func _get(property: String):
 			result = position.y + size.y
 		"rect_right":
 			result = position.x + size.x
+		"size":
+			result = size
+		"texture":
+			result = texture
 		_:
 			result = null
 
@@ -51,6 +55,7 @@ func _get(property: String):
 # Setter for custom properties
 func _set(property: String, value) -> bool:
 	var result: bool = true
+	var request_draw: bool = false
 
 	match property:
 		"x", "rect_left":
@@ -59,23 +64,29 @@ func _set(property: String, value) -> bool:
 			position.y = value
 		"height":
 			size.y = value
+			request_draw = true
 		"width":
 			size.x = value
+			request_draw = true
 		"rect_bottom":
 			position.y = (value - size.y)
 		"rect_right":
 			position.x = (value - size.x)
 		"size":
 			size = value
+			request_draw = true
 		"texture":
 			texture = value
+			request_draw = true
 		_:
 			# In the default case, return false.
 			result = false
 
-	if Engine.editor_hint:
-		if result:
+	if result:
+		if Engine.editor_hint:
 			property_list_changed_notify()
+		if request_draw:
+			emit_signal("draw")
 
 	return result
 
