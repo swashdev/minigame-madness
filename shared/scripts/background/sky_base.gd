@@ -9,15 +9,20 @@ const DEFAULT_WIDTH: float = 640.0
 const DEFAULT_HEIGHT: float = 480.0
 
 
+var texture: Texture
+
+
 var size: Vector2 = Vector2(DEFAULT_WIDTH, DEFAULT_HEIGHT)
 
 
-# `SkyBackground` is a template class, so the default case is to simply draw
-# a rectangle showing its bounding box in the editor.
 func _draw():
-	if Engine.editor_hint:
+	if not texture:
+		# If there is no texture, fill in a black box.
 		draw_rect(Rect2(position, size), \
 				Color.black, true)
+	else:
+		# Draw the imported texture.
+		draw_texture(texture, position)
 
 
 # Getter for custom properties
@@ -60,6 +65,10 @@ func _set(property: String, value) -> bool:
 			position.y = (value - size.y)
 		"rect_right":
 			position.x = (value - size.x)
+		"size":
+			size = value
+		"texture":
+			texture = value
 		_:
 			# In the default case, return false.
 			result = false
@@ -73,6 +82,17 @@ func _set(property: String, value) -> bool:
 
 func _get_property_list():
 	return [
+		{
+			name = "Background",
+			type = TYPE_NIL,
+			usage = PROPERTY_USAGE_CATEGORY | PROPERTY_USAGE_SCRIPT_VARIABLE,
+		},
+		{
+			name = "texture",
+			type = TYPE_OBJECT,
+			hint = PROPERTY_HINT_RESOURCE_TYPE,
+			hint_string = "Texture",
+		},
 		# Properties for the bounding box
 		{
 			name = "Dimensions",
@@ -114,7 +134,7 @@ func _get_property_list():
 
 func property_can_revert(property: String) -> bool:
 	match property:
-		"x", "y", "height", "width", "size", \
+		"x", "y", "height", "width", "size", "texture", \
 		"rect_top", "rect_left", "rect_bottom", "rect_right":
 			return true
 		_:
