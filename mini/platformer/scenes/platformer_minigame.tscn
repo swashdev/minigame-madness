@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://shared/scenes/background/sky.tscn" type="PackedScene" id=1]
+[ext_resource path="res://shared/scenes/background/blue_sky.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mini/platformer/scenes/characters/platformer_guy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mini/platformer/scripts/obstacles/evil_exit_sign.gd" type="Script" id=3]
 [ext_resource path="res://mini/platformer/scripts/obstacles/lava.gd" type="Script" id=4]

@@ -2,7 +2,7 @@ extends Minigame
 # A script for the "Race that Rig!" minigame.
 
 
-onready var _day_sky = load("res://shared/scenes/background/sky.tscn")
+onready var _day_sky = load("res://shared/scenes/background/blue_sky.tscn")
 onready var _night_sky = load("res://shared/scenes/background/night_sky.tscn")
 
 

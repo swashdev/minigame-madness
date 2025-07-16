@@ -3,7 +3,7 @@
 [ext_resource path="res://shared/scripts/background/sky_base.gd" type="Script" id=1]
 [ext_resource path="res://shared/textures/background/blue_sky.tres" type="Texture" id=2]
 
-[node name="Sky" type="Node2D"]
+[node name="BlueSky" type="Node2D"]
 script = ExtResource( 1 )
 texture = ExtResource( 2 )
 size = Vector2( 640, 480 )
