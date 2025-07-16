@@ -27,9 +27,8 @@ _instruction = "Jump!"
 _win_by_default = true
 
 [node name="Background" parent="." instance=ExtResource( 3 )]
-margin_right = 1440.0
-margin_bottom = 272.0
 num_stars = 2048
+size = Vector2( 1440, 272 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 320, 176 )

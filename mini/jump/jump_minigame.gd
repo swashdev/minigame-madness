@@ -35,7 +35,7 @@ onready var player_sprite = $Player/Sprite
 onready var pushers: Array = $Pushers.get_children()
 
 # The scrolling starry background.
-onready var background: Control = $Background
+onready var background: SkyBackground = $Background
 
 
 func _ready():
@@ -54,7 +54,7 @@ func _process(delta):
 			rotation_animation = 0.0
 			jumped = false
 
-	background.rect_position.x -= BACKGROUND_SCROLL_SPEED * delta
+	background.position.x -= BACKGROUND_SCROLL_SPEED * delta
 
 
 func _physics_process(delta):

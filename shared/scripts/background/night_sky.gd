@@ -1,63 +1,133 @@
 tool
-extends Control
+class_name NightSkyBackground
+extends SkyBackground
 # A cool nighttime backdrop with a random star pattern.
 
 
 # The number of stars to draw in the sky.  Must be non-negative.
-export(int, 0xffff) var num_stars = 1024 setget set_num_stars
+var num_stars: int = 1024
 
 # The minimum & maximum brightness of each star.
-export(float, 0.1, 1.0, 0.05) var min_brightness = 0.25 setget set_min_brightness
-export(float, 0.1, 1.0, 0.05) var max_brightness = 1.0 setget set_max_brightness
+var brightness_min: float = 0.25
+var brightness_max: float = 1.0
 
 
 # The `draw` function.  A virtual function used by the engine to draw the sky.
 func _draw():
-# warning-ignore:narrowing_conversion
-	var top: int = margin_top
-# warning-ignore:narrowing_conversion
-	var left: int = margin_left
-# warning-ignore:narrowing_conversion
-	var right: int = margin_right
-# warning-ignore:narrowing_conversion
-	var bottom: int = margin_bottom
-
-	# Start with a black background.
-	draw_rect(Rect2(top, left, right, bottom), Color.black, true)
-
 	# Randomly assign each star an `x` & `y` coordinat, and an `i`ntensity.
-	var x: int
-	var y: int
+	var x: float
+	var y: float
 	var i: float
 	var count: int = 0
 	while count < num_stars:
-		x = left + (randi() % (right - left))
-		y = top + (randi() % (bottom - top))
-		i = rand_range(min_brightness, max_brightness)
+		x = rand_range(position.x, position.x + size.x)
+		y = rand_range(position.y, position.y + size.y)
+		i = rand_range(brightness_min, brightness_max)
 		draw_rect(Rect2(x, y, 1, 1), Color.white * i, true)
 		count += 1
 
 
-# Setters & getters.  Note that any of these will cause the sky to be wholly
-# redrawn.
+# Getter for custom properties
+func _get(property: String):
+	var result
 
-func set_num_stars(new_num_stars: int):
-	if new_num_stars >= 0:
-		num_stars = new_num_stars
-	else:
-		num_stars = 0
-	emit_signal("draw")
+	match property:
+		"x", "rect_left":
+			result = position.x
+		"y", "rect_top":
+			result = position.y
+		"height":
+			result = size.y
+		"width":
+			result = size.x
+		"rect_bottom":
+			result = position.y + size.y
+		"rect_right":
+			result = position.x + size.x
+		_:
+			result = null
+
+	return result
 
 
-func set_min_brightness(new_min_brightness: float):
-	min_brightness = new_min_brightness
-	if new_min_brightness > max_brightness:
-		max_brightness = new_min_brightness
-	emit_signal("draw")
+# Setter for custom properties
+func _set(property: String, value) -> bool:
+	var result: bool = true
+
+	match property:
+		"num_stars":
+			num_stars = value
+		"brightness_min":
+			if value >= 0.1:
+				brightness_min = value
+				if brightness_max < value:
+					brightness_max = value
+		"brightness_max":
+			if value >= 0.1:
+				brightness_max = value
+				if brightness_min > value:
+					brightness_min = value
+		_:
+			# In the default case, return false.
+			result = false
+
+	if result:
+		if Engine.editor_hint:
+			property_list_changed_notify()
+
+	return result
 
 
-func set_max_brightness(new_max_brightness: float):
-	max_brightness = new_max_brightness
-	if new_max_brightness < min_brightness:
-		min_brightness = new_max_brightness
-	emit_signal("draw")
+func _get_property_list():
+	return [
+		{
+			name = "Stars",
+			type = TYPE_NIL,
+			usage = PROPERTY_USAGE_CATEGORY | PROPERTY_USAGE_SCRIPT_VARIABLE,
+		},
+		{
+			name = "num_stars",
+			type = TYPE_INT,
+			hint = PROPERTY_HINT_RANGE,
+			hint_string = "0,65535,or_greater",
+		},
+		{
+			name = "Brightness",
+			type = TYPE_NIL,
+			hint_string = "brightness_",
+			usage = PROPERTY_USAGE_GROUP | PROPERTY_USAGE_SCRIPT_VARIABLE,
+		},
+		{
+			name = "brightness_min",
+			type = TYPE_REAL,
+			hint = PROPERTY_HINT_RANGE,
+			hint_string = "0.1,1.0,0.05",
+		},
+		{
+			name = "brightness_max",
+			type = TYPE_REAL,
+			hint = PROPERTY_HINT_RANGE,
+			hint_string = "0.1,1.0,0.05",
+		},
+	]
+
+
+func property_can_revert(property: String) -> bool:
+	match property:
+		"num_stars", "brightness_min", "brightness_max":
+			return true
+		_:
+			return .property_can_revert(property)
+
+
+func property_get_revert(property: String):
+	match property:
+		"num_stars":
+			return 1024
+		"brightness_min":
+			return 0.25
+		"brightness_max":
+			return 1.0
+		_:
+			return .property_get_revert(property)
+

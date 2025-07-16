@@ -1,16 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.141176, 0.419608, 0.807843, 1, 0, 0.74902, 1, 1 )
+[ext_resource path="res://shared/scripts/background/sky_base.gd" type="Script" id=1]
+[ext_resource path="res://shared/textures/background/blue_sky.tres" type="Texture" id=2]
 
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
-width = 640
-height = 480
-use_hdr = true
-fill_to = Vector2( 0, 1 )
-
-[node name="Sky" type="TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource( 2 )
+[node name="Sky" type="Node2D"]
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+size = Vector2( 640, 480 )
