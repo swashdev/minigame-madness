@@ -17,6 +17,22 @@ this document.
 [SemVer]: https://semver.org/
 
 
+## Unreleased - 2025-07-15
+
+**Changed**
+
+- The sky backgrounds &ndash; the blue sky and starry night sky &ndash; have
+  been refactored to now inherit from `Node2D` instead of `Control`, and share
+  in common the class `SkyBackground`.  This accomplishes two things:
+
+    1. Reduces the number of occasions where the game relies on a `Control`
+       where a `Node2D` would do just as well, and...
+
+    2. Fixes a bug which caused the scrolling night sky in the "Jump!"
+       minigame to not render properly on 32-bit builds (but weirdly not the
+       ones that were built with LLVM).
+
+
 ## Version 0.15 - 2025-07-13
 
 **Added**
