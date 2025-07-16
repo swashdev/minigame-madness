@@ -8,9 +8,9 @@ due to certain inevitable delays that got pushed back.
 
 Minigame Madness is designed for web platforms but can also be exported for
 desktop environments including Windows, MacOS, Linux, and maybe more!  See the
-[Compiling] section for more details.
+[compiling][compiling] section for more details.
 
-[Compiling]: #compiling
+[compiling]: #compiling
 
 The game is currently in a prerelease state with 15 fully playable minigames.
 
