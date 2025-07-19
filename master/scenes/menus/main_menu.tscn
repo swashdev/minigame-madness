@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
-[ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://master/scenes/menus/dialogs/open_source_licenses_dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://master/scenes/menus/dialogs/confirm_open_external.tscn" type="PackedScene" id=3]
 [ext_resource path="res://master/scenes/menus/buttons/new_game_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://master/scenes/menus/dialogs/controls_dialog.tscn" type="PackedScene" id=5]
