@@ -31,7 +31,7 @@ var _licenses_tree: TreeItem
 
 func _ready():
 	# Create the root for the component list tree.
-	var component_list = $MarginContainer/HSplitContainer/ComponentList
+	var component_list = $MarginContainer/ComponentList
 	var root = component_list.create_item()
 
 	# Populate the game components & licensing information from the copyright
@@ -45,6 +45,7 @@ func _ready():
 		_game_components_tree = component_list.create_item( root )
 		_game_components_tree.set_text( 0, "Minigame Madness" )
 		_game_components_tree.set_selectable( 0, false )
+		_game_components_tree.collapsed = true
 		for component in _game_components:
 			var component_item = component_list.create_item(
 					_game_components_tree )
@@ -54,6 +55,7 @@ func _ready():
 	_godot_components_tree = component_list.create_item( root )
 	_godot_components_tree.set_text( 0, "Godot Engine" )
 	_godot_components_tree.set_selectable( 0, false )
+	_godot_components_tree.collapsed = true
 
 	# Populate the Godot Engine components subtree.
 	var components: Array = Engine.get_copyright_info()
@@ -76,6 +78,7 @@ func _ready():
 	_licenses_tree = component_list.create_item( root )
 	_licenses_tree.set_text( 0, "Licenses" )
 	_licenses_tree.set_selectable( 0, false )
+	_licenses_tree.collapsed = true
 
 	# Populate the Licenses subtree.
 	keys = _licenses.keys()
@@ -295,7 +298,7 @@ func _read_copyright_file():
 
 
 func _on_ComponentList_item_selected():
-	var selected: TreeItem = $MarginContainer/HSplitContainer/ComponentList.get_selected()
+	var selected: TreeItem = $MarginContainer/ComponentList.get_selected()
 	var parent: TreeItem = selected.get_parent()
 	var title: String = selected.get_text( 0 )
 	var parent_title: String = parent.get_text( 0 )
