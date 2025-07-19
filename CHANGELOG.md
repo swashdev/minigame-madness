@@ -17,7 +17,7 @@ this document.
 [SemVer]: https://semver.org/
 
 
-## Unreleased - 2025-07-15
+## Unreleased - 2025-07-19
 
 **Changed**
 
@@ -31,6 +31,11 @@ this document.
     2. Fixes a bug which caused the scrolling night sky in the "Jump!"
        minigame to not render properly on 32-bit builds (but weirdly not the
        ones that were built with LLVM).
+
+- The "Legal Stuff" dialog has been split into two parts: One which gives a
+  verbose explanation of Minigame Madness's licensing situation, and one which
+  provides a detailed explanation of the licenses used by Minigame Madness and
+  its dependencies.
 
 
 ## Version 0.15 - 2025-07-13
