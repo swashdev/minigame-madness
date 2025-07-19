@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://master/scripts/menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://master/scenes/menus/dialogs/open_source_licenses_dialog.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://master/fonts/title.tres" type="DynamicFont" id=7]
 [ext_resource path="res://master/themes/main_menu.tres" type="Theme" id=8]
 [ext_resource path="res://shared/themes/minigame_madness.tres" type="Theme" id=9]
+[ext_resource path="res://master/scenes/menus/dialogs/legal_stuff_dialog.tscn" type="PackedScene" id=10]
 [ext_resource path="res://master/scenes/menus/dialogs/credits_dialog.tscn" type="PackedScene" id=11]
 [ext_resource path="res://master/images/menus/buttons/music_button_off.png" type="Texture" id=12]
 [ext_resource path="res://master/images/menus/buttons/music_button_on.png" type="Texture" id=13]
@@ -173,7 +174,9 @@ margin_bottom = 300.0
 
 [node name="CreditsDialog" parent="." instance=ExtResource( 11 )]
 
-[node name="LegalStuffDialog" parent="." instance=ExtResource( 2 )]
+[node name="LegalStuffDialog" parent="." instance=ExtResource( 10 )]
+
+[node name="OpenSourceLicensesDialog" parent="." instance=ExtResource( 2 )]
 
 [node name="ConfirmOpenExternal" parent="." instance=ExtResource( 3 )]
 

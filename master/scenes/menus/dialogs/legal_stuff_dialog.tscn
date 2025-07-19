@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="LegalStuffDialog" type="ConfirmationDialog"]
+margin_right = 580.0
+margin_bottom = 398.0
+rect_min_size = Vector2( 150, 52.5 )
+window_title = "Legal Stuff"
+dialog_text = "The author of Minigame Madness has waived all copyright interests in his work, and the source files (including but not limited to scripts, images, and data files) are in the public domain unless otherwise specified.
+
+The song \"Skippitybop,\" by Spadezer, is released under the Creative Commons Attribution License, version 3.0, and is not in the public domain.
+
+Minigame Madness uses the Godot Engine to run.  The Godot Engine is released under an open-source license, but is not in the public domain.  Furthermore, it relies on a number of third-party modules which each have their own licensing terms.
+
+For more information about the various licenses to everything, click on \"Open-Source Licenses\" below.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+dialog_autowrap = true

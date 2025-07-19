@@ -17,6 +17,9 @@ var _sequence: int = 0
 
 func _ready():
 	$VersionNumberLabel.set_text("Version " + Version.get_nice_version())
+	var osl_button = $LegalStuffDialog.get_ok()
+	osl_button.set_text("Open-Source Licenses")
+	osl_button.connect("pressed", $OpenSourceLicensesDialog, "popup_centered")
 
 
 func _process( _delta ):
