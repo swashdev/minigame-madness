@@ -25,6 +25,7 @@ var Minigames: PoolStringArray = PoolStringArray([
 	"res://mini/dance/scenes/dance_minigame.tscn",
 	"res://mini/goalie/goalie_minigame.tscn",
 	"res://mini/jump/jump_minigame.tscn",
+	"res://mini/bother/bother_minigame.tscn",
 	# Comma on last element intentional for efficient diff files.
 ])
 
