@@ -33,6 +33,11 @@ this document.
   better communicate where the collision geometry is.  The blue in the pond
   has been adjusted so that it aesthetically matches this.
 
+Technical Changes:
+
+- The win state in the "Get Across!" minigame is now determined by the
+  player's position, rather than an `Area2D` used to detect him.
+
 
 ## Version 0.15.1 - 2025-07-19
 

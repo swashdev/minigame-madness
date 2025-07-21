@@ -81,6 +81,10 @@ func _physics_process( delta ):
 	# a victory march.
 	if _state == States.DEFAULT:
 		position.x = clamp( position.x, 4.0, 76.0 )
+		# If the player reaches the other end of the pond, go to victory state.
+		if position.x >= 64:
+			lock()
+			_state = States.VICTORIOUS
 
 
 # Returns the player's current state.
@@ -122,9 +126,3 @@ func stop_swinging():
 	# The player jumps off the vine to give them a little boost.
 	momentum.y = JUMP_SPEED
 	unlock()
-
-
-# The player has entered the win zone, so do a victory march.
-func _on_WinZone_body_entered( _body ):
-	lock()
-	_state = States.VICTORIOUS
