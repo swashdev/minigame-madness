@@ -3,7 +3,8 @@ extends KinematicBody2D
 
 
 # Signals the minigame that the player has died.
-signal died;
+signal died
+signal won
 
 
 # The player's possible states.
@@ -85,6 +86,7 @@ func _physics_process( delta ):
 		if position.x >= 64:
 			lock()
 			_state = States.VICTORIOUS
+			emit_signal( "won" )
 
 
 # Returns the player's current state.

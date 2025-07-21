@@ -138,4 +138,4 @@ __meta__ = {
 
 [connection signal="body_entered" from="Vine/VineTip" to="." method="_on_VineTip_body_entered"]
 [connection signal="died" from="IndianaJumpman" to="." method="_on_IndianaJumpman_died"]
-[connection signal="body_entered" from="WinZone" to="." method="_on_WinZone_body_entered"]
+[connection signal="won" from="IndianaJumpman" to="." method="_on_IndianaJumpman_won"]
