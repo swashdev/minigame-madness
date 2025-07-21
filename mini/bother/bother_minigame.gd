@@ -21,6 +21,11 @@ var face_angry: Texture = \
 # A progress bar showing how many pokes have happened
 onready var progress_bar = $ProgressBar
 
+# Set this to `true` when we're ready for the victory animation!
+var won: bool = false
+var animation_frames: int = 0
+var animation_alpha: float = 0.0
+
 # The perpetrator, I mean player
 onready var hand: Sprite = $Hand
 # The victim, I mean critter
@@ -29,6 +34,10 @@ onready var critter: Sprite = $Cat
 onready var face: Sprite = $Cat/Face
 # Where to put the hand during pats
 onready var pat_point: Vector2 = $Cat/PatPoint.global_position
+
+# The end screen
+onready var end_screen: ColorRect = $EndScreen
+onready var end_title: Label = $EndScreen/Label
 
 
 func _ready():
@@ -47,8 +56,34 @@ func _input(event):
 			elif pokes == POKES_TO_ANGER:
 				face.set_texture(face_angry)
 			elif pokes >= POKES_TO_WIN:
-				emit_signal("won")
+				won = true
+				_unlock_controls = false
 		elif event.is_action_released("action"):
 			hand.position.y -= 100
 			hand.position.x += 25
 			critter.scale = NORMAL_SCALE
+
+
+func _process(delta):
+	if won:
+		if animation_frames < 2:
+			critter.position = hand.position
+			hand.hide()
+		elif animation_frames == 3:
+			end_screen.show()
+		else:
+			if animation_alpha < 1:
+				animation_alpha += delta
+				end_title.modulate.a = animation_alpha
+			else:
+				emit_signal("won")
+				won = false
+		animation_frames += 1
+
+
+func decide():
+	_unlock_controls = false
+	if won:
+		emit_signal("won")
+	else:
+		emit_signal("lost")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mini/bother/bother_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/bother/images/ui/progress_bar.png" type="Texture" id=2]
 [ext_resource path="res://mini/bother/scenes/critters/cat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/bother/images/hand.png" type="Texture" id=4]
+[ext_resource path="res://shared/fonts/halogen_48pt.tres" type="DynamicFont" id=5]
 
 [node name="BotherMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,3 +32,21 @@ position = Vector2( 320, 240 )
 [node name="Hand" type="Sprite" parent="."]
 position = Vector2( 472, 108 )
 texture = ExtResource( 4 )
+
+[node name="EndScreen" type="ColorRect" parent="."]
+visible = false
+margin_right = 640.0
+margin_bottom = 480.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="EndScreen"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -24.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 5 )
+text = "YOU DIED"
+align = 1
+valign = 1
