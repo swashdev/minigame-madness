@@ -19,6 +19,11 @@ this document.
 
 ## Unreleased - 2025-07-21
 
+**Added**
+
+- Debug builds will now print what scene is being loaded while loading
+  minigames, to help troubleshoot exports.
+
 **Fixed**
 
 - The collision shape on the right side of the pond in the "Get Across!"

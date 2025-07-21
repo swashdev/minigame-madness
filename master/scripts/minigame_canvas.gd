@@ -46,6 +46,8 @@ func set_minigame( minigame_id ):
 				).instance()
 	else:
 		_minigame = load(Minigames[minigame_id]).instance()
+		if OS.is_debug_build():
+			print("Getting minigame \"" + Minigames[minigame_id] + "\"")
 
 # warning-ignore:return_value_discarded
 	_minigame.connect( "won", self, "_on_Minigame_won" )
