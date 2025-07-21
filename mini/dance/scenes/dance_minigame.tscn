@@ -3,11 +3,11 @@
 [ext_resource path="res://mini/dance/scripts/dance_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/dance/fonts/score_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://mini/dance/images/ui/arrow_target.png" type="Texture" id=3]
-[ext_resource path="res://mini/dance/styles/progress_bar_3.tres" type="StyleBox" id=4]
-[ext_resource path="res://mini/dance/styles/progress_bar_1.tres" type="StyleBox" id=5]
-[ext_resource path="res://mini/dance/styles/progress_bar_invisible.tres" type="StyleBox" id=6]
-[ext_resource path="res://mini/dance/styles/progress_bar_bg.tres" type="StyleBox" id=7]
-[ext_resource path="res://mini/dance/styles/progress_bar_2.tres" type="StyleBox" id=8]
+[ext_resource path="res://shared/styles/progress_bar_3.tres" type="StyleBox" id=4]
+[ext_resource path="res://shared/styles/progress_bar_1.tres" type="StyleBox" id=5]
+[ext_resource path="res://shared/styles/progress_bar_invisible.tres" type="StyleBox" id=6]
+[ext_resource path="res://shared/styles/progress_bar_bg.tres" type="StyleBox" id=7]
+[ext_resource path="res://shared/styles/progress_bar_2.tres" type="StyleBox" id=8]
 
 [node name="DanceMinigame" type="Node2D"]
 script = ExtResource( 1 )
