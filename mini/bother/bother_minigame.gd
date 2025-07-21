@@ -9,9 +9,17 @@ const POKES_TO_WIN: int = 16
 var pokes: int = 0
 
 
+onready var progress_bar = $ProgressBar
+
+
+func _ready():
+	progress_bar.set_max(POKES_TO_WIN)
+
+
 func _input(event):
 	if _unlock_controls:
 		if event.is_action_pressed("action", false):
 			pokes += 1
+			progress_bar.set_value(pokes)
 			if pokes >= POKES_TO_WIN:
 				emit_signal("won")

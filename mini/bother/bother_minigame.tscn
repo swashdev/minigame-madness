@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://mini/bother/bother_minigame.gd" type="Script" id=1]
+[ext_resource path="res://mini/bother/images/ui/progress_bar.png" type="Texture" id=2]
 
 [node name="BotherMinigame" type="Node2D"]
 script = ExtResource( 1 )
 _instruction = "Bother the Cat!"
+
+[node name="ProgressBar" type="TextureProgress" parent="."]
+margin_left = 128.0
+margin_top = 384.0
+margin_right = 512.0
+margin_bottom = 398.0
+allow_greater = true
+allow_lesser = true
+texture_progress = ExtResource( 2 )
+fill_mode = 6
+__meta__ = {
+"_edit_lock_": true
+}
