@@ -25,7 +25,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-_instruction = "Get Across!"
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 40.0

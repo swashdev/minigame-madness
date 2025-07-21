@@ -25,6 +25,8 @@ this document.
   minigame no longer uses one-way collision.  This should prevent the player
   from falling through the floor during his victory animation.
 
+- The "Get Across!" minigame is now pixelated properly.
+
 
 ## Version 0.15.1 - 2025-07-19
 

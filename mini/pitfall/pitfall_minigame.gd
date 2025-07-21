@@ -1,5 +1,10 @@
-extends Minigame
+extends Node2D
 # A script for the "Get Across!" minigame.
+
+
+# Mirroring the "won" and "lost" signals from the `Minigame` class.
+signal won
+signal lost
 
 
 # This enum represents the various hazards that may present themselves when
