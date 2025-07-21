@@ -3,6 +3,8 @@ extends Minigame
 
 
 const POKES_TO_WIN: int = 16
+const SQUISH_SCALE: Vector2 = Vector2(1.1, 0.9)
+const NORMAL_SCALE: Vector2 = Vector2(1, 1)
 
 
 # The number of times the cat has been poked.
@@ -29,9 +31,11 @@ func _input(event):
 		if event.is_action_pressed("action", false):
 			pokes += 1
 			progress_bar.set_value(pokes)
+			critter.scale = SQUISH_SCALE
 			hand.position = pat_point
 			if pokes >= POKES_TO_WIN:
 				emit_signal("won")
 		elif event.is_action_released("action"):
 			hand.position.y -= 100
 			hand.position.x += 25
+			critter.scale = NORMAL_SCALE
