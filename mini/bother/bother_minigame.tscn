@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mini/bother/bother_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/bother/images/ui/progress_bar.png" type="Texture" id=2]
+[ext_resource path="res://mini/bother/scenes/critters/cat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mini/bother/images/hand.png" type="Texture" id=4]
 
 [node name="BotherMinigame" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 _instruction = "Bother the Cat!"
 
 [node name="ProgressBar" type="TextureProgress" parent="."]
@@ -19,3 +24,10 @@ fill_mode = 6
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Cat" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320, 240 )
+
+[node name="Hand" type="Sprite" parent="."]
+position = Vector2( 472, 108 )
+texture = ExtResource( 4 )
