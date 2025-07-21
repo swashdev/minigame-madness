@@ -3,9 +3,9 @@ extends Node
 
 
 const MAJOR: int = 0
-const MINOR: int = 15
+const MINOR: int = 16
 const MINOR_2nd: int = 0
-const PATCH: int = 2
+const PATCH: int = 0
 const BUILD: String = "pre"
 
 
