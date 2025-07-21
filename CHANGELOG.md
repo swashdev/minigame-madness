@@ -17,6 +17,15 @@ this document.
 [SemVer]: https://semver.org/
 
 
+## Unreleased - 2025-07-21
+
+**Fixed**
+
+- The collision shape on the right side of the pond in the "Get Across!"
+  minigame no longer uses one-way collision.  This should prevent the player
+  from falling through the floor during his victory animation.
+
+
 ## Version 0.15.1 - 2025-07-19
 
 **Changed**

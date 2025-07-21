@@ -66,7 +66,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorRight"]
 shape = SubResource( 1 )
-one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
 }
