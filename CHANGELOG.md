@@ -27,6 +27,12 @@ this document.
 
 - The "Get Across!" minigame is now pixelated properly.
 
+**Changed**
+
+- The ground in the "Get Across!" minigame now uses two shades of brown, to
+  better communicate where the collision geometry is.  The blue in the pond
+  has been adjusted so that it aesthetically matches this.
+
 
 ## Version 0.15.1 - 2025-07-19
 
