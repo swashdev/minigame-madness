@@ -9,7 +9,7 @@ enum { MIN_X = 22, MAX_X = 58 }
 enum { LEFT, RIGHT }
 
 # The duck's movement speed.
-const MOVE_SPEED: float = 180.0
+const MOVE_SPEED: float = 22.5
 
 
 # The direction the duck is currently moving.

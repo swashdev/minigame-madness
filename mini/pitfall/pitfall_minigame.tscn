@@ -21,7 +21,6 @@ radius = 2.0
 extents = Vector2( 8, 8 )
 
 [node name="PitfallMinigame" type="Node2D"]
-scale = Vector2( 8, 8 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
