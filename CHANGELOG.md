@@ -17,6 +17,14 @@ this document.
 [SemVer]: https://semver.org/
 
 
+## Unreleased - 2025-07-22
+
+**Fixed**
+
+- The background image in the "Bother the Cat!" minigame is now compressed
+  properly.
+
+
 ## Version 0.16 - 2025-07-22
 
 **Added**
