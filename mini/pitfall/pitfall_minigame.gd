@@ -116,11 +116,6 @@ func _process( delta ):
 func start():
 	$IndianaJumpman.unlock()
 
-	# If the gators are active, start their timers.
-	if _hazard == Hazards.GATORS:
-		$Gators/Gator1.start()
-		$Gators/Gator2.start()
-
 
 # Lock the player's controls when the minigame finishes.
 func stop():

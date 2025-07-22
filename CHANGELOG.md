@@ -40,6 +40,10 @@ this document.
   better communicate where the collision geometry is.  The blue in the pond
   has been adjusted so that it aesthetically matches this.
 
+- The gators in the "Get Across!" minigame now start out already chomping, to
+  help the player assess the timing of their chomps before the minigame has
+  started.
+
 Technical Changes:
 
 - The win state in the "Get Across!" minigame is now determined by the
