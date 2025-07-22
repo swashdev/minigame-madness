@@ -46,6 +46,7 @@ func _ready():
 
 func _input(event):
 	if _unlock_controls:
+		# The player can only pat the cat during the minigame.
 		if event.is_action_pressed("action", false):
 			pokes += 1
 			progress_bar.set_value(pokes)
@@ -58,7 +59,10 @@ func _input(event):
 			elif pokes >= POKES_TO_WIN:
 				won = true
 				_unlock_controls = false
-		elif event.is_action_released("action"):
+	if not won:
+		# The player is able to release their hand even after the minigame has
+		# finished, as long as they haven't won the minigame.
+		if event.is_action_released("action"):
 			hand.position.y -= 100
 			hand.position.x += 25
 			critter.scale = NORMAL_SCALE
