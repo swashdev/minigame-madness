@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://mini/bother/bother_minigame.gd" type="Script" id=1]
 [ext_resource path="res://mini/bother/images/ui/progress_bar.png" type="Texture" id=2]
 [ext_resource path="res://mini/bother/scenes/critters/cat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mini/bother/images/hand.png" type="Texture" id=4]
 [ext_resource path="res://shared/fonts/halogen_48pt.tres" type="DynamicFont" id=5]
+[ext_resource path="res://shared/scenes/background/blue_sky.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mini/bother/images/background/room.png" type="Texture" id=7]
 
 [node name="BotherMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,6 +14,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 _instruction = "Bother the Cat!"
+
+[node name="BlueSky" parent="." instance=ExtResource( 6 )]
+
+[node name="Room" type="Sprite" parent="."]
+texture = ExtResource( 7 )
+offset = Vector2( 320, 240 )
 
 [node name="ProgressBar" type="TextureProgress" parent="."]
 margin_left = 128.0
@@ -27,10 +35,10 @@ __meta__ = {
 }
 
 [node name="Cat" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 240 )
+position = Vector2( 320, 282 )
 
 [node name="Hand" type="Sprite" parent="."]
-position = Vector2( 472, 108 )
+position = Vector2( 470, 150 )
 texture = ExtResource( 4 )
 
 [node name="EndScreen" type="ColorRect" parent="."]
