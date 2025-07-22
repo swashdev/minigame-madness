@@ -71,6 +71,7 @@ func _input(event):
 func _process(delta):
 	if won:
 		if animation_frames < 2:
+			critter.flip_h = true
 			critter.position = hand.position
 			hand.hide()
 		elif animation_frames == 3:
