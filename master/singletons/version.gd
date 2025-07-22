@@ -6,7 +6,7 @@ const MAJOR: int = 0
 const MINOR: int = 16
 const MINOR_2nd: int = 0
 const PATCH: int = 0
-const BUILD: String = "pre"
+const BUILD: String = ""
 
 
 # Returns the version number in its preferred pseudo-semantic versioning form.

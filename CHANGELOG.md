@@ -17,7 +17,7 @@ this document.
 [SemVer]: https://semver.org/
 
 
-## Unreleased - 2025-07-22
+## Version 0.16 - 2025-07-22
 
 **Added**
 
