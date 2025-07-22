@@ -44,6 +44,10 @@ this document.
   help the player assess the timing of their chomps before the minigame has
   started.
 
+- The probability of individual hazards coming up in the "Get Across!"
+  minigame has been adjusted to make easier hazards come up more often.
+  This started out of a desire to make the duck pond more of a surprise.
+
 Technical Changes:
 
 - The win state in the "Get Across!" minigame is now determined by the

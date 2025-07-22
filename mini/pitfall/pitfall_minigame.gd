@@ -40,7 +40,16 @@ var _swinging: bool = false
 
 # When the game is ready, choose a random hazard and do appropriate setup.
 func _ready():
-	_hazard = Hazards.values()[ randi() % Hazards.size() ]
+	_hazard = randi() % 9
+	match _hazard:
+		0, 1, 2:
+			_hazard = Hazards.WATER
+		3, 4, 5:
+			_hazard = Hazards.PIT
+		6, 7:
+			_hazard = Hazards.GATORS
+		_:
+			_hazard = Hazards.DUCK_POND
 
 	match _hazard:
 		Hazards.WATER:
