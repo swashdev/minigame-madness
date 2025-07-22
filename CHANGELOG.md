@@ -17,9 +17,11 @@ this document.
 [SemVer]: https://semver.org/
 
 
-## Unreleased - 2025-07-21
+## Unreleased - 2025-07-22
 
 **Added**
+
+- A new minigame, "Bother the Cat!"
 
 - Debug builds will now print what scene is being loaded while loading
   minigames, to help troubleshoot exports.
