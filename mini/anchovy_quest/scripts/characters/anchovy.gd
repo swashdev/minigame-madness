@@ -20,8 +20,6 @@ const ROTATIONAL_SPEED: float = 180.0
 var allow_movement: bool = false
 
 # The player's current speed.
-var _speed: float = 0.0
-var _direction: float = -90.0
 var _velocity: Vector2
 
 
@@ -62,9 +60,3 @@ func _process( delta ):
 		if Input.is_action_just_pressed( "action" ):
 			emit_signal( "shoot", $ProjectileSpawnPoint.global_position, \
 					rotation_degrees )
-
-
-# This function is used to recalculate the player's velocity.
-func _recalc_velocity():
-	_velocity = Vector2( _speed, 0 ).rotated( deg2rad( _direction ) )
-	rotation_degrees = _direction
