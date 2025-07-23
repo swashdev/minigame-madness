@@ -35,6 +35,10 @@ Gameplay Changes:
   a straight line without stopping until they change directions.  
   The player can still slow to a stop by pressing the "down" button.
 
+- Braking is now given priority over acceleration in the "Don't Get Pizza'd!"
+  minigame.  That is to say, if the player is pressing the UP and DOWN buttons
+  simultaneously, the anchovy will slow to a stop.
+
 Technical Changes:
 
 - The "Get Across!" minigame, which previously made many many node access
