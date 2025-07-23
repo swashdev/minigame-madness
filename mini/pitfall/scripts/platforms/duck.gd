@@ -19,6 +19,10 @@ var _direction: int = RIGHT
 var _movement: Vector2 = Vector2( 0, 0 )
 
 
+onready var _sprite = $Sprite
+onready var _quack = $Quack
+
+
 # The duck's mainloop.  Causes it to move back and forth.
 func _physics_process( _delta ):
 	var move: float = 0.0
@@ -34,19 +38,19 @@ func _physics_process( _delta ):
 	# turn it around.
 	if _direction == LEFT and position.x <= MIN_X:
 		_direction = RIGHT
-		$Sprite.flip_h = true
-		$Sprite.position.x += 1
+		_sprite.flip_h = true
+		_sprite.position.x += 1
 	elif _direction == RIGHT and position.x >= MAX_X:
 		_direction = LEFT
-		$Sprite.flip_h = false
-		$Sprite.position.x -= 1
+		_sprite.flip_h = false
+		_sprite.position.x -= 1
 
 
 # When the timer goes off, decide whether or not to quack.
 func _on_Timer_timeout():
 	# If the duck is already quacking, stop.
-	if $Quack.visible:
-		$Quack.hide()
+	if _quack.visible:
+		_quack.hide()
 	# Otherwise, flip a coin to decide whether to quack now.
 	elif randi() & 1:
-		$Quack.show()
+		_quack.show()

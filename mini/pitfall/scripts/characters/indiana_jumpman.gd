@@ -27,6 +27,9 @@ var momentum: Vector2
 var _unlock_controls: bool = false
 
 
+onready var _sprite = $Sprite
+
+
 # The player's mainloop.  Handles basic movement.
 func _physics_process( delta ):
 	# If the player is swinging, all other movement rules are ignored.
@@ -39,10 +42,10 @@ func _physics_process( delta ):
 	if _unlock_controls and _state == States.DEFAULT:
 		# Handle left and right movement.
 		if Input.is_action_pressed( "move_left" ):
-			$Sprite.flip_h = true
+			_sprite.flip_h = true
 			momentum.x -= MOVE_SPEED
 		if Input.is_action_pressed( "move_right" ):
-			$Sprite.flip_h = false
+			_sprite.flip_h = false
 			momentum.x += MOVE_SPEED
 
 	if not grounded and _state != States.SWINGING:
@@ -53,17 +56,17 @@ func _physics_process( delta ):
 		if _unlock_controls or _state == States.VICTORIOUS:
 			if Input.is_action_pressed( "action" ):
 				momentum.y = JUMP_SPEED
-				$Sprite.animation = "jumping"
+				_sprite.animation = "jumping"
 				# The player has just jumped, so he is no longer grounded.
 				grounded = false
 			# If the player is grounded and is not jumping or moving, reset
 			# his animation.
 			elif momentum.x == 0.0:
-				$Sprite.animation = "default"
+				_sprite.animation = "default"
 			# If the player is grounded and moving, start their walking
 			# animation.
 			else:
-				$Sprite.animation = "walking"
+				_sprite.animation = "walking"
 
 	# Move the player according to what we've determined above.
 	# If the player is on the ground, he must adhere to any moving platforms he
@@ -109,7 +112,7 @@ func die():
 	if _state == States.DEFAULT:
 		lock()
 		_state = States.DEAD
-		$Sprite.animation = "dead"
+		_sprite.animation = "dead"
 		position.y -= 10
 		emit_signal( "died" )
 
@@ -117,14 +120,14 @@ func die():
 # Causes the player to enter a swinging state.
 func start_swinging():
 	_state = States.SWINGING
-	$Sprite.animation = "jumping"
+	_sprite.animation = "jumping"
 	lock()
 
 
 # Causes the player to stop swinging.
 func stop_swinging():
 	_state = States.DEFAULT
-	$Sprite.animation = "jumping"
+	_sprite.animation = "jumping"
 	# The player jumps off the vine to give them a little boost.
 	momentum.y = JUMP_SPEED
 	unlock()

@@ -38,6 +38,26 @@ var _direction = RIGHT
 var _swinging: bool = false
 
 
+# The player character
+onready var _player = $IndianaJumpman
+
+# The lily pads used in the `WATER` hazard.
+onready var _lily_pads = $LilyPads
+
+# The vine and pit used in the `PIT` hazard.
+onready var _vine = $Vine
+onready var _vine_tip = $Vine/VineTip
+onready var _pit = $Pit
+
+# The gators used in the `GATORS` hazard.
+onready var _gators = $Gators
+onready var _gator_1 = $Gators/Gator1
+onready var _gator_2 = $Gators/Gator2
+
+# The duck
+onready var _duck = $Duck
+
+
 # When the game is ready, choose a random hazard and do appropriate setup.
 func _ready():
 	_hazard = randi() % 9
@@ -55,35 +75,35 @@ func _ready():
 		Hazards.WATER:
 			# `WATER` is just the pond with the lily pads.  For that, we
 			# dequeue the gators and the vine.  Nice and easy.
-			$Gators.queue_free()
-			$Vine.queue_free()
-			$Duck.queue_free()
+			_gators.queue_free()
+			_vine.queue_free()
+			_duck.queue_free()
 
 		Hazards.PIT:
 			# `PIT` is the gaping hole over the pit.  Dequeue the lily pads
 			# and the gators and reveal the pit.
-			$LilyPads.queue_free()
-			$Gators.queue_free()
-			$Duck.queue_free()
+			_lily_pads.queue_free()
+			_gators.queue_free()
+			_duck.queue_free()
 
-			$Pit.show()
+			_pit.show()
 
 		Hazards.DUCK_POND:
 			# `DUCK_POND` means we use the duck, so dequeue everything else.
-			$LilyPads.queue_free()
-			$Gators.queue_free()
-			$Vine.queue_free()
+			_lily_pads.queue_free()
+			_gators.queue_free()
+			_vine.queue_free()
 
 		Hazards.GATORS:
 			# `GATORS` means we use the gators, so dequeue the lily pads and
 			# the vine.
-			$LilyPads.queue_free()
-			$Vine.queue_free()
-			$Duck.queue_free()
+			_lily_pads.queue_free()
+			_vine.queue_free()
+			_duck.queue_free()
 
 			# We need to connect the gators' "chomped" signals.
-			var e1 = $Gators/Gator1.connect( "chomped", $IndianaJumpman, "die" )
-			var e2 = $Gators/Gator2.connect( "chomped", $IndianaJumpman, "die" )
+			var e1 = _gator_1.connect( "chomped", _player, "die" )
+			var e2 = _gator_2.connect( "chomped", _player, "die" )
 
 			if e1 != OK or e2 != OK:
 				OS.alert( """Gators failed to connect their \"chomped\" signals!
@@ -96,21 +116,21 @@ func _process( delta ):
 		var rot = VINE_SWING_SPEED * delta
 
 		if _direction == RIGHT:
-			$Vine.rotation_degrees += rot
-			if $Vine.rotation_degrees >= MAX_VINE_ANGLE:
+			_vine.rotation_degrees += rot
+			if _vine.rotation_degrees >= MAX_VINE_ANGLE:
 				_direction = LEFT
 		else:
-			$Vine.rotation_degrees -= rot
-			if $Vine.rotation_degrees <= -MAX_VINE_ANGLE:
+			_vine.rotation_degrees -= rot
+			if _vine.rotation_degrees <= -MAX_VINE_ANGLE:
 				_direction = RIGHT
 
 		# If the player is currently swinging on the vine, set their position to
 		# roughly the tip of the vine.
 		if _swinging:
-			var new_pos = Vector2( 0, 22 ).rotated( $Vine.rotation )
-			new_pos.x += $Vine.position.x - 4
-			new_pos.y += $Vine.position.y + 2
-			$IndianaJumpman.position = new_pos
+			var new_pos = Vector2( 0, 22 ).rotated( _vine.rotation )
+			new_pos.x += _vine.position.x - 4
+			new_pos.y += _vine.position.y + 2
+			_player.position = new_pos
 
 			# If the player presses an input while swinging, cause them to hop off
 			# the vine.
@@ -118,22 +138,22 @@ func _process( delta ):
 			or Input.is_action_just_pressed( "move_right" ) \
 			or Input.is_action_just_pressed( "action" ):
 				_swinging = false
-				$IndianaJumpman.stop_swinging()
+				_player.stop_swinging()
 
 
 # Unlock the player's controls when the minigame starts.
 func start():
-	$IndianaJumpman.unlock()
+	_player.unlock()
 
 
 # Lock the player's controls when the minigame finishes.
 func stop():
-	$IndianaJumpman.lock()
+	_player.lock()
 
 	# If the gators are active, stop their timers.
 	if _hazard == Hazards.GATORS:
-		$Gators/Gator1.stop()
-		$Gators/Gator2.stop()
+		_gator_1.stop()
+		_gator_2.stop()
 
 
 # The player has died in some way, meaning they lose the minigame.
@@ -151,8 +171,8 @@ func _on_IndianaJumpman_won():
 
 # If the player touches the tip of the vine, he'll start swinging.
 func _on_VineTip_body_entered( _body ):
-	if $IndianaJumpman.get_state() != $IndianaJumpman.States.DEAD:
+	if _player.get_state() != _player.States.DEAD:
 		_swinging = true
-		$IndianaJumpman.start_swinging()
+		_player.start_swinging()
 	# Disconnect the signal so that the player can only grab the vine once.
-	$Vine/VineTip.disconnect("body_entered", self, "_on_VineTip_body_entered")
+	_vine_tip.disconnect("body_entered", self, "_on_VineTip_body_entered")

@@ -25,14 +25,18 @@ var _state: int = State.CLOSED
 var _player_here: bool = false
 
 
+onready var _sprite = $Sprite
+onready var _timer = $Timer
+
+
 # Starts the gator's cycle.
 func start():
-	$Timer.start()
+	_timer.start()
 
 
 # Closes the gator's mouth and stops their cycle.
 func stop():
-	$Timer.stop()
+	_timer.stop()
 	if _state == State.OPEN:
 		_chomp()
 
@@ -40,7 +44,7 @@ func stop():
 # Changes the gator's state.
 func set_state( state ):
 	_state = state
-	$Sprite.texture = Sprites[_state]
+	_sprite.texture = Sprites[_state]
 
 
 # Tells the gator to chomp down on the player.

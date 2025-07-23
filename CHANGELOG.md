@@ -24,6 +24,14 @@ this document.
 - The background image in the "Bother the Cat!" minigame is now compressed
   properly.
 
+**Changed**
+
+Technical Changes:
+
+- The "Get Across!" minigame, which previously made many many node access
+  requests in its script, now stores references to its nodes in variables, to
+  make it more programmatically efficient.
+
 
 ## Version 0.16 - 2025-07-22
 
