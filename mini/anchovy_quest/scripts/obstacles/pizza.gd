@@ -20,6 +20,10 @@ var spin_degrees: float = 0.0 setget set_spin, get_spin
 var _velocity: Vector2 setget set_velocity, get_velocity
 
 
+onready var _sprite = $Sprite
+onready var _collision_shape = $CollisionPolygon2D
+
+
 # Choose a random spin at initialization.
 func _init():
 	spin_degrees = rand_range( 90.0, 180.0 )
@@ -31,8 +35,8 @@ func _init():
 # the slice independent of its movement vectors.
 func _physics_process( delta ):
 	if spin_degrees != 0.0:
-		$Sprite.rotation_degrees += spin_degrees * delta
-		$CollisionPolygon2D.rotation_degrees += spin_degrees * delta
+		_sprite.rotation_degrees += spin_degrees * delta
+		_collision_shape.rotation_degrees += spin_degrees * delta
 
 	# Try to move, checking for collisions.
 	var collision: KinematicCollision2D = move_and_collide( _velocity * delta )
