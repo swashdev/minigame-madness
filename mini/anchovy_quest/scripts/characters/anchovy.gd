@@ -45,29 +45,21 @@ func _process( delta ):
 
 		# Rotate the player on left or right inputs.
 		if Input.is_action_pressed( "move_left" ):
-			_direction -= ddir
+			rotation_degrees -= ddir
 		if Input.is_action_pressed( "move_right" ):
-			_direction += ddir
+			rotation_degrees += ddir
 
 		# Accelerate to MAX_SPEED on an up input, decelerate to 0 on a down.
 		if Input.is_action_pressed( "move_up" ):
-			if _speed < MAX_SPEED - dspeed:
-				_speed += dspeed
-			else:
-				_speed = MAX_SPEED
-		elif Input.is_action_pressed( "move_down" ):
-			if _speed > dspeed:
-				_speed -= dspeed
-			else:
-				_speed = 0.0
+			_velocity = _velocity.move_toward( \
+					Vector2.RIGHT.rotated(rotation) * MAX_SPEED, dspeed)
+			#_velocity += Vector2.RIGHT.rotated(rotation) * dspeed
+			#_velocity = _velocity.limit_length(MAX_SPEED)
 
 		# Fire a projectile on a press of the space bar.
 		if Input.is_action_just_pressed( "action" ):
 			emit_signal( "shoot", $ProjectileSpawnPoint.global_position, \
 					rotation_degrees )
-
-		# Recalculate the player's velocity.
-		_recalc_velocity()
 
 
 # This function is used to recalculate the player's velocity.

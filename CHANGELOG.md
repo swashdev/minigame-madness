@@ -17,7 +17,7 @@ this document.
 [SemVer]: https://semver.org/
 
 
-## Unreleased - 2025-07-22
+## Unreleased - 2025-07-23
 
 **Fixed**
 
@@ -25,6 +25,14 @@ this document.
   properly.
 
 **Changed**
+
+Gameplay Changes:
+
+- The anchovy's movement in "Don't Get Pizza'd!" has been changed to more
+  closely resemble the movement mechanics in _Asteroid_.  
+  To be slightly more technical, the player's movement is now independent of
+  which direction the anchovy is facing &ndash; they will continue to move in
+  a straight line without stopping until they change directions.
 
 Technical Changes:
 
