@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mini/anchovy_quest/scripts/obstacles/pizza_slice.gd" type="Script" id=1]
+[ext_resource path="res://shared/scenes/effects/explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mini/anchovy_quest/images/obstacles/pizza_slice.png" type="Texture" id=3]
+
+[node name="QuarterPizza" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+_explosion = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 30.0068, 30.026, 29.9874, -29.9958, -1.97469, -21.898, -22.0161, -1.83697, -29.9585, 30.0157 )

@@ -45,6 +45,13 @@ Technical Changes:
   requests in its script, now stores references to its nodes in variables, to
   make it more programmatically efficient.
 
+- The `pizza.gd` script in the "Don't Get Pizza'd!" minigame has been renamed
+  to `pizza_slice.gd`, and the `half_pizza.gd` script has been renamed to
+  `pizza.gd`, in order to be less confusing.  
+  Additionally, the `Pizza` scene has been renamed to `QuarterPizza` so as not
+  to be confused with the `WholePizza`, and its file name has been changed to
+  `quarter_pizza.tscn`.
+
 
 ## Version 0.16 - 2025-07-22
 
