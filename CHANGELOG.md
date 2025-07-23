@@ -32,7 +32,8 @@ Gameplay Changes:
   closely resemble the movement mechanics in _Asteroid_.  
   To be slightly more technical, the player's movement is now independent of
   which direction the anchovy is facing &ndash; they will continue to move in
-  a straight line without stopping until they change directions.
+  a straight line without stopping until they change directions.  
+  The player can still slow to a stop by pressing the "down" button.
 
 Technical Changes:
 

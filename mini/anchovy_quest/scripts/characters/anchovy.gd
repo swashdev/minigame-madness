@@ -55,6 +55,8 @@ func _process( delta ):
 					Vector2.RIGHT.rotated(rotation) * MAX_SPEED, dspeed)
 			#_velocity += Vector2.RIGHT.rotated(rotation) * dspeed
 			#_velocity = _velocity.limit_length(MAX_SPEED)
+		elif Input.is_action_pressed( "move_down" ):
+			_velocity = _velocity.move_toward(Vector2.ZERO, dspeed)
 
 		# Fire a projectile on a press of the space bar.
 		if Input.is_action_just_pressed( "action" ):
