@@ -23,6 +23,10 @@ var allow_movement: bool = false
 var _velocity: Vector2
 
 
+# The point at which the player's projectiles are spawned.
+onready var _projectile_spawn_point: Position2D = $ProjectileSpawnPoint
+
+
 # Handle player movement.
 func _physics_process( delta ):
 	var collision = move_and_collide( _velocity * delta )
@@ -58,5 +62,5 @@ func _process( delta ):
 
 		# Fire a projectile on a press of the space bar.
 		if Input.is_action_just_pressed( "action" ):
-			emit_signal( "shoot", $ProjectileSpawnPoint.global_position, \
+			emit_signal( "shoot", _projectile_spawn_point.global_position, \
 					rotation_degrees )
