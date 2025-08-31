@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="ReallyQuitDialog" type="ConfirmationDialog"]
+margin_right = 200.0
+margin_bottom = 70.0
+window_title = "Really Quit?"
+dialog_text = "Are you sure you want to quit?"

@@ -106,3 +106,8 @@ func _on_VolumeSlider_value_changed( value: float ):
 	emit_signal( "music_volume_changed", value )
 	var new_vol_percent: float = ((value + 80) / 80) * 100
 	$VolumePercentage.set_text( "%03.0f%%" % new_vol_percent )
+
+
+# The player has confirmed that they really want to quit :-(
+func _on_ReallyQuitDialog_confirmed():
+	get_tree().quit()

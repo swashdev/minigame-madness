@@ -17,7 +17,7 @@ this document.
 [SemVer]: https://semver.org/
 
 
-## Unreleased - 2025-07-23
+## Unreleased - 2025-08-31
 
 **Fixed**
 
@@ -25,6 +25,14 @@ this document.
   properly.
 
 **Changed**
+
+- The "Quit" button has been added to the main menu again.  While it was
+  previously removed on the logic that it had no function on the web and was
+  superfluous on the desktop, it has been re-added for the benefit of players
+  playing on the desktop in fullscreen.  
+  I will neither confirm nor deny that this change is being made because I
+  opened the game in fullscreen and realized I couldn't get out when it was
+  too late.
 
 Gameplay Changes:
 
