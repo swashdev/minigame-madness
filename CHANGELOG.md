@@ -34,6 +34,9 @@ this document.
   opened the game in fullscreen and realized I couldn't get out when it was
   too late.
 
+    - The "Quit" button is hidden in web builds because it serves no practical
+      purpose in those builds.
+
 Gameplay Changes:
 
 - The anchovy's movement in "Don't Get Pizza'd!" has been changed to more

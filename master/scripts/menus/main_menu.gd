@@ -20,6 +20,10 @@ func _ready():
 	var osl_button = $LegalStuffDialog.get_ok()
 	osl_button.set_text("Open-Source Licenses")
 	osl_button.connect("pressed", $OpenSourceLicensesDialog, "popup_centered")
+	# If we're playing the web version, hide the Quit button since it doesn't
+	# really do anything.
+	if OS.has_feature("web"):
+		$Menu/Buttons/QuitButton.hide()
 
 
 func _process( _delta ):
